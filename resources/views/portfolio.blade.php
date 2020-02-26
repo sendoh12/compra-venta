@@ -8,7 +8,7 @@
 
     <ul>
             
-            @forelse ($portafolio as $item)
+            @forelse ($porfolio as $item)
                 <li> {{ $item['title'] }} </li>
             @empty
                 <li> No hay proyectos para mostrar </li>

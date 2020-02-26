@@ -11,14 +11,14 @@
 |
 */
 
-$portafolio = [
-    // ['title' => 'Proyecto #1'],
-    // ['title' => 'Proyecto #2'],
-    // ['title' => 'Proyecto #3'],
-    // ['title' => 'Proyecto #4'],
-];
+// use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home');
-Route::view('/about', 'about')->name('about');
-Route::view('/portfolio', 'portfolio', compact('portafolio'))->name('portfolio');
+
+
+// Route::view('/', 'home')->name('home');
+Route::get('/', ['as' => 'home', 'uses' => 'PortfolioController' ]);
+Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
+Route::get('/portfolio', ['as' => 'portafolio', 'uses' => 'PortfolioController@portafolio']);
+
 Route::view('/contact', 'contact')->name('contact');
