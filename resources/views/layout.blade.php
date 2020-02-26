@@ -6,19 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'inicio')</title>
 </head>
+
+<style>
+    li.active a{
+        color: red;
+        text-decoration: none;
+    }
+</style>
+
 <body>
-
     
-
-    <nav>
-        <ul>
-            <li><a href="/Compra-venta/public/">Home</a></li>
-            <li><a href="/Compra-venta/public/about">About</a></li>
-            <li><a href="/Compra-venta/public/portfolio">Portfolio</a></li>
-            <li><a href="/Compra-venta/public/contact">Contact</a></li>
-        </ul>
-    </nav>
-
+    @include('parciales.nav')
     @yield('content')
     
 </body>

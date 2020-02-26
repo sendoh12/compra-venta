@@ -22,3 +22,5 @@ Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
 Route::get('/portfolio', ['as' => 'portafolio', 'uses' => 'PortfolioController@portafolio']);
 
 Route::view('/contact', 'contact')->name('contact');
+
+Route::post('contact', 'MensajesContacto@store');
