@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::view('/', 'home')->name('home');
-Route::get('/', ['as' => 'home', 'uses' => 'PortfolioController' ]);
+Route::get('/', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);
 Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
 Route::get('/portfolio', ['as' => 'portafolio', 'uses' => 'PortfolioController@portafolio']);
 
