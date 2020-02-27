@@ -19,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 // Route::view('/', 'home')->name('home');
 Route::get('/', ['as' => 'home', 'uses' => 'PortfolioController' ]);
 Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
-Route::get('/portfolio', ['as' => 'portafolio', 'uses' => 'PortfolioController@portafolio']);
+Route::get('/portfolio', 'PortfolioController@portafolio')->name('portfolio');
+
+Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
 
 Route::view('/contact', 'contact')->name('contact');
 
-Route::post('contact', 'MensajesContacto@store');
+// Route::get('mensajes/crear', 'MensajesContacto@create');
+
+Route::post('contact', 'MensajesContacto@create');

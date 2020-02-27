@@ -1,9 +1,13 @@
 
-<nav>
-    <ul>
-        <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="/Compra-venta/public/">Home</a></li>
-        <li class="{{ request()->routeIs('about') ? 'active' : '' }}"><a href="/Compra-venta/public/about">About</a></li>
-        <li class="{{ request()->routeIs('portafolio') ? 'active' : '' }}"><a href="/Compra-venta/public/portfolio">Portfolio</a></li>
-        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="/Compra-venta/public/contact">Contact</a></li>
-    </ul>
-</nav>
+
+<header>
+    <nav>
+        <ul>
+            <a class="{{ request()->routeIs('home') ? 'active' : '' }}" href=" {{ route('home') }} ">Home</a>
+            <a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
+            <a class="{{ request()->routeIs('portfoao') ? 'active' : '' }}" href="{{ route('portfolio') }}">Portafolio</a>
+            <a class="{{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
+        </ul>
+    </nav>
+</header>
+
