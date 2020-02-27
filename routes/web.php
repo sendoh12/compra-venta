@@ -17,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::view('/', 'home')->name('home');
-Route::get('/', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);
+Route::get('/','LoginController@index');
+Route::get('Registro_usurio','LoginController@Registro');
+Route::post('Registros','LoginController@Registrodelusuario');
+Route::post('Session','LoginController@show');
+Route::get('salir','LoginController@destroy');
+
+
+Route::get('principal', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);
 Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
 Route::get('/portfolio', ['as' => 'portafolio', 'uses' => 'PortfolioController@portafolio']);
 

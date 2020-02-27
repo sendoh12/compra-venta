@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -42,7 +41,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form>|
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -156,7 +155,10 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+        <?php if (session()->has('admin')):
+          $usario=session()->get('admin');?>
+          <a href="#" class="d-block"><?=$usario['Nombre']?></a>
+        <?php endif;?>
         </div>
       </div>
 
@@ -194,6 +196,13 @@
               <p>
                 Simple Link
                 <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="salir" class="nav-link">
+              <p>
+                Salir
               </p>
             </a>
           </li>
