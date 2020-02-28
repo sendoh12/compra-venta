@@ -87,10 +87,8 @@ class LoginController extends Controller
      */
     public function destroy(Request $request)
     {
-        if ($request->session()->has('admin')) {
-            $request->session()->flush();
-            Session::flush();
+            $request->session()->pull("admin");
+            //Session::flush();
                 return redirect('/');
-        }
     }
 }
