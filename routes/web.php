@@ -28,3 +28,7 @@ Route::view('/contact', 'contact')->name('contact');
 // Route::get('mensajes/crear', 'MensajesContacto@create');
 
 Route::post('contact', 'MensajesContacto@create');
+Route::get('/informes', ['as' => 'informacion.informes', 'uses' => 'PortfolioController@sobre_nosotros']);
+
+Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
+

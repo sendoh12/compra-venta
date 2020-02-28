@@ -39,4 +39,13 @@ class PortfolioController extends Controller
         $valor = Project::findOrFail($id);
         return view('project.show', compact('valor'));
     }
+
+    public function sobre_nosotros() {
+        return view('informacion.informes');
+    }
+
+    public function editar_datos($id) {
+        $valor = Project::findOrFail($id);
+        return view('informacion.edicion', compact('valor'));
+    }
 }
