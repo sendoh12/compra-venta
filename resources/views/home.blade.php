@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title', 'Home')
+@section('title')
+hola jose
+@endsection
 
 
 @section('content')
