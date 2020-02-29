@@ -1,15 +1,1 @@
-nav.componer {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.active {
-    color: red;
-    text-decoration: none;
-}
-
-.error {
-    color: red;
-    font-size: 12px;
-}
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
