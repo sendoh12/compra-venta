@@ -14,10 +14,17 @@
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 
+//pagina de inicio
+// Route::get('/', ['as'=>'Paginasinicio.inicio', 'uses'=>'PaginaPrincipal@inicio']);
+// Route::get('home', ['as'=>'lacer', 'uses'=>'PortfolioController@home'] );
+// Route::get('home', 'PortfolioController@home')->name('home');
+Route::get('/', ['as' => 'lacer', 'uses' => 'PortfolioController@home' ]);
+Route::get('/home', ['as' => 'lacer', 'uses' => 'PortfolioController@home' ]);
+
+// Route::view('/', 'PortfolioController@home');
 
 
-// Route::view('/', 'home')->name('home');
-Route::get('/','LoginController@index');
+Route::get('/login','LoginController@index');
 Route::get('Registro_usurio','LoginController@Registro');
 Route::post('Registros','LoginController@Registrodelusuario');
 Route::post('Session','LoginController@show');
@@ -26,9 +33,9 @@ Route::get('salir','LoginController@destroy');
 
 Route::get('principal', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);
 Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
-Route::get('/portfolio', 'PortfolioController@portafolio')->name('portfolio');
+Route::get('/portfolio', ['as'=>'portfolio', 'uses'=>'PortfolioController@portafolio']);
 
-Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
+// Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
 
 Route::view('/contact', 'contact')->name('contact');
 
@@ -36,6 +43,8 @@ Route::view('/contact', 'contact')->name('contact');
 
 Route::post('contact', 'MensajesContacto@create');
 Route::get('/informes', ['as' => 'informacion.informes', 'uses' => 'PortfolioController@sobre_nosotros']);
-
 Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
+
+//ruta para ver administradores
+Route::get('ver_admin', ['as'=>'administrador.ver_administradores', 'uses'=>'PaginaPrincipal@ver_admins'] );
 

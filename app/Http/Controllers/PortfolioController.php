@@ -15,7 +15,12 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $usuarios = Project::latest()->paginate(1);
+        return view('layout', [
+            'usuarios' => Project::latest()->paginate()
+        ]);
+
+        // return view('layout');
     }
 
     public function about() {
@@ -31,8 +36,8 @@ class PortfolioController extends Controller
         ]);
     }
 
-    public function contactos() {
-        
+    public function home() {
+        return view('lacer');
     }
 
     public function show($id) {

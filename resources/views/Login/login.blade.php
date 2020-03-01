@@ -70,7 +70,7 @@
         @csrf
         <input id="email" type="email" name="email" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror">
         <input id="password" type="password"name="password" placeholder="Contraseña" class="@error('password', 'login') is-invalid @enderror">
-        <button>Asesar</button>
+        <button>Accesar</button>
         <button type="button" onclick="Registrar()">Registrarse</button>
     </form>
     @error('email', 'login')

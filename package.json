@@ -25,7 +25,9 @@
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11"
     },
-    "dependencies": {},
+    "dependencies": {
+        "material-kit": "^2.0.4"
+    },
     "name": "compra-venta",
     "description": "<p align=\"center\"><img src=\"https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg\" width=\"400\"></p>",
     "version": "1.0.0",

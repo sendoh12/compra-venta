@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('PaginasInicio.inicio')
 
 @section('title', 'Home')
 
