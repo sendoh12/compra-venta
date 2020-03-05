@@ -14,11 +14,18 @@
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 
+//pagina de inicio
+// Route::get('/', ['as'=>'Paginasinicio.inicio', 'uses'=>'PaginaPrincipal@inicio']);
+// Route::get('home', ['as'=>'lacer', 'uses'=>'PortfolioController@home'] );
+// Route::get('home', 'PortfolioController@home')->name('home');
+Route::get('/', ['as' => 'lacer', 'uses' => 'PortfolioController@lacer' ]);
+Route::get('/lacer', ['as' => 'lacer', 'uses' => 'PortfolioController@lacer' ]);
+
+// Route::view('/', 'PortfolioController@home');
 
 
-// Route::view('/', 'home')->name('home');
-Route::get('/','LoginController@index');
-Route::get('Registro_usurio','LoginController@Registro');
+Route::get('/login','LoginController@index');
+Route::get('Registro_usurio','LoginController@Registro')->name('Registro_usurio');
 Route::post('Registros','LoginController@Registrodelusuario');
 Route::post('Session','LoginController@show');
 Route::get('salir','LoginController@destroy');
@@ -26,16 +33,20 @@ Route::get('salir','LoginController@destroy');
 
 Route::get('principal', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);
 Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
-Route::get('/portfolio', 'PortfolioController@portafolio')->name('portfolio');
+Route::get('/portfolio', ['as'=>'portfolio', 'uses'=>'PortfolioController@portafolio']);
 
-Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
+// Route::get('/portfolio/{id}', 'PortfolioController@show')->name('portfolio.show');
 
 Route::view('/contact', 'contact')->name('contact');
 
 // Route::get('mensajes/crear', 'MensajesContacto@create');
 
 Route::post('contact', 'MensajesContacto@create');
-Route::get('/informes', ['as' => 'informacion.informes', 'uses' => 'PortfolioController@sobre_nosotros']);
+// Route::get('/informes', ['as' => 'informacion.informes', 'uses' => 'PortfolioController@sobre_nosotros'])->name('informes');
+Route::get('/informes', 'PortfolioController@sobre_nosotros')->name('informes');
 
 Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
+
+//ruta para ver administradores
+Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
 

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Paginasinicio.inicio')
 
 @section('title', 'Portfolio')
 
@@ -10,7 +10,7 @@
         
             
 
-            <tbody>
+            {{-- <tbody>
                 @forelse ($projects as $item)
                     <li><a href=" {{ route('portfolio.show', $item) }} ">{{ $item->tittle }}</a>  <br> </li>
                     <li> {{ $item->updated_at->diffForHumans() }} <br></li>
@@ -20,7 +20,7 @@
             </tbody>
             
         
-            {{ $projects->links() }}
+            {{ $projects->links() }} --}}
             
                 
         

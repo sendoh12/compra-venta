@@ -45,7 +45,7 @@ class LoginController extends Controller
                 $registro= new User;
                 $registrado=$registro->Registrar($Usuario);
                 if($registrado != null){
-                    return redirect('/');
+                    return redirect('principal');
                 }else{
                     return redirect('Registro_usurio');
                 }
