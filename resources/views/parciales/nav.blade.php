@@ -10,7 +10,7 @@
         </div>
         <ul class="nav navbar-nav ">
             
-            <li class="{{ request()->routeIs('/') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('lacer') ? 'active' : '' }}">
                 <a href=" {{ route('lacer') }}"> Inicio </a>
             </li>
 
@@ -26,8 +26,8 @@
                 <a href="{{ route('contact') }}">Favoritos</a>
             </li>
 
-            <li class="{{ request()->routeIs('/informes') ? 'active' : '' }}">
-                <a href="{{ route('informacion.informes') }}">Informacion</a>
+            <li class="{{ request()->routeIs('informes') ? 'active' : '' }}">
+                <a href="{{ route('informes') }}">Informacion</a>
             </li>
 
         </ul>

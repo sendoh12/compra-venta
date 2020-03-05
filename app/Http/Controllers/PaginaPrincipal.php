@@ -12,7 +12,7 @@ class PaginaPrincipal extends Controller
         return view('PaginasInicio.inicio');
     }
 
-    public function ver_admins() {
-        return view('administrador.ver_administradores');
+    public function Agregar_propiedad() {
+        return view('administrador.agregar_propiedad');
     }
 }

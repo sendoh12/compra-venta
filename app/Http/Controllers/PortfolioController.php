@@ -36,7 +36,7 @@ class PortfolioController extends Controller
         ]);
     }
 
-    public function home() {
+    public function lacer() {
         return view('lacer');
     }
 

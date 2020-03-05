@@ -1,210 +1,207 @@
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-    
-      <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href='uses' class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-          </li>
-        </ul>
-    
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-          <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-    
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-          <!-- Messages Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-comments"></i>
-              <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Brad Diesel
-                      <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">Call me whenever you can...</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      John Pierce
-                      <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">I got your message bro</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Nora Silvester
-                      <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                    </h3>
-                    <p class="text-sm">The subject goes here</p>
-                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-          </li>
-          <!-- Notifications Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-header">15 Notifications</span>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                class="fas fa-th-large"></i></a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.navbar -->
-    
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-          <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-               style="opacity: .8">
-          <span class="brand-text font-weight-light">GrupoLacer</span>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+  
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="../index.php" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>A</b>RQ</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Grupo</b>Lacer</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </a>
-    
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <?php if (session()->has('admin')):
-              $usario=session()->get('admin');?>
-              <div class="image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-              </div>
-              <div class="info">
-              <a href="#" class="d-block"><?=$usario['Nombre']?></a>
-              </div>
-            <?php endif;?>
-          </div>
-    
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
-              {{-- <li class="nav-item has-treeview menu-open">
-                <a href="#" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Starter Pages
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Active Page</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Inactive Page</p>
-                    </a>
-                  </li>
-                </ul>
-              </li> --}}
-              <li class="nav-item ">
-                <a href="{{ route('home') }}" class="nav-link ">
-                  <i class="nav-icon fas fa-th {{ request()->routeIs('/principal') ? 'active' : '' }}"></i>
-                  <p>
-                    Ver administradores
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-    
-              <li class="nav-item">
-                <a href="{{ route('administrador.ver_administradores') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Agregar terrenos
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-    
-              <li class="nav-item">
-                <a href="salir" class="nav-link">
-                  <p>
-                    Salir
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
+  
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            
+            
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="hidden-xs">Hola: Admin</span>
+              </a>
+              <ul class="dropdown-menu">
+               
+               
+              
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-success btn-flat">Ajustes</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="salir" class="btn btn-success btn-flat">Cerrar Session</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            
+          </ul>
         </div>
-        <!-- /.sidebar -->
-      </aside>
+      </nav>
+    </header>
+  
+    <!-- =============================================== -->
+
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      
+      <div class=" info">
+        <?php if (session()->has('admin')):
+            $usario=session()->get('admin');?>
+            {{-- <div class="image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div> --}}
+            <div class="info">
+            <a href="#" class="d-block"><?=$usario['Nombre']?></a>
+            </div>
+          <?php endif;?>
+      </div>
+    </div>
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Buscar...">
+        <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">Menu de administracion</li>
+      {{-- <li class="treeview">
+        <a href="#">
+          <i class="fa fa-home"></i> <span>Ver administradores</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-plus-circle"></i> Dashboard </a></li>
+        </ul>
+      </li> --}}
+
+      {{-- <li class="treeview">
+        <a href="{{ route('home') }}">
+          <i class="fa fa-files-o"></i>
+          <span>Ver administradores</span>
+        </a>
+      </li> --}}
+
+      <li class="nav-item ">
+        <a href="{{ route('home') }}" class="nav-link ">
+          <i class="fa fa-files-o "></i>
+          <span>Ver administradores</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('Registro_usurio') }}" class="nav-link">
+          <i class="nav-icon fas fa-th "></i>
+          <span>Crear Administradores</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('administrador.agregar_propiedad') }}" class="nav-link">
+          <i class="nav-icon fas fa-th "></i>
+          <span>Agregar Propiedad</span>
+        </a>
+      </li>
+
+      
+
+      {{-- <li class="treeview">
+        <a href="{{ route('administrador.ver_administradores') }}">
+          <i class="fa fa-files-o"></i>
+          <span>Agregar terrenos</span>
+        </a>
+      </li> --}}
+
+      {{-- <li class="treeview">
+        <a href="#">
+          <i class="fa fa-book"></i>
+          <span>Categoria Eventos</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+        <i class="fa fa-user-circle"></i>
+          <span>Invitados</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+        <i class="fa fa-address-card"></i>
+          <span>Registrados</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+        <i class="fa fa-user"></i>
+          <span>Administradores</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="lista_admin.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          <li><a href="crear_admin.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+        <i class="fa fa-comments"></i>
+          <span>Testimoniales</span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+        </ul>
+      </li> --}}
+      
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
+
+<!-- =============================================== -->
+
+
+
+<script>
+  function Registrar() {
+      location.href="Registro_usurio";
+  }
+  </script>
