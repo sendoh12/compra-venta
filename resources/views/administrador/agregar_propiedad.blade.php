@@ -2,6 +2,10 @@
 @include('plantillas.header')
 @include('plantillas.menu')
 
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -34,7 +38,10 @@
                   <label for="" class="col-sm-2 control-label">Pais*</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="" id="Pais" placeholder="">
+                    {{-- <input type="text" class="form-control" name="" id="Pais" placeholder=""> --}}
+                    <select name="pais" id="" class="form-control">
+                      <option value="" selected>Mexico</option>
+                    </select>
                   </div>
                 </div>
 
@@ -42,7 +49,13 @@
                   <label for="Estado" class="col-sm-2 control-label">Estado*</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Estado" id="Estado" placeholder="">
+                    <select name="estado" id="estados" class="form-control" onchange="MostrarMunicipios()">
+                      @foreach ($estados as $item)
+                        <option value=" {{$item->ESTADOS_ID}} "> {{$item->ESTADOS_NOMBRE}} </option>
+                      @endforeach
+                    </select>
+                    
+                    {{-- <input type="text" class="form-control" name="Estado" id="Estado" placeholder=""> --}}
                   </div>
                 </div>
 
@@ -59,7 +72,11 @@
                   <label for="" class="col-sm-2 control-label">Municipio/Delegación*</label>
 
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="Municipio" id="Municipio" placeholder="">
+                    <select class="form-control" name="Municipio" id="Municipio">
+                      <option value="" id="Municipio" ></option>
+                    </select>
+                    {{-- <input type="text" id="Municipio" name="Municipio" /> --}}
+                    {{-- <input type="text" class="form-control" name="Municipio" id="Municipio" placeholder=""> --}}
                   </div>
                 </div>
 
@@ -126,7 +143,9 @@
                 <label for="" class="col-sm-2 control-label">Tipo*</label>
 
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="Tipo" id="Tipo" placeholder="">
+                  <select class="form-control" name="tipo" id="tipo">
+                    <option value=""></option>
+                  </select>
                 </div>
               </div>
 
@@ -222,6 +241,9 @@
               {{-- aca terminan los datos generales de la propiedad --}}
 
 
+
+
+
               {{-- descripcion de la propiedad --}}
               <div class="box-header with-border">
                 <h3 class="box-title">Descripcion</h3>
@@ -301,3 +323,45 @@
   
 
 @include('plantillas.footer')
+
+<script>
+  $.ajaxSetup({
+      headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+  function MostrarMunicipios() {
+    var valor = document.getElementById('estados').value;
+    document.getElementById("Municipio").length=0;
+    var Municipio = document.getElementById("Municipio");
+    var element = [];
+    var aTag = [];
+    // console.log(valor);
+        $.ajax({
+            //async:true,
+            cache:false,
+            dataType:"json",
+            type: 'POST',
+            url:'AgregarMunicipio',
+            data: {valor:valor},
+            success:  function(response){
+              // var arreglo = JSON.parse(response.mensaje);
+              console.log(response.mensaje.length);
+              j=0;
+              for (let i = 0; i < response.mensaje.length; i++) {
+                // var option = document.createElement("option");
+                // option.innerHTML = response.mensaje[i].MUNICIPIOS_NOMBRE;
+                // Municipio.appendChild(option);
+                document.getElementById("Municipio").innerHTML += "<option value='"+response.mensaje[i].MUNICIPIOS_ID+"'>"
+                                                                +response.mensaje[i].MUNICIPIOS_NOMBRE+"</option>";
+
+              }
+            
+            },
+            beforeSend:function(){},
+            error:function(objXMLHttpRequest){}
+        });
+
+  }
+</script>

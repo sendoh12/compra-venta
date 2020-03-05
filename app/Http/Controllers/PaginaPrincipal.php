@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Response;
+use App\AgregarPropiedad;
 
 class PaginaPrincipal extends Controller
 {
@@ -12,7 +14,30 @@ class PaginaPrincipal extends Controller
         return view('PaginasInicio.inicio');
     }
 
-    public function Agregar_propiedad() {
+    public function propiedad() {
         return view('administrador.agregar_propiedad');
+    }
+
+    public function porpiedad_agregar(Request $request) {
+        
+         $valor = DB::table('cv_municipios')
+                     ->select('*')
+                     ->where('MUNICIPIOS_ESTADO','=',$request->valor)
+                     ->get();
+
+         if($request->ajax()){
+            return response()->json([
+                'mensaje'=> $valor
+            ]);
+         }
+        //  return view('administrador.agregar_propiedad', compact('valor'));
+    }
+
+    public function Agregar_propiedad() {
+        
+        $estados = DB::table('cv_estados')->get();
+        return view('administrador.agregar_propiedad', compact('estados'));
+
+        
     }
 }
