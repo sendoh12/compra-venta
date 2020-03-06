@@ -36,8 +36,16 @@ class PaginaPrincipal extends Controller
     public function Agregar_propiedad() {
         
         $estados = DB::table('cv_estados')->get();
-        return view('administrador.agregar_propiedad', compact('estados'));
-
+        $tipos = DB::table('cv_tipos')->get();
+        return view('administrador.agregar_propiedad', array(
+            'estados' => $estados,
+            'tipos' => $tipos
+        ));
         
     }
+
+    // public function Agregar_tipo() {
+    //     $tipos = DB::table('cv_tipos')->get();
+    //     return view('administrador.agregar_propiedad', compact('tipos'));
+    // }
 }

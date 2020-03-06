@@ -143,31 +143,41 @@
                 <label for="" class="col-sm-2 control-label">Tipo*</label>
 
                 <div class="col-sm-10">
-                  <select class="form-control" name="tipo" id="tipo">
-                    <option value=""></option>
+                  <select class="form-control" name="tipo" id="tipo" onchange="Opciones()">
+                    @foreach ($tipos as $item)
+                      <option value="{{$item->TIPOS_NOMBRE}}"> {{$item->TIPOS_NOMBRE}} </option>
+                    @endforeach
+                    
+                  </select>
+                </div>
+              </div>
+
+
+              {{-- casas --}}
+        <div id="casass" >
+              <div class="form-group">
+                <label for="" class="col-sm-2 control-label">Subtipo*</label>
+                <div class="col-sm-10">
+                  <select name="subtipo" id="subtipo" class="form-control">
+                    <option value="Sola">Sola</option>
+                    <option value="Condominio">Condominio</option>
+                    <option value="Financiamiento">Financiamiento</option>
                   </select>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="" class="col-sm-2 control-label">Subtipo*</label>
-
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="Subtipo" id="Subtipo" placeholder="">
-                </div>
-              </div>
-
-              <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Operación*</label>
-
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="Operación" id="Operación" placeholder="">
+                  <select name="operacion" id="operacion" class="form-control">
+                    <option value="Venta">Venta</option>
+                    <option value="Renta">Renta</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Precio*</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Precio" id="Precio" placeholder="">
                 </div>
@@ -175,7 +185,6 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Habitaciones*</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Habitaciones" id="Habitaciones" placeholder="">
                 </div>
@@ -183,7 +192,6 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Baños*</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Baños" id="Baños" placeholder="">
                 </div>
@@ -191,7 +199,6 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Terreno*</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Terreno" id="Terreno" placeholder="">
                 </div>
@@ -199,25 +206,25 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Construcción*</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Construcción" id="Construcción" placeholder="">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="" class="col-sm-2 control-label">
-                  Condición construcción
-                  </label>
-
+                <label for="" class="col-sm-2 control-label">Condición construcción</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="Condición" id="Condición" placeholder="">
+                  <select name="Condición" id="Condición" class="form-control">
+                    <option value="Buena">Buena</option>
+                    <option value="Media">Media</option>
+                    <option value="Mala">Mala</option>
+                  </select>
+                  {{-- <input type="text" class="form-control" name="Condición" id="Condición" placeholder=""> --}}
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Año de construcción</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Año" id="Año" placeholder="">
                 </div>
@@ -225,7 +232,6 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Niveles</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Niveles" id="Niveles" placeholder="">
                 </div>
@@ -233,11 +239,106 @@
 
               <div class="form-group">
                 <label for="" class="col-sm-2 control-label">Estacionamientos</label>
-
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="Estacionamientos" id="Estacionamientos" placeholder="">
                 </div>
-              </div><br><br><br>
+              </div>
+
+              <div class="form-group">
+                <label for="" class="col-sm-2 control-label">Cuota de mantenimiento</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="cuota" id="cuota" placeholder="">
+                </div>
+              </div>
+          </div>
+          {{-- fin de casas --}}
+
+
+          {{-- departamentos --}}
+          <div id="departament" style="display:none">
+            
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Operación*</label>
+              <div class="col-sm-10">
+                <select name="operacion" id="operacion" class="form-control">
+                  <option value="Venta">Venta</option>
+                  <option value="Renta">Renta</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Precio*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Precio" id="Precio" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Habitaciones*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Habitaciones" id="Habitaciones" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Baños*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Baños" id="Baños" placeholder="">
+              </div>
+            </div>
+
+            
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Construcción*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Construcción" id="Construcción" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Condición construcción</label>
+              <div class="col-sm-10">
+                <select name="Condición" id="Condición" class="form-control">
+                  <option value="Buena">Buena</option>
+                  <option value="Media">Media</option>
+                  <option value="Mala">Mala</option>
+                </select>
+                {{-- <input type="text" class="form-control" name="Condición" id="Condición" placeholder=""> --}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Año de construcción</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Año" id="Año" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Niveles</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Niveles" id="Niveles" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Estacionamientos</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="Estacionamientos" id="Estacionamientos" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">Cuota de mantenimiento</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="cuota" id="cuota" placeholder="">
+              </div>
+            </div>
+        </div>
+        {{-- fin de departamentos --}}
+              <br><br><br>
               {{-- aca terminan los datos generales de la propiedad --}}
 
 
@@ -362,6 +463,50 @@
             beforeSend:function(){},
             error:function(objXMLHttpRequest){}
         });
+
+  }
+
+  function Opciones() {
+    var valor = document.getElementById('tipo').value;
+    
+    switch (valor) {
+      case 'Casa':
+          document.getElementById('casass').style.display = 'block';
+          document.getElementById('departament').style.display = 'none';
+      break;
+
+      case 'Departamento':
+      document.getElementById('departament').style.display = 'block';
+        document.getElementById('casass').style.display = 'none';
+      break;
+
+      case 'Bodega':
+        document.getElementById('casass').style.display = 'none';
+        document.getElementById('departament').style.display = 'none';
+      break;
+
+      case 'Oficina':
+        document.getElementById('casass').style.display = 'none';
+        document.getElementById('departament').style.display = 'none';
+      break;
+
+      case 'Local':
+        document.getElementById('casass').style.display = 'none';
+        document.getElementById('departament').style.display = 'none';
+      break;
+
+      case 'Terreno':
+        document.getElementById('casass').style.display = 'none';
+        document.getElementById('departament').style.display = 'none';
+      break;
+    
+      default:
+        break;
+    }
+
+    
+
+    
 
   }
 </script>
