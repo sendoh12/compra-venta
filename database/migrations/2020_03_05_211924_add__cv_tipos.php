@@ -13,7 +13,11 @@ class AddCvTipos extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('cv_tipos', function (Blueprint $table) {
+            $table->integerIncrements('TIPOS_ID')->unsigned();
+            $table->string('TIPOS_NOMBRE')->nullable();
+        });
+        
     }
 
     /**
