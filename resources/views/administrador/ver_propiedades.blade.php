@@ -39,9 +39,9 @@
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Usuario</th>
-                  <th>Nombre</th>
-                  <th>Acciones</th>
+                  <th>Propiedades</th>
+                  {{-- <th>Nombre</th>
+                  <th>Acciones</th> --}}
                   
                 </tr>
                 </thead>
