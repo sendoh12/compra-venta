@@ -54,4 +54,62 @@ class PaginaPrincipal extends Controller
     //     $tipos = DB::table('cv_tipos')->get();
     //     return view('administrador.agregar_propiedad', compact('tipos'));
     // }
+    public function propiedadesguardar(Request $request) {
+
+        if($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images', $name);
+            
+        }
+
+        $propiedades = DB::table('cv_propiedades')->insert([
+                            'PROPIEDADES_NOMBRE' => $request->input('propiedad'),
+                            'PROPIEDADES_PAIS' => 'Mexico',
+                            'PROPIEDADES_ESTADO' => $request->input('estado'),
+                            'PROPIEDADES_MUNICIPIO' => $request->input('Municipio'),
+                            'PROPIEDADES_COLONIA' => $request->input('Colonia'),
+                            'PROPIEDADES_ZONA' => $request->input('Zona'),
+                            'PROPIEDADES_CP' => $request->input('CodigoPostal'),
+                            'PROPIEDADES_CALLE' => $request->input('Calle'),
+                            'PROPIEDADES_EXTERIOR' => $request->input('NumeroExterior'),
+                            'PROPIEDADES_INTERIOR' => $request->input('NumeroInterior'),
+                            'PROPIEDADES_IMAGEN' => $name,
+                            'PROPIEDADES_TIPO' => $request->input('tipo'),
+                            'PROPIEDADES_SUBTIPO' => $request->input('subtipo'),
+                            'PROPIEDADES_OPERACION' => $request->input('operacion'),
+                            'PROPIEDADES_PRECIO' => $request->input('Precio'),
+                            'PROPIEDADES_HABITACIONES' => $request->input('Habitaciones'),
+                            'PROPIEDADES_BAÑOS' => $request->input('Baños'),
+                            'PROPIEDADES_MEDIO_BAÑO' => $request->input('MediosBaños'),
+                            'PROPIEDADES_TERRENOS' => $request->input('Terreno'),
+                            'PROPIEDADES_CONSTRUCCION' => $request->input('Construcción'),
+                            'PROPIEDADES_CONDICIONES' => $request->input('Condición'),
+                            'PROPIEDADES_AÑO' => $request->input('Año'),
+                            'PROPIEDADES_NIVELES' => $request->input('Niveles'),
+                            'PROPIEDADES_ESTACIONAMIENTO' => $request->input('Estacionamientos'),
+                            'PROPIEDADES_CUOTA' => $request->input('cuota'),
+                            'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
+                            'PROPIEDADES_CLAVE' => $request->input('Clave'),
+                            'PROPIEDADES_VIDEO' => $request->input('Video'),
+                            // '' => $request->input(''),
+
+        ]);
+
+        $id_prop = DB::getPDO()->lastInsertId();
+
+        
+        // return view('administrador.agregar_imagenes', array(
+        //     'id_prop' => $id_prop,
+        // ));
+
+        return redirect('VerPropiedades');
+    }
+
+    public function verpropiedades() {
+
+        $propiedades = DB::table('cv_propiedades')->get();
+        return view('administrador.ver_propiedades', compact('propiedades'));
+    }
+    
 }

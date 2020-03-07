@@ -55,3 +55,8 @@ Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=
 Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');
 Route::post('AgregarMunicipio', 'PaginaPrincipal@porpiedad_agregar');
 
+// guardar las propiedades
+Route::post('GuardarPropiedades', 'PaginaPrincipal@propiedadesguardar')->name('GuardarPropiedades');
+//agregar las imagenes
+Route::get('VerPropiedades', ['as' => 'administrador.ver_propiedades', 'uses' => 'PaginaPrincipal@verpropiedades' ]);
+
