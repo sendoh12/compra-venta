@@ -92,17 +92,13 @@ class PaginaPrincipal extends Controller
                             'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
                             'PROPIEDADES_CLAVE' => $request->input('Clave'),
                             'PROPIEDADES_VIDEO' => $request->input('Video'),
-                            // '' => $request->input(''),
-
+                            'PROPIEDADES_LATITUD' => $request->input('Latitud'),
+                            'PROPIEDADES_LONGITUD' => $request->input('longitud'),
         ]);
-
         $id_prop = DB::getPDO()->lastInsertId();
-
-        
         // return view('administrador.agregar_imagenes', array(
         //     'id_prop' => $id_prop,
         // ));
-
         return redirect('VerPropiedades');
     }
 
