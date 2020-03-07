@@ -42,7 +42,6 @@
                   <th>Propiedades</th>
                   {{-- <th>Nombre</th>
                   <th>Acciones</th> --}}
-                  
                 </tr>
                 </thead>
                 <tbody>
@@ -65,7 +64,7 @@
                                             <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            <a href="{{ route('administrador.lista_propiedad') }}" class ="btn bg-orange btn-flat margin">mapa </a>
+                                            <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">mapa </a>
                                         </div>
                                     </div>
                                     
