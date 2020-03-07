@@ -1,16 +1,6 @@
 
 @include('plantillas.header')
 @include('plantillas.menu')
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -59,13 +49,16 @@
                                             {{'Precio'.$item->PROPIEDADES_PRECIO}}
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="" class="btn bg-orange btn-flat margin">
+                                            <a href="" class="btn bg-orange btn-flat ">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
+                                            <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat  borrar_registro">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            <a href="{{ route('administrador.lista_propiedad') }}" class ="btn bg-orange btn-flat margin">mapa </a>
+                                            <a href="#" data-id="" data-tipo="admin" class="btn bg-green btn-flat  borrar_registro">
+                                              <i class="fa fa-image"> </i>
+                                          </a>
+                                            <a href="{{ route('administrador.lista_propiedad') }}" class ="btn bg-orange btn-flat ">mapa </a>
                                         </div>
                                     </div>
                                     

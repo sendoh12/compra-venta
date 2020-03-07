@@ -19,7 +19,6 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        @yield('title')
         
 
          <!-- Main content -->
@@ -374,14 +373,6 @@
 </div>  
 </div>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-          @yield('content')
-
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   
