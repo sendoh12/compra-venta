@@ -134,6 +134,7 @@
         </a>
       </li> -->
 
+      <li class="nav-item">
         <a href="{{ route('administrador.ver_propiedades') }}" class="nav-link">
           <i class="nav-icon fas fa-th "></i>
           <span>Ver Propiedad</span>
