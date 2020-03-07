@@ -46,7 +46,7 @@ Route::post('contact', 'MensajesContacto@create');
 Route::get('/informes', 'PortfolioController@sobre_nosotros')->name('informes');
 
 Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
-
+Route::get('/lista/',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
 //ruta para ver administradores
 Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
 

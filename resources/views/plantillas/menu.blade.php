@@ -127,16 +127,19 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
+        <a href="{{ route('administrador.lista_propiedad') }}" class="nav-link">
+          <i class="nav-icon fas fa-th "></i>
+          <span>Lista de Propiedad</span>
+        </a>
+      </li> -->
+
         <a href="{{ route('administrador.ver_propiedades') }}" class="nav-link">
           <i class="nav-icon fas fa-th "></i>
           <span>Ver Propiedad</span>
         </a>
       </li>
       
-
-      
-
       {{-- <li class="treeview">
         <a href="{{ route('administrador.ver_administradores') }}">
           <i class="fa fa-files-o"></i>

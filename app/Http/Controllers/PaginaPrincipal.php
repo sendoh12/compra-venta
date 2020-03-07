@@ -44,6 +44,16 @@ class PaginaPrincipal extends Controller
         
     }
 
+    public function Lista_propiedad()
+    {
+        return view("administrador.lista_propiedad");
+    }
+
+
+    // public function Agregar_tipo() {
+    //     $tipos = DB::table('cv_tipos')->get();
+    //     return view('administrador.agregar_propiedad', compact('tipos'));
+    // }
     public function propiedadesguardar(Request $request) {
 
         if($request->hasFile('imagen')) {
