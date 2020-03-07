@@ -151,6 +151,33 @@
                       <input type="file" class="" name="imagen" id="imagen" placeholder="">
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                      <div id="mapid" style="width:830px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
+                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
+                          
+                            <div class="leaflet-pane leaflet-tile-pane">
+                              <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                                <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
+                                  <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
+                                  <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, -347px, 0px); opacity: 1;">
+                                  <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, 165px, 0px); opacity: 1;">
+                                  <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, 165px, 0px); opacity: 1;">
+                                </div>
+                              </div>
+                            </div>
+                              <div class="leaflet-pane leaflet-shadow-pane"></div>
+                              <div class="leaflet-pane leaflet-overlay-pane"></div>
+                              <div class="leaflet-pane leaflet-marker-pane"></div>
+                              <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                              <div class="leaflet-pane leaflet-popup-pane"></div>
+                                <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04788e+06px, 697275px, 0px) scale(4096);"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 <br><br><br>
                 {{-- fin de agregar propiedad --}}
 
@@ -324,29 +351,9 @@
                   <input type="text" class="form-control" name="Video" id="Video" placeholder="">
                 </div>
               </div>
-              <div id="mapid" style="width:600px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
-                  <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
-                    <div class="leaflet-pane leaflet-tile-pane">
-                    <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
-                    <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
-                      <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
-                      <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, -347px, 0px); opacity: 1;">
-                      <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, 165px, 0px); opacity: 1;">
-                      <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, 165px, 0px); opacity: 1;">
-                      </div>
-                      </div>
-                      </div>
-                      <div class="leaflet-pane leaflet-shadow-pane">
-                      </div>
-                      <div class="leaflet-pane leaflet-overlay-pane">
-                      </div><div class="leaflet-pane leaflet-marker-pane">
-                      </div><div class="leaflet-pane leaflet-tooltip-pane">
-                      </div><div class="leaflet-pane leaflet-popup-pane"></div>
-                      <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04788e+06px, 697275px, 0px) scale(4096);">
-                      </div>
-                      </div>
-              </div>
-              </div>
+
+
+              
               <!-- /.box-body -->
               <div class="box-footer">
                 {{-- <button type="submit" class="btn btn-default">Cancel</button> --}}

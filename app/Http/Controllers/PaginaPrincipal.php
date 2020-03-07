@@ -86,12 +86,20 @@ class PaginaPrincipal extends Controller
 
         ]);
 
-        // $id_prop = DB::getPDO()->lastInsertId();
+        $id_prop = DB::getPDO()->lastInsertId();
 
         
+        // return view('administrador.agregar_imagenes', array(
+        //     'id_prop' => $id_prop,
+        // ));
 
+        return redirect('VerPropiedades');
+    }
 
-        return "datos guardados con exito";
+    public function verpropiedades() {
+
+        $propiedades = DB::table('cv_propiedades')->get();
+        return view('administrador.ver_propiedades', compact('propiedades'));
     }
     
 }
