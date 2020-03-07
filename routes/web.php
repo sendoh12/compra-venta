@@ -49,17 +49,16 @@ Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioC
 
 //ruta para ver administradores
 Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
-
+Route::get('Editar/{id}','PaginaPrincipal@Editarpropiedades');
 //agregando los municipios a la vista
 
-Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');
+//Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');
 Route::post('AgregarMunicipio', 'PaginaPrincipal@porpiedad_agregar');
+Route::post('Municipio','PaginaPrincipal@municipios');
 
 // guardar las propiedades
 Route::post('GuardarPropiedades', 'PaginaPrincipal@propiedadesguardar')->name('GuardarPropiedades');
 //agregar las imagenes
 Route::get('VerPropiedades', ['as' => 'administrador.ver_propiedades', 'uses' => 'PaginaPrincipal@verpropiedades' ]);
-
-
-
 Route::get('/mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
+

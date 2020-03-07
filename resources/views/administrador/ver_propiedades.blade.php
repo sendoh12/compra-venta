@@ -58,7 +58,7 @@
                                             {{'Precio'.$item->PROPIEDADES_PRECIO}}
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="" class="btn bg-orange btn-flat margin">
+                                            <a href="Editar/<?=base64_encode($item->PROPIEDADES_ID)?>" class="btn bg-orange btn-flat margin">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                             <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
@@ -66,7 +66,7 @@
                                             </a>
                                             <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">mapa </a>
                                         </div>
-                                    </div>
+                                    </div>c
                                     
                                 </div>
                                    
@@ -111,15 +111,3 @@
   
 
 @include('plantillas.footer')
-
-<script>
-
-  $.ajaxSetup({
-      headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
-</script>
-
-
-  
