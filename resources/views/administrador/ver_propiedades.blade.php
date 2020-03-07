@@ -72,29 +72,11 @@
                                 </div>
                                    
                             </td>
-                            {{-- <td>{{$item->PROPIEDADES_PRECIO}}  </td> --}}
-                            {{-- <td>
-                                <a href="" class="btn bg-orange btn-flat margin">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </a>
-                                <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat margin borrar_registro">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                                
-                            </td> --}}
                         </tr>
 
                         
                     @endforeach
                     
-
-
-
-                            
-
-
-                        
-
                 </tbody>
                
               </table>
@@ -113,14 +95,7 @@
   <!-- /.content-wrapper -->
 
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-          @yield('content')
-
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+    
  
   
 
