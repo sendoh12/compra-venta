@@ -49,7 +49,7 @@ Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioC
 
 //ruta para ver administradores
 Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
-Route::get('Editar/{id}','PaginaPrincipal@Editarpropiedades')->name('Editar');
+Route::get('Editar','PaginaPrincipal@Editarpropiedades')->name('Editar');
 //agregando los municipios a la vista
 
 //Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');

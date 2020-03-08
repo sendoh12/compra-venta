@@ -52,7 +52,10 @@
                                             {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat margin">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a> --}}
-                                            <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}">editar</a>
+                                            <form action="Editar" method="get">
+                                            <input type="hidden" name="id_propiedad" value="<?=$item->PROPIEDADES_ID?>">
+                                            <input type="submit" value="Editar" class="btn bg-orange btn-flat margin">
+                                            </form>
 
                                             <a href="#" class="btn bg-maroon btn-flat  borrar_registro">
                                                 <i class="fa fa-trash"></i>
@@ -62,7 +65,7 @@
                                             </a> --}}
                                             <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}"> imagenes</a>
 
-                                            <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">mapa </a>
+                                            <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">Mapa</a>
                                         </div>
                                     </div>
                                     
