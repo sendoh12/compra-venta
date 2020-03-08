@@ -48,15 +48,19 @@
                                             {{'Precio'.$item->PROPIEDADES_PRECIO}}
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="" class="btn bg-orange btn-flat ">
+
+                                            {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat margin">
                                                 <i class="fa fa-pencil-alt"></i>
-                                            </a>
-                                            <a href="#" data-id="" data-tipo="admin" class="btn bg-maroon btn-flat  borrar_registro">
+                                            </a> --}}
+                                            <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}">editar</a>
+
+                                            <a href="#" class="btn bg-maroon btn-flat  borrar_registro">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            <a href="/AgregarImagenes/<?=$item?>" data-id="" data-tipo="admin" class="btn bg-green btn-flat  borrar_registro">
+                                            {{-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  borrar_registro">
                                               <i class="fa fa-image"> </i>
-                                          </a>
+                                            </a> --}}
+                                            <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}"> imagenes</a>
 
                                             <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">mapa </a>
                                         </div>
@@ -105,15 +109,3 @@
   
 
 @include('plantillas.footer')
-
-<script>
-
-  $.ajaxSetup({
-      headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
-</script>
-
-
-  

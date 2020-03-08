@@ -28,7 +28,7 @@
             <div class="box-header with-border">
               <h3 class="box-title">mapa</h3>
             </div> 
-            div class="form-group">
+            <div class="form-group">
                     <div class="col-sm-5">
                       <div id="mapid" style="width:830px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
                         <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">

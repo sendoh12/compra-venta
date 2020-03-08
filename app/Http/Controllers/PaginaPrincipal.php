@@ -19,21 +19,18 @@ class PaginaPrincipal extends Controller
     }
 
     public function porpiedad_agregar(Request $request) {
-        
          $valor = DB::table('cv_municipios')
                      ->select('*')
                      ->where('MUNICIPIOS_ESTADO','=',$request->valor)
                      ->get();
 
-         if($request->ajax()){
             return response()->json([
                 'mensaje'=> $valor
             ]);
-         }
         //  return view('administrador.agregar_propiedad', compact('valor'));
     }
 
-    public function Agregar_propiedad() {
+    public function Agregar_propiedad($id=null) {
         
         $estados = DB::table('cv_estados')->get();
         $tipos = DB::table('cv_tipos')->get();
@@ -111,7 +108,33 @@ class PaginaPrincipal extends Controller
         return view('administrador.ver_propiedades', compact('propiedades'));
     }
     
-    public function agregar_imagenes() {
-        return view('administrador.agregar_imagenes');
+    public function agregar_imagenes($id) {
+        return view('administrador.agregar_imagenes', compact('id'));
+        // return 'verificar si se esta pasando correctamente'.$id;
     }
+
+    public function Editarpropiedades()
+    {
+        // $id_propiedades=base64_decode($id_propiedad);
+        // $editar_propiedad=DB::table('cv_propiedades')->where('PROPIEDADES_ID',$id_propiedades)->first();
+        // // var_dump($editar_propiedad);
+        // die;
+        $estados = DB::table('cv_estados')->get();
+        $tipos = DB::table('cv_tipos')->get();
+        return view('administrador.Eeditar_propiedad', array(
+            'estados' => $estados,
+            'tipos' => $tipos,
+        ));
+    }
+    public function municipios(Request $request) {
+        $valor = DB::table('cv_municipios')
+                    ->select('*')
+                    ->where('MUNICIPIOS_ESTADO','=',$request->valor)
+                    ->get();
+
+           return response()->json([
+               'mensaje'=> $valor
+           ]);
+       //  return view('administrador.agregar_propiedad', compact('valor'));
+   }
 }

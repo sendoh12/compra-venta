@@ -49,20 +49,21 @@ Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioC
 
 //ruta para ver administradores
 Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
-
+Route::get('Editar/{id}','PaginaPrincipal@Editarpropiedades')->name('Editar');
 //agregando los municipios a la vista
 
-Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');
+//Route::get('AgregarMunicipio', 'PaginaPrincipal@propiedad');
 Route::post('AgregarMunicipio', 'PaginaPrincipal@porpiedad_agregar');
+Route::post('Municipio','PaginaPrincipal@municipios');
 
 // guardar las propiedades
 Route::post('GuardarPropiedades', 'PaginaPrincipal@propiedadesguardar')->name('GuardarPropiedades');
 //ver las propiedades
 Route::get('VerPropiedades', ['as' => 'administrador.ver_propiedades', 'uses' => 'PaginaPrincipal@verpropiedades' ]);
-
-
-
 Route::get('/mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
 
+
 //agregar ias imagenes
-Route::get('/AgregarImagenes/{id}', ['as'=>'administrador.agregar_imagenes', 'uses'=>'PaginaPrincipal@agregar_imagenes']);
+Route::get('AgregarImagenes/{id}', ['as'=>'administrador.agregar_imagenes', 'uses'=>'PaginaPrincipal@agregar_imagenes']);
+// Route::get('AgregarImagenes/{id}', 'PaginaPrincipal@agregar_imagenes')->name('AgregarImagenes');
+
