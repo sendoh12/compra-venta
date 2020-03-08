@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Response;
 use App\AgregarPropiedad;
+use Illuminate\Support\Facades\Hash;
 
 class PaginaPrincipal extends Controller
 {
@@ -137,4 +138,50 @@ class PaginaPrincipal extends Controller
            ]);
        //  return view('administrador.agregar_propiedad', compact('valor'));
    }
+
+
+   //insertar las imagenes
+   public function insertar($id, Request $request) {
+        if($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            
+            $j=0;
+            foreach ($file as $key ) {
+                $name = time().$key->getClientOriginalName();
+                $array[$j] = $name;
+                $key->move(public_path().'/fotos', $name);
+                $j++;
+            }  
+        }
+
+        $i=0;
+        foreach ($request->file('imagen') as $key => $value) {
+            $imagenes = DB::table('cv_imagenes')->insert([
+                'IMAGENES_PROPIEDAD' => $id,
+                'IMAGENES_NOMBRE' => $request->input('nombre'),
+                'IMAGENES_ARCHIVO' => $array[$i],
+                        
+                ]);
+            $i++;
+        }
+
+        // $verimagenes = DB::table('cv_imagenes')->get($id);
+        // return view('administrador.agregar_imagenes', array(
+        //     'imagenes' => $verimagenes,
+        // ));
+        return redirect('VerPropiedades');
+
+   }
+
+   public function verimagenes($id) {
+        $verimagenes = DB::table('cv_imagenes')
+                     ->select('*')
+                     ->where('IMAGENES_PROPIEDAD','=',$id)
+                     ->get();
+
+            return view('administrador.imagenes_propiedades', array(
+                'imagenes' => $verimagenes,
+             ));
+   }
+
 }

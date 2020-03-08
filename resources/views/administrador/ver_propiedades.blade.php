@@ -49,18 +49,21 @@
                                         </div>
                                         <div class="col-md-3">
 
-                                            {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat margin">
+                                            <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat ">
                                                 <i class="fa fa-pencil-alt"></i>
-                                            </a> --}}
-                                            <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}">editar</a>
+                                            </a>
+                                            {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}">editar</a> --}}
 
-                                            <a href="#" class="btn bg-maroon btn-flat  borrar_registro">
+                                            <a href="#" class="btn bg-maroon btn-flat  ">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            {{-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  borrar_registro">
+                                            <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  ">
                                               <i class="fa fa-image"> </i>
-                                            </a> --}}
-                                            <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}"> imagenes</a>
+                                            </a>
+                                            <a href="{{ route('administrador.imagenes_propiedades', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  ">
+                                              <i class="fa fa-eye"> </i>
+                                            </a>
+                                            {{-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}"> imagenes</a> --}}
 
                                             <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">mapa </a>
                                         </div>

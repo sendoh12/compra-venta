@@ -67,3 +67,9 @@ Route::get('/mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_prop
 Route::get('AgregarImagenes/{id}', ['as'=>'administrador.agregar_imagenes', 'uses'=>'PaginaPrincipal@agregar_imagenes']);
 // Route::get('AgregarImagenes/{id}', 'PaginaPrincipal@agregar_imagenes')->name('AgregarImagenes');
 
+//agregando el plugin dropzone para nuesta aplicacion
+Route::post('InsertarImagenes/{id}', 'PaginaPrincipal@insertar')->name('InsertarImagenes');
+
+//ver las imagenes de las propiedades
+Route::get('VerImagenes/{id}', ['as'=>'administrador.imagenes_propiedades', 'uses'=>'PaginaPrincipal@verimagenes']);
+

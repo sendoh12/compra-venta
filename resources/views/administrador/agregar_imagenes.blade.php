@@ -3,6 +3,7 @@
 @include('plantillas.menu')
 
 
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <!-- Content Wrapper. Contains page content -->
@@ -10,8 +11,48 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        @yield('title')
-        hola como estas?
+
+        <section class="content">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-10 col-md-offset-1">
+        
+        
+            <form id="guardarimagenes" class="form-horizontal" action="{{route('InsertarImagenes',$id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="box-footer">
+
+                  <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Nombre de la imagen</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="" class="col-sm-3 control-label">Seleccionar Imagen</label>
+                    <div class="col-sm-6">
+                      <input type="file" class="" name="imagen[]" id="imagen" placeholder="" multiple>
+                    </div>
+                  </div>
+
+
+                  
+                    {{-- <button type="submit" class="btn btn-default">Cancel</button> --}}
+                    <input type="button" class="btn btn-info pull-right" onclick="Mostrarimagenes()" value="Guardar Cambios">
+                    {{-- <button onchange="Mostrarimagenes()" type="submit" class="btn btn-info pull-right">Guardar Cambios</button> --}}
+                </div>
+              </form>
+
+             
+              
+            </div>
+          </div>  
+        </section>
+      </div>
+        
+        
+        
 
       
   
@@ -19,9 +60,7 @@
     </div>
 
     
-  </div>
-  <!-- /.content-wrapper -->
-  
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -33,17 +72,25 @@
   </aside>
   <!-- /.control-sidebar -->
 
+ 
+
   
 
 @include('plantillas.footer')
 
-<script>
 
+
+<script>
   $.ajaxSetup({
       headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
   });
 
-  
+  function Mostrarimagenes() {
+    console.log('hol');
+
+    document.getElementById('guardarimagenes').submit();
+  }
+
 </script>

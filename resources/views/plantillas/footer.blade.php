@@ -37,9 +37,15 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
-<script>
+<script src="{{asset('dist/js/dropzone.js')}}"></script>
 
-</script>
+
+{{-- scripts para cargar el plugin de multiples imagenes --}}
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{asset('dist/js/fileinput.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('dist/js/locales/es.js')}}" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>
 
