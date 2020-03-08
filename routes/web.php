@@ -46,7 +46,7 @@ Route::post('contact', 'MensajesContacto@create');
 Route::get('/informes', 'PortfolioController@sobre_nosotros')->name('informes');
 
 Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
-Route::get('/lista/',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
+
 //ruta para ver administradores
 Route::get('AgregarPropiedad', ['as'=>'administrador.agregar_propiedad', 'uses'=>'PaginaPrincipal@Agregar_propiedad'] );
 
@@ -57,6 +57,12 @@ Route::post('AgregarMunicipio', 'PaginaPrincipal@porpiedad_agregar');
 
 // guardar las propiedades
 Route::post('GuardarPropiedades', 'PaginaPrincipal@propiedadesguardar')->name('GuardarPropiedades');
-//agregar las imagenes
+//ver las propiedades
 Route::get('VerPropiedades', ['as' => 'administrador.ver_propiedades', 'uses' => 'PaginaPrincipal@verpropiedades' ]);
 
+
+
+Route::get('/mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
+
+//agregar ias imagenes
+Route::get('/AgregarImagenes/{id}', ['as'=>'administrador.agregar_imagenes', 'uses'=>'PaginaPrincipal@agregar_imagenes']);

@@ -150,7 +150,20 @@
                       <input type="file" class="" name="imagen" id="imagen" placeholder="">
                     </div>
                 </div>
-
+                <div class="form-group">
+                <center><h1>Las coordenadas GPS</h1></center>
+                    <div class="col-sm-4">
+                      <label for="" class="col-sm-3 control-label">Latitud</label>
+                      <input type="text" class="" name="Latitud" id="Latitud" placeholder="">
+                    </div>
+                    <div class="col-sm-4">
+                      <label for="" class="control-label">Longitud</label>
+                      <input type="text" class="" name="longitud" id="longitud" placeholder="">
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="button" class="btn btn-secondary btn-lg" onclick="buscar();">Buscar</button>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-sm-5">
                       <div id="mapid" style="width:830px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
@@ -393,7 +406,7 @@
 <script>
     
 
-	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+	var mymap = L.map('mapid').setView([19.0412894, -98.2062013], 13);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -404,8 +417,26 @@
 		tileSize: 512,
 		zoomOffset: -1
 	}).addTo(mymap);
-
-
+  L.marker([19.0412894,-98.2062013]).addTo(mymap);
+</script>
+<script>
+function buscar() {
+  var latitud = document.getElementById('Latitud').value;
+  var longitud = document.getElementById('longitud').value;
+  console.log("ola");
+  document.getElementById('mapid').innerHTML = "<div id='map' style='width: 100%; height: 100%;'></div>";
+    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,' +
+                        ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+     osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
+    var map = new L.Map('map');
+    map.setView(new L.LatLng(latitud,longitud), 13 );
+   var posision=L.marker([latitud,longitud])
+    map.addLayer(osmLayer);
+    var validatorsLayer = new OsmJs.Weather.LeafletLayer({lang: 'es'});
+    map.addLayer(validatorsLayer);
+    map.addLayer(posision);
+}
 </script>
 <script>
 

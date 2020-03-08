@@ -44,9 +44,12 @@ class PaginaPrincipal extends Controller
         
     }
 
-    public function Lista_propiedad()
+    public function Lista_propiedad($id_propiedad,$latitud,$longitud)
     {
-        return view("administrador.lista_propiedad");
+        $id_propiedades=base64_decode($id_propiedad);
+        $Latitud=base64_decode($latitud);
+        $Longitud=base64_decode($longitud);
+        return view("administrador.lista_propiedad")->with('LATITUD',$Latitud)->with('LOGITUD',$Longitud);
     }
 
 
@@ -92,17 +95,13 @@ class PaginaPrincipal extends Controller
                             'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
                             'PROPIEDADES_CLAVE' => $request->input('Clave'),
                             'PROPIEDADES_VIDEO' => $request->input('Video'),
-                            // '' => $request->input(''),
-
+                            'PROPIEDADES_LATITUD' => $request->input('Latitud'),
+                            'PROPIEDADES_LONGITUD' => $request->input('longitud'),
         ]);
-
         $id_prop = DB::getPDO()->lastInsertId();
-
-        
         // return view('administrador.agregar_imagenes', array(
         //     'id_prop' => $id_prop,
         // ));
-
         return redirect('VerPropiedades');
     }
 
@@ -112,4 +111,7 @@ class PaginaPrincipal extends Controller
         return view('administrador.ver_propiedades', compact('propiedades'));
     }
     
+    public function agregar_imagenes() {
+        return view('administrador.agregar_imagenes');
+    }
 }
