@@ -56,51 +56,125 @@ class PaginaPrincipal extends Controller
     //     return view('administrador.agregar_propiedad', compact('tipos'));
     // }
     public function propiedadesguardar(Request $request) {
-
-        if($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images', $name);
-            
+        if ($request->input('Id_prepiedad') != null) {
+            if($request->hasFile('imagen')) {
+                $file = $request->file('imagen');
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path().'/images', $name);
+                $propiedades = DB::table('cv_propiedades')
+                ->where('PROPIEDADES_ID',$request->input('Id_prepiedad'))
+                ->update(['PROPIEDADES_NOMBRE' => $request->input('propiedad'),
+                    'PROPIEDADES_PAIS' => 'Mexico',
+                    'PROPIEDADES_ESTADO' => $request->input('estado'),
+                    'PROPIEDADES_MUNICIPIO' => $request->input('Municipio'),
+                    'PROPIEDADES_COLONIA' => $request->input('Colonia'),
+                    'PROPIEDADES_ZONA' => $request->input('Zona'),
+                    'PROPIEDADES_CP' => $request->input('CodigoPostal'),
+                    'PROPIEDADES_CALLE' => $request->input('Calle'),
+                    'PROPIEDADES_EXTERIOR' => $request->input('NumeroExterior'),
+                    'PROPIEDADES_INTERIOR' => $request->input('NumeroInterior'),
+                    'PROPIEDADES_IMAGEN' => $name,
+                    'PROPIEDADES_TIPO' => $request->input('tipo'),
+                    'PROPIEDADES_SUBTIPO' => $request->input('subtipo'),
+                    'PROPIEDADES_OPERACION' => $request->input('operacion'),
+                    'PROPIEDADES_PRECIO' => $request->input('Precio'),
+                    'PROPIEDADES_HABITACIONES' => $request->input('Habitaciones'),
+                    'PROPIEDADES_BAÑOS' => $request->input('Baños'),
+                    'PROPIEDADES_MEDIO_BAÑO' => $request->input('MediosBaños'),
+                    'PROPIEDADES_TERRENOS' => $request->input('Terreno'),
+                    'PROPIEDADES_CONSTRUCCION' => $request->input('Construcción'),
+                    'PROPIEDADES_CONDICIONES' => $request->input('Condición'),
+                    'PROPIEDADES_AÑO' => $request->input('Año'),
+                    'PROPIEDADES_NIVELES' => $request->input('Niveles'),
+                    'PROPIEDADES_ESTACIONAMIENTO' => $request->input('Estacionamientos'),
+                    'PROPIEDADES_CUOTA' => $request->input('cuota'),
+                    'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
+                    'PROPIEDADES_CLAVE' => $request->input('Clave'),
+                    'PROPIEDADES_VIDEO' => $request->input('Video'),
+                    'PROPIEDADES_LATITUD' => $request->input('Latitud'),
+                    'PROPIEDADES_LONGITUD' => $request->input('longitud'),
+                    ]);
+            }else{
+                $propiedades = DB::table('cv_propiedades')
+                ->where('PROPIEDADES_ID',$request->input('Id_prepiedad'))
+                ->update(['PROPIEDADES_NOMBRE' => $request->input('propiedad'),
+                    'PROPIEDADES_PAIS' => 'Mexico',
+                    'PROPIEDADES_ESTADO' => $request->input('estado'),
+                    'PROPIEDADES_MUNICIPIO' => $request->input('Municipio'),
+                    'PROPIEDADES_COLONIA' => $request->input('Colonia'),
+                    'PROPIEDADES_ZONA' => $request->input('Zona'),
+                    'PROPIEDADES_CP' => $request->input('CodigoPostal'),
+                    'PROPIEDADES_CALLE' => $request->input('Calle'),
+                    'PROPIEDADES_EXTERIOR' => $request->input('NumeroExterior'),
+                    'PROPIEDADES_INTERIOR' => $request->input('NumeroInterior'),
+                    'PROPIEDADES_TIPO' => $request->input('tipo'),
+                    'PROPIEDADES_SUBTIPO' => $request->input('subtipo'),
+                    'PROPIEDADES_OPERACION' => $request->input('operacion'),
+                    'PROPIEDADES_PRECIO' => $request->input('Precio'),
+                    'PROPIEDADES_HABITACIONES' => $request->input('Habitaciones'),
+                    'PROPIEDADES_BAÑOS' => $request->input('Baños'),
+                    'PROPIEDADES_MEDIO_BAÑO' => $request->input('MediosBaños'),
+                    'PROPIEDADES_TERRENOS' => $request->input('Terreno'),
+                    'PROPIEDADES_CONSTRUCCION' => $request->input('Construcción'),
+                    'PROPIEDADES_CONDICIONES' => $request->input('Condición'),
+                    'PROPIEDADES_AÑO' => $request->input('Año'),
+                    'PROPIEDADES_NIVELES' => $request->input('Niveles'),
+                    'PROPIEDADES_ESTACIONAMIENTO' => $request->input('Estacionamientos'),
+                    'PROPIEDADES_CUOTA' => $request->input('cuota'),
+                    'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
+                    'PROPIEDADES_CLAVE' => $request->input('Clave'),
+                    'PROPIEDADES_VIDEO' => $request->input('Video'),
+                    'PROPIEDADES_LATITUD' => $request->input('Latitud'),
+                    'PROPIEDADES_LONGITUD' => $request->input('longitud'),
+                    ]);
+            }
+            return redirect('VerPropiedades');
+        }else{
+            if($request->hasFile('imagen')) {
+                $file = $request->file('imagen');
+                $name = time().$file->getClientOriginalName();
+                $file->move(public_path().'/images', $name);
+                
+            }
+    
+            $propiedades = DB::table('cv_propiedades')->insert([
+                                'PROPIEDADES_NOMBRE' => $request->input('propiedad'),
+                                'PROPIEDADES_PAIS' => 'Mexico',
+                                'PROPIEDADES_ESTADO' => $request->input('estado'),
+                                'PROPIEDADES_MUNICIPIO' => $request->input('Municipio'),
+                                'PROPIEDADES_COLONIA' => $request->input('Colonia'),
+                                'PROPIEDADES_ZONA' => $request->input('Zona'),
+                                'PROPIEDADES_CP' => $request->input('CodigoPostal'),
+                                'PROPIEDADES_CALLE' => $request->input('Calle'),
+                                'PROPIEDADES_EXTERIOR' => $request->input('NumeroExterior'),
+                                'PROPIEDADES_INTERIOR' => $request->input('NumeroInterior'),
+                                'PROPIEDADES_IMAGEN' => $name,
+                                'PROPIEDADES_TIPO' => $request->input('tipo'),
+                                'PROPIEDADES_SUBTIPO' => $request->input('subtipo'),
+                                'PROPIEDADES_OPERACION' => $request->input('operacion'),
+                                'PROPIEDADES_PRECIO' => $request->input('Precio'),
+                                'PROPIEDADES_HABITACIONES' => $request->input('Habitaciones'),
+                                'PROPIEDADES_BAÑOS' => $request->input('Baños'),
+                                'PROPIEDADES_MEDIO_BAÑO' => $request->input('MediosBaños'),
+                                'PROPIEDADES_TERRENOS' => $request->input('Terreno'),
+                                'PROPIEDADES_CONSTRUCCION' => $request->input('Construcción'),
+                                'PROPIEDADES_CONDICIONES' => $request->input('Condición'),
+                                'PROPIEDADES_AÑO' => $request->input('Año'),
+                                'PROPIEDADES_NIVELES' => $request->input('Niveles'),
+                                'PROPIEDADES_ESTACIONAMIENTO' => $request->input('Estacionamientos'),
+                                'PROPIEDADES_CUOTA' => $request->input('cuota'),
+                                'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
+                                'PROPIEDADES_CLAVE' => $request->input('Clave'),
+                                'PROPIEDADES_VIDEO' => $request->input('Video'),
+                                'PROPIEDADES_LATITUD' => $request->input('Latitud'),
+                                'PROPIEDADES_LONGITUD' => $request->input('longitud'),
+            ]);
+            $id_prop = DB::getPDO()->lastInsertId();
+            // return view('administrador.agregar_imagenes', array(
+            //     'id_prop' => $id_prop,
+            // ));
+            return redirect('VerPropiedades');
         }
-
-        $propiedades = DB::table('cv_propiedades')->insert([
-                            'PROPIEDADES_NOMBRE' => $request->input('propiedad'),
-                            'PROPIEDADES_PAIS' => 'Mexico',
-                            'PROPIEDADES_ESTADO' => $request->input('estado'),
-                            'PROPIEDADES_MUNICIPIO' => $request->input('Municipio'),
-                            'PROPIEDADES_COLONIA' => $request->input('Colonia'),
-                            'PROPIEDADES_ZONA' => $request->input('Zona'),
-                            'PROPIEDADES_CP' => $request->input('CodigoPostal'),
-                            'PROPIEDADES_CALLE' => $request->input('Calle'),
-                            'PROPIEDADES_EXTERIOR' => $request->input('NumeroExterior'),
-                            'PROPIEDADES_INTERIOR' => $request->input('NumeroInterior'),
-                            'PROPIEDADES_IMAGEN' => $name,
-                            'PROPIEDADES_TIPO' => $request->input('tipo'),
-                            'PROPIEDADES_SUBTIPO' => $request->input('subtipo'),
-                            'PROPIEDADES_OPERACION' => $request->input('operacion'),
-                            'PROPIEDADES_PRECIO' => $request->input('Precio'),
-                            'PROPIEDADES_HABITACIONES' => $request->input('Habitaciones'),
-                            'PROPIEDADES_BAÑOS' => $request->input('Baños'),
-                            'PROPIEDADES_MEDIO_BAÑO' => $request->input('MediosBaños'),
-                            'PROPIEDADES_TERRENOS' => $request->input('Terreno'),
-                            'PROPIEDADES_CONSTRUCCION' => $request->input('Construcción'),
-                            'PROPIEDADES_CONDICIONES' => $request->input('Condición'),
-                            'PROPIEDADES_AÑO' => $request->input('Año'),
-                            'PROPIEDADES_NIVELES' => $request->input('Niveles'),
-                            'PROPIEDADES_ESTACIONAMIENTO' => $request->input('Estacionamientos'),
-                            'PROPIEDADES_CUOTA' => $request->input('cuota'),
-                            'PROPIEDADES_DESCRIPCION' => $request->input('descripcion'),
-                            'PROPIEDADES_CLAVE' => $request->input('Clave'),
-                            'PROPIEDADES_VIDEO' => $request->input('Video'),
-                            'PROPIEDADES_LATITUD' => $request->input('Latitud'),
-                            'PROPIEDADES_LONGITUD' => $request->input('longitud'),
-        ]);
-        $id_prop = DB::getPDO()->lastInsertId();
-        // return view('administrador.agregar_imagenes', array(
-        //     'id_prop' => $id_prop,
-        // ));
-        return redirect('VerPropiedades');
     }
 
     public function verpropiedades() {
@@ -114,19 +188,21 @@ class PaginaPrincipal extends Controller
         // return 'verificar si se esta pasando correctamente'.$id;
     }
 
-    public function Editarpropiedades()
+    public function Editarpropiedades(Request $request)
     {
-        // $id_propiedades=base64_decode($id_propiedad);
-        // $editar_propiedad=DB::table('cv_propiedades')->where('PROPIEDADES_ID',$id_propiedades)->first();
-        // // var_dump($editar_propiedad);
-        // die;
+        $id_propiedades=$request->input('id_propiedad');
+        $editar_propiedad=DB::table('cv_propiedades')->where('PROPIEDADES_ID',$id_propiedades)->first();
         $estados = DB::table('cv_estados')->get();
         $tipos = DB::table('cv_tipos')->get();
-        return view('administrador.Eeditar_propiedad', array(
+        return view('administrador.agregar_propiedad', array(
             'estados' => $estados,
             'tipos' => $tipos,
+            'id_propiedad' => $id_propiedades,
+            'editar' => $editar_propiedad,
         ));
     }
+
+
     public function municipios(Request $request) {
         $valor = DB::table('cv_municipios')
                     ->select('*')
@@ -183,5 +259,6 @@ class PaginaPrincipal extends Controller
                 'imagenes' => $verimagenes,
              ));
    }
+
 
 }
