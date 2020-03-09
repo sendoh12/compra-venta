@@ -28,7 +28,7 @@ Route::get('/login','LoginController@index');
 Route::get('Registro_usurio','LoginController@Registro')->name('Registro_usurio');
 Route::post('Registros','LoginController@Registrodelusuario');
 Route::post('Session','LoginController@show');
-Route::get('salir','LoginController@destroy');
+Route::get('salir','LoginController@destroy')->name('salir');
 
 
 Route::get('principal', ['as' => 'home', 'uses' => 'PortfolioController@index' ]);

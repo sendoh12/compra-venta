@@ -132,6 +132,13 @@
           <span>Ver Propiedad</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="{{ route('salir') }}" class="nav-link">
+          <i class="nav-icon fas fa-th "></i>
+          <span>Salir</span>
+        </a>
+      </li>
       
       {{-- <li class="treeview">
         <a href="{{ route('administrador.ver_administradores') }}">
