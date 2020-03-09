@@ -61,9 +61,14 @@
                                             <a href="#" class="btn bg-maroon btn-flat  ">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  ">
-                                              <i class="fa fa-image"> </i>
-                                            </a>
+
+                                            <form action="VerImagenes" method="get">
+                                            <input type="hidden" name="id_propiedade" value="<?=$item->PROPIEDADES_ID?>">
+                                            <input type="submit" value="VerImagenes" class="btn bg-orange btn-flat margin">
+                                            </form>
+                                            <!-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  "> -->
+                                              <!-- <i class="fa fa-image"> </i> -->
+                                            <!-- </a> -->
                                             <a href="{{ route('administrador.imagenes_propiedades', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  ">
                                               <i class="fa fa-eye"> </i>
                                             </a>

@@ -71,5 +71,5 @@ Route::get('AgregarImagenes/{id}', ['as'=>'administrador.agregar_imagenes', 'use
 Route::post('InsertarImagenes/{id}', 'PaginaPrincipal@insertar')->name('InsertarImagenes');
 
 //ver las imagenes de las propiedades
-Route::get('VerImagenes/{id}', ['as'=>'administrador.imagenes_propiedades', 'uses'=>'PaginaPrincipal@verimagenes']);
+Route::get('VerImagenes', ['as'=>'administrador.imagenes_propiedades', 'uses'=>'PaginaPrincipal@verimagenes']);
 
