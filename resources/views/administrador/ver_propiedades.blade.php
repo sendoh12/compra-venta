@@ -4,6 +4,12 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    <script>
+      .linea {
+    display: inline-block;
+    width: 100px;
+}
+    </script>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -52,29 +58,33 @@
                                             {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat ">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a> --}}
+                                            <div class="linea">
+                                              <form action="Editar" method="get">
+                                                <input type="hidden" name="id_propiedad" value="<?=$item->PROPIEDADES_ID?>">
+                                                <button type="submit" class="btn bg-orange btn-flat linea" ><i class="fas fa-pencil-alt"> </i></button>
+                                              </form>
+                                            </div>
+                                            
 
-                                            <form action="Editar" method="get">
-                                            <input type="hidden" name="id_propiedad" value="<?=$item->PROPIEDADES_ID?>">
-                                            <input type="submit" value="Editar" class="btn bg-orange btn-flat margin">
-                                            </form>
-
-                                            <a href="#" class="btn bg-maroon btn-flat  ">
+                                            {{-- <a href="#" class="btn bg-maroon btn-flat  ">
                                                 <i class="fa fa-trash"></i>
-                                            </a>
+                                            </a> --}}
+                                            <div class="linea">
+                                              <form action="VerImagenes" method="get">
+                                              <input type="hidden" name="id_propiedade" value="<?=$item->PROPIEDADES_ID?>">
+                                              <button type="submit" class="btn bg-green btn-flat  linea"><i class="fas fa-image"> </i></button>
+                                              </form>
+                                            </div>
 
-                                            <form action="VerImagenes" method="get">
-                                            <input type="hidden" name="id_propiedade" value="<?=$item->PROPIEDADES_ID?>">
-                                            <input type="submit" value="VerImagenes" class="btn bg-orange btn-flat margin">
-                                            </form>
-                                            <!-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  "> -->
-                                              <!-- <i class="fa fa-image"> </i> -->
-                                            <!-- </a> -->
-                                            <a href="{{ route('administrador.imagenes_propiedades', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  ">
-                                              <i class="fa fa-eye"> </i>
-                                            </a>
-                                            {{-- <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}"> imagenes</a> --}}
-
-                                            <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">Mapa</a>
+                                            <div class="linea">
+                                              <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  linea"> 
+                                                <i class="fas fa-plus-circle"></i>
+                                              </a> 
+                                            </div>
+                                            
+                                            <div class="linea">
+                                              <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">Mapa</a>
+                                            </div>
                                         </div>
                                     </div>
                                     

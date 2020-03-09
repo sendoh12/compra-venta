@@ -5,6 +5,7 @@
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -27,15 +28,14 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table id="registros" class="table table-bordered table-striped">
+                  <table id="registros" class="table table-bordered">
                     <thead>
-                    <tr>
-                      <th>Propiedades</th>
-                      {{-- <th>Nombre</th>
-                      <th>Acciones</th> --}}
-                    </tr>
+                        <tr>
+                        <th>Propiedades</th>
+                        
+                        </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="sortable">
                         @foreach ($imagenes as $item)
                             <tr>
                                 <td> 
@@ -95,8 +95,14 @@
       <!-- /.control-sidebar -->
  
 
-  
+      
 
 @include('plantillas.footer')
 
 
+<script>
+    $( function() {
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+    } );
+    </script>

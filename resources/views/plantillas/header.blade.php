@@ -38,7 +38,6 @@
 
   {{-- cargando plugin para multiples imagenes --}}
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="{{asset('dist/css/dropzone.css')}}" media="all" rel="stylesheet" type="text/css" />
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,8 +45,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
@@ -57,13 +55,19 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
 
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/dist/css/font-awesome.min.css')}} ">
+    
+    {{-- ruta que le da los estilos de examen --}}
+    {{-- <link rel="stylesheet" type="text/css" href=" {{asset('css/dist/css/skins/_all-skins.min.css')}} "> --}}
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/iCheck/flat/blue.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/morris/morris.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/datepicker/datepicker3.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/daterangepicker/daterangepicker-bs3.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.css')}} ">
+		<link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.print.css')}} ">
+
 
 
 </head>
