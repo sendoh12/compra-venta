@@ -76,7 +76,15 @@
                   <div class="col-sm-6">
                     <select name="estado" id="estados" class="form-control" onchange="MostrarMunicipios()">
                       @foreach ($estados as $item)
+                      <?php if(isset($editar)):?>
+                          <?php if($item->ESTADOS_ID == $editar->PROPIEDADES_ESTADO): ?>
+                            <option value=" {{$item->ESTADOS_ID}} " selected> {{$item->ESTADOS_NOMBRE}} </option>
+                          <?php else:?>
+                            <option value=" {{$item->ESTADOS_ID}} "> {{$item->ESTADOS_NOMBRE}} </option>
+                          <?php endif?>
+                      <?php else: ?>
                         <option value=" {{$item->ESTADOS_ID}} "> {{$item->ESTADOS_NOMBRE}} </option>
+                      <?php endif?>
                       @endforeach
                     </select>
                     
@@ -98,6 +106,16 @@
 
                   <div class="col-sm-6">
                     <select class="form-control" name="Municipio" id="Municipio">
+
+                      <?php if((isset($Municipio)) and (isset($editar))):?>
+                        <?php foreach ($Municipio as $key => $value):?>
+                          <?php if($value->MUNICIPIOS_ID == $editar->PROPIEDADES_MUNICIPIO):?>
+                            <option value="<?=$value->MUNICIPIOS_ID?>" id=""  selected><?=$value->MUNICIPIOS_NOMBRE?></option>
+                          <?php else:?>
+                            <option value="<?=$value->MUNICIPIOS_ID?>" id=""  selected><?=$value->MUNICIPIOS_NOMBRE?></option>
+                          <?php endif ?>
+                        <?php endforeach?>
+                      <?php endif?>
                       <option value="" id="" ></option>
                     </select>
                     {{-- <input type="text" id="Municipio" name="Municipio" /> --}}

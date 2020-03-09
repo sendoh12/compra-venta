@@ -56,8 +56,11 @@ class PaginaPrincipal extends Controller
     //     return view('administrador.agregar_propiedad', compact('tipos'));
     // }
     public function propiedadesguardar(Request $request) {
-        if ($request->input('id_prepiedad') != null) {
+
+        if ($request->input('Id_prepiedad') != null) {
+
             if($request->hasFile('imagen')) {
+
                 $file = $request->file('imagen');
                 $name = time().$file->getClientOriginalName();
                 $file->move(public_path().'/images', $name);
@@ -194,11 +197,13 @@ class PaginaPrincipal extends Controller
         $editar_propiedad=DB::table('cv_propiedades')->where('PROPIEDADES_ID',$id_propiedades)->first();
         $estados = DB::table('cv_estados')->get();
         $tipos = DB::table('cv_tipos')->get();
+        $municipio= DB::table('cv_municipios')->get();
         return view('administrador.agregar_propiedad', array(
             'estados' => $estados,
             'tipos' => $tipos,
             'id_propiedad' => $id_propiedades,
             'editar' => $editar_propiedad,
+            'Municipio' => $municipio,
         ));
     }
 
