@@ -56,7 +56,7 @@ class PaginaPrincipal extends Controller
     //     return view('administrador.agregar_propiedad', compact('tipos'));
     // }
     public function propiedadesguardar(Request $request) {
-        if ($request->input('Id_prepiedad') != null) {
+        if ($request->input('id_prepiedad') != null) {
             if($request->hasFile('imagen')) {
                 $file = $request->file('imagen');
                 $name = time().$file->getClientOriginalName();
@@ -249,10 +249,10 @@ class PaginaPrincipal extends Controller
 
    }
 
-   public function verimagenes($id) {
+   public function verimagenes(Request $request) {
         $verimagenes = DB::table('cv_imagenes')
                      ->select('*')
-                     ->where('IMAGENES_PROPIEDAD','=',$id)
+                     ->where('IMAGENES_PROPIEDAD','=',$request->input('id_propiedade'))
                      ->get();
 
             return view('administrador.imagenes_propiedades', array(
