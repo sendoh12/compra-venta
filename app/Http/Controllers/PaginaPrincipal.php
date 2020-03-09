@@ -241,6 +241,7 @@ class PaginaPrincipal extends Controller
                 'IMAGENES_PROPIEDAD' => $id,
                 'IMAGENES_NOMBRE' => $request->input('nombre'),
                 'IMAGENES_ARCHIVO' => $array[$i],
+                'IMAGENES_ORDEN' => $i
                         
                 ]);
             $i++;
