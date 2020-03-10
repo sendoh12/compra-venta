@@ -29,9 +29,13 @@
                       <td> {{$item->EMAIL_USER}} </td>
                       <td> {{$item->ROL_USERS}} </td>
                       <td>
-                        <button>Eliminar</button>
-                        <button>Editar</button>
-                      </td>
+                        <a href="Eliminarusuario/<?=$item->ID_USER?>" class="btn btn-danger">Eliminar</a>
+                        <form method="get" action="Editarusuario">
+                            @csrf
+                          <input type="hidden" name="usuario" value="<?=$item->ID_USER?>">
+                          <input type="submit" value="Editar" class="btn btn-secondary">
+                        </form>
+                       </td>
                     </tr>
                     
                 @endforeach

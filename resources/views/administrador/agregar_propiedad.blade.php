@@ -39,6 +39,15 @@
               <h3 class="box-title">Agregar Propiedad</h3>
             <?php endif ?>
             </div>
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                  <ul>
+                      @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+                  </div>
+            @endif
             <hr style="border-top: 1px solid #3c8dbc;">
             <!-- /.box-header -->
             <!-- form start -->
@@ -65,7 +74,7 @@
                   <div class="col-sm-6">
                     {{-- <input type="text" class="form-control" name="" id="Pais" placeholder=""> --}}
                     <select name="pais" id="pais" class="form-control">
-                      <option value="" selected>Mexico</option>
+                      <option value="Mexico" selected>Mexico</option>
                     </select>
                   </div>
                 </div>
@@ -87,19 +96,8 @@
                       <?php endif?>
                       @endforeach
                     </select>
-                    
-                    {{-- <input type="text" class="form-control" name="Estado" id="Estado" placeholder=""> --}}
                   </div>
                 </div>
-
-
-                {{-- <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-
-                  <div class="col-sm-10">
-                    <input type="file"  id="inputPassword3" placeholder="Password">
-                  </div>
-                </div> --}}
 
                 <div class="form-group">
                   <label for="" class="col-sm-3 control-label">Municipio/Delegación*</label>
@@ -118,8 +116,6 @@
                       <?php endif?>
                       <option value="" id="" ></option>
                     </select>
-                    {{-- <input type="text" id="Municipio" name="Municipio" /> --}}
-                    {{-- <input type="text" class="form-control" name="Municipio" id="Municipio" placeholder=""> --}}
                   </div>
                 </div>
 

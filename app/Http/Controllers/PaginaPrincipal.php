@@ -8,7 +8,7 @@ use DB;
 use Response;
 use App\AgregarPropiedad;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Requests\Propiedades_validation;
 class PaginaPrincipal extends Controller
 {
     public function inicio() {
@@ -51,11 +51,7 @@ class PaginaPrincipal extends Controller
     }
 
 
-    // public function Agregar_tipo() {
-    //     $tipos = DB::table('cv_tipos')->get();
-    //     return view('administrador.agregar_propiedad', compact('tipos'));
-    // }
-    public function propiedadesguardar(Request $request) {
+    public function propiedadesguardar(Propiedades_validation $request) {
 
         if ($request->input('Id_prepiedad') != null) {
 

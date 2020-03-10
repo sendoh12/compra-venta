@@ -72,4 +72,5 @@ Route::post('InsertarImagenes/{id}', 'PaginaPrincipal@insertar')->name('Insertar
 
 //ver las imagenes de las propiedades
 Route::get('VerImagenes', ['as'=>'administrador.imagenes_propiedades', 'uses'=>'PaginaPrincipal@verimagenes']);
-
+Route::get('Editarusuario','PortfolioController@Editar_usuario');
+Route::get('Eliminarusuario/{id_usuario}','PortfolioController@Eliminar');
