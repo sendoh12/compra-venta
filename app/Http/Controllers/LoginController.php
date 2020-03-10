@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\User_validation;
 class LoginController extends Controller
 {
@@ -38,7 +39,7 @@ class LoginController extends Controller
                         ->where('ID_USER',$request->input('id_usuario'))
                         ->update(["NOMBRE_USER" => $request->input('Nombre'),
                                     "EMAIL_USER"=> $request->input('correo'),
-                                    "PASSWORD_USER"=> $request->input('password'),
+                                    "PASSWORD_USER"=>Hash::make($request->input('password')),
                                     "ROL_USERS"=>$request->input('Rol'),]);
                     return redirect("principal");
                 }else{

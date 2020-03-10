@@ -20,7 +20,6 @@
                   <th>Acciones</th>
                 </tr>
               </thead>
-
               <tbody>
                 @foreach ($usuarios as $item)
                     <tr>
