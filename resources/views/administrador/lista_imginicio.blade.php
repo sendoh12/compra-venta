@@ -28,37 +28,38 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table id="registros" class="table table-bordered">
-                    <thead>
-                        <tr>
-                        <th></th>
-                        
-                        </tr>
-                    </thead>
-                    <tbody id="sortable">
-                        @foreach ($imagenes as $item)
-                            <tr>
-                                <td> 
-                                    <div class="row ">
-                                        <div class="col-md-16">
-                                            <div class="card col-md-3" >
-                                                <img class="card-img-top " style="width:200px; height:100px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
-                                                <a href="EliminarImageninicio/<?=$item->INICIO_ID?>" class="btn btn-danger">Eliminar</a>
-                                            </div>  
-                                            
-                                        </div>
-                                        
-                                    </div>
-                                       
-                                </td>
-                            </tr>
-    
-                            
-                        @endforeach
-                        
-                    </tbody>
-                   
-                  </table>
+                                <table id="registros" class="table table-bordered">
+                                  <thead>
+                                      <tr>
+                                      <th></th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="sortable">
+                                      @foreach ($imagenes as $item)
+                                          <tr>
+                                              <td> 
+                                                  <div class="row ">
+                                                      <div class="col-md-16">
+                                                          <div class="card col-md-3" >
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
+                                                              <a href="EliminarImageninicio/<?=$item->INICIO_ID?>" class="btn btn-danger">Eliminar</a>
+                                                              
+                                                          </div>  
+                                                          
+                                                      </div>
+                                                      
+                                                  </div>
+                                                    
+                                              </td>
+                                          </tr>
+                  
+                                          
+                                      @endforeach
+                                      
+                                  </tbody>
+                                
+                                </table>
+                  
                 </div>
                 <!-- /.box-body -->
               </div>

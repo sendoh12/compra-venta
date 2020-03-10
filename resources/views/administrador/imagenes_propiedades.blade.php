@@ -28,44 +28,35 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table id="registros" class="table table-bordered">
-                    <thead>
-                        <tr>
-                        <th>Propiedades</th>
-                        
-                        </tr>
-                    </thead>
-                    <tbody id="sortable">
-                        @foreach ($imagenes as $item)
-                            <tr>
-                                <td> 
-                                    <div class="row ">
-                                        <div class="col-md-16">
-                                            <div class="card col-md-3" >
-                                                <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
-                                                <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
-                                            </div>  
-                                            <div class="col-md-6">
-                                                {{$item->IMAGENES_NOMBRE}} <br>
-                                                {{-- {{'Precio'.$item->PROPIEDADES_PRECIO}} --}}
-                                            </div>
-                                            <div class="col-md-3">
-    
-                                                
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                       
-                                </td>
-                            </tr>
-    
-                            
-                        @endforeach
-                        
-                    </tbody>
-                   
-                  </table>
+                <form action="guardaorden" method="post">
+                          @csrf
+                          <input type="submit" value="Guardar">
+                                <table id="registros" class="table table-bordered">
+                                  <thead>
+                                      <tr>
+                                      <th>Propiedades</th>
+                                      
+                                      </tr>
+                                  </thead>
+                                  <tbody id="sortable">
+                                      @foreach ($imagenes as $item)
+                                          <tr>
+                                              <td> 
+                                                  <div class="row ">
+                                                      <div class="col-md-16">
+                                                          <div class="card col-md-3" >
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
+                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
+                                                              <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </td>
+                                          </tr>
+                                      @endforeach
+                                  </tbody>
+                                </table>
+                </form>
                 </div>
                 <!-- /.box-body -->
               </div>
