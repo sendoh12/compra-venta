@@ -1,0 +1,267 @@
+div.telefono {
+    height: 30px;
+    width: 90%;
+    /* background: red; */
+    display: block;
+}
+
+@media (min-width:862px) {
+    div.telefono {
+        height: 30px;
+        width: 90%;
+        /* background: red; */
+        display: none;
+    }
+}
+
+div.informes {
+    margin-top: 30px;
+    height: 150px;
+    width: 90%;
+    /* background: red; */
+    position: relative;
+    display: flex;
+}
+
+div.log {
+    /* background: yellow; */
+    flex: 1;
+    text-align: center;
+}
+
+div.inf {
+    /* background: green; */
+    flex: 1;
+    display: none;
+}
+
+div.informes h4 {
+    /* color: #fff; */
+    position: absolute;
+    bottom: 50px;
+    display: none;
+    /* text-transform: uppercase; */
+    /* font-style: 'Roboto', sans-serif; */
+}
+
+@media (min-width:862px) {
+    div.inf {
+        /* background: green; */
+        flex: 1;
+        display: block;
+    }
+    div.informes h4 {
+        /* color: #fff; */
+        position: absolute;
+        bottom: 50px;
+        display: block;
+        /* text-transform: uppercase; */
+        /* font-style: 'Roboto', sans-serif; */
+    }
+}
+
+
+/* logotipo de la empresa */
+
+img {
+    width: 350px;
+    height: 150px;
+    bottom: 100px;
+}
+
+@media (min-width:1080px) {
+    img {
+        width: 350px;
+        height: 150px;
+    }
+}
+
+@media (max-width:360px) {
+    img {
+        width: 220px;
+        height: 130px;
+    }
+}
+
+
+/* fin del logoti */
+
+div.principal {
+    /* width: 90%; */
+    background-color: rgb(26, 115, 232);
+    font-size: 17px;
+}
+
+ul li.activo {
+    background: #ff8f00;
+    color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    /* font-family: 'Open Sans Condensed', sans-serif; */
+}
+
+.navbar-inverse {
+    /* margin-left: 50px; */
+    text-transform: uppercase;
+    width: 90%;
+    background-color: rgb(26, 115, 232);
+    border-color: rgb(26, 115, 232);
+}
+
+.navbar-nav>li>a {
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+@media (min-width:1080px) {
+    .container-fluid {
+        padding-right: 15px;
+        padding-left: 240px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* ////////////////////////////////////////////////////////////// */
+
+div.captura {
+    width: 100%;
+    height: 500px;
+    margin-left: 0px;
+    /* background: red; */
+}
+
+@media (min-width:1076px) {
+    div.captura {
+        width: 106.5%;
+        height: 200px;
+        margin-left: -38px;
+        /* background: green; */
+    }
+}
+
+
+/* /////////////////////////////////// */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+body {
+    font-family: Open sans;
+}
+
+.slideshow {
+    width: 100%;
+    position: relative;
+}
+
+.slider li,
+ul {
+    width: 100%;
+}
+
+.slider li {
+    overflow: hidden;
+}
+
+.slider li img {
+    width: 100%;
+}
+
+.slider .caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 15px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+
+.slider .caption h1 {
+    font-size: 50px;
+}
+
+.slider .caption p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.pagination {
+    position: absolute;
+    top: 102%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li {
+    font-size: 20px;
+    margin: 2px 5px;
+    color: #858585;
+    cursor: pointer;
+}
+
+.left,
+.right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .slider .caption p {
+        display: none;
+    }
+    .slider .caption h1 {
+        font-size: 35px;
+    }
+    .left,
+    .right {
+        font-size: 30px;
+    }
+    .slider li img {
+        width: 600px;
+    }
+    .pagination {
+        display: none;
+    }
+}

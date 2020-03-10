@@ -266,5 +266,48 @@ class PaginaPrincipal extends Controller
              ));
    }
 
+    // caputar imagenes
+
+    public function capturaimagenes() {
+        return view('administrador.captura_imagenes');
+    }
+
+    public function Inicioinsertar(Request $request) {
+        if($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            
+            $j=0;
+            foreach ($file as $key ) {
+                $name = time().$key->getClientOriginalName();
+                $array[$j] = $name;
+                $key->move(public_path().'/inicio', $name);
+                $j++;
+            }  
+        }
+
+        $i=0;
+        foreach ($request->file('imagen') as $key => $value) {
+            $imagenes = DB::table('cv_inicio')->insert([
+
+                'INICIO_NOMBRE' => $array[$i],
+                        
+                ]);
+            $i++;
+        }
+
+        
+        return redirect('Verinicio');
+
+   }
+
+   //ver lista de las imagenes de la vista de inicio
+   public function verinicio() {
+    $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+       return view('administrador.lista_imginicio', compact('imagenes'));
+
+   }
+
 
 }

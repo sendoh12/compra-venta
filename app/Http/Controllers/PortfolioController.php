@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use DB;
+use App\Cv_inicio;
 
 class PortfolioController extends Controller
 {
@@ -37,7 +39,13 @@ class PortfolioController extends Controller
     }
 
     public function lacer() {
-        return view('lacer');
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        // $imagenes = DB::table('cv_inicio')->simplePaginate(1);
+        
+       return view('lacer', compact('imagenes'));
     }
 
     public function show($id) {

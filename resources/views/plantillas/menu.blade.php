@@ -107,6 +107,20 @@
       </li> --}}
 
       <li class="nav-item ">
+        <a href="{{ route('administrador.captura_imagenes') }}" class="nav-link ">
+          <i class="fa fa-files-o "></i>
+          <span>Capturar Imagenes</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a href="{{ route('administrador.lista_imginicio') }}" class="nav-link ">
+          <i class="fa fa-files-o "></i>
+          <span>Imagenes de Inicio</span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
         <a href="{{ route('home') }}" class="nav-link ">
           <i class="fa fa-files-o "></i>
           <span>Ver administradores</span>

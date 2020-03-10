@@ -1,45 +1,63 @@
 {{-- @extends('Paginasinicio.inicio') --}}
     
 
+<link rel="stylesheet" href="{{asset('dist/estilos/styles.css')}}">
 
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-        <div class="navbar-header ">
-            <a class="navbar-brand" href="#">GrupoLacer</a>
+
+<div class="principal">
+
+</div>
+
+    <div class="telefono center-block">
+    <h4><i class="fas fa-sms "></i> Escribenos a: cv_inmuebles@grupolacer.com Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
+    </div>
+    {{-- encabezado --}}
+    <div class="informes center-block">
+        <div class="log">
+            <img class="iman" src=" {{asset('uploads/LaCer_Logo.png')}}" alt="">
         </div>
-        <ul class="nav navbar-nav ">
+        <div class="inf">
+        <h4><i class="fas fa-sms "></i> Escribenos a: cv_inmuebles@grupolacer.com Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
+        </div>
+    </div>
+
+    
+
+    <nav class="navbar navbar-inverse center-block">
+        <div class=" container-fluid principal ">
             
-            <li class="{{ request()->routeIs('lacer') ? 'active' : '' }}">
-                <a href=" {{ route('lacer') }}"> Inicio </a>
-            </li>
 
-            <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                <a href="{{ route('about') }}">Propiedades</a>
-            </li>
+                <ul class="nav navbar-nav ">
+                    
+                    <li class="{{ request()->routeIs('lacer') ? 'activo' : '' }} ">
+                        <a href=" {{ route('lacer') }}"> <i class=" fas fa-home "></i> Inicio </a>
+                    </li>
 
-            <li class="{{ request()->routeIs('portfolio') ? 'active' : '' }}">
-                <a href="{{ route('portfolio') }}">Contacto</a>
-            </li>
+                    <li class="{{ request()->routeIs('about') ? 'activo' : '' }}">
+                        <a href="{{ route('about') }}"> <i class=" fas fa-landmark "></i> Propiedades </a>
+                    </li>
 
-            <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                <a href="{{ route('contact') }}">Favoritos</a>
-            </li>
+                    <li class="{{ request()->routeIs('portfolio') ? 'activo' : '' }}">
+                        <a href="{{ route('portfolio') }}"> <i class=" fas fa-id-badge "></i> Contacto </a>
+                    </li>
 
-            <li class="{{ request()->routeIs('informes') ? 'active' : '' }}">
-                <a href="{{ route('informes') }}">Informacion</a>
-            </li>
+                    <li class="{{ request()->routeIs('contact') ? 'activo' : '' }}">
+                        <a href="{{ route('contact') }}"> <i class=" fas fa-star "></i> Favoritos </a>
+                    </li>
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            {{-- <i class="fas fa-user-plus"></i> --}}
-            {{-- <i class="fas fa-user-circle"></i> --}}
-            {{-- <li><a href="#"><span class="fas fa-user-plus"></span> Sign Up</a></li> --}}
+                    <li class="{{ request()->routeIs('informes') ? 'activo' : '' }}">
+                        <a href="{{ route('informes') }}"> <i class=" fas fa-info-circle "></i> Informacion </a>
+                    </li>
+
+                </ul>
+        {{-- <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ action('LoginController@index') }} "><span class="fas fa-user-circle"></span> Login</a></li>
-        </ul>
+        </ul> --}}
         </div>
     </nav> 
 
-
+    <script src="{{asset('slider/js/jquery-3.1.0.min.js')}}"></script>
+    <script src="{{asset('slider/js/main.js')}}"></script>
 
 

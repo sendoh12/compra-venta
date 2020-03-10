@@ -18,6 +18,11 @@
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -48,7 +53,6 @@
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
 
   {{-- cargando plugin para multiples imagenes --}}
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -79,7 +83,10 @@
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/daterangepicker/daterangepicker-bs3.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.css')}} ">
-		<link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.print.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.print.css')}} ">
+    
+    
+    
 
 
 

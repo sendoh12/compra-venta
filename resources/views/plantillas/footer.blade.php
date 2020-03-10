@@ -24,6 +24,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
 <!-- ./wrapper -->
 <script src=" {{asset('plugins/jquery/jquery.min.js')}} "></script>
 <!-- jQuery 3 -->
@@ -41,6 +47,8 @@
 <script src="{{asset('dist/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('dist/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('dist/js/admin-ajax.js')}}"></script>
+
+
 
 
 
