@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use DB;
+use App\Http\Requests\User_validation;
 class LoginController extends Controller
 {
     /**
@@ -27,32 +29,34 @@ class LoginController extends Controller
         return view("Login/Registro");
     }
 
-    public function Registrodelusuario(Request $request)
+    public function Registrodelusuario(User_validation $request)
     {
         if ($request->isMethod('post')) {
-           
             if ($request->input() != null) {
-                    $validatedData = $request->validate([
-                    'Nombre'=>['required', 'max:52'],
-                    'correo' => ['required', 'email' ,'max:52'],
-                    'password' => ['required', 'max:52'],
-                    'Rol' =>['required', 'max:30']
-                    ]);
-                    $Usuario = array('Nombre' => $request->input('Nombre'),
-                                    'Correo' => $request->input('correo'),
-                                    'password' => $request->input('password'),
-                                    'Rol' => $request->input('Rol'));
-                $registro= new User;
-                $registrado=$registro->Registrar($Usuario);
-                if($registrado != null){
-                    return redirect('principal');
+                if($request->input('id_usuario') != null){
+                    $propiedades = DB::table('users')
+                        ->where('ID_USER',$request->input('id_usuario'))
+                        ->update(["NOMBRE_USER" => $request->input('Nombre'),
+                                    "EMAIL_USER"=> $request->input('correo'),
+                                    "PASSWORD_USER"=> $request->input('password'),
+                                    "ROL_USERS"=>$request->input('Rol'),]);
+                    return redirect("principal");
                 }else{
-                    return redirect('Registro_usurio');
+                        $Usuario = array('Nombre' => $request->input('Nombre'),
+                                'Correo' => $request->input('correo'),
+                                'password' => $request->input('password'),
+                                'Rol' => $request->input('Rol'));
+                        $registro= new User;
+                        $registrado=$registro->Registrar($Usuario);
+                        if($registrado != null){
+                            return redirect('principal');
+                        }else{
+                            return redirect('Registro_usurio');
+                        }
                 }
             }
         }
     }
-
     public function show(Request $request)
     {
         if ($request->isMethod('post')) {

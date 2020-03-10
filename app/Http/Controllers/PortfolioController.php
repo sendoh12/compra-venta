@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Project;
-use DB;
 use App\Cv_inicio;
 
 class PortfolioController extends Controller
@@ -60,5 +59,21 @@ class PortfolioController extends Controller
     public function editar_datos($id) {
         $valor = Project::findOrFail($id);
         return view('informacion.edicion', compact('valor'));
+    }
+
+    public function Editar_usuario(Request  $request)
+    {
+        $id_usuario=$request->input('usuario');
+        $editar_usuario = DB::table('users')->where('ID_USER',$id_usuario)->first();
+        return view('Login.Registro',[
+            'editar_usu'=> $editar_usuario,
+            'id_usuario' => $id_usuario,
+        ]);
+    }
+
+    public function Eliminar($id_usuario)
+    {
+        DB::table('users')->where('ID_USER', '=', $id_usuario)->delete();
+        return redirect("principal");
     }
 }

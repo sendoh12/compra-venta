@@ -73,8 +73,12 @@ Route::post('InsertarImagenes/{id}', 'PaginaPrincipal@insertar')->name('Insertar
 //ver las imagenes de las propiedades
 Route::get('VerImagenes', ['as'=>'administrador.imagenes_propiedades', 'uses'=>'PaginaPrincipal@verimagenes']);
 
+
 //captura de imagenes
 Route::get('CapturarImagenes', ['as' => 'administrador.captura_imagenes', 'uses'=>'PaginaPrincipal@capturaimagenes']);
 Route::post('InsertarInicio', 'PaginaPrincipal@Inicioinsertar')->name('InsertarInicio');
 
 Route::get('Verinicio', ['as'=>'administrador.lista_imginicio', 'uses'=>'PaginaPrincipal@verinicio']);
+
+Route::get('Editarusuario','PortfolioController@Editar_usuario');
+Route::get('Eliminarusuario/{id_usuario}','PortfolioController@Eliminar');

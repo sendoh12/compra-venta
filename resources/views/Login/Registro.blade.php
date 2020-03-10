@@ -25,36 +25,43 @@
         <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title">Crear Administrador</h3>
-
-         
           </div>
+          @if(count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            </div>
+          @endif
           <div class="box-body">
           <form method="post" action="Registros">
             @csrf
                 <div class="box-body">
                   <div class="form-group">
                     <label for="usuario">Usuario:</label>
-                    {{-- <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario"> --}}
-                    <input id="Nombre" class="form-control" type="text"name="Nombre" placeholder="Nombre de usuario" class="@error('Nombre', 'login') is-invalid @enderror">
+                    <input id="Nombre" class="form-control" type="text"name="Nombre" placeholder="Nombre de usuario" class="@error('Nombre', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
+                      echo $editar_usu->NOMBRE_USER;
+                    }?>">
 
                   </div>
 
                   <div class="form-group">
                     <label for="nombre">Correo:</label>
-                    {{-- <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu Nombre Completo"> --}}
-                    <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror">
-
-
+                    <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
+                      echo $editar_usu->EMAIL_USER;
+                    }?>">
                   </div>
 
                   <div class="form-group">
                     <label for="password">Password:</label>
-                    {{-- <input type="password" class="form-control" id="password" name="password" placeholder="Password Para Iniciar Sesion"> --}}
                     <input id="password" class="form-control" type="password"name="password" placeholder="Contraseña" class="@error('password', 'login') is-invalid @enderror">
-
-                    
+                    <input type="hidden"name="id_usuario" value="<?php if(isset($id_usuario)){
+                      echo $id_usuario;
+                    } ?>" >
                   </div>
-
+                    
                   <div class="form-group">
                     <label for="password">Tipo de usuario:</label>
                         <select class="form-control" name="Rol" id="Rol">
@@ -70,7 +77,7 @@
 
               <div class="box-footer">
                 <input type="hidden" name="registro" value="nuevo">
-                <button class="btn btn-primary" >Añadir</button>
+                <button class="btn btn-primary" >Guardar</button>
               </div>
             </form>
             @error('email', 'login')
