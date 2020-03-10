@@ -88,31 +88,51 @@ img {
 
 div.principal {
     /* width: 90%; */
-    background-color: rgb(26, 115, 232);
+    background-color: #0d47a1;
     font-size: 17px;
 }
 
 ul li.activo {
-    background: #ff8f00;
+    /* width: 100%; */
+    background: #FF8800;
     color: white;
+    /* width: 100%; */
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: #fff;
-    /* font-family: 'Open Sans Condensed', sans-serif; */
+    /* color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.0em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .6s ease; */
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 1.0em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .6s ease;
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    background-color: #4285F4;
+    width: 100%;
 }
 
 .navbar-inverse {
     /* margin-left: 50px; */
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     width: 90%;
-    background-color: rgb(26, 115, 232);
-    border-color: rgb(26, 115, 232);
+    background-color: #0d47a1;
+    border-color: #0d47a1;
 }
 
 .navbar-nav>li>a {
-    padding-top: 30px;
-    padding-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 @media (min-width:1080px) {
