@@ -10,7 +10,6 @@
    crossorigin=""></script>
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -503,16 +502,18 @@
 function buscar() {
   var latitud = document.getElementById('Latitud').value;
   var longitud = document.getElementById('longitud').value;
-  console.log("ola");
+  //console.log("ola");
   document.getElementById('mapid').innerHTML = "<div id='map' style='width: 100%; height: 100%;'></div>";
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,' +
+    osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,' +
                         ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-     osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
+    osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
     var map = new L.Map('map');
     map.setView(new L.LatLng(latitud,longitud), 13 );
-   var posision=L.marker([latitud,longitud])
     map.addLayer(osmLayer);
+    var marker=L.marker([latitud,longitud]);
+    marker.bindPopup('<p>Latitud:'+latitud+'</p><p>Longitud:'+longitud+'</p>');
+	  marker.addTo(map);
     var validatorsLayer = new OsmJs.Weather.LeafletLayer({lang: 'es'});
     map.addLayer(validatorsLayer);
     map.addLayer(posision);

@@ -16,9 +16,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $usuarios = Project::latest()->paginate(1);
+        $users = DB::table('users')->paginate(15);
         return view('layout', [
-            'usuarios' => Project::latest()->paginate()
+            'usuarios' => $users
         ]);
 
         // return view('layout');
@@ -75,5 +75,28 @@ class PortfolioController extends Controller
     {
         DB::table('users')->where('ID_USER', '=', $id_usuario)->delete();
         return redirect("principal");
+    }
+
+    public function Elimiarimagen($id_imagen)
+    {
+        DB::table('cv_imagenes')->where('IMAGENES_ID', '=', $id_imagen)->delete();
+        return redirect("VerPropiedades");
+    }
+
+    public function Elimiarimageninicio( $id_imagen)
+    {
+        DB::table('cv_inicio')->where('INICIO_ID', '=', $id_imagen)->delete();
+        return redirect("Verinicio");
+    }
+    public function guardarorden(Request  $request)
+    {
+        $ordenarray=$request->input('orden');
+        for ($i=0; $i <count($ordenarray) ; $i++) { 
+            $orden = DB::table('cv_imagenes')
+                        ->where('IMAGENES_ID',$ordenarray[$i])
+                        ->update(['IMAGENES_ORDEN' => $i,]);
+                
+        }
+        return back();
     }
 }

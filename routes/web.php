@@ -82,3 +82,6 @@ Route::get('Verinicio', ['as'=>'administrador.lista_imginicio', 'uses'=>'PaginaP
 
 Route::get('Editarusuario','PortfolioController@Editar_usuario');
 Route::get('Eliminarusuario/{id_usuario}','PortfolioController@Eliminar');
+Route::get('EliminarImagen/{idimagen}','PortfolioController@Elimiarimagen');
+Route::get('EliminarImageninicio/{idimagen}','PortfolioController@Elimiarimageninicio');
+Route::post('guardaorden','PortfolioController@guardarorden');

@@ -255,6 +255,7 @@ class PaginaPrincipal extends Controller
         $verimagenes = DB::table('cv_imagenes')
                      ->select('*')
                      ->where('IMAGENES_PROPIEDAD','=',$request->input('id_propiedade'))
+                     ->orderBy('IMAGENES_ORDEN','ASC')
                      ->get();
 
             return view('administrador.imagenes_propiedades', array(
