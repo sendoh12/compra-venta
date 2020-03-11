@@ -23,9 +23,9 @@
             @endforeach
 		</ul>
 
-		<ol class="pagination">
+		{{-- <ol class="pagination">
 			
-		</ol>
+		</ol> --}}
 	
 		<div class="left">
 			<span class="fa fa-chevron-left"></span>
@@ -36,8 +36,14 @@
 		</div>
 
 	</div>
-      
-       
+
+		<div class="contenido">
+
+		</div>
+
+@include('plantillas.menu_footer')
+
 
     </div>
 @endsection
+

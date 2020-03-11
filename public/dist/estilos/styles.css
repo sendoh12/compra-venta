@@ -1,3 +1,7 @@
+body {
+    background: #bbdefb;
+}
+
 div.telefono {
     height: 30px;
     width: 90%;
@@ -188,10 +192,27 @@ body {
     font-family: Open sans;
 }
 
+
+/*  */
+
 .slideshow {
     width: 100%;
+    margin-left: 0px;
     position: relative;
 }
+
+
+/* @media (min-width:1080px) {
+    .slideshow {
+        width: 111.5%;
+        margin-left: -67px;
+        position: relative;
+        margin-top: -20px;
+    }
+} */
+
+
+/*  */
 
 .slider li,
 ul {
@@ -284,4 +305,102 @@ ul {
     .pagination {
         display: none;
     }
+}
+
+.pagination li {
+    font-size: 20px;
+    margin: -20px 5px;
+    color: #858585;
+    cursor: pointer;
+}
+
+
+/* footer de la pagina */
+
+footer.info-testimonial {
+    padding: 0;
+    background-color: transparent;
+}
+
+footer.info-testimonial img {
+    float: left;
+    width: 20%;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+footer.info-testimonial cite {
+    text-align: left;
+    color: #fe4918;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 20px;
+    width: 66.5%;
+    float: right;
+    font-weight: bold;
+    font-style: normal;
+}
+
+footer.info-testimonial cite span {
+    color: #2518cf;
+    display: block;
+    text-transform: none;
+    margin-top: 5px;
+}
+
+footer {
+    background-color: #0d47a1;
+    padding-top: 40px;
+    margin-top: 20px;
+}
+
+footer .contenedor>div {
+    color: #ffffff;
+    padding: 0px 20px;
+    font-size: 12px;
+}
+
+@media only screen and (min-width:768px) {
+    footer .contenedor>div {
+        width: 33.3%;
+        float: left;
+    }
+}
+
+footer h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 20px;
+}
+
+footer h3 span {
+    color: #fe4918;
+}
+
+footer .ultimos-twets li {
+    margin-bottom: 10px;
+}
+
+footer nav.redes-sociales {
+    text-align: left;
+}
+
+p.copyright {
+    background-color: #4285F4;
+    color: #ffffff;
+    padding: 10px 0;
+    margin: 0;
+    margin-bottom: 20px 0 0 0;
+    text-align: center;
+}
+
+
+/* contenido de la pagina de inicio */
+
+div.contenido {
+    width: 100%;
+    height: 500px;
+    background: red;
+    margin-top: 20px;
 }
