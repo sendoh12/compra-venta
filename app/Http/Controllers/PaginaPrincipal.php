@@ -176,9 +176,19 @@ class PaginaPrincipal extends Controller
         }
     }
 
+    public function busqueda(Request $request)
+    {
+
+            if($request->get('busqueda')){
+                $propiedades = DB::table('cv_propiedades')->where("PROPIEDADES_NOMBRE", "LIKE", "%{$request->get('busqueda')}%")
+                    ->paginate(10);
+                return view('administrador.ver_propiedades', compact('propiedades'));
+            }
+            return back();
+    }
     public function verpropiedades() {
 
-        $propiedades = DB::table('cv_propiedades')->get();
+        $propiedades = DB::table('cv_propiedades')->paginate(10);
         return view('administrador.ver_propiedades', compact('propiedades'));
     }
     
@@ -194,6 +204,7 @@ class PaginaPrincipal extends Controller
         $estados = DB::table('cv_estados')->get();
         $tipos = DB::table('cv_tipos')->get();
         $municipio= DB::table('cv_municipios')->get();
+        
         return view('administrador.agregar_propiedad', array(
             'estados' => $estados,
             'tipos' => $tipos,
@@ -238,16 +249,11 @@ class PaginaPrincipal extends Controller
                 'IMAGENES_NOMBRE' => $request->input('nombre'),
                 'IMAGENES_ARCHIVO' => $array[$i],
                 'IMAGENES_ORDEN' => $i
-                        
                 ]);
             $i++;
         }
 
-        // $verimagenes = DB::table('cv_imagenes')->get($id);
-        // return view('administrador.agregar_imagenes', array(
-        //     'imagenes' => $verimagenes,
-        // ));
-        return redirect('VerPropiedades');
+      return redirect('VerPropiedades');
 
    }
 

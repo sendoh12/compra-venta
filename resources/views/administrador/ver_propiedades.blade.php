@@ -32,6 +32,17 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            <form action="buscar" method="get" onsubmit="return showLoad()">
+            <div class="panel-body">
+                <label class="label-control">Nombre de Propiedad</label>
+                <input type="text" name="busqueda" class="form-control" placeholder="Ingresar nombre de la Propiedad" required="required">
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success">buscar</button>
+            </div>
+            </form>
+
+
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -99,6 +110,7 @@
                 </tbody>
                
               </table>
+              {{$propiedades->links()}}
             </div>
             <!-- /.box-body -->
           </div>
