@@ -29,7 +29,7 @@ class Propiedades_validation extends FormRequest
             'estado' => 'min:1|max:2|required',
             'Municipio' => 'min:1|max:120|required',
             'Colonia' => 'min:2|max:120|required',
-            'Zona' => 'min:2|max:10|required',
+            'Zona' => 'min:2|max:60|required',
             'CodigoPostal' =>'min:2|max:10|required',
             'Calle' =>'min:2|max:120|required',
             'NumeroExterior'=>'min:1|max:10|required',
@@ -50,7 +50,7 @@ class Propiedades_validation extends FormRequest
             'Estacionamientos'=>'min:1|max:5|required',
             'cuota'=>'min:1|max:10|required',
             'descripcion'=>'min:1|max:1000|required',
-            'Clave'=>'min:1|max:10|required',
+            'Clave'=>'min:1|max:20|required',
             'Video'=>'min:2|max:120|required',
         ];
     }
