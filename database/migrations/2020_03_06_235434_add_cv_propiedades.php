@@ -45,7 +45,7 @@ class AddCvPropiedades extends Migration
             $table->integer('PROPIEDADES_ESTACIONAMIENTO')->nullable();
             $table->string('PROPIEDADES_CUOTA')->nullable();
             // descripcion
-            $table->string('PROPIEDADES_DESCRIPCION')->nullable();
+            $table->longText('PROPIEDADES_DESCRIPCION')->nullable();
             $table->string('PROPIEDADES_CLAVE')->nullable();
             $table->string('PROPIEDADES_VIDEO')->nullable();
         });
