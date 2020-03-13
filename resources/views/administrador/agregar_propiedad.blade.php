@@ -401,9 +401,7 @@
 
                 <div class="col-sm-6">
                   <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5">
-                  <?php if (isset($editar)) {
-                      echo $editar->PROPIEDADES_DESCRIPCION;
-                    } ?>
+                  
                   </textarea>
                   
                 </div>
@@ -518,6 +516,17 @@ function buscar() {
     map.addLayer(validatorsLayer);
     map.addLayer(posision);
 }
+</script>
+<script>
+      $(document).ready(function() {
+        var costan="";
+        <?php if (isset($editar)):?>
+                    costan='<?=$editar->PROPIEDADES_DESCRIPCION?>';
+                    document.getElementById("descripcion").value = costan;
+          <?php endif ?>
+          console.log(costan);
+                });
+
 </script>
 <script>
 
