@@ -53,14 +53,14 @@
             <form class="form-horizontal" method="POST" action="GuardarPropiedades" enctype="multipart/form-data">
               @csrf
               <div class="box-body">
-                <input type="hidden" name="Id_prepiedad" value="<?php if(isset($id_propiedad)){
+                <input type="hidden" name="Id_prepiedad" required value="<?php if(isset($id_propiedad)){
                   echo $id_propiedad;
                 }
                 ?>">
                 <div class="form-group">
                   <label for="" class="col-sm-3 control-label">Nombre de propiedad*</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="propiedad" id="propiedad" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="propiedad" id="propiedad" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_NOMBRE;
                     } ?>">
                   </div>
@@ -72,7 +72,7 @@
 
                   <div class="col-sm-6">
                     {{-- <input type="text" class="form-control" name="" id="Pais" placeholder=""> --}}
-                    <select name="pais" id="pais" class="form-control">
+                    <select name="pais" id="pais" class="form-control" required>
                       <option value="Mexico" selected>Mexico</option>
                     </select>
                   </div>
@@ -82,7 +82,7 @@
                   <label for="Estado" class="col-sm-3 control-label">Estado*</label>
 
                   <div class="col-sm-6">
-                    <select name="estado" id="estados" class="form-control" onchange="MostrarMunicipios()">
+                    <select name="estado" id="estados" class="form-control" required onchange="MostrarMunicipios()">
                       @foreach ($estados as $item)
                       <?php if(isset($editar)):?>
                           <?php if($item->ESTADOS_ID == $editar->PROPIEDADES_ESTADO): ?>
@@ -102,7 +102,7 @@
                   <label for="" class="col-sm-3 control-label">Municipio/Delegación*</label>
 
                   <div class="col-sm-6">
-                    <select class="form-control" name="Municipio" id="Municipio">
+                    <select class="form-control" name="Municipio" required id="Municipio">
 
                       <?php if((isset($Municipio)) and (isset($editar))):?>
                         <?php foreach ($Municipio as $key => $value):?>
@@ -121,7 +121,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-3 control-label">Colonia*</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Colonia" id="Colonia" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="Colonia" id="Colonia" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_COLONIA;
                     } ?>">
                   </div>
@@ -131,7 +131,7 @@
                   <label for="" class="col-sm-3 control-label">Zona</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Zona" id="Zona" placeholder="" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" name="Zona" required id="Zona" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_ZONA;
                     } ?>">
                   </div>
@@ -141,7 +141,7 @@
                   <label for="" class="col-sm-3 control-label">Código postal*</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="CodigoPostal" id="CodigoPostal" placeholder="" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="CodigoPostal" id="CodigoPostal" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_CP;
                     } ?>">
                   </div>
@@ -151,7 +151,7 @@
                   <label for="" class="col-sm-3 control-label">Calle*</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="Calle" id="Calle" placeholder="" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="Calle" id="Calle" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_CALLE;
                     } ?>">
                   </div>
@@ -161,7 +161,7 @@
                   <label for="" class="col-sm-3 control-label">Número exterior</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="NumeroExterior" id="NumeroExterior" placeholder="" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="NumeroExterior" id="NumeroExterior" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_EXTERIOR;
                     } ?>">
                   </div>
@@ -171,7 +171,7 @@
                   <label for="" class="col-sm-3 control-label">Número interior</label>
 
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="NumeroInterior" id="NumeroInterior" placeholder="" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" required name="NumeroInterior" id="NumeroInterior" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_INTERIOR;
                     } ?>">
                   </div>
@@ -187,13 +187,13 @@
                 <center><h1>Las coordenadas GPS</h1></center>
                     <div class="col-sm-4">
                       <label for="" class="col-sm-3 control-label">Latitud</label>
-                      <input type="text" class="" name="Latitud" id="Latitud" placeholder="" value="<?php if (isset($editar)) {
+                      <input type="text" class="" required name="Latitud" id="Latitud" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_LATITUD;
                     } ?>">
                     </div>
                     <div class="col-sm-4">
                       <label for="" class="control-label">Longitud</label>
-                      <input type="text" class="" name="longitud" id="longitud" placeholder="" value="<?php if (isset($editar)) {
+                      <input type="text" class="" name="longitud" required id="longitud" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_LONGITUD;
                     } ?>">
                     </div>
@@ -258,7 +258,7 @@
               <div class="form-group " id="op1">
                 <label for="" class="col-sm-3 control-label">Subtipo*</label>
                 <div class="col-sm-6">
-                  <select name="subtipo" id="subtipo" class="form-control">
+                  <select name="subtipo" id="subtipo" required class="form-control">
                     <option value="Sola">Sola</option>
                     <option value="Condominio">Condominio</option>
                     <option value="Financiamiento">Financiamiento</option>
@@ -269,7 +269,7 @@
               <div class="form-group " id="op2">
                 <label for="" class="col-sm-3 control-label">Operación*</label>
                 <div class="col-sm-6">
-                  <select name="operacion" id="operacion" class="form-control">
+                  <select name="operacion" id="operacion" required class="form-control">
                     <option value="Venta">Venta</option>
                     <option value="Renta">Renta</option>
                   </select>
@@ -279,7 +279,7 @@
               <div class="form-group " id="op3">
                 <label for="" class="col-sm-3 control-label">Precio*</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Precio" id="Precio" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" required name="Precio" id="Precio" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_PRECIO;
                     } ?>">
                 </div>
@@ -288,7 +288,7 @@
               <div class="form-group " id="op4">
                 <label for="" class="col-sm-3 control-label">Habitaciones*</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Habitaciones" id="Habitaciones" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Habitaciones" required id="Habitaciones" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_HABITACIONES;
                     } ?>">
                 </div>
@@ -299,12 +299,12 @@
                 
                 <div class="col-sm-6">
                   <div class="input-group">
-                    <input type="text" class="form-control" name="Baños" id="Baños" placeholder="Baños Completos" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" name="Baños" required id="Baños" placeholder="Baños Completos" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_BAÑOS;
                     } ?>">
                     <span class="input-group-addon">-</span>
                     {{-- MEDIOS BAÑOS --}}
-                    <input type="text" class="form-control" name="MediosBaños" id="MediosBaños" placeholder="Medios Baños" value="<?php if (isset($editar)) {
+                    <input type="text" class="form-control" name="MediosBaños" required id="MediosBaños" placeholder="Medios Baños" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_BAÑOS;
                     } ?>">
                   </div>
@@ -316,7 +316,7 @@
               <div class="form-group " id="op6">
                 <label for="" class="col-sm-3 control-label">Terreno*</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Terreno" id="Terreno" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Terreno" required id="Terreno" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_TERRENOS;
                     } ?>">
                 </div>
@@ -325,7 +325,7 @@
               <div class="form-group " id="op7">
                 <label for="" class="col-sm-3 control-label">Construcción*</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Construcción" id="Construcción" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Construcción" required id="Construcción" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_CONSTRUCCION;
                     } ?>">
                 </div>
@@ -334,7 +334,7 @@
               <div class="form-group " id="op8">
                 <label for="" class="col-sm-3 control-label">Condición construcción</label>
                 <div class="col-sm-6">
-                  <select name="Condición" id="Condición" class="form-control">
+                  <select name="Condición" id="Condición" required class="form-control">
                     <option value="Buena">Buena</option>
                     <option value="Media">Media</option>
                     <option value="Mala">Mala</option>
@@ -346,7 +346,7 @@
               <div class="form-group" id="op9">
                 <label for="" class="col-sm-3 control-label">Año de construcción</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Año" id="Año" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Año" required id="Año" placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_AÑO;
                     } ?>">
                 </div>
@@ -355,7 +355,7 @@
               <div class="form-group " id="op10">
                 <label for="" class="col-sm-3 control-label">Niveles</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Niveles" id="Niveles" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Niveles" id="Niveles" required placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_NIVELES;
                     } ?>">
                 </div>
@@ -364,7 +364,7 @@
               <div class="form-group " id="op11">
                 <label for="" class="col-sm-3 control-label">Estacionamientos</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Estacionamientos" id="Estacionamientos" placeholder=""value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Estacionamientos" required id="Estacionamientos" placeholder=""value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_ESTACIONAMIENTO;
                     } ?>">
                 </div>
@@ -373,7 +373,7 @@
               <div class="form-group " id="op12">
                 <label for="" class="col-sm-3 control-label">Cuota de mantenimiento</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="cuota" id="cuota" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="cuota" id="cuota" required placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_CUOTA;
                     } ?>">
                 </div>
@@ -400,7 +400,7 @@
                 <label for="" class="col-sm-3 control-label">Descripción</label>
 
                 <div class="col-sm-6">
-                  <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5">
+                  <textarea class="form-control" name="descripcion" required id="descripcion" cols="30" rows="5">
                   
                   </textarea>
                   
@@ -411,7 +411,7 @@
                 <label for="" class="col-sm-3 control-label">Clave interna</label>
 
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="Clave" id="Clave" placeholder="" value="<?php if (isset($editar)) {
+                  <input type="text" class="form-control" name="Clave" id="Clave" required placeholder="" value="<?php if (isset($editar)) {
                       echo $editar->PROPIEDADES_CLAVE;
                     } ?>">
                 </div>
