@@ -10,7 +10,7 @@
 </div>
 
     <div class="telefono center-block">
-    <h4><i class="fas fa-sms "></i> Escribenos a: cv_inmuebles@grupolacer.com Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
+    <h4><i class="fas fa-sms "></i> Escribenos a: arquitectura_inmobiliaria@grupolacer.com Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
     </div>
     {{-- encabezado --}}
     <div class="informes center-block">
@@ -18,7 +18,7 @@
             <img class="iman" src=" {{asset('uploads/LaCer_Logo.png')}}" alt="">
         </div>
         <div class="inf">
-        <h4><i class="fas fa-sms "></i> Escribenos a: cv_inmuebles@grupolacer.com Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
+        <h4><i class="fas fa-sms "></i> Escribenos a: arquitectura_inmobiliaria@grupolacer.com <br> Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>
         </div>
     </div>
 
