@@ -25,7 +25,10 @@ class PortfolioController extends Controller
     }
 
     public function about() {
-        return view('about');
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+        return view('about', compact('imagenes'));
     }
 
     public function portafolio() {

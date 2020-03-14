@@ -16,16 +16,12 @@
 			<li>
 				<img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
 				<section class="caption">
-					<h1></h1>
+					<h1>GupoLacer</h1>
 					<p></p>
 				</section>
             </li>
             @endforeach
 		</ul>
-
-		{{-- <ol class="pagination">
-			
-		</ol> --}}
 	
 		<div class="left">
 			<span class="fa fa-chevron-left"></span>
@@ -38,8 +34,6 @@
 	</div>
 
 		<div class="contenido">
-
-
 			<div class="filtro">
 				<form class="col-md-10 col-md-offset-1 colorform">
 					@csrf
