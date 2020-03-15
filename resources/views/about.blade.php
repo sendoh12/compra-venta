@@ -30,45 +30,29 @@
  </div>
 
  <section class="invitados contenedor seccion">
-    <h2>Nuestros invitados</h2>
+    <h2>Propiedades</h2>
     <ul class="lista-invitados clearfix">
-      <li>
-        <div class="invitado">
-          <img src="img/invitado1.jpg" alt="imagen invitado">
-          <p>Rafael Bautista</p>
-        </div>
-        
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado2.jpg" alt="imagen invitado">
-          <p>Shari Herrera</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado3.jpg" alt="imagen invitado">
-          <p>Gregorio Sanchez</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado4.jpg" alt="imagen invitado">
-          <p>Susana Rivera</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado5.jpg" alt="imagen invitado">
-          <p>Harold Garcia</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado6.jpg" alt="imagen invitado">
-          <p>Susan Sanchez</p>
-        </div>
-      </li>
+        @foreach ($propiedades as $propiedad)
+        <li>
+            <div class="invitado">
+                <div class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</div>
+                    <img style="width: 400px;height: 250px;" src="images/<?=$propiedad->PROPIEDADES_IMAGEN?>" alt="imagen invitado">
+                    <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
+                </div>
+                <div class="texto" style="width: 400px;height: 250px;">
+                    <p>{{$propiedad->PROPIEDADES_NOMBRE}}</p>
+                    <p>{{$propiedad->ESTADOS_NOMBRE}}</p>
+                    <p>{{$propiedad->MUNICIPIOS_NOMBRE}}</p>
+                    <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
+                    <p>{{$propiedad->PROPIEDADES_ZONA}}</p>
+                    <div class="botones">
+                </div>
+            </div>
+        </li>
+       
+            
+        @endforeach
+      
     </ul>
   </section>
     

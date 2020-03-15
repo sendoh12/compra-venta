@@ -28,7 +28,21 @@ class PortfolioController extends Controller
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
                     ->get();
-        return view('about', compact('imagenes'));
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+
+                    ->get();
+
+        // var_dump($propiedades);
+        // die();
+
+        return view('about', array(
+            'imagenes' => $imagenes,
+            'propiedades' => $propiedades
+        ));
     }
 
     public function portafolio() {

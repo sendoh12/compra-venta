@@ -1,6 +1,3 @@
-
-
-
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
     <b>Version</b> 2.4.0
@@ -12,9 +9,9 @@
 
 </div>
 
-{{-- {{-- scripts para cargar el plugin de multiples imagenes --}}
+{{-- scripts para cargar el plugin de multiples imagenes --}}
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -47,7 +44,6 @@
 <script src="{{asset('dist/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('dist/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('dist/js/admin-ajax.js')}}"></script>
-
 
 
 

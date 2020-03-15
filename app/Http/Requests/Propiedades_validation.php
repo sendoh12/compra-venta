@@ -38,7 +38,7 @@ class Propiedades_validation extends FormRequest
             'longitud'=>'min:1|max:200|required',
             'subtipo'=>'min:1|max:300|required',
             'operacion'=>'min:1|max:200|required',
-            'Precio'=>'min:1|max:10|required',
+            'Precio'=>'min:1|max:50|required',
             'Habitaciones'=>'min:1|max:10|required',
             'Baños'=>'min:1|max:10|required',
             'MediosBaños'=>'min:1|max:10|required',
