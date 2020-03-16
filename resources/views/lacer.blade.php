@@ -9,8 +9,7 @@
 
 
     <div class="captura ">
-        
-       <div class="slideshow">
+    	<div class="slideshow">
 		<ul class="slider">
             @foreach ($imagenes as $item)
 			<li>
@@ -35,28 +34,36 @@
 
 		<div class="contenido">
 			<div class="filtro">
-				<form class="col-md-10 col-md-offset-1 colorform">
+			@if(count($errors) > 0)
+				<div class="alert alert-danger">
+					<ul>
+						@foreach($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+        	@endif
+				<form  action="contactos"  method="post" class="col-md-10 col-md-offset-1 colorform">
 					@csrf
-					
 					<br>
 					{{-- <div class="form-group"> --}}
 						<label class="letra">Contactanos</label>
 					{{-- </div> --}}
 					<br><br>
 					<div class="form-group">
-						<input type="email" class="form-control tipoletra" id="" placeholder="Nombre de la persona y apellidos">
+						<input type="text" name="nombre" class="form-control tipoletra" id="" placeholder="Nombre de la persona y apellidos"  minlength="2" maxlength="80"  required>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control tipoletra" id="" placeholder="Email">
+						<input type="email" name="email" class="form-control tipoletra" id="" placeholder="Email" minlength="2" maxlength="80"  required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control tipoletra" id="" placeholder="Telefono">
+						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" pattern="[0-9]{10}" required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control tipoletra" id="" placeholder="Asunto">
+						<input type="text" name="asunto" class="form-control tipoletra" id="" placeholder="Asunto" minlength="2" maxlength="120"  required>
 					</div>
 					<div class="form-group">
-						<textarea class="form-control tipoletra" name="" id="" placeholder="Mensaje*"></textarea>
+						<textarea class="form-control tipoletra" name="mesaje" id="" placeholder="Mensaje*" minlength="2" maxlength="1000"  required></textarea>
 					</div>
 						<button type="submit" class="btn-3d form-control">Buscar</button>
 				</form>					
@@ -83,7 +90,7 @@
 					</div>
 					<div class="form-group">
 						<label class="letra">Nombre</label>
-						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
 					</div>
 					<button type="submit" class="btn-3d form-control">Buscar</button>
 				</div>
@@ -91,7 +98,7 @@
 				<div id="clave" style="display:none;">
 					<div class="form-group">
 						<label class="letra">Buscar por clave</label>
-						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
 					</div>
 					<button type="submit" class="btn-3d" style="align:right;">Buscar</button>
 
