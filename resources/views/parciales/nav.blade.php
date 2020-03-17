@@ -43,11 +43,11 @@
                     </li>
 
                     <li class="{{ request()->routeIs('contact') ? 'activo' : '' }}">
-                        <a href="{{ route('contact') }}"> <i class=" fas fa-star "></i> Favoritos </a>
+                        {{-- <a href="{{ route('contact') }}"> <i class=" fas fa-star "></i> Favoritos </a> --}}
                     </li>
 
                     <li class="{{ request()->routeIs('informes') ? 'activo' : '' }}">
-                        <a href="{{ route('informes') }}"> <i class=" fas fa-info-circle "></i> Informacion </a>
+                        <a href="{{ route('informes') }}"> <i class=" fas fa-info-circle "></i> Proyectos </a>
                     </li>
 
                 </ul>

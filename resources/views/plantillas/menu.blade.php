@@ -6,7 +6,7 @@
   
     <header class="main-header">
       <!-- Logo -->
-      <a href="../index.php" class="logo">
+      <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>RQ</span>
         <!-- logo for regular state and mobile devices -->
@@ -29,7 +29,12 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">Hola: Admin</span>
+                <?php if (session()->has('admin')):
+                  $usario=session()->get('admin');?>
+                  <div class="info">
+                  <span class="hidden-xs">Hola: <?=$usario['Nombre']?></span>
+                  </div>
+                <?php endif;?>
               </a>
               <ul class="dropdown-menu">
                
@@ -74,7 +79,7 @@
       </div>
     </div>
     <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
+    {{-- <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
         <input type="text" name="q" class="form-control" placeholder="Buscar...">
         <span class="input-group-btn">
@@ -82,7 +87,7 @@
               </button>
             </span>
       </div>
-    </form>
+    </form> --}}
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
@@ -108,113 +113,53 @@
 
       <li class="nav-item ">
         <a href="{{ route('administrador.captura_imagenes') }}" class="nav-link ">
-          <i class="fa fa-files-o "></i>
-          <span>Capturar Imagenes</span>
+          <i class="fas fa-image "></i>
+          <span> Capturar Imagenes</span>
         </a>
       </li>
 
       <li class="nav-item ">
         <a href="{{ route('administrador.lista_imginicio') }}" class="nav-link ">
-          <i class="fa fa-files-o "></i>
-          <span>Imagenes de Inicio</span>
+          <i class="fas fa-eye "></i>
+          <span> Imagenes de Inicio</span>
         </a>
       </li>
 
       <li class="nav-item ">
         <a href="{{ route('home') }}" class="nav-link ">
-          <i class="fa fa-files-o "></i>
+          <i class="fas fa-eye "></i>
           <span>Ver administradores</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a href="{{ route('Registro_usurio') }}" class="nav-link">
-          <i class="nav-icon fas fa-th "></i>
+          <i class="fas fa-plus-circle"></i>
           <span>Crear Administradores</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a href="{{ route('administrador.agregar_propiedad') }}" class="nav-link">
-          <i class="nav-icon fas fa-th "></i>
+          <i class="fas fa-plus-circle"></i>
           <span>Agregar Propiedad</span>
         </a>
       </li>
       <li class="nav-item">
         <a href="{{ route('administrador.ver_propiedades') }}" class="nav-link">
-          <i class="nav-icon fas fa-th "></i>
+          <i class="fas fa-eye "></i>
           <span>Ver Propiedad</span>
         </a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="{{ route('salir') }}" class="nav-link">
           <i class="nav-icon fas fa-th "></i>
           <span>Salir</span>
         </a>
-      </li>
+      </li> --}}
       
-      {{-- <li class="treeview">
-        <a href="{{ route('administrador.ver_administradores') }}">
-          <i class="fa fa-files-o"></i>
-          <span>Agregar terrenos</span>
-        </a>
-      </li> --}}
-
-      {{-- <li class="treeview">
-        <a href="#">
-          <i class="fa fa-book"></i>
-          <span>Categoria Eventos</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-        <i class="fa fa-user-circle"></i>
-          <span>Invitados</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-        <i class="fa fa-address-card"></i>
-          <span>Registrados</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-        <i class="fa fa-user"></i>
-          <span>Administradores</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="lista_admin.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-          <li><a href="crear_admin.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-        <i class="fa fa-comments"></i>
-          <span>Testimoniales</span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-          <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-        </ul>
-      </li> --}}
+      
       
     </ul>
   </section>

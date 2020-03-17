@@ -38,7 +38,7 @@
                 <input type="text" name="busqueda" class="form-control" placeholder="Ingresar nombre de la Propiedad" required="required">
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-success">buscar</button>
+                <button type="submit" class="btn btn-info">buscar</button>
             </div>
             </form>
 
@@ -69,10 +69,10 @@
                                             {{-- <a href="{{ route('Editar', $item->PROPIEDADES_ID) }}" class="btn bg-orange btn-flat ">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a> --}}
-                                            <div class="linea">
+                                            <div class="linea col-md-3">
                                               <form action="Editar" method="get">
                                                 <input type="hidden" name="id_propiedad" value="<?=$item->PROPIEDADES_ID?>">
-                                                <button type="submit" class="btn bg-orange btn-flat linea" ><i class="fas fa-pencil-alt"> </i></button>
+                                                <button type="submit" class="btn bg-primary btn-flat linea" ><i class="fas fa-pencil-alt"> </i></button>
                                               </form>
                                             </div>
                                             
@@ -80,22 +80,23 @@
                                             {{-- <a href="#" class="btn bg-maroon btn-flat  ">
                                                 <i class="fa fa-trash"></i>
                                             </a> --}}
-                                            <div class="linea">
+                                            <div class="linea col-md-3">
                                               <form action="VerImagenes" method="get">
                                               <input type="hidden" name="id_propiedade" value="<?=$item->PROPIEDADES_ID?>">
-                                              <button type="submit" class="btn bg-green btn-flat  linea"><i class="fas fa-image"> </i></button>
+                                              <button type="submit" class="btn bg-primary btn-flat  linea"><i class="fas fa-image"> </i></button>
                                               </form>
                                             </div>
 
-                                            <div class="linea">
-                                              <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-green btn-flat  linea"> 
+                                            <div class="linea col-md-3">
+                                              <a href="{{ route('administrador.agregar_imagenes', $item->PROPIEDADES_ID) }}" data-id="" data-tipo="admin" class="btn bg-primary btn-flat  linea"> 
                                                 <i class="fas fa-plus-circle"></i>
                                               </a> 
                                             </div>
                                             
-                                            <div class="linea">
-                                              <a href="/mapas/<?=base64_encode($item->PROPIEDADES_ID)?>/<?=base64_encode($item->PROPIEDADES_LATITUD)?>/<?=base64_encode($item->PROPIEDADES_LONGITUD)?>" class ="btn bg-orange btn-flat margin">Mapa</a>
-                                            </div>
+                                            {{-- <div class="linea col-md-3">
+                                              <a href="/mapas/{{base64_encode($item->PROPIEDADES_ID)}}/{{base64_encode($item->PROPIEDADES_LATITUD)}}/{{base64_encode($item->PROPIEDADES_LONGITUD)}}" class ="btn bg-orange btn-flat margin">Mapa</a>
+                                            </div> --}}
+
                                         </div>
                                     </div>
                                     

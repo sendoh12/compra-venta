@@ -5,12 +5,24 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        {{-- @yield('title') --}}
-        <div class="table-responsive">
+    <section class="content-header">
+      <h1>
+        Listado de Administradores
+        <small></small>
+      </h1>
+      
+    </section>
+      <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Maneja los administradores en esta sección</h3>
+            </div>
           <div class="box-body">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered ">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -28,24 +40,30 @@
                       <td> {{$item->EMAIL_USER}} </td>
                       <td> {{$item->ROL_USERS}} </td>
                       <td>
-                        <a href="Eliminarusuario/<?=$item->ID_USER?>" class="btn btn-danger">Eliminar</a>
-                        <form method="get" action="Editarusuario">
-                            @csrf
-                          <input type="hidden" name="usuario" value="<?=$item->ID_USER?>">
-                          <input type="submit" value="Editar" class="btn btn-secondary">
-                        </form>
+                        <div class="col-md-12">
+
+                          <div class="col-md-3">
+                            <a style="inline-block;" href="Eliminarusuario/<?=$item->ID_USER?>" class="btn btn-primary">Eliminar</a>
+                          </div>
+                          <div class="col-md-3">
+                            <form method="get" action="Editarusuario">
+                                @csrf
+                              <input  type="hidden" name="usuario" value="<?=$item->ID_USER?>">
+                              <input style="inline-block;" type="submit" value="Editar" class="btn btn-primary">
+                            </form>
+                          </div>
+                        </div>
                        </td>
                     </tr>
                     
                 @endforeach
               </tbody>
             </table>
-
           </div>
-
         </div>
-      </div><!-- /.container-fluid -->
-    </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
     <!-- /.content-header -->
 
     <!-- Main content -->

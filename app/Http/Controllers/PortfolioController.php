@@ -37,12 +37,17 @@ class PortfolioController extends Controller
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
 
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
         // var_dump($propiedades);
         // die();
 
         return view('about', array(
             'imagenes' => $imagenes,
-            'propiedades' => $propiedades
+            'propiedades' => $propiedades,
+            'tipos' => $tipos
         ));
     }
 
@@ -60,9 +65,17 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+
         // $imagenes = DB::table('cv_inicio')->simplePaginate(1);
         
-       return view('lacer', compact('imagenes'));
+       return view('lacer', array(
+           'imagenes' => $imagenes,
+           'tipos' => $tipos
+       ));
     }
 
     public function show($id) {

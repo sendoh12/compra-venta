@@ -39,12 +39,19 @@
         <div id="filtro">
             <div class="form-group">
                 <label class="letra">Operacion</label>
-                <select class="form-control" name="" id=""></select>
+                <select class="form-control letra" name="" id="">
+                    <option value="Venta" selected="true">Venta</option>
+                    <option value="Renta">Renta</option>
+                </select>
+                    
             </div>
             <div class="form-group">
                 <label class="letra">Tipo de inmueble:</label>
                 <select class="form-control" name="" id="">
                     <option selected="true">(Todos)</option>
+                    @foreach ($tipos as $item)
+                        <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">

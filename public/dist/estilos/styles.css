@@ -126,6 +126,14 @@ ul li.activo {
     border-color: #0d47a1;
 }
 
+@media screen and (min-width: 1080px) {
+    .navbar-inverse {
+        width: 90%;
+        background-color: #0d47a1;
+        border-color: #0d47a1;
+    }
+}
+
 .navbar-nav>li>a {
     padding-top: 20px;
     padding-bottom: 15px;
@@ -270,6 +278,20 @@ ul li.activo {
 .container-fluid {
     margin-right: auto;
     margin-left: auto;
+}
+
+@media (min-width:1076px) {
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 20px 35px;
+        /* padding-top: 65px; */
+        /* padding-bottom: 65px; */
+    }
 }
 
 
@@ -780,4 +802,25 @@ nav.iconos a:last-child {
 .formato {
     font-family: 'Oswald', sans-serif;
     /* color: red; */
+}
+
+
+/* pagina de contacto */
+
+div.contacto {
+    width: 100%;
+    height: 500px;
+    margin-left: 0px;
+    margin-right: auto;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+}
+
+@media (min-width:1080px) {
+    div.contacto {
+        width: 106.5%;
+        height: 500px;
+        margin-left: -36px;
+        margin-right: auto;
+        background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    }
 }
