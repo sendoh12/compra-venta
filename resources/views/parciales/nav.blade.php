@@ -15,7 +15,7 @@
     {{-- encabezado --}}
     <div class="informes center-block">
         <div class="log">
-            <img class="iman" src=" {{asset('uploads/LaCer_Logo.png')}}" alt="">
+            <img class="iman" src=" {{asset('uploads/lacerInmovibiliaria.jpeg')}}" alt="">
         </div>
         <div class="inf">
         <h4><i class="fas fa-sms "></i> Escribenos a: arquitectura_inmobiliaria@grupolacer.com <br> Telefono: <i class=" fas fa-phone-square "></i> 229 118 7076 </h4>

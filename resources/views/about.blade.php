@@ -7,29 +7,71 @@
 <div class="captura ">
         
     <div class="slideshow">
-     <ul class="slider">
-         @foreach ($imagenes as $item)
-         <li>
-             <img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
-             <section class="caption">
-                 <h1>GupoLacer</h1>
-                 <p></p>
-             </section>
-         </li>
-         @endforeach
-     </ul>
- 
-     <div class="left">
-         <span class="fa fa-chevron-left"></span>
-     </div>
-
-     <div class="right">
-         <span class="fa fa-chevron-right"></span>
-     </div>
-
+        <ul class="slider">
+            @foreach ($imagenes as $item)
+            <li>
+                <img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
+                <section class="caption">
+                    <h1>GupoLacer</h1>
+                    <p></p>
+                </section>
+            </li>
+            @endforeach
+        </ul>
+        <div class="left">
+            <span class="fa fa-chevron-left"></span>
+        </div>
+        <div class="right">
+            <span class="fa fa-chevron-right"></span>
+        </div>
+    
  </div>
 
- <section class="invitados contenedor seccion">
+ {{-- seccion para la busqueda --}}
+ <div class="busqueda">
+    <div class="quienesSomos">
+        <form class="col-md-10 col-md-offset-1 colorform">
+            @csrf
+            <br> 
+            <button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
+            <button type="button" class="btn-3d" onclick="clave()"> Clave</button>
+            <br><br>
+        <div id="filtro">
+            <div class="form-group">
+                <label class="letra">Operacion</label>
+                <select class="form-control" name="" id=""></select>
+            </div>
+            <div class="form-group">
+                <label class="letra">Tipo de inmueble:</label>
+                <select class="form-control" name="" id="">
+                    <option selected="true">(Todos)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="letra">Nombre</label>
+                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+            </div>
+            <button type="submit" class="btn-3d form-control">Buscar</button>
+        </div>
+
+        <div id="clave" style="display:none;">
+            <div class="form-group">
+                <label class="letra">Buscar por clave</label>
+                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+            </div>
+            <button type="submit" class="btn-3d" style="align:right;">Buscar</button>
+
+
+        </div>
+            
+        </form>
+    </div><br><br>
+
+ </div> 
+
+
+ {{-- seccion de propiedades --}}
+ <section class="invitados contenedor2 seccion">
     <h2>Propiedades</h2>
     <ul class="lista-invitados clearfix">
         @foreach ($propiedades as $propiedad)
@@ -40,20 +82,49 @@
                     <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
                 </div>
                 <div class="texto" style="width: 400px;height: 250px;">
+                    <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
                     <p>{{$propiedad->PROPIEDADES_NOMBRE}}</p>
-                    <p>{{$propiedad->ESTADOS_NOMBRE}}</p>
-                    <p>{{$propiedad->MUNICIPIOS_NOMBRE}}</p>
+                    <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
                     <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
-                    <p>{{$propiedad->PROPIEDADES_ZONA}}</p>
+                    <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
+
+                    <nav class="iconos">
+                        {{'Habs '.$propiedad->PROPIEDADES_HABITACIONES}}
+                        <a ><i class="fas fa-person-booth"></i></a>
+                        {{'Baño(s) '.$propiedad->PROPIEDADES_BAÑOS}}
+                        <a ><i class="fas fa-toilet"></i></a>
+                        {{$propiedad->PROPIEDADES_CONSTRUCCION}}
+                        <a><i class="fas fa-home"></i></a>
+                    </nav>
+                {{-- </div> --}}
                     <div class="botones">
-                </div>
+                        <a href="#">Enviar</a>
+                        <a href="#">Descargar</a>
+                        <a href="#">Contactar</a>
+                        
+
+                    </div>
             </div>
         </li>
-       
-            
         @endforeach
-      
+        
     </ul>
-  </section>
     
+  </section>
+  
+
+
+  @include('plantillas.menu_footer')
+
+  <script>
+    function filtro() {
+        document.getElementById('clave').style.display = 'none';
+        document.getElementById('filtro').style.display = 'block';
+    }
+    
+    function clave() {
+        document.getElementById('clave').style.display = 'block';
+        document.getElementById('filtro').style.display = 'none';
+    }
+</script>
 @endsection
