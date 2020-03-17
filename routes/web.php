@@ -86,3 +86,4 @@ Route::get('EliminarImagen/{idimagen}','PortfolioController@Elimiarimagen');
 Route::get('EliminarImageninicio/{idimagen}','PortfolioController@Elimiarimageninicio');
 Route::post('guardaorden','PortfolioController@guardarorden');
 Route::get('buscar','PaginaPrincipal@busqueda');
+Route::post('contactos','PortfolioController@guradarmensages');

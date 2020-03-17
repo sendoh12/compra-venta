@@ -5,6 +5,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Cv_inicio;
+use App\cv_contactos;
+use App\Http\Requests\contacto_validation;
 
 class PortfolioController extends Controller
 {
@@ -111,8 +113,20 @@ class PortfolioController extends Controller
             $orden = DB::table('cv_imagenes')
                         ->where('IMAGENES_ID',$ordenarray[$i])
                         ->update(['IMAGENES_ORDEN' => $i,]);
-                
         }
+        return back();
+    }
+
+    public function guradarmensages(contacto_validation $request)
+    {
+        $contactos  = new cv_contactos;
+        $contactos->CONTACTO_NOMBRE     =   $request->nombre;
+        $contactos->CONTACTO_EMAIL      =   $request->email;
+        $contactos->CONTACTO_ASUNTO     =   $request->asunto;
+        $contactos->CONTACTO_TELEFONO   =   $request->tel;
+        $contactos->CONTACTO_MENSAJE    =   $request->mesaje;
+        $contactos->save();
+
         return back();
     }
 }
