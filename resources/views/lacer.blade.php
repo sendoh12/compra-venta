@@ -57,7 +57,7 @@
 						<input type="email" name="email" class="form-control tipoletra" id="" placeholder="Email" minlength="2" maxlength="80"  required>
 					</div>
 					<div class="form-group">
-						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" pattern="[0-9]{10}" required>
+						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" required>
 					</div>
 					<div class="form-group">
 						<input type="text" name="asunto" class="form-control tipoletra" id="" placeholder="Asunto" minlength="2" maxlength="120"  required>
@@ -66,55 +66,54 @@
 						<textarea class="form-control tipoletra" name="mesaje" id="" placeholder="Mensaje*" minlength="2" maxlength="1000"  required></textarea>
 					</div>
 						<button type="submit" class="btn-3d form-control">Enviar</button>
-				</form>					
+				</form>
 			</div>
 
 
 			<div class="quienesSomos">
-				<form class="col-md-10 col-md-offset-1 colorform">
+				<form id="filtro" action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
 					@csrf
-					<br> 
+					<br>
 					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
 					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
 					<br><br>
-				<div id="filtro">
+				<div>
 					<div class="form-group">
 						<label class="letra">Operacion</label>
-						<select class="form-control" name="" id="">
+						<select class="form-control" name="operacion" id="">
 							<option value="Venta" selected="true">Venta</option>
                     		<option value="Renta">Renta</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label class="letra">Tipo de inmueble:</label>
-						<select class="form-control" name="" id="">
-							<option selected="true">(Todos)</option>
+						<select class="form-control" name="inmueble" id="">
+							<option selected="true">Todos</option>
 							@foreach ($tipos as $item)
-						<option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
+								<option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
 							@endforeach
 						</select>
 					</div>
 					<div class="form-group">
 						<label class="letra">Nombre</label>
-						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
+						<input type="text" class="form-control tipoletra" name="nombre" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
 					</div>
 					<button type="submit" class="btn-3d form-control">Buscar</button>
 				</div>
-
-				<div id="clave" style="display:none;">
+				</form>
+			<div id="clave" style="display:none;">
+				<form action="Filtro_buscar_nombre" method="post" class="col-md-10 col-md-offset-1 colorform">
+				@csrf
 					<div class="form-group">
 						<label class="letra">Buscar por clave</label>
-						<input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
+						<input type="text" class="form-control tipoletra" name="nombre1" placeholder="Nombre de 1la propiedad" minlength="2" maxlength="120"  required>
 					</div>
 					<button type="submit" class="btn-3d" style="align:right;">Buscar</button>
 
-
-				</div>
-					
 				</form>
 			</div>
-
 		</div>
+	</div>
 
 @include('plantillas.menu_footer')
 

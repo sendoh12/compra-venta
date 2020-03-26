@@ -142,4 +142,61 @@ class PortfolioController extends Controller
 
         return back();
     }
+
+    public function Filtro_busquedad(Request  $request)
+    {
+        $operacion  =   $request->operacion;
+        $inmueble   =   $request->inmueble;
+        $nombre     =   $request->nombre;
+
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_OPERACION',$operacion)
+                    ->where('PROPIEDADES_TIPO',$inmueble)
+                    ->where('PROPIEDADES_NOMBRE','like',$nombre)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
+    }
+
+    public function Filtro_buscar_nombre(Request $request)
+    {
+        $nombre     =   $request->nombre1;
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    //->where('PROPIEDADES_OPERACION',$operacion)
+                    //->where('PROPIEDADES_TIPO',$inmueble)
+                    ->where('PROPIEDADES_NOMBRE','like',$nombre)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
+    }
 }

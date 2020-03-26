@@ -30,7 +30,7 @@
  {{-- seccion para la busqueda --}}
  <div class="busqueda">
     <div class="quienesSomos">
-        <form class="col-md-10 col-md-offset-1 colorform">
+        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
             @csrf
             <br> 
             <button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
@@ -59,9 +59,11 @@
                 <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
             </div>
             <button type="submit" class="btn-3d form-control">Buscar</button>
+        </from>
         </div>
 
         <div id="clave" style="display:none;">
+        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
             <div class="form-group">
                 <label class="letra">Buscar por clave</label>
                 <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
