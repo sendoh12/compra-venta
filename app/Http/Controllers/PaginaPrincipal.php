@@ -44,10 +44,10 @@ class PaginaPrincipal extends Controller
 
     public function Lista_propiedad($id_propiedad,$latitud,$longitud)
     {
-        $id_propiedades=base64_decode($id_propiedad);
-        $Latitud=base64_decode($latitud);
-        $Longitud=base64_decode($longitud);
-        return view("administrador.lista_propiedad")->with('LATITUD',$Latitud)->with('LOGITUD',$Longitud);
+        $id_propiedades=$id_propiedad;
+        $Latitud=$latitud;
+        $Longitud=$longitud;
+        return view("propiedades.lista_propiedad")->with('LATITUD',$Latitud)->with('LOGITUD',$Longitud);
     }
 
 

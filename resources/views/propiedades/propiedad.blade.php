@@ -25,7 +25,7 @@
 
         <div class="wrapper" style="display:block">
             <button type="button" class="btn-3d" onclick="filtro()"> Fotos</button>
-			<button type="button" class="btn-3d" onclick="clave()"> Mapa</button>
+			<a href="/mapas/<?php echo $propiedades[0]->PROPIEDADES_ID.'/'.$propiedades[0]->PROPIEDADES_LATITUD.'/'.$propiedades[0]->PROPIEDADES_LONGITUD?>" class="btn-3d" > Mapa</a>
 
             <ul id="sb-slider" class="sb-slider" style="max-width: 1600px; overflow: hidden;">
                 @foreach ($propiedades as $prop)
@@ -49,7 +49,7 @@
         </div>
         <div class="wrapper" style="display:none">
             <button>Fotos</button>
-            <button>Mapa</button>
+            <a href="">Mapa</a>
             
 
         </div>

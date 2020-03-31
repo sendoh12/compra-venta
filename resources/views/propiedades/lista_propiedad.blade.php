@@ -1,5 +1,7 @@
-@include('plantillas.header')
-@include('plantillas.menu')
+@extends('Paginasinicio.inicio')
+
+@section('title', 'Casa en venta')
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -10,14 +12,12 @@
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+@section('content')
+ 
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        @yield('title')
-        
-
+ 
          <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -27,7 +27,8 @@
           <div class="box box-succes" style="">
             <div class="box-header with-border">
               <h3 class="box-title">mapa</h3>
-            </div> 
+            </div>
+            
             <div class="form-group">
                     <div class="col-sm-5">
                       <div id="mapid" style="width:830px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
@@ -54,7 +55,6 @@
                     </div>
                   </div>
 <script>
-
     var mymap = L.map('mapid').setView([<?=$LATITUD?>, <?=$LOGITUD?>], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
       maxZoom: 18,
@@ -67,3 +67,4 @@
     }).addTo(mymap);
     L.marker([<?=$LATITUD?>, <?=$LOGITUD?>]).addTo(mymap);
   </script>
+  @endsection
