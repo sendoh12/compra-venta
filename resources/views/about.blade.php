@@ -122,7 +122,7 @@
                 {{-- </div> --}}
                     <div class="botones">
                         <a href="#">Enviar</a>
-                        <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> -->
+                        {{-- <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> --> --}}
                         <button onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</button>
                         <a href="#">Contactar</a>
                         
