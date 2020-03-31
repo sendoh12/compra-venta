@@ -1,7 +1,17 @@
 @extends('Paginasinicio.inicio')
 
 @section('title', 'Casa en venta')
-    
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-locationpicker/0.1.12/locationpicker.jquery.min.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <link rel="stylesheet" type="text/css" href=" {{asset('css/slicebox.css')}} " />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/demo.css')}}" />
@@ -17,22 +27,25 @@
     
     <div class="container">
 
-		
-
+		@if (count($propiedades)!=0)
         {{-- <h1>Slicebox <span>A fresh 3D image slider with graceful fallback</span></h1> --}}
         
         
-
-        <div class="wrapper" style="display:block">
-            <button type="button" class="btn-3d" onclick="filtro()"> Fotos</button>
-			<a href="/mapas/<?php echo $propiedades[0]->PROPIEDADES_ID.'/'.$propiedades[0]->PROPIEDADES_LATITUD.'/'.$propiedades[0]->PROPIEDADES_LONGITUD?>" class="btn-3d" > Mapa</a>
+        {{-- imagenes de las propiedades --}}
+        <div class="wrapper" id="fotos" style="display:block">
+            <button type="button" class="btn-3d" onclick="fotos()"> Fotos</button>
+            <button type="button" class="btn-3d" onclick="mapa()">Mapa</button>
+			{{-- <a href="/mapas/{{$propiedades[0]->PROPIEDADES_ID.'/'.$propiedades[0]->PROPIEDADES_LATITUD.'/'.$propiedades[0]->PROPIEDADES_LONGITUD}}" class="btn-3d" > Mapa</a> --}}
+			{{-- <a href="{{route('mapas',$propiedades[0]->PROPIEDADES_ID.'/'.$propiedades[0]->PROPIEDADES_LATITUD.'/'.$propiedades[0]->PROPIEDADES_LONGITUD)}}" class="btn-3d" > Mapa</a> --}}
 
             <ul id="sb-slider" class="sb-slider" style="max-width: 1600px; overflow: hidden;">
                 @foreach ($propiedades as $prop)
                     <li>
-                        <a target="_blank"><img src="fotos/{{$prop->IMAGENES_ARCHIVO}}" alt="image1"/></a>
+                        @if (isset($prop->IMAGENES_ARCHIVO))
+                            <a target="_blank"><img src="fotos/{{$prop->IMAGENES_ARCHIVO}}" alt="image1"/></a>
+                        @endif
                         <div class="sb-description">
-                            <h3>Bahia- puesta de sol</h3>
+                            <h3>{{$propiedades[0]->PROPIEDADES_NOMBRE}}</h3>
                         </div>
                     </li>
                 @endforeach
@@ -45,13 +58,39 @@
                 <a href="#">Next</a>
                 <a href="#">Previous</a>
             </div>
-
         </div>
-        <div class="wrapper" style="display:none">
-            <button>Fotos</button>
-            <a href="">Mapa</a>
-            
 
+        {{-- mapa para las propiedades --}}
+        <div class="wrapper" id="mapas" style="display:none">
+            <button type="button" class="btn-3d" onclick="fotos()"> Fotos</button>
+            <button type="button" class="btn-3d" onclick="mapa()">Mapa</button>
+            <input type="hidden" id="latitud" value="{{$propiedades[0]->PROPIEDADES_LATITUD}}">
+            <input type="hidden" id="longitud" value="{{$propiedades[0]->PROPIEDADES_LONGITUD}}">
+          
+            <div class="origenmapa">
+                <div id="mapid" style="width:730px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
+                    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
+                                        
+                        <div class="leaflet-pane leaflet-tile-pane">
+                            <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                                <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
+                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
+                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, -347px, 0px); opacity: 1;">
+                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, 165px, 0px); opacity: 1;">
+                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, 165px, 0px); opacity: 1;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-pane leaflet-shadow-pane"></div>
+                        <div class="leaflet-pane leaflet-overlay-pane"></div>
+                        <div class="leaflet-pane leaflet-marker-pane"></div>
+                        <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                        <div class="leaflet-pane leaflet-popup-pane"></div>
+                        <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04788e+06px, 697275px, 0px) scale(4096);"></div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
         <div class="caracteristicas">
@@ -126,11 +165,9 @@
                 
             </div>
         </div>
-        
-
-        {{-- <p class="info"><strong>Example 3:</strong> Random orientation and number of slices</p> --}}
-
     </div>
+    @endif
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset('js/modernizr.custom.46884.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/jquery.slicebox.js')}}"></script>
@@ -183,6 +220,37 @@
             Page.init();
 
         });
+    </script>
+
+    <script>
+        function fotos() {
+            document.getElementById('fotos').style.display = 'block';
+            document.getElementById('mapas').style.display = 'none';
+
+        }
+
+        function mapa() {
+            document.getElementById('fotos').style.display = 'none';
+            document.getElementById('mapas').style.display = 'block';
+
+            var latitud = document.getElementById('latitud').value;
+            var longitud = document.getElementById('longitud').value;
+            console.log(latitud, longitud);
+
+            var mymap = L.map('mapid').setView([latitud, longitud], 13);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+            }).addTo(mymap);
+            L.marker([latitud, longitud]).addTo(mymap);
+            
+        }
+        
     </script>
     
 

@@ -151,6 +151,12 @@
           <span>Ver Propiedad</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('VerContactos') }}" class="nav-link">
+          <i class="fas fa-eye "></i>
+          <span>Ver Contactos</span>
+        </a>
+      </li>
 
       {{-- <li class="nav-item">
         <a href="{{ route('salir') }}" class="nav-link">

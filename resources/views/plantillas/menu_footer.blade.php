@@ -3,15 +3,29 @@
 <footer class="site-footer">
     <div class="contenedor clearfix">
       <div class="footer-informacion">
-        <h3>Sobre <span>grupolacer</span></h3>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable</p>
+        <h3>Quienes <span>somos</span></h3>
+        <p>
+          Somos un grupo de profesionistas enfocados en apoyar en la compra, 
+          venta o renta de su bien inmueble, con el objetivo de satisfacer las necesidades 
+          inmobiliarias de nuestros clientes.
+
+        </p>
       </div>
       <div class="ultimos-twets">
-        <h3>Ultimos <span>twets</span></h3>
+        <h3>Sobre <span>Grupolacer</span></h3>
         <ul>
-          <li>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"</li>
-          <li>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"</li>
-          <li>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"</li>
+          <li>Ser la mejor opción inmobiliaria, superando las expectativas de nuestros clientes y generando calidad.</li>
+          <li>Desarrollar para nuestros clientes soluciones inmobiliarias trascendentes, creadas por un grupo de personas enfocado en la excelencia.</li>
+          <li><h5>Valores</h5>
+            • Honestidad 
+            • Respeto <br>
+            • Profesionalismo 
+            • Responsabilidad <br>
+            • Puntualidad 
+            • Espíritu de servicio <br>
+            • Compromiso
+
+          </li>
         </ul>
       </div>
       <div class="menu">

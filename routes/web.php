@@ -60,7 +60,7 @@ Route::post('Municipio','PaginaPrincipal@municipios');
 Route::post('GuardarPropiedades', 'PaginaPrincipal@propiedadesguardar')->name('GuardarPropiedades');
 //ver las propiedades
 Route::get('VerPropiedades', ['as' => 'administrador.ver_propiedades', 'uses' => 'PaginaPrincipal@verpropiedades' ]);
-Route::get('/mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
+Route::get('mapas/{id}/{latitud}/{longitud}',['as' => 'administrador.lista_propiedad', 'uses' => 'PaginaPrincipal@Lista_propiedad']);
 
 
 //agregar ias imagenes
@@ -92,3 +92,5 @@ Route::post('Filtro_buscar_nombre','PortfolioController@Filtro_buscar_nombre');
 Route::get('pdfjava/{id}','PortfolioController@generar_pdf');
 // propiedades por id
 Route::get('CasaVenta', ['as'=>'CasaVenta', 'uses'=>'PortfolioController@CasaVenta']);
+
+Route::get('VerContactos', ['as'=>'VerContactos', 'uses'=>'PortfolioController@VerContactos']);

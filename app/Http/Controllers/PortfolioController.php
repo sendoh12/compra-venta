@@ -211,6 +211,8 @@ class PortfolioController extends Controller
                     ->get();
         return Response()->json($propiedades);
     }
+
+
     public function CasaVenta(Request $request) {
         $propiedades = DB::table('cv_imagenes')
                         ->select('*')
@@ -219,7 +221,21 @@ class PortfolioController extends Controller
                         ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                         ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                         ->get();
-        return view('propiedades.propiedad', compact('propiedades'));
+        
+        // echo '<pre>';
+        // var_dump($propiedades);
+        // echo '</pre>';
+        // if(count($propiedades)==0){
+        //     echo 'esta vacio';
+        // }
+
+        // die();
+            return view('propiedades.propiedad', compact('propiedades'));
+
+    }
+
+    public function VerContactos() {
+        return view('administrador.ver_contactos');
 
     }
 }

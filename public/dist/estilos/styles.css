@@ -833,6 +833,7 @@ div.caracteristicas {
     height: 800px;
     /* background: red; */
     display: flex;
+    font-family: 'Oswald', sans-serif;
 }
 
 div.description {
@@ -893,4 +894,8 @@ nav.iconospropied a {
 
 nav.iconospropied a:last-child {
     margin-right: 0;
+}
+
+div.origenmapa {
+    margin-top: 10px;
 }
