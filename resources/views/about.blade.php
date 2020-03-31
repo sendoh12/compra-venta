@@ -60,7 +60,7 @@
                 <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
             </div>
             <button type="submit" class="btn-3d form-control">Buscar</button>
-        </from>
+        </form>
         </div>
 
         <div id="clave" style="display:none;">
@@ -88,7 +88,17 @@
         <li>
             <div class="invitado">
                 <div class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</div>
-                    <img style="width: 400px;height: 250px;" src="images/<?=$propiedad->PROPIEDADES_IMAGEN?>" alt="imagen invitado">
+                {{-- <a href="{{route('CasaVenta',$propiedad->PROPIEDADES_ID)}}">
+                    <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
+                </a> --}}
+
+                <form action="CasaVenta" method="get">
+                    <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                    <button type="submit">
+                        <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
+                    </button>
+                  </form>
+
                     <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
                 </div>
                 <div class="texto" style="width: 400px;height: 250px;">
