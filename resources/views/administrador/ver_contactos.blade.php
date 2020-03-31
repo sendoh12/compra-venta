@@ -27,36 +27,33 @@
                 <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Correo electronico</th>
-                  <th>Rol</th>
-                  <th>Acciones</th>
+                  <th>Telefono</th>
+                  <th>Asunto</th>
+                  <th>Mensaje</th>
                 </tr>
               </thead>
               <tbody>
-                {{-- @foreach ($usuarios as $item)
+                @foreach ($contactos as $item)
                     <tr>
-                      <td> {{$item->ID_USER}} </td>
-                      <td> {{$item->NOMBRE_USER}} </td>
-                      <td> {{$item->EMAIL_USER}} </td>
-                      <td> {{$item->ROL_USERS}} </td>
+                      <td> {{$item->ID_CONTACTO}} </td>
+                      <td> {{$item->CONTACTO_NOMBRE}} </td>
+                      <td> {{$item->CONTACTO_TELEFONO}} </td>
+                      <td> {{$item->CONTACTO_ASUNTO}} </td>
+                      <td> {{$item->CONTACTO_MENSAJE}} </td>
                       <td>
                         <div class="col-md-12">
 
                           <div class="col-md-3">
-                            <a style="inline-block;" href="Eliminarusuario/{{$item->ID_USER}}" class="btn btn-primary">Eliminar</a>
+                            <a style="inline-block;" href="Eliminarcontacto/{{$item->ID_CONTACTO}}" class="btn btn-primary">Eliminar</a>
                           </div>
                           <div class="col-md-3">
-                            <form method="get" action="Editarusuario">
-                                @csrf
-                              <input  type="hidden" name="usuario" value="{{$item->ID_USER}}">
-                              <input style="inline-block;" type="submit" value="Editar" class="btn btn-primary">
-                            </form>
+                            
                           </div>
                         </div>
                        </td>
                     </tr>
                     
-                @endforeach --}}
+                @endforeach
               </tbody>
             </table>
           </div>

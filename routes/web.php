@@ -94,3 +94,4 @@ Route::get('pdfjava/{id}','PortfolioController@generar_pdf');
 Route::get('CasaVenta', ['as'=>'CasaVenta', 'uses'=>'PortfolioController@CasaVenta']);
 
 Route::get('VerContactos', ['as'=>'VerContactos', 'uses'=>'PortfolioController@VerContactos']);
+Route::get('Eliminarcontacto/{id}', 'PortfolioController@Eliminar_contacto');

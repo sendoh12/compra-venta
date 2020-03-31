@@ -235,7 +235,16 @@ class PortfolioController extends Controller
     }
 
     public function VerContactos() {
-        return view('administrador.ver_contactos');
+        $contactos = DB::table('cv_contactos')
+                    ->select('*')
+                    ->get();
 
+                    return view('administrador.ver_contactos', compact('contactos'));
+    }
+
+    public function Eliminar_contacto($id_contacto)
+    {
+        DB::table('cv_contactos')->where('ID_CONTACTO', '=', $id_contacto)->delete();
+        return redirect("VerContactos");
     }
 }
