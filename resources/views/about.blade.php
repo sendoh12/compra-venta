@@ -1,3 +1,4 @@
+<script src="/js/dist/jspdf.min.js"></script>
 @extends('Paginasinicio.inicio')
 
 @section('title', 'About')
@@ -108,7 +109,8 @@
                 {{-- </div> --}}
                     <div class="botones">
                         <a href="#">Enviar</a>
-                        <a href="#">Descargar</a>
+                        <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> -->
+                        <button onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</button>
                         <a href="#">Contactar</a>
                         
 
@@ -125,15 +127,48 @@
 
   @include('plantillas.menu_footer')
 
-  <script>
+<script>
+    function Generar_pdf(params) {
+        var id_propiedad=params;
+        var base_url='pdfjava/'+id_propiedad;
+        var req =   new XMLHttpRequest();
+        XMLHttpRequest.responseType = 'json';
+        req.open('get',base_url,true);
+        req.onreadystatechange = function (aEvt) {
+            if (req.readyState == 4) {
+                if(req.status == 200){
+                    var propiedad = Array.from(JSON.parse(req.response));
+                        var doc = new jsPDF();
+                            doc.setLineWidth(1.5);
+                            doc.line(20, 20, 180, 20);
+                            doc.setFontSize(14);
+                            doc.text(20, 30, propiedad[0].PROPIEDADES_NOMBRE );
+                            //doc.addImage(data, 'JPEG', 10, 40, 180, 180);
+                            doc.setProperties({
+                                title: 'PROPIEDADES',
+                                subject: 'VENTAS',
+                                author: 'JOSE MANUEL SANCHEZ JUAREZ',
+                                keywords: 'generated, javascript, web 2.0, ajax',
+                                creator: 'MEEE'
+                            });
+                            doc.save('propiedad.pdf');
+                }
+                else{
+                    dump("Error loading page\n");
+                }
+            }
+        };
+        req.send(null);
+    }
     function filtro() {
         document.getElementById('clave').style.display = 'none';
         document.getElementById('filtro').style.display = 'block';
     }
-    
+
     function clave() {
         document.getElementById('clave').style.display = 'block';
         document.getElementById('filtro').style.display = 'none';
     }
 </script>
 @endsection
+

@@ -89,3 +89,4 @@ Route::get('buscar','PaginaPrincipal@busqueda');
 Route::post('contactos','PortfolioController@guradarmensages');
 Route::post('Flitar_busquedad','PortfolioController@Filtro_busquedad');
 Route::post('Filtro_buscar_nombre','PortfolioController@Filtro_buscar_nombre');
+Route::get('pdfjava/{id}','PortfolioController@generar_pdf');
