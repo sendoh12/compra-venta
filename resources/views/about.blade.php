@@ -83,6 +83,7 @@
  <section class="invitados contenedor2 seccion">
     <h2>Propiedades</h2>
     <ul class="lista-invitados clearfix">
+        @if(isset($propiedades))
         @foreach ($propiedades as $propiedad)
         <li>
             <div class="invitado">
@@ -92,8 +93,9 @@
                 </a> --}}
 
                 <form action="CasaVenta" method="get">
-                    
-                    <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                    {{-- @isset($propiedad->PROPIEDADES_ID) --}}
+                        <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                    {{-- @endisset --}}
                     <button type="submit">
                         <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
                     </button>
@@ -127,6 +129,8 @@
             </div>
         </li>
         @endforeach
+        @endif
+
         
     </ul>
     
