@@ -92,6 +92,7 @@
                 </a> --}}
 
                 <form action="CasaVenta" method="get">
+                    
                     <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
                     <button type="submit">
                         <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
