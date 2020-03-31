@@ -201,6 +201,16 @@ class PortfolioController extends Controller
                     ));
     }
 
+    public function generar_pdf($idPropieada)
+    {
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_ID',$idPropieada)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+        return Response()->json($propiedades);
+    }
     public function CasaVenta(Request $request) {
         $propiedades = DB::table('cv_imagenes')
                         ->select('*')
@@ -212,5 +222,6 @@ class PortfolioController extends Controller
 
 
         return view('propiedades.propiedad', compact('propiedades'));
+
     }
 }
