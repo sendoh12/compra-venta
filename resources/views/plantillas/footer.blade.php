@@ -26,6 +26,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+      
+
 
 <!-- ./wrapper -->
 <script src=" {{asset('plugins/jquery/jquery.min.js')}} "></script>
@@ -44,6 +46,11 @@
 <script src="{{asset('dist/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('dist/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('dist/js/admin-ajax.js')}}"></script>
+
+
+{{-- <script type="text/javascript" src="{{asset('js/modernizr.custom.46884.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/jquery.slicebox.js')}}"></script> --}}
+
 
 
 

@@ -81,6 +81,10 @@
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.print.css')}} ">
+
+    {{-- <link rel="stylesheet" type="text/css" href=" {{asset('css/slicebox.css')}} " />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/demo.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}" /> --}}
     
     
     
