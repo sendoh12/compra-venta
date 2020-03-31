@@ -47,7 +47,9 @@
                     </li>
 
                     <li class="{{ request()->routeIs('informes') ? 'activo' : '' }}">
-                        <a href="{{ route('informes') }}"> <i class=" fas fa-info-circle "></i> Proyectos </a>
+                        {{-- <a href="{{ route('informes') }}"> <i class=" fas fa-info-circle "></i> Proyectos </a> --}}
+                        <a href="#"> <i class=" fas fa-info-circle "></i> Proyectos </a>
+
                     </li>
 
                 </ul>

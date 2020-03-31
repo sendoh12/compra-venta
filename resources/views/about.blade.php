@@ -1,4 +1,4 @@
-<script src="/js/dist/jspdf.min.js"></script>
+{{-- <script src="/js/dist/jspdf.min.js"></script> --}}
 @extends('Paginasinicio.inicio')
 
 @section('title', 'About')
@@ -123,7 +123,7 @@
                     <div class="botones">
                         <a href="#">Enviar</a>
                         {{-- <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> --> --}}
-                        <button onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</button>
+                        <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a>
                         <a href="#">Contactar</a>
                         
 
@@ -141,6 +141,7 @@
 
 
   @include('plantillas.menu_footer')
+<script src="{{asset('js/dist/jspdf.min.js')}}"></script>
 
 <script>
     function Generar_pdf(params) {
