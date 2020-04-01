@@ -68,17 +68,18 @@ class LoginController extends Controller
                 ]);
                 $dato = array('email' => $request->input('email'),
                                 'password' => $request->input('password') );
-                $inicio=new User;
-                $seccion=$inicio->Iniciodesesion($dato);
-                if ($request->session()->exists('admin')) {
-                    $usario=$request->session()->get('admin');
-                    return redirect('principal');
-                }else{
-                    // Via a request instance...
-                    $request->session()->put('admin',$seccion );
-                    // Via the global helper...
-                    session(['admin' => $seccion]);
-                    return redirect('principal');
+                $data=[];
+                $query=DB::table('users')->where('EMAIL_USER',$dato['email'])->first();
+                $pasword=Hash::check($dato['password'],$query->PASSWORD_USER);
+                if ($pasword){
+                $data = array('id' =>$query->ID_USER ,
+                        'Nombre' => $query->NOMBRE_USER,
+                        'Rol' => $query->ROL_USERS);
+                // Via a request instance...
+                $request->session()->put('admin',$data );
+                // Via the global helper...
+                session(['admin' => $data]);
+                return redirect('principal');
                 }
             }
         }
@@ -92,8 +93,8 @@ class LoginController extends Controller
      */
     public function destroy(Request $request)
     {
-            $request->session()->pull("admin");
+            $request->session()->forget("admin");
             //Session::flush();
-                return redirect('/');
+            return redirect('/');
     }
 }
