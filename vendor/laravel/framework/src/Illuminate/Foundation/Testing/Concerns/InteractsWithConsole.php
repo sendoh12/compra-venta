@@ -4,8 +4,8 @@ namespace Illuminate\Foundation\Testing\Concerns;
 
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Console\Kernel;
-use Illuminate\Foundation\Testing\PendingCommand;
 use Illuminate\Support\Arr;
+use Illuminate\Testing\PendingCommand;
 
 trait InteractsWithConsole
 {
@@ -31,11 +31,18 @@ trait InteractsWithConsole
     public $expectedQuestions = [];
 
     /**
+     * All of the expected choice questions.
+     *
+     * @var array
+     */
+    public $expectedChoices = [];
+
+    /**
      * Call artisan command and return code.
      *
      * @param  string  $command
      * @param  array  $parameters
-     * @return \Illuminate\Foundation\Testing\PendingCommand|int
+     * @return \Illuminate\Testing\PendingCommand|int
      */
     public function artisan($command, $parameters = [])
     {
@@ -46,6 +53,18 @@ trait InteractsWithConsole
         $this->beforeApplicationDestroyed(function () {
             if (count($this->expectedQuestions)) {
                 $this->fail('Question "'.Arr::first($this->expectedQuestions)[0].'" was not asked.');
+            }
+
+            if (count($this->expectedChoices) > 0) {
+                foreach ($this->expectedChoices as $question => $answers) {
+                    $assertion = $answers['strict'] ? 'assertEquals' : 'assertEqualsCanonicalizing';
+
+                    $this->{$assertion}(
+                        $answers['expected'],
+                        $answers['actual'],
+                        'Question "'.$question.'" has different options.'
+                    );
+                }
             }
 
             if (count($this->expectedOutput)) {

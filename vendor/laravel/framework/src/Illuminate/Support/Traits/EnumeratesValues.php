@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\HigherOrderCollectionProxy;
+use Illuminate\Support\HigherOrderWhenProxy;
 use JsonSerializable;
 use Symfony\Component\VarDumper\VarDumper;
 use Traversable;
@@ -30,6 +31,7 @@ use Traversable;
  * @property-read HigherOrderCollectionProxy $min
  * @property-read HigherOrderCollectionProxy $partition
  * @property-read HigherOrderCollectionProxy $reject
+ * @property-read HigherOrderCollectionProxy $some
  * @property-read HigherOrderCollectionProxy $sortBy
  * @property-read HigherOrderCollectionProxy $sortByDesc
  * @property-read HigherOrderCollectionProxy $sum
@@ -403,12 +405,16 @@ trait EnumeratesValues
      * Apply the callback if the value is truthy.
      *
      * @param  bool|mixed  $value
-     * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $callback
+     * @param  callable|null  $default
      * @return static|mixed
      */
-    public function when($value, callable $callback, callable $default = null)
+    public function when($value, callable $callback = null, callable $default = null)
     {
+        if (! $callback) {
+            return new HigherOrderWhenProxy($this, $value);
+        }
+
         if ($value) {
             return $callback($this, $value);
         } elseif ($default) {
@@ -422,7 +428,7 @@ trait EnumeratesValues
      * Apply the callback if the collection is empty.
      *
      * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $default
      * @return static|mixed
      */
     public function whenEmpty(callable $callback, callable $default = null)
@@ -434,7 +440,7 @@ trait EnumeratesValues
      * Apply the callback if the collection is not empty.
      *
      * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $default
      * @return static|mixed
      */
     public function whenNotEmpty(callable $callback, callable $default = null)
@@ -447,7 +453,7 @@ trait EnumeratesValues
      *
      * @param  bool  $value
      * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $default
      * @return static|mixed
      */
     public function unless($value, callable $callback, callable $default = null)
@@ -459,7 +465,7 @@ trait EnumeratesValues
      * Apply the callback unless the collection is empty.
      *
      * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $default
      * @return static|mixed
      */
     public function unlessEmpty(callable $callback, callable $default = null)
@@ -471,7 +477,7 @@ trait EnumeratesValues
      * Apply the callback unless the collection is not empty.
      *
      * @param  callable  $callback
-     * @param  callable  $default
+     * @param  callable|null  $default
      * @return static|mixed
      */
     public function unlessNotEmpty(callable $callback, callable $default = null)
