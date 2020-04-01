@@ -70,17 +70,21 @@ class LoginController extends Controller
                                 'password' => $request->input('password') );
                 $data=[];
                 $query=DB::table('users')->where('EMAIL_USER',$dato['email'])->first();
-                $pasword=Hash::check($dato['password'],$query->PASSWORD_USER);
-                if ($pasword){
-                $data = array('id' =>$query->ID_USER ,
-                        'Nombre' => $query->NOMBRE_USER,
-                        'Rol' => $query->ROL_USERS);
-                // Via a request instance...
-                $request->session()->put('admin',$data );
-                // Via the global helper...
-                session(['admin' => $data]);
-                return redirect('principal');
-                }
+               if($query != null){
+                    $pasword=Hash::check($dato['password'],$query->PASSWORD_USER);
+                    if ($pasword){
+                    $data = array('id' =>$query->ID_USER ,
+                            'Nombre' => $query->NOMBRE_USER,
+                            'Rol' => $query->ROL_USERS);
+                    // Via a request instance...
+                    $request->session()->put('admin',$data );
+                    // Via the global helper...
+                    session(['admin' => $data]);
+                    return redirect('principal');
+                    }
+                }else{
+                    return back();
+                } 
             }
         }
     }
