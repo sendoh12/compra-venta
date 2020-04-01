@@ -1,4 +1,4 @@
-@extends('Paginasinicio.inicio')
+@extends('PaginasInicio.inicio')
 
 @section('title', 'Home')
 
@@ -104,6 +104,10 @@
 			<div id="clave" style="display:none;">
 				<form action="Filtro_buscar_nombre" method="post" class="col-md-10 col-md-offset-1 colorform">
 				@csrf
+				<br>
+					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
+					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
+					<br><br>
 					<div class="form-group">
 						<label class="letra">Buscar por clave</label>
 						<input type="text" class="form-control tipoletra" name="nombre1" placeholder="Nombre de 1la propiedad" minlength="2" maxlength="120"  required>
