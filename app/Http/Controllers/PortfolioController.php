@@ -8,7 +8,7 @@ use App\Cv_inicio;
 use App\cv_contactos;
 use App\Http\Requests\contacto_validation;
 use Illuminate\Support\Facades\Crypt;
-
+use dompdf;
 class PortfolioController extends Controller
 {
     /**
@@ -247,15 +247,21 @@ class PortfolioController extends Controller
                     ));
     }
 
-    public function generar_pdf($idPropieada)
+    public function generar_pdf(Request $request)
     {
+        $idPropieada=$request->ide;
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->where('PROPIEDADES_ID',$idPropieada)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
-        return Response()->json($propiedades);
+        $data = [
+            'propiedades' => $propiedades
+        ];
+        //return view('vista_pdf',$data);
+        $pdf = \PDF::loadView('vista_pdf', $data);
+        return $pdf->download('archivo.pdf');
     }
 
 

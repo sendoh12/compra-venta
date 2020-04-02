@@ -1,7 +1,7 @@
 
 
 
-<?php $__env->startSection('title', 'About'); ?>
+<?php $__env->startSection('title', 'Propiedades'); ?>
 
 
 <?php $__env->startSection('content'); ?>
@@ -123,8 +123,13 @@
                 
                     <div class="botones">
                         <a href="#">Enviar</a>
-                        
-                        <a onclick="Generar_pdf(<?php echo e($propiedad->PROPIEDADES_ID); ?>)">Descargar</a>
+                        <form action="pdfjava" method="post">
+                            <?php echo csrf_field(); ?>
+                            <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
+                            <input type="submit" value="Descargar">
+                        </form>
+                        <!-- <a href="pdfjava/<?php echo e($propiedad->PROPIEDADES_ID); ?>">Descargar</a> -->
+                        <!-- <a onclick="Generar_pdf(<?php echo e($propiedad->PROPIEDADES_ID); ?>)">Descargar</a> -->
                         <a href="#">Contactar</a>
                         
 
@@ -190,4 +195,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('Paginasinicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/about.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/about.blade.php ENDPATH**/ ?>

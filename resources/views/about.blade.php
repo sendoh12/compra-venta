@@ -122,8 +122,13 @@
                 {{-- </div> --}}
                     <div class="botones">
                         <a href="#">Enviar</a>
-                        {{-- <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> --> --}}
-                        <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a>
+                        <form action="pdfjava" method="post">
+                            @csrf
+                            <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
+                            <input type="submit" value="Descargar">
+                        </form>
+                        <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> -->
+                        <!-- <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a> -->
                         <a href="#">Contactar</a>
                         
 
