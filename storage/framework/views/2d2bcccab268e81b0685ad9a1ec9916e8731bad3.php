@@ -524,7 +524,7 @@ function buscar() {
                     costan='<?=$editar->PROPIEDADES_DESCRIPCION?>';
                     document.getElementById("descripcion").value = costan;
           <?php endif ?>
-          console.log(costan);
+          // console.log(costan);
                 });
 
 </script>
@@ -552,7 +552,7 @@ function buscar() {
             data: {valor:valor},
             success:  function(response){
               // var arreglo = JSON.parse(response.mensaje);
-              console.log(response.mensaje.length);
+              // console.log(response.mensaje.length);
               j=0;
               for (let i = 0; i < response.mensaje.length; i++) {
                 // var option = document.createElement("option");
