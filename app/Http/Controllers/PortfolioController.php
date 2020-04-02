@@ -266,6 +266,7 @@ class PortfolioController extends Controller
                         ->join('cv_propiedades', 'cv_imagenes.IMAGENES_PROPIEDAD','=','cv_propiedades.PROPIEDADES_ID')
                         ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                         ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                        ->orderByRaw('IMAGENES_ORDEN ASC')
                         ->get();
         
         // echo '<pre>';
