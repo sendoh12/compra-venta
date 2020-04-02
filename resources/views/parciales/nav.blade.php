@@ -30,16 +30,16 @@
 
                 <ul class="nav navbar-nav ">
                     
-                    <li class="{{ request()->routeIs('lacer') ? 'activo' : '' }} ">
-                        <a href=" {{ route('lacer') }}"> <i class=" fas fa-home "></i> Inicio </a>
+                    <li class="{{ request()->routeIs('inicio') ? 'activo' : '' }} ">
+                        <a href=" {{ route('inicio') }}"> <i class=" fas fa-home "></i> Inicio </a>
                     </li>
 
-                    <li class="{{ request()->routeIs('about') ? 'activo' : '' }}">
-                        <a href="{{ route('about') }}"> <i class=" fas fa-landmark "></i> Propiedades </a>
+                    <li class="{{ request()->routeIs('propiedades') ? 'activo' : '' }}">
+                        <a href="{{ route('propiedades') }}"> <i class=" fas fa-landmark "></i> Propiedades </a>
                     </li>
 
-                    <li class="{{ request()->routeIs('portfolio') ? 'activo' : '' }}">
-                        <a href="{{ route('portfolio') }}"> <i class=" fas fa-id-badge "></i> Contacto </a>
+                    <li class="{{ request()->routeIs('contacto') ? 'activo' : '' }}">
+                        <a href="{{ route('contacto') }}"> <i class=" fas fa-id-badge "></i> Contacto </a>
                     </li>
 
                     <li class="{{ request()->routeIs('contact') ? 'activo' : '' }}">

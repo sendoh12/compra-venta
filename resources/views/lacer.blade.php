@@ -1,6 +1,6 @@
 @extends('PaginasInicio.inicio')
 
-@section('title', 'Home')
+@section('title', 'Inicio')
 
 
 <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">

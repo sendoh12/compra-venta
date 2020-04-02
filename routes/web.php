@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 //pagina de inicio
-Route::get('/', ['as' => 'lacer', 'uses' => 'PortfolioController@lacer' ]);
-Route::get('/lacer', ['as' => 'lacer', 'uses' => 'PortfolioController@lacer' ]);
-Route::get('/about', ['as' => 'about', 'uses' => 'PortfolioController@about']);
-Route::get('/portfolio', ['as'=>'portfolio', 'uses'=>'PortfolioController@portafolio']);
+Route::get('/', ['as' => 'inicio', 'uses' => 'PortfolioController@lacer' ]);
+Route::get('/inicio', ['as' => 'inicio', 'uses' => 'PortfolioController@lacer' ]);
+Route::get('/propiedades', ['as' => 'propiedades', 'uses' => 'PortfolioController@about']);
+Route::get('/contacto', ['as'=>'contacto', 'uses'=>'PortfolioController@portafolio']);
 
 
 // redireccionar si no a iniciado session

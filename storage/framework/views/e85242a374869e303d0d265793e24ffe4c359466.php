@@ -31,11 +31,10 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <?php
                 if (session()->has('admin')):
-                  $usario=session()->get('admin');
-                  
+                  $usario=session()->get('admin');              
                   ?>
                   <div class="info">
-                  <span class="hidden-xs">Hola: <?=$usario['Nombre']?></span>
+                  <span class="hidden-xs"> <?php echo e('Hola: '.$usario['Nombre']); ?></span>
                   </div>
                 <?php endif;?>
               </a>
@@ -46,7 +45,7 @@
                     <a href="#" class="btn btn-success btn-flat">Ajustes</a>
                   </div>
                   <div class="pull-right">
-                    <a href="salir" class="btn btn-defalut btn-flat">Cerrar Session</a>
+                    <a href="salir" class="btn btn-success btn-flat">Cerrar Session</a>
                   </div>
                 </li>
               </ul>
