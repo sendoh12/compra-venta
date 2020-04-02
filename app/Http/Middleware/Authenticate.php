@@ -26,19 +26,22 @@ class Authenticate extends Middleware
     {
 
         // si la persona no inició sesión, entonces ....
-        // if (Auth::guard(session()->has('admin'))->guest()) {
+        // if (Auth::guard($guard)->guest()) {
 
-        //     // if ($request->ajax() || $request->wantsJson()) {
+        //     if ($request->ajax() || $request->wantsJson()) {
 
-        //     //     return response('Unauthorized.', 401);
+        //         return response('Unauthorized.', 401);
 
-        //     // } else {
+        //     } else {
 
-        //     //     // si la persona no inició sesión y no es una solicitud ajax
-        //     //     // enviar al formulario de ingreso
-        //     //     return redirect()->guest('login');
+        //         // si la persona no inició sesión y no es una solicitud ajax
+        //         // enviar al formulario de ingreso
+        //         $sesion = Session::has('users');
+        //         var_dump($sesion);
+        //         die();
+        //         return redirect()->guest('login');
 
-        //     // }
+        //     }
         // }
 
         return $next($request);

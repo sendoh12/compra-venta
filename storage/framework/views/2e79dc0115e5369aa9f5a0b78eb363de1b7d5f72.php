@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('title', 'Home'); ?>
+<?php $__env->startSection('title', 'Inicio'); ?>
 
 
 <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('sider/css/estilos.css')); ?> ">
@@ -104,6 +104,10 @@
 			<div id="clave" style="display:none;">
 				<form action="Filtro_buscar_nombre" method="post" class="col-md-10 col-md-offset-1 colorform">
 				<?php echo csrf_field(); ?>
+				<br>
+					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
+					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
+					<br><br>
 					<div class="form-group">
 						<label class="letra">Buscar por clave</label>
 						<input type="text" class="form-control tipoletra" name="nombre1" placeholder="Nombre de 1la propiedad" minlength="2" maxlength="120"  required>
@@ -133,4 +137,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('Paginasinicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/lacer.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/lacer.blade.php ENDPATH**/ ?>

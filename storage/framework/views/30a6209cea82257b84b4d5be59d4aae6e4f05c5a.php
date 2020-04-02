@@ -1,7 +1,7 @@
 
 
 
-<?php $__env->startSection('title', 'About'); ?>
+<?php $__env->startSection('title', 'Propiedades'); ?>
 
 
 <?php $__env->startSection('content'); ?>
@@ -190,4 +190,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('Paginasinicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/about.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/about.blade.php ENDPATH**/ ?>

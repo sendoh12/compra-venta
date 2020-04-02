@@ -30,16 +30,16 @@
 
                 <ul class="nav navbar-nav ">
                     
-                    <li class="<?php echo e(request()->routeIs('lacer') ? 'activo' : ''); ?> ">
-                        <a href=" <?php echo e(route('lacer')); ?>"> <i class=" fas fa-home "></i> Inicio </a>
+                    <li class="<?php echo e(request()->routeIs('inicio') ? 'activo' : ''); ?> ">
+                        <a href=" <?php echo e(route('inicio')); ?>"> <i class=" fas fa-home "></i> Inicio </a>
                     </li>
 
-                    <li class="<?php echo e(request()->routeIs('about') ? 'activo' : ''); ?>">
-                        <a href="<?php echo e(route('about')); ?>"> <i class=" fas fa-landmark "></i> Propiedades </a>
+                    <li class="<?php echo e(request()->routeIs('propiedades') ? 'activo' : ''); ?>">
+                        <a href="<?php echo e(route('propiedades')); ?>"> <i class=" fas fa-landmark "></i> Propiedades </a>
                     </li>
 
-                    <li class="<?php echo e(request()->routeIs('portfolio') ? 'activo' : ''); ?>">
-                        <a href="<?php echo e(route('portfolio')); ?>"> <i class=" fas fa-id-badge "></i> Contacto </a>
+                    <li class="<?php echo e(request()->routeIs('contacto') ? 'activo' : ''); ?>">
+                        <a href="<?php echo e(route('contacto')); ?>"> <i class=" fas fa-id-badge "></i> Contacto </a>
                     </li>
 
                     <li class="<?php echo e(request()->routeIs('contact') ? 'activo' : ''); ?>">

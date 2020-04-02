@@ -33,40 +33,54 @@ class LoginController extends Controller
      */
     public function Registro()
     {
-        return view("Login/Registro");
+        if(session()->has('admin')==false){
+            return redirect('login');
+        }else{
+            
+            return view("Login/Registro");
+            
+        }
     }
 
     public function Registrodelusuario(User_validation $request)
     {
-        if ($request->isMethod('post')) {
-            if ($request->input() != null) {
-                if($request->input('id_usuario') != null){
-                    $propiedades = DB::table('users')
-                        ->where('ID_USER',$request->input('id_usuario'))
-                        ->update(["NOMBRE_USER" => $request->input('Nombre'),
-                                    "EMAIL_USER"=> $request->input('correo'),
-                                    "PASSWORD_USER"=>Hash::make($request->input('password')),
-                                    "ROL_USERS"=>$request->input('Rol'),]);
-                    return redirect("principal");
-                }else{
-                        $Usuario = array('Nombre' => $request->input('Nombre'),
-                                'Correo' => $request->input('correo'),
-                                'password' => $request->input('password'),
-                                'Rol' => $request->input('Rol'));
-                        $registro= new User;
-                        $registrado=$registro->Registrar($Usuario);
-                        if($registrado != null){
-                            return redirect('principal');
-                        }else{
-                            return redirect('Registro_usurio');
-                        }
+
+        if(session()->has('admin')==false){
+            return redirect('login');
+        }else{
+            
+            if ($request->isMethod('post')) {
+                if ($request->input() != null) {
+                    if($request->input('id_usuario') != null){
+                        $propiedades = DB::table('users')
+                            ->where('ID_USER',$request->input('id_usuario'))
+                            ->update(["NOMBRE_USER" => $request->input('Nombre'),
+                                        "EMAIL_USER"=> $request->input('correo'),
+                                        "PASSWORD_USER"=>Hash::make($request->input('password')),
+                                        "ROL_USERS"=>$request->input('Rol'),]);
+                        return redirect("principal");
+                    }else{
+                            $Usuario = array('Nombre' => $request->input('Nombre'),
+                                    'Correo' => $request->input('correo'),
+                                    'password' => $request->input('password'),
+                                    'Rol' => $request->input('Rol'));
+                            $registro= new User;
+                            $registrado=$registro->Registrar($Usuario);
+                            if($registrado != null){
+                                return redirect('principal');
+                            }else{
+                                return redirect('Registro_usurio');
+                            }
+                    }
                 }
             }
+            
         }
     }
     public function show(Request $request)
     {
         if ($request->isMethod('post')) {
+            
             if ($request->input() != null) {
                 $validatedData = $request->validate([
                     'email' => ['required', 'max:255'],
@@ -77,6 +91,7 @@ class LoginController extends Controller
                 $data=[];
                 $query=DB::table('users')->where('EMAIL_USER',$dato['email'])->first();
                if($query != null){
+
                     $pasword=Hash::check($dato['password'],$query->PASSWORD_USER);
                     if ($pasword){
                     $data = array('id' =>$query->ID_USER ,
@@ -103,8 +118,14 @@ class LoginController extends Controller
      */
     public function destroy(Request $request)
     {
+        if(session()->has('admin')==false){
+            return redirect('login');
+        }else{
+            
             $request->session()->forget("admin");
             //Session::flush();
             return redirect('/');
+            
+        }
     }
 }

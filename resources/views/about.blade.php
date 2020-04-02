@@ -1,7 +1,7 @@
 {{-- <script src="/js/dist/jspdf.min.js"></script> --}}
 @extends('PaginasInicio.inicio')
 
-@section('title', 'About')
+@section('title', 'Propiedades')
 
 
 @section('content')

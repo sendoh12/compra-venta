@@ -1,6 +1,6 @@
 @extends('PaginasInicio.inicio')
 
-@section('title', 'Portfolio')
+@section('title', 'Contacto')
 
 
 @section('content')
