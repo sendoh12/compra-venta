@@ -47,6 +47,8 @@
 <script src="{{asset('dist/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('dist/js/admin-ajax.js')}}"></script>
 
+<script src="{{asset('alertifyjs/alertify.js')}}"></script>
+
 
 {{-- <script type="text/javascript" src="{{asset('js/modernizr.custom.46884.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.slicebox.js')}}"></script> --}}
@@ -57,7 +59,7 @@
 
 
 
-<script type="text/javascript" src="<?php echo asset('css/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('css/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/jQueryUI/jquery-ui.1.11.2.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/datatables/jquery.dataTables.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/datatables/dataTables.responsive.min.js'); ?>"></script>

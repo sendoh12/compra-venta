@@ -39,7 +39,7 @@
 
 
   {{-- archivo donde se modifican los colores --}}
-  <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}"> --}}
 
   <link rel="stylesheet" href="{{asset('dist/css/sweetalert2.min.css')}}">
 
@@ -73,7 +73,7 @@
       <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/AdminLTE1.css'); ?>">
     
     {{-- ruta que le da los estilos de examen --}}
-    {{-- <link rel="stylesheet" type="text/css" href=" {{asset('css/dist/css/skins/_all-skins.min.css')}} "> --}}
+    <link rel="stylesheet" type="text/css" href=" {{asset('css/dist/css/skins/_all-skins.min.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/iCheck/flat/blue.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/morris/morris.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/datepicker/datepicker3.css')}} ">
@@ -81,6 +81,10 @@
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.css')}} ">
     <link rel="stylesheet" type="text/css" href=" {{asset('css/plugins/fullcalendar/fullcalendar.print.css')}} ">
+
+    <link rel="stylesheet" type="text/css" href=" {{asset('alertifyjs/css/alertify.css')}} ">
+    <link rel="stylesheet" type="text/css" href=" {{asset('alertifyjs/css/themes/default.css')}} ">
+
 
     {{-- <link rel="stylesheet" type="text/css" href=" {{asset('css/slicebox.css')}} " />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/demo.css')}}" />

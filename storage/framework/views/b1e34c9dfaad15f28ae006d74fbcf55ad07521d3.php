@@ -39,7 +39,7 @@
 
 
   
-  <link rel="stylesheet" href="<?php echo e(asset('dist/css/skins/_all-skins.min.css')); ?>">
+  
 
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/sweetalert2.min.css')); ?>">
 
@@ -73,7 +73,7 @@
       <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/AdminLTE1.css'); ?>">
     
     
-    
+    <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/dist/css/skins/_all-skins.min.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/iCheck/flat/blue.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/morris/morris.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/datepicker/datepicker3.css')); ?> ">
@@ -81,6 +81,10 @@
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/fullcalendar/fullcalendar.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/plugins/fullcalendar/fullcalendar.print.css')); ?> ">
+
+    <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('alertifyjs/css/alertify.css')); ?> ">
+    <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('alertifyjs/css/themes/default.css')); ?> ">
+
 
     
     
