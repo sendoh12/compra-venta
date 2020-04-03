@@ -22,20 +22,20 @@
 
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?php echo e(asset('plugins/fontawesome-free/css/all.min.css')); ?>">
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/adminlte.min.css')); ?>">
   <!-- Google Font: Source Sans Pro -->
 
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href=" <?php echo e(asset('dist/css/bootstrap.min.css')); ?> ">
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/font-awesome.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/font-awesome.css')); ?>">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/ionicons.min.css')); ?>">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo e(asset('dist/css/AdminLTE.min.css')); ?>">
+  
 
 
   
@@ -43,7 +43,7 @@
 
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/sweetalert2.min.css')); ?>">
 
-  <link rel="stylesheet" href="<?php echo e(asset('dist/css/dataTables.bootstrap.min.css')); ?>">
+  
 
 
   <link rel="stylesheet" href="<?php echo e(asset('dist/css/admin.css')); ?>">
@@ -62,15 +62,15 @@
 
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/dist/css/font-awesome.min.css')); ?> ">
 
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/font-awesome.min.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/ionicons.min.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/plugins/datatables/dataTables.bootstrap.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/plugins/datatables/dataTables.responsive.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/AdminLTE.min.css'); ?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/AdminLTE.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap/css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/dist/css/font-awesome.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/dist/css/ionicons.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/plugins/datatables/dataTables.bootstrap.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/plugins/datatables/dataTables.responsive.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/dist/css/AdminLTE.min.css')); ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/dist/css/AdminLTE.css')); ?> ">
     
-      <link rel="stylesheet" type="text/css" href="<?php echo asset('public/css/dist/css/AdminLTE1.css'); ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/dist/css/AdminLTE1.css')); ?>">
     
     
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('css/dist/css/skins/_all-skins.min.css')); ?> ">
@@ -85,11 +85,10 @@
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('alertifyjs/css/alertify.css')); ?> ">
     <link rel="stylesheet" type="text/css" href=" <?php echo e(asset('alertifyjs/css/themes/default.css')); ?> ">
 
+    
+  
 
-    
-    
-    
-    
+
 
 
 

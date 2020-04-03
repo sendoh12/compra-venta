@@ -4,6 +4,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    <br><br><br>
     <section class="content-header col-md-offset-2">
       <h1>
         Capturar Imagenes
@@ -42,7 +43,10 @@
                   
                     
                     
-                    <button  type="submit" class="btn btn-info pull-right">Guardar Cambios</button>
+                    <div class="box-footer" align="right">
+                      <button  type="submit" class="btn btn-info ">Guardar Cambios</button>
+
+                    </div>
                 </div>
               </form>
             

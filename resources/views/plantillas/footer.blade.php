@@ -2,7 +2,7 @@
   <div class="pull-right hidden-xs">
     <b></b>
   </div>
-  <strong>GrupoLacer Arquitectura Inmoviliaria  <a href=""> </a></strong> 
+  <strong> GrupoLacer Arquitectura Inmobiliaria  <a href=""> </a></strong> 
   
 </footer>
 

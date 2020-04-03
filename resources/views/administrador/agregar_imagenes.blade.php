@@ -6,6 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    <br><br><br>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
