@@ -1,10 +1,10 @@
 
-@include('plantillas.header')
-@include('plantillas.menu')
+<?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
     
   <!-- Content Wrapper. Contains page content -->
@@ -29,8 +29,8 @@
               <h3 class="box-title">Agregar imagenes a la propiedad</h3>
             </div>
         
-            <form id="guardarimagenes" class="form-horizontal" action="{{route('InsertarImagenes',$id)}}" method="POST" enctype="multipart/form-data">
-                @csrf
+            <form id="guardarimagenes" class="form-horizontal" action="<?php echo e(route('InsertarImagenes',$id)); ?>" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="box-footer">
 
                   <div class="form-group">
@@ -49,9 +49,9 @@
 
 
                   <div class="box-footer" align="center">
-                    {{-- <button type="submit" class="btn btn-default">Cancel</button> --}}
+                    
                     <input type="button" class="btn btn-info " onclick="Mostrarimagenes()" value="Guardar Cambios">
-                    {{-- <button onchange="Mostrarimagenes()" type="submit" class="btn btn-info pull-right">Guardar Cambios</button> --}}
+                    
                   </div>
                 </div>
               </form>
@@ -88,7 +88,7 @@
 
   
 
-@include('plantillas.footer')
+<?php echo $__env->make('plantillas.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -105,4 +105,4 @@
     document.getElementById('guardarimagenes').submit();
   }
 
-</script>
+</script><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/administrador/agregar_imagenes.blade.php ENDPATH**/ ?>

@@ -15,8 +15,15 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <br><br><br>
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
+      <h1>
+        Capturar propiedades
+        <small></small>
+      </h1>
+      
+    </section>
       <div class="container-fluid">
         
 
@@ -25,10 +32,10 @@
       <div class="row">
         <!-- left column -->
         <div class="col-md-40 ">
-         
+          <div class="box">
 
           
-<br><br><br>
+
           <!-- Horizontal Form -->
           <div class="box box-succes" style="">
             <div class="box-header with-border">
@@ -203,7 +210,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-5">
-                      <div id="mapid" style="width:600px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
+                      <div id="mapid" style="width:1035px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
                         <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
                           
                             <div class="leaflet-pane leaflet-tile-pane">
@@ -397,7 +404,7 @@
              <hr style="border-top: 1px solid #3c8dbc;">
 
              <div class="form-group">
-                <label for="" class="col-sm-3 control-label">Descripción*</label>
+                <label for="" class="col-sm-4 control-label">Descripción*</label>
 
                 <div class="col-sm-6">
                   <textarea class="form-control" name="descripcion"  id="descripcion" cols="30" rows="5">
@@ -408,7 +415,7 @@
               </div>
 
               <div class="form-group">
-                <label for="" class="col-sm-3 control-label">Clave interna*</label>
+                <label for="" class="col-sm-4 control-label">Clave interna*</label>
 
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="Clave" id="Clave"  placeholder="" value="<?php if (isset($editar)) {
@@ -418,7 +425,7 @@
               </div>
 
               <div class="form-group">
-                <label for="" class="col-sm-3 control-label">Video</label>
+                <label for="" class="col-sm-4 control-label">Video</label>
 
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="Video" id="Video" placeholder="" value="<?php if (isset($editar)) {
@@ -441,7 +448,6 @@
                         </div>
           <!-- /.box -->
 
-     
     </div>
   </section>
     <!-- /.content-header -->
@@ -499,10 +505,10 @@
       alertify.success("te hace falta llenar Numero Interior, por favor");
     }else if(imagen == null || imagen == '') {
       alertify.success("te hace falta insertar la imagen, por favor");
-    }else if(Latitud == null || Latitud == '') {
-      alertify.success("te hace falta llenar Latitud de la ubicacion, por favor");
-    }else if(longitud == null || longitud == '') {
-      alertify.success("te hace falta llenar Longitud de la ubicacion, por favor");
+    // }else if(Latitud == null || Latitud == '') {
+    //   alertify.success("te hace falta llenar Latitud de la ubicacion, por favor");
+    // }else if(longitud == null || longitud == '') {
+    //   alertify.success("te hace falta llenar Longitud de la ubicacion, por favor");
     }else if(descripcion == null || descripcion == '') {
       alertify.success("te hace falta llenar la descripcion, por favor");
     }else if(Clave == null || Clave == '') {
