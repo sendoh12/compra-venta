@@ -1,10 +1,10 @@
 
-@include('plantillas.header')
-@include('plantillas.menu')
+<?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     
 
     <div class="content-wrapper">
@@ -36,7 +36,7 @@
                                       </tr>
                                   </thead>
                                   <tbody id="sortable">
-                                      @foreach ($imagenes as $item)
+                                      <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                           <tr>
                                               <td> 
                                                   <div class="row ">
@@ -55,7 +55,7 @@
                                           </tr>
                   
                                           
-                                      @endforeach
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                       
                                   </tbody>
                                 
@@ -93,7 +93,7 @@
 
       
 
-@include('plantillas.footer')
+<?php echo $__env->make('plantillas.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <script>
@@ -101,4 +101,4 @@
       $( "#sortable" ).sortable();
       $( "#sortable" ).disableSelection();
     } );
-    </script>
+    </script><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/administrador/lista_imginicio.blade.php ENDPATH**/ ?>

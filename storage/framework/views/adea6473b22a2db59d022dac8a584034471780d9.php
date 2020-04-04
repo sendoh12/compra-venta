@@ -1,10 +1,10 @@
 
-@include('plantillas.header')
-@include('plantillas.menu')
+<?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     
 
     <div class="content-wrapper">
@@ -12,7 +12,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Imagenes de Inicio
+            Listado de Propiedades
             <small></small>
           </h1>
           
@@ -25,42 +25,39 @@
     
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title"></h3>
+                  <h3 class="box-title">Maneja las propiedades en esta sección</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
+                <form action="guardaorden" method="post">
+                          <?php echo csrf_field(); ?>
+                          <input type="submit" value="Guardar">
                                 <table id="registros" class="table table-bordered">
                                   <thead>
                                       <tr>
-                                      <th></th>
+                                      <th>Propiedades</th>
+                                      
                                       </tr>
                                   </thead>
                                   <tbody id="sortable">
-                                      @foreach ($imagenes as $item)
+                                      <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                           <tr>
                                               <td> 
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
-                                                              <a href="EliminarImageninicio/<?= base64_encode($item->INICIO_ID)?>" class="btn btn-danger">Eliminar</a>
-                                                              
-                                                          </div>  
-                                                          
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
+                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
+                                                              <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
+                                                          </div>
                                                       </div>
-                                                      
                                                   </div>
-                                                    
                                               </td>
                                           </tr>
-                  
-                                          
-                                      @endforeach
-                                      
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                   </tbody>
-                                
                                 </table>
-                  
+                </form>
                 </div>
                 <!-- /.box-body -->
               </div>
@@ -93,7 +90,7 @@
 
       
 
-@include('plantillas.footer')
+<?php echo $__env->make('plantillas.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <script>
@@ -101,4 +98,4 @@
       $( "#sortable" ).sortable();
       $( "#sortable" ).disableSelection();
     } );
-    </script>
+    </script><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/administrador/imagenes_propiedades.blade.php ENDPATH**/ ?>

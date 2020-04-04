@@ -226,11 +226,11 @@ class PaginaPrincipal extends Controller
         }
     }
     
-    public function agregar_imagenes($id) {
+    public function agregar_imagenes($id_es) {
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            
+            $id=base64_decode($id_es);
             return view('administrador.agregar_imagenes', compact('id'));
             // return 'verificar si se esta pasando correctamente'.$id;
             
@@ -243,7 +243,7 @@ class PaginaPrincipal extends Controller
             return redirect('login');
         }else{
             
-            $id_propiedades=$request->input('id_propiedad');
+            $id_propiedades=base64_decode($request->input('id_propiedad'));
             $editar_propiedad=DB::table('cv_propiedades')->where('PROPIEDADES_ID',$id_propiedades)->first();
             $estados = DB::table('cv_estados')->get();
             $tipos = DB::table('cv_tipos')->get();
@@ -294,32 +294,31 @@ class PaginaPrincipal extends Controller
             }  
         }
 
-        $i=0;
-        foreach ($request->file('imagen') as $key => $value) {
-            $imagenes = DB::table('cv_imagenes')->insert([
+               $imagenes = DB::table('cv_imagenes')->insert([
                 'IMAGENES_PROPIEDAD' => $id,
                 'IMAGENES_NOMBRE' => $request->input('nombre'),
-                'IMAGENES_ARCHIVO' => $array[$i],
-                'IMAGENES_ORDEN' => $i
-                ]);
-            $i++;
-        }
+                'IMAGENES_ARCHIVO' => $name,
+                'IMAGENES_ORDEN' => 0                ]);
 
-      return redirect('VerPropiedades');
 
-   }
+        return redirect('VerPropiedades');
 
-   public function verimagenes(Request $request) {
+    }
+
+    public function verimagenes(Request $request) {
+        $id=base64_decode($request->input('id_propiedade'));
         $verimagenes = DB::table('cv_imagenes')
-                     ->select('*')
-                     ->where('IMAGENES_PROPIEDAD','=',$request->input('id_propiedade'))
-                     ->orderBy('IMAGENES_ORDEN','ASC')
-                     ->get();
+                    ->select('*')
+                    ->where('IMAGENES_PROPIEDAD','=',$id)
+                    ->orderBy('IMAGENES_ORDEN','ASC')
+                    ->get();
+                    // var_dump($verimagenes);
+                    // die;
 
             return view('administrador.imagenes_propiedades', array(
                 'imagenes' => $verimagenes,
-             ));
-   }
+            ));
+    }
 
     // caputar imagenes
 
