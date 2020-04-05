@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
+   
  <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -187,7 +188,9 @@
                 <div class="form-group">
                     <label for="" class="col-sm-4 control-label">Seleccionar Imagen</label>
                     <div class="col-sm-6">
-                      <input type="file" class="" name="imagen" id="imagen" placeholder="" >
+                      <input type="file" class="" name="imagen" id="imagen" placeholder="" value="<?php if (isset($editar)) {
+                        echo $editar->PROPIEDADES_IMAGEN;
+                      } ?>">
                     </div>
                 </div>
                 <div class="form-group">
@@ -210,10 +213,10 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-5">
-                      <div id="mapid" style="width:1035px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
-                        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
+                      <div id="mapid" style="width:1035px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag form-control" tabindex="0">
+                        <div class="leaflet-pane leaflet-map-pane form-control" style="transform: translate3d(173px, 104px, 0px);">
                           
-                            <div class="leaflet-pane leaflet-tile-pane">
+                            <div class="leaflet-pane leaflet-tile-pane form-control">
                               <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
                                 <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
                                   <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
@@ -253,7 +256,7 @@
                 <div class="col-sm-6">
                   <select class="form-control" name="tipo" id="tipo" onchange="Opciones()">
                     <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                      <option value="<?php echo e($item->TIPOS_NOMBRE); ?>"> <?php echo e($item->TIPOS_NOMBRE); ?> </option>
+                      <option value="<?php echo e($item->TIPOS_NOMBRE); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
                   </select>
@@ -283,7 +286,7 @@
                 </div>
               </div>
 
-              <div class="form-group " id="op4">
+              <div class="form-group " id="op3">
                 <label for="" class="col-sm-4 control-label">Precio</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control"  name="Precio" id="Precio" placeholder="" value="<?php if (isset($editar)) {
@@ -407,10 +410,9 @@
                 <label for="" class="col-sm-4 control-label">Descripción*</label>
 
                 <div class="col-sm-6">
-                  <textarea class="form-control" name="descripcion"  id="descripcion" cols="30" rows="5">
-                  
-                  </textarea>
-                  
+                  <textarea class="form-control" name="descripcion"  id="descripcion" cols="30" rows="5"><?php if (isset($editar)) {
+                    echo $editar->PROPIEDADES_DESCRIPCION;
+                  } ?></textarea>
                 </div>
               </div>
 
@@ -503,8 +505,8 @@
       alertify.success("te hace falta llenar Numero Exterior, por favor");
     }else if(NumeroInterior == null || NumeroInterior == '') {
       alertify.success("te hace falta llenar Numero Interior, por favor");
-    }else if(imagen == null || imagen == '') {
-      alertify.success("te hace falta insertar la imagen, por favor");
+    // }else if(imagen == null || imagen == '') {
+    //   alertify.success("te hace falta insertar la imagen, por favor");
     // }else if(Latitud == null || Latitud == '') {
     //   alertify.success("te hace falta llenar Latitud de la ubicacion, por favor");
     // }else if(longitud == null || longitud == '') {

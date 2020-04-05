@@ -123,8 +123,13 @@
                 
                     <div class="botones">
                         <a href="#">Enviar</a>
-                        
-                        <a onclick="Generar_pdf(<?php echo e($propiedad->PROPIEDADES_ID); ?>)">Descargar</a>
+                        <form action="pdfjava" method="post">
+                            <?php echo csrf_field(); ?>
+                            <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
+                            <input type="submit" value="Descargar">
+                        </form>
+                        <!-- <a href="pdfjava/<?php echo e($propiedad->PROPIEDADES_ID); ?>">Descargar</a> -->
+                        <!-- <a onclick="Generar_pdf(<?php echo e($propiedad->PROPIEDADES_ID); ?>)">Descargar</a> -->
                         <a href="#">Contactar</a>
                         
 

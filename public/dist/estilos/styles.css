@@ -899,3 +899,8 @@ nav.iconospropied a:last-child {
 div.origenmapa {
     margin-top: 10px;
 }
+
+div#mapid {
+    background: red;
+    /* width: 500px; */
+}
