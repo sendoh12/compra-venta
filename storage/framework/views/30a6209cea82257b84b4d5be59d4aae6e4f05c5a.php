@@ -5,13 +5,16 @@
 
 
 <?php $__env->startSection('content'); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <div class="captura ">
         
     <div class="slideshow">
         <ul class="slider">
             <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li>
-                <img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
+                <img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
                 <section class="caption">
                     <h1>GupoLacer</h1>
                     <p></p>
@@ -96,7 +99,7 @@
                         <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
                     
                     <button type="submit">
-                        <img style="width: 400px;height: 250px;" src="images/<?php echo e($propiedad->PROPIEDADES_IMAGEN); ?>" alt="imagen invitado">
+                        <img style="width: 400px;height: 250px;" src="fotos/<?php echo e($propiedad->PROPIEDADES_IMAGEN); ?>" alt="imagen invitado">
                     </button>
                   </form>
 
@@ -122,15 +125,15 @@
                     </nav>
                 
                     <div class="botones">
-                        <a href="#">Enviar</a>
+                        
                         <form action="pdfjava" method="post">
                             <?php echo csrf_field(); ?>
                             <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
                             <input type="submit" value="Descargar">
                         </form>
-                        <!-- <a href="pdfjava/<?php echo e($propiedad->PROPIEDADES_ID); ?>">Descargar</a> -->
-                        <!-- <a onclick="Generar_pdf(<?php echo e($propiedad->PROPIEDADES_ID); ?>)">Descargar</a> -->
-                        <a href="#">Contactar</a>
+                        
+                        
+                        
                         
 
                     </div>

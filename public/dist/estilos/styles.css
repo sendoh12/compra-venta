@@ -735,15 +735,22 @@ div.botones {
     height: 30px;
     text-align: center;
     font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ffff;
     /* text-transform: uppercase; */
     -webkit-transition: all .5s ease-in-out;
 }
 
-div.botones a {
-    color: #ffff;
+div.botones input {
+    /* color: #ffff; */
     margin-right: 20px;
+    background-color: #373737;
+    border: 0;
+    /* display: inline; */
+}
+
+span.input-group-addon {
+    background-color: #373737;
 }
 
 div.busqueda {

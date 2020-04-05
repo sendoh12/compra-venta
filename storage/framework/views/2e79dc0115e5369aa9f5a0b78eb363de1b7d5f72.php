@@ -13,7 +13,7 @@
 		<ul class="slider">
             <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<li>
-				<img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
+				<img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
 				<section class="caption">
 					<h1>GupoLacer</h1>
 					<p></p>

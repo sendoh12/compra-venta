@@ -5,13 +5,16 @@
 
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --}}
 <div class="captura ">
         
     <div class="slideshow">
         <ul class="slider">
             @foreach ($imagenes as $item)
             <li>
-                <img style="width: 100%; height: 400px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
+                <img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
                 <section class="caption">
                     <h1>GupoLacer</h1>
                     <p></p>
@@ -98,7 +101,7 @@
                         <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
                     {{-- @endisset --}}
                     <button type="submit">
-                        <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
+                        <img style="width: 400px;height: 250px;" src="fotos/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
                     </button>
                   </form>
 
@@ -121,15 +124,15 @@
                     </nav>
                 {{-- </div> --}}
                     <div class="botones">
-                        <a href="#">Enviar</a>
+                        {{-- <input type="submit" value="Enviar"> --}}
                         <form action="pdfjava" method="post">
                             @csrf
                             <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
                             <input type="submit" value="Descargar">
                         </form>
-                        <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> -->
-                        <!-- <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a> -->
-                        <a href="#">Contactar</a>
+                        {{-- <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> --> --}}
+                        {{-- <!-- <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a> --> --}}
+                        {{-- <input type="submit" value="Contactar"> --}}
                         
 
                     </div>

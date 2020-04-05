@@ -42,12 +42,12 @@
                                   <tbody id="sortable">
                                       <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                           <tr>
-                                              <td> 
+                                              <a> 
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="/public_ftp/fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
-                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminarrrrr</a>
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
+                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
                                                               <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
                                                           </div>
                                                       </div>

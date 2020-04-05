@@ -1,4 +1,4 @@
-@extends('Paginasinicio.inicio')
+@extends('PaginasInicio.inicio')
 
 @section('title', 'Casa en venta')
 
