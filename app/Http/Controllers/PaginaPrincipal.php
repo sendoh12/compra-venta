@@ -86,7 +86,7 @@ class PaginaPrincipal extends Controller
     
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
-                    $file->move(public_path().'/images', $name);
+                    $file->move(public_path().'_html/images', $name);
                     $propiedades = DB::table('cv_propiedades')
                     ->where('PROPIEDADES_ID',$request->input('Id_prepiedad'))
                     ->update(['PROPIEDADES_NOMBRE' => $request->input('propiedad'),
@@ -159,7 +159,7 @@ class PaginaPrincipal extends Controller
                 if($request->hasFile('imagen')) {
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
-                    $file->move(public_path().'/images', $name);
+                    $file->move(public_path().'_html/images', $name);
                     
                 }
         
@@ -289,7 +289,7 @@ class PaginaPrincipal extends Controller
             foreach ($file as $key ) {
                 $name = time().$key->getClientOriginalName();
                 $array[$j] = $name;
-                $key->move(public_path().'/fotos', $name);
+                $key->move(public_path().'_html/fotos', $name);
                 $j++;
             }  
         }
@@ -345,7 +345,7 @@ class PaginaPrincipal extends Controller
                 foreach ($file as $key ) {
                     $name = time().$key->getClientOriginalName();
                     $array[$j] = $name;
-                    $key->move(public_path().'/inicio', $name);
+                    $key->move(public_path().'_html/inicio', $name);
                     $j++;
                 }  
             }

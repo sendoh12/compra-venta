@@ -42,7 +42,7 @@
                                   <tbody id="sortable">
                                       @foreach ($imagenes as $item)
                                           <tr>
-                                              <td> 
+                                              <a> 
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >

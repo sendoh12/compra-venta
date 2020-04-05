@@ -46,8 +46,8 @@
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
-                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="/public_ftp/fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
+                                                              <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminarrrrr</a>
                                                               <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
                                                           </div>
                                                       </div>
