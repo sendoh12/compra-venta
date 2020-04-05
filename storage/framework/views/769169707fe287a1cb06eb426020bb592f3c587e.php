@@ -42,8 +42,9 @@
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="inicio/<?=$item->INICIO_NOMBRE?>" alt="">
-                                                              <a href="EliminarImageninicio/<?=$item->INICIO_ID?>" class="btn btn-danger">Eliminar</a>
+
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
+                                                              <a href="EliminarImageninicio/<?= base64_encode($item->INICIO_ID)?>" class="btn btn-danger">Eliminar</a>
                                                               
                                                           </div>  
                                                           

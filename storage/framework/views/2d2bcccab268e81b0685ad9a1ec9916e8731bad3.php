@@ -515,9 +515,24 @@
       alertify.success("te hace falta llenar la descripcion, por favor");
     }else if(Clave == null || Clave == '') {
       alertify.success("te hace falta llenar el campo clave, por favor");
-    }else {
-        document.getElementById('CrearPropiedad').submit();
-    }
+    }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && NumeroExterior != null && NumeroInterior != null && descripcion != null && Clave != null) {
+                    swal(
+                        'Correcto',
+                        'Guardando Propiedad...!',
+                        'success'
+                      )
+        setTimeout(function(){ document.getElementById('CrearPropiedad').submit(); }, 2000);
+      }else{
+                    swal(
+                        'Error!',
+                        'Hubo un error',
+                        'error'
+                      )
+      }
+    
+    // else {
+    //     document.getElementById('CrearPropiedad').submit();
+    // }
   }
 
   function validarNumeros(evt){
