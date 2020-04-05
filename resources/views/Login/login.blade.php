@@ -13,7 +13,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Iniciar Sesion aquí</p>
     
-        <form  method="post" action="Session">
+        <form id="ingresar"  method="post" action="Session">
             @csrf
           <div class="form-group has-feedback">
             <input id="email" class="form-control" type="email" name="email" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror">
@@ -33,7 +33,7 @@
             <!-- /.col -->
             <div class="col-xs-12 ">
               <input type="hidden" name="login-admin" value="1">
-              <button class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
+              <button type="button" onclick="validar()" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
               {{-- <button class="btn btn-primary btn-block btn-flat" type="button" onclick="Registrar()">Registrarse</button> --}}
 
             </div>
@@ -56,8 +56,28 @@
 
     @include('plantillas.footer')
 
-    {{-- <script>
-        function Registrar() {
-            location.href="Registro_usurio";
+    <script>
+      function validar(){
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        if(email == null || email == '') {
+          alertify.success("Te hace falta llenar el Correo, por favor");
+        }else if(password == null || password == '') {
+          alertify.success("Te hace falta llenar la contraseña, por favor");
+        }else if(email != null && password != null) {
+                    swal(
+                        'Correcto',
+                        'Iniciando sesion...!',
+                        'success'
+                      )
+          setTimeout(function(){ document.getElementById('ingresar').submit(); }, 2000);
+        }else{
+                      swal(
+                          'Error!',
+                          'Hubo un error',
+                          'error'
+                        )
         }
-        </script> --}}
+      }
+    </script>

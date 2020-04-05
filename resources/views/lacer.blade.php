@@ -13,7 +13,7 @@
 		<ul class="slider">
             @foreach ($imagenes as $item)
 			<li>
-				<img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
+				<img style="width: 100%; height: 400px;"  src="/fotos/<?=$item->INICIO_NOMBRE?>" alt="">
 				<section class="caption">
 					<h1>GupoLacer</h1>
 					<p></p>
