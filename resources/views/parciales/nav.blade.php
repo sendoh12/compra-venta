@@ -30,8 +30,8 @@
 
                 <ul class="nav navbar-nav ">
                     
-                    <li class="{{ request()->routeIs('inicio') ? 'activo' : '' }} ">
-                        <a href=" {{ route('inicio') }}"> <i class=" fas fa-home "></i> Inicio </a>
+                    <li class="{{ request()->routeIs('/') ? 'activo' : '' }} ">
+                        <a href=" {{ route('/') }}"> <i class=" fas fa-home "></i> Inicio </a>
                     </li>
 
                     <li class="{{ request()->routeIs('propiedades') ? 'activo' : '' }}">

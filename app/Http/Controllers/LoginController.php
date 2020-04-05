@@ -79,17 +79,25 @@ class LoginController extends Controller
     }
     public function show(Request $request)
     {
-        if ($request->isMethod('post')) {
+        
+        // return response()->json([
+        //     'correo'=> $request->correo,
+        //     'contraseña'=> $request->password,
+        //     'arreglo'=>$request->input()
+        // ]);
+        if ($request->ajax()) {
             
             if ($request->input() != null) {
-                $validatedData = $request->validate([
-                    'email' => ['required', 'max:255'],
-                    'password' => ['required'],
-                ]);
-                $dato = array('email' => $request->input('email'),
-                                'password' => $request->input('password') );
+                // $validatedData = $request->validate([
+                //     'email' => ['required', 'max:255'],
+                //     'password' => ['required'],
+                // ]);
+                
+                $dato = array('email' => $request->correo,
+                                'password' => $request->password );
                 $data=[];
                 $query=DB::table('users')->where('EMAIL_USER',$dato['email'])->first();
+                
                if($query != null){
 
                     $pasword=Hash::check($dato['password'],$query->PASSWORD_USER);
@@ -101,10 +109,17 @@ class LoginController extends Controller
                     $request->session()->put('admin',$data );
                     // Via the global helper...
                     session(['admin' => $data]);
-                    return redirect('principal');
+
+                    return response()->json([
+                        'arreglo'=> 1
+                    ]);
+                    
+                    // return redirect('principal');
                     }
                 }else{
-                    return back();
+                    return response()->json([
+                        'arreglo'=> 2
+                    ]);
                 } 
             }
         }

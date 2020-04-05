@@ -171,7 +171,7 @@ unset($__errorArgs, $__bag); ?>
       }else if(Nombre != null && correo != null && password != null) {
                     swal(
                         'Correcto',
-                        'Creando administrador...!',
+                        'Guardando administrador...!',
                         'success'
                       )
         setTimeout(function(){ document.getElementById('CrearUsuario').submit(); }, 2000);

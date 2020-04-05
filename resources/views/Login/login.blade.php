@@ -1,6 +1,7 @@
 
 @include('plantillas.header')
 {{-- @include('plantillas.menu') --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <body class="hold-transition login-page">
 
@@ -13,7 +14,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Iniciar Sesion aquí</p>
     
-        <form id="ingresar"  method="post" action="Session">
+        <form id="ingresar"  method="post" action="Session" enctype="multipart/form-data">
             @csrf
           <div class="form-group has-feedback">
             <input id="email" class="form-control" type="email" name="email" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror">
@@ -57,27 +58,76 @@
     @include('plantillas.footer')
 
     <script>
+      $.ajaxSetup({
+          headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+
       function validar(){
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        var bandera=0;
+        console.log(email);
 
         if(email == null || email == '') {
           alertify.success("Te hace falta llenar el Correo, por favor");
         }else if(password == null || password == '') {
           alertify.success("Te hace falta llenar la contraseña, por favor");
-        }else if(email != null && password != null) {
-                    swal(
-                        'Correcto',
-                        'Iniciando sesion...!',
-                        'success'
-                      )
-          setTimeout(function(){ document.getElementById('ingresar').submit(); }, 2000);
-        }else{
-                      swal(
-                          'Error!',
-                          'Hubo un error',
-                          'error'
-                        )
+        }else {
+
+              $.ajax({
+                //async:true,
+                cache:false,
+                dataType:"json",
+                type: 'POST',
+                url:'Session',
+                data: {correo:email, password:password},
+                success: function(response){
+                  // var arreglo = JSON.parse(response.mensaje);
+                  console.log(response.arreglo);
+
+                  if(response.arreglo==1) {
+                        swal(
+                            'Correcto',
+                            'Iniciando sesion...!',
+                            'success'
+                          )
+                      setTimeout(function(){window.location.href='{{route("home")}}'; }, 2000);
+                  }else{
+                        swal(
+                              'Error!',
+                              'Usuario o contraseña no registrados',
+                              'error'
+                            )
+                  }
+                
+                },
+                beforeSend:function(){},
+                error:function(objXMLHttpRequest){}
+            });
+
         }
+
+        
+
+        // if(email == null || email == '') {
+        //   alertify.success("Te hace falta llenar el Correo, por favor");
+        // }else if(password == null || password == '') {
+        //   alertify.success("Te hace falta llenar la contraseña, por favor");
+        // }else if(email != null && password != null) {
+        //             swal(
+        //                 'Correcto',
+        //                 'Iniciando sesion...!',
+        //                 'success'
+        //               )
+        //   setTimeout(function(){ document.getElementById('ingresar').submit(); }, 2000);
+        // }else{
+        //               swal(
+        //                   'Error!',
+        //                   'Hubo un error',
+        //                   'error'
+        //                 )
+        // }
       }
     </script>
