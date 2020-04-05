@@ -43,7 +43,6 @@
             </div>
             </form>
 
-
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -51,6 +50,13 @@
                   
                 </tr>
                 </thead>
+                <?php
+                // var_dump($url);
+                // foreach ($url as $key => $value) {
+                //   var_dump($value->pathPrefix);
+                // }
+                // die;
+                ?>
                 <tbody>
                     <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
@@ -58,7 +64,10 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                            <img class="card-img-top " style="width:200px; height:100px;"  src="images/<?php echo e($item->PROPIEDADES_IMAGEN); ?>" alt="">
+                                        <?php  $url=\Storage::url($item->PROPIEDADES_IMAGEN);
+                                          //\Storage::setVisibility(, 'public');
+                                        ?>
+                                            <img class="card-img-top " style="width:200px; height:100px;"  src="<?=$url?>" alt=""> 
                                         </div>  
                                         <div class="col-md-6">
                                             <?php echo e($item->PROPIEDADES_NOMBRE); ?> <br>

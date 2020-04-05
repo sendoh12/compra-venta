@@ -10,6 +10,7 @@ use App\AgregarPropiedad;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Propiedades_validation;
 use App\Http\Requests\Validar_imagenes;
+use Illuminate\Support\Facades\Storage;
 class PaginaPrincipal extends Controller
 {
     public function inicio() {
@@ -87,7 +88,9 @@ class PaginaPrincipal extends Controller
     
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
-                    $file->move(public_path().'_html/fotos', $name);
+                    //$file->move(public_path().'/images', $name);
+                    Storage::put( $name, $file, 'public');
+                    $visibility = Storage::getVisibility($name);
                     $propiedades = DB::table('cv_propiedades')
                     ->where('PROPIEDADES_ID',$request->input('Id_prepiedad'))
                     ->update(['PROPIEDADES_NOMBRE' => $request->input('propiedad'),
@@ -160,7 +163,8 @@ class PaginaPrincipal extends Controller
                 if($request->hasFile('imagen')) {
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
-                    $file->move(public_path().'_html/fotos', $name);
+                    Storage::put( $name, $file, 'public');
+                    $visibility = Storage::getVisibility($name);
                     
                 }
         
@@ -220,7 +224,6 @@ class PaginaPrincipal extends Controller
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            
             $propiedades = DB::table('cv_propiedades')->paginate(10);
             return view('administrador.ver_propiedades', compact('propiedades'));
             
@@ -290,7 +293,7 @@ class PaginaPrincipal extends Controller
             foreach ($file as $key ) {
                 $name = time().$key->getClientOriginalName();
                 $array[$j] = $name;
-                $key->move(public_path().'_html/fotos', $name);
+                $key->move(public_path().'/fotos', $name);
                 $j++;
             }  
         }
@@ -344,7 +347,7 @@ class PaginaPrincipal extends Controller
                 foreach ($file as $key ) {
                     $name = time().$key->getClientOriginalName();
                     $array[$j] = $name;
-                    $key->move(public_path().'_html/fotos', $name);
+                    $key->move(public_path().'/inicio', $name);
                     $j++;
                 }  
             }

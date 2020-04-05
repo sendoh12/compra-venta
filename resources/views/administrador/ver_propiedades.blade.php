@@ -43,7 +43,6 @@
             </div>
             </form>
 
-
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -52,6 +51,13 @@
                   <th>Acciones</th> --}}
                 </tr>
                 </thead>
+                <?php
+                // var_dump($url);
+                // foreach ($url as $key => $value) {
+                //   var_dump($value->pathPrefix);
+                // }
+                // die;
+                ?>
                 <tbody>
                     @foreach ($propiedades as $item)
                         <tr>
@@ -59,7 +65,10 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                            <img class="card-img-top " style="width:200px; height:100px;"  src="/fotos/{{$item->PROPIEDADES_IMAGEN}}" alt="">
+                                        <?php  $url=\Storage::url($item->PROPIEDADES_IMAGEN);
+                                          //\Storage::setVisibility(, 'public');
+                                        ?>
+                                            <img class="card-img-top " style="width:200px; height:100px;"  src="<?=$url?>" alt=""> 
                                         </div>  
                                         <div class="col-md-6">
                                             {{$item->PROPIEDADES_NOMBRE}} <br>
