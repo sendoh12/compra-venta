@@ -385,7 +385,7 @@ class PaginaPrincipal extends Controller
     {
         $eliminar_imag=DB::table('cv_propiedades')->where('PROPIEDADES_ID',base64_decode($id_propiedad))->first();
         $ruta_de_imgen='images/'.$eliminar_imag->PROPIEDADES_IMAGEN;
-        //unlink($ruta_de_imgen);
+        unlink($ruta_de_imgen);
         DB::table('cv_imagenes')->where('IMAGENES_PROPIEDAD', '=',base64_decode($id_propiedad))->delete();
         DB::table('cv_propiedades')->where('PROPIEDADES_ID', '=',base64_decode($id_propiedad))->delete();
         return back();
