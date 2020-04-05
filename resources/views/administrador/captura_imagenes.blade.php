@@ -33,14 +33,14 @@
                   {{-- <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Nombre de la imagen</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="">
+                      <input type="text" class="form-control" name="nombre" id="nombre" required placeholder="">
                     </div>
                   </div> --}}
 
                   <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Seleccionar Imagen</label>
                     <div class="col-sm-6">
-                      <input type="file" class="" name="imagen[]" id="imagen" placeholder="" multiple>
+                      <input type="file" class="" name="imagen[]" id="imagen" required placeholder="" multiple>
                     </div>
                   </div>
 

@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('Eliminarcontacto/{id}', 'PortfolioController@Eliminar_contacto');
 
     Route::get('/editar/{id}', ['as' => 'informacion.edicion', 'uses' => 'PortfolioController@editar_datos']);
+    Route::get('Eliminar_propiedade/{id}','PaginaPrincipal@Eliminar_propidad');
 });
 
 

@@ -9,6 +9,7 @@ use Response;
 use App\AgregarPropiedad;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Propiedades_validation;
+use App\Http\Requests\Validar_imagenes;
 class PaginaPrincipal extends Controller
 {
     public function inicio() {
@@ -281,7 +282,7 @@ class PaginaPrincipal extends Controller
 
 
    //insertar las imagenes
-   public function insertar($id, Request $request) {
+   public function insertar($id, Validar_imagenes $request) {
         if($request->hasFile('imagen')) {
             $file = $request->file('imagen');
             
@@ -331,8 +332,7 @@ class PaginaPrincipal extends Controller
         }
     }
 
-    public function Inicioinsertar(Request $request) {
-
+    public function Inicioinsertar(Validar_imagenes $request) {
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
@@ -381,6 +381,14 @@ class PaginaPrincipal extends Controller
     }
 
    }
-
+    public function Eliminar_propidad ($id_propiedad)
+    {
+        $eliminar_imag=DB::table('cv_propiedades')->where('PROPIEDADES_ID',base64_decode($id_propiedad))->first();
+        $ruta_de_imgen='images/'.$eliminar_imag->PROPIEDADES_IMAGEN;
+        //unlink($ruta_de_imgen);
+        DB::table('cv_imagenes')->where('IMAGENES_PROPIEDAD', '=',base64_decode($id_propiedad))->delete();
+        DB::table('cv_propiedades')->where('PROPIEDADES_ID', '=',base64_decode($id_propiedad))->delete();
+        return back();
+    }
 
 }

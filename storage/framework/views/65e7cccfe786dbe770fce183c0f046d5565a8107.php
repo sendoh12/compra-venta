@@ -87,9 +87,13 @@
                                             <div class="linea col-md-3">
                                               <a href="AgregarImagenes/<?=base64_encode($item->PROPIEDADES_ID)?>" data-id="" data-tipo="admin" class="btn bg-primary btn-flat  linea"> 
                                                 <i class="fas fa-plus-circle"></i>
-                                              </a> 
+                                              </a>
                                             </div>
-                                            
+                                            <div class="linea col-md-3">
+                                                  <a href="Eliminar_propiedade/<?=base64_encode($item->PROPIEDADES_ID)?>" class="btn bg-primary btn-flat  linea" >
+                                                    <i class="fa fa-trash-o"></i>
+                                                  </a>
+                                            </div>
                                             
 
                                         </div>
