@@ -143,13 +143,13 @@ class PortfolioController extends Controller
         }
     }
 
-    public function Elimiarimageninicio( $id_imagen)
+    public function Elimiarimageninicio($id_imagen)
     {
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
             
-            DB::table('cv_inicio')->where('INICIO_ID', '=', $id_imagen)->delete();
+            DB::table('cv_inicio')->where('INICIO_ID', '=',base64_decode($id_imagen))->delete();
             return redirect("Verinicio");
             
         }
@@ -274,15 +274,6 @@ class PortfolioController extends Controller
                         ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                         ->orderByRaw('IMAGENES_ORDEN ASC')
                         ->get();
-        
-        // echo '<pre>';
-        // var_dump($propiedades);
-        // echo '</pre>';
-        // if(count($propiedades)==0){
-        //     echo 'esta vacio';
-        // }
-
-        // die();
             return view('propiedades.propiedad', compact('propiedades'));
 
     }
@@ -291,13 +282,10 @@ class PortfolioController extends Controller
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            
             $contactos = DB::table('cv_contactos')
                         ->select('*')
                         ->get();
-    
                         return view('administrador.ver_contactos', compact('contactos'));
-            
         }
     }
 
@@ -308,8 +296,6 @@ class PortfolioController extends Controller
         }else{
             DB::table('cv_contactos')->where('ID_CONTACTO', '=', $id_contacto)->delete();
             return redirect("VerContactos");
-            
-            
         }
     }
 }

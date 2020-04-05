@@ -2,7 +2,7 @@
   <div class="pull-right hidden-xs">
     <b></b>
   </div>
-  <strong>GrupoLacer Arquitectura Inmoviliaria  <a href=""> </a></strong> 
+  <strong> GrupoLacer Arquitectura Inmobiliaria  <a href=""> </a></strong> 
   
 </footer>
 
@@ -47,6 +47,7 @@
 <script src="<?php echo e(asset('dist/js/dataTables.bootstrap.min.js')); ?>"></script>
 <script src="<?php echo e(asset('dist/js/admin-ajax.js')); ?>"></script>
 
+<script src="<?php echo e(asset('alertifyjs/alertify.js')); ?>"></script>
 
 
 
@@ -56,7 +57,8 @@
 
 
 
-<script type="text/javascript" src="<?php echo asset('css/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+
+    <script type="text/javascript" src="<?php echo asset('css/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/jQueryUI/jquery-ui.1.11.2.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/datatables/jquery.dataTables.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('css/plugins/datatables/dataTables.responsive.min.js'); ?>"></script>

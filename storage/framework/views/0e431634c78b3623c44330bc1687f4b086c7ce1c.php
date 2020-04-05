@@ -1,5 +1,5 @@
-@include('plantillas.header')
-@include('plantillas.menu')
+<?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -26,16 +26,11 @@
          
           </div>
           <div class="box-body">
-            <form id="" class="form-horizontal" action="{{route('InsertarInicio')}}" method="POST" enctype="multipart/form-data">
-                @csrf
+            <form id="" class="form-horizontal" action="<?php echo e(route('InsertarInicio')); ?>" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="box-footer">
 
-                  {{-- <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Nombre de la imagen</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" name="nombre" id="nombre" required placeholder="">
-                    </div>
-                  </div> --}}
+                  
 
                   <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Seleccionar Imagen</label>
@@ -46,8 +41,8 @@
 
 
                   
-                    {{-- <button type="submit" class="btn btn-default">Cancel</button> --}}
-                    {{-- <input type="button" class="btn btn-info pull-right" value="Guardar fotos"> --}}
+                    
+                    
                     <div class="box-footer" align="right">
                       <button  type="submit" class="btn btn-info ">Guardar Cambios</button>
 
@@ -70,4 +65,4 @@
   </div>
   <!-- /.content-wrapper -->
 
-  @include('plantillas.footer')
+  <?php echo $__env->make('plantillas.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/administrador/captura_imagenes.blade.php ENDPATH**/ ?>

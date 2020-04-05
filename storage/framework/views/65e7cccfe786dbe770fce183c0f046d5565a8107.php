@@ -12,6 +12,7 @@
     </script>
 
   <div class="content-wrapper">
+    <br><br><br>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -69,26 +70,30 @@
                                             
                                             <div class="linea col-md-3">
                                               <form action="Editar" method="get">
-                                                <input type="hidden" name="id_propiedad" value="<?=$item->PROPIEDADES_ID?>">
+                                                <input type="hidden" name="id_propiedad" value="<?=base64_encode($item->PROPIEDADES_ID)?>">
                                                 <button type="submit" class="btn bg-primary btn-flat linea" ><i class="fas fa-pencil-alt"> </i></button>
                                               </form>
                                             </div>
                                             
 
-                                            
+                                          
                                             <div class="linea col-md-3">
                                               <form action="VerImagenes" method="get">
-                                              <input type="hidden" name="id_propiedade" value="<?=$item->PROPIEDADES_ID?>">
+                                              <input type="hidden" name="id_propiedade" value="<?=base64_encode($item->PROPIEDADES_ID)?>">
                                               <button type="submit" class="btn bg-primary btn-flat  linea"><i class="fas fa-image"> </i></button>
                                               </form>
                                             </div>
 
                                             <div class="linea col-md-3">
-                                              <a href="<?php echo e(route('administrador.agregar_imagenes', $item->PROPIEDADES_ID)); ?>" data-id="" data-tipo="admin" class="btn bg-primary btn-flat  linea"> 
+                                              <a href="AgregarImagenes/<?=base64_encode($item->PROPIEDADES_ID)?>" data-id="" data-tipo="admin" class="btn bg-primary btn-flat  linea"> 
                                                 <i class="fas fa-plus-circle"></i>
-                                              </a> 
+                                              </a>
                                             </div>
-                                            
+                                            <div class="linea col-md-3">
+                                                  <a href="Eliminar_propiedade/<?=base64_encode($item->PROPIEDADES_ID)?>" class="btn bg-primary btn-flat  linea" >
+                                                    <i class="fa fa-trash-o"></i>
+                                                  </a>
+                                            </div>
                                             
 
                                         </div>
