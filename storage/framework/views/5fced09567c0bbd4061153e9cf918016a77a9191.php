@@ -30,8 +30,8 @@
 
                 <ul class="nav navbar-nav ">
                     
-                    <li class="<?php echo e(request()->routeIs('inicio') ? 'activo' : ''); ?> ">
-                        <a href=" <?php echo e(route('inicio')); ?>"> <i class=" fas fa-home "></i> Inicio </a>
+                    <li class="<?php echo e(request()->routeIs('/') ? 'activo' : ''); ?> ">
+                        <a href=" <?php echo e(route('/')); ?>"> <i class=" fas fa-home "></i> Inicio </a>
                     </li>
 
                     <li class="<?php echo e(request()->routeIs('propiedades') ? 'activo' : ''); ?>">

@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 //pagina de inicio
 Route::get('/', ['as' => 'inicio', 'uses' => 'PortfolioController@lacer' ]);
-Route::get('/inicio', ['as' => 'inicio', 'uses' => 'PortfolioController@lacer' ]);
+Route::get('/', ['as' => '/', 'uses' => 'PortfolioController@lacer' ]);
 Route::get('/propiedades', ['as' => 'propiedades', 'uses' => 'PortfolioController@about']);
 Route::get('/contacto', ['as'=>'contacto', 'uses'=>'PortfolioController@portafolio']);
 
