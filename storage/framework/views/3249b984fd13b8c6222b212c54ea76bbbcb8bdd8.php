@@ -13,7 +13,7 @@
       <div class="login-box-body">
         <p class="login-box-msg">Iniciar Sesion aquí</p>
     
-        <form  method="post" action="Session">
+        <form id="ingresar"  method="post" action="Session">
             <?php echo csrf_field(); ?>
           <div class="form-group has-feedback">
             <input id="email" class="form-control" type="email" name="email" placeholder="Correo" class="<?php $__errorArgs = ['email', 'login'];
@@ -47,7 +47,7 @@ unset($__errorArgs, $__bag); ?>">
             <!-- /.col -->
             <div class="col-xs-12 ">
               <input type="hidden" name="login-admin" value="1">
-              <button class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
+              <button type="button" onclick="validar()" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
               
 
             </div>
@@ -84,4 +84,29 @@ unset($__errorArgs, $__bag); ?>
 
     <?php echo $__env->make('plantillas.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/Login/login.blade.php ENDPATH**/ ?>
+    <script>
+      function validar(){
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        if(email == null || email == '') {
+          alertify.success("Te hace falta llenar el Correo, por favor");
+        }else if(password == null || password == '') {
+          alertify.success("Te hace falta llenar la contraseña, por favor");
+        }else if(email != null && password != null) {
+                    swal(
+                        'Correcto',
+                        'Iniciando sesion...!',
+                        'success'
+                      )
+          setTimeout(function(){ document.getElementById('ingresar').submit(); }, 2000);
+        }else{
+                      swal(
+                          'Error!',
+                          'Hubo un error',
+                          'error'
+                        )
+        }
+      }
+    </script>
+<?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/Login/login.blade.php ENDPATH**/ ?>

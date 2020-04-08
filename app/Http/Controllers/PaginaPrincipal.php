@@ -88,9 +88,10 @@ class PaginaPrincipal extends Controller
     
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
+                    \Storage::disk('local')->put($name,  \File::get($file));
                     //$file->move(public_path().'/images', $name);
-                    Storage::put( $name, $file, 'public');
-                    $visibility = Storage::getVisibility($name);
+                    //Storage::put( $name, $file, 'public');
+                    //$visibility = Storage::getVisibility($name);
                     $propiedades = DB::table('cv_propiedades')
                     ->where('PROPIEDADES_ID',$request->input('Id_prepiedad'))
                     ->update(['PROPIEDADES_NOMBRE' => $request->input('propiedad'),
@@ -163,11 +164,10 @@ class PaginaPrincipal extends Controller
                 if($request->hasFile('imagen')) {
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
-                    Storage::put( $name, $file, 'public');
-                    $visibility = Storage::getVisibility($name);
-                    
+                    \Storage::disk('local')->put($name,  \File::get($file));
+                    //Storage::put( $name, $file, 'public');
+                    //$visibility = Storage::getVisibility($name);
                 }
-        
                 $propiedades = DB::table('cv_propiedades')->insert([
                                     'PROPIEDADES_NOMBRE' => $request->input('propiedad'),
                                     'PROPIEDADES_PAIS' => 'Mexico',
@@ -288,14 +288,10 @@ class PaginaPrincipal extends Controller
    public function insertar($id, Validar_imagenes $request) {
         if($request->hasFile('imagen')) {
             $file = $request->file('imagen');
-            
-            $j=0;
-            foreach ($file as $key ) {
-                $name = time().$key->getClientOriginalName();
-                $array[$j] = $name;
-                $key->move(public_path().'/fotos', $name);
-                $j++;
-            }  
+                $name = time().$file->getClientOriginalName();
+                //$key->move(public_path().'/fotos', $name);
+                \Storage::disk('local')->put($name,  \File::get($file));
+                
         }
 
                $imagenes = DB::table('cv_imagenes')->insert([
@@ -343,24 +339,23 @@ class PaginaPrincipal extends Controller
             if($request->hasFile('imagen')) {
                 $file = $request->file('imagen');
                 
-                $j=0;
-                foreach ($file as $key ) {
-                    $name = time().$key->getClientOriginalName();
-                    $array[$j] = $name;
-                    $key->move(public_path().'/inicio', $name);
-                    $j++;
-                }  
+               // $j=0;
+                
+                    $name = time().$file->getClientOriginalName();
+                 //   $array[$j] = $name;
+                    \Storage::disk('local')->put($name,  \File::get($file));
+                   // $j++; 
             }
     
-            $i=0;
-            foreach ($request->file('imagen') as $key => $value) {
+            // $i=0;
+            // foreach ($request->file('imagen') as $key => $value) {
                 $imagenes = DB::table('cv_inicio')->insert([
     
-                    'INICIO_NOMBRE' => $array[$i],
+                    'INICIO_NOMBRE' => $name,
                             
                     ]);
-                $i++;
-            }
+               
+            //}
             
         }
 
@@ -379,16 +374,15 @@ class PaginaPrincipal extends Controller
         $imagenes = DB::table('cv_inicio')
                         ->select('*')
                         ->get();
-           return view('administrador.lista_imginicio', compact('imagenes'));
-        
+        return view('administrador.lista_imginicio', compact('imagenes'));
     }
 
-   }
+}
     public function Eliminar_propidad ($id_propiedad)
     {
         $eliminar_imag=DB::table('cv_propiedades')->where('PROPIEDADES_ID',base64_decode($id_propiedad))->first();
         $ruta_de_imgen='images/'.$eliminar_imag->PROPIEDADES_IMAGEN;
-        unlink($ruta_de_imgen);
+        Storage::delete($eliminar_imag->PROPIEDADES_IMAGEN);
         DB::table('cv_imagenes')->where('IMAGENES_PROPIEDAD', '=',base64_decode($id_propiedad))->delete();
         DB::table('cv_propiedades')->where('PROPIEDADES_ID', '=',base64_decode($id_propiedad))->delete();
         return back();

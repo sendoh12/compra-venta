@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path().'/storage',
+            'root' => storage_path('app/public'),
             'permissions' => [
                 'file' => [
                     'public' => 0664,
@@ -86,7 +86,6 @@ return [
     | the locations of the links and the values should be their targets.
     |
     */
-
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],

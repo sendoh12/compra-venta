@@ -65,11 +65,8 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                        <?php  $url=\Storage::url($item->PROPIEDADES_IMAGEN);
-                                          //\Storage::setVisibility(, 'public');
-                                        ?>
-                                            <img class="card-img-top " style="width:200px; height:100px;"  src="<?=$url?>" alt=""> 
-                                        </div>  
+                                            <img class="card-img-top " style="width:200px; height:100px;"  src="{{ Storage::url($item->PROPIEDADES_IMAGEN) }}" alt=""> 
+                                        </div>
                                         <div class="col-md-6">
                                             {{$item->PROPIEDADES_NOMBRE}} <br>
                                             {{'Precio'.$item->PROPIEDADES_PRECIO}}
