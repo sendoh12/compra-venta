@@ -78,5 +78,6 @@ return array(
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'Barryvdh\\DomPDF\\' => array($vendorDir . '/barryvdh/laravel-dompdf/src'),
     'Asm89\\Stack\\' => array($vendorDir . '/asm89/stack-cors/src/Asm89/Stack'),
+    'Aprendible\\StorageLinkRoute\\' => array($vendorDir . '/aprendible/storage-link-route/src'),
     'App\\' => array($baseDir . '/app'),
 );

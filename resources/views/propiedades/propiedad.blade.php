@@ -42,7 +42,7 @@
                 @foreach ($propiedades as $prop)
                     <li>
                         @if (isset($prop->IMAGENES_ARCHIVO))
-                            <a target="_blank"><img src="fotos/{{$prop->IMAGENES_ARCHIVO}}" alt=""/></a>
+                            <a target="_blank"><img src="{{asset(Storage::url($prop->IMAGENES_ARCHIVO))}}" alt=""/></a>
                         @endif
                         <div class="sb-description">
                             <h3>{{$propiedades[0]->PROPIEDADES_NOMBRE}}</h3>

@@ -33,7 +33,7 @@
                   
 
                   <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Seleccionar Imagen</label>
+                    <label for="" class="col-sm-3 control-label">Seleccionar Imagenes</label>
                     <div class="col-sm-6">
                       <input type="file" class="" name="imagen[]" id="imagen" required placeholder="" multiple>
                     </div>

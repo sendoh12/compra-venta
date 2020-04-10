@@ -51,13 +51,7 @@
                   <th>Acciones</th> --}}
                 </tr>
                 </thead>
-                <?php
-                // var_dump($url);
-                // foreach ($url as $key => $value) {
-                //   var_dump($value->pathPrefix);
-                // }
-                // die;
-                ?>
+                
                 <tbody>
                     @foreach ($propiedades as $item)
                         <tr>
@@ -65,11 +59,11 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                            <img class="card-img-top " style="width:200px; height:100px;"  src="{{ Storage::url($item->PROPIEDADES_IMAGEN) }}" alt=""> 
+                                        <img class="card-img-top border" style="width:200px; height:100px;"  src="{{asset(Storage::url($item->PROPIEDADES_IMAGEN))}}" alt="">
                                         </div>
                                         <div class="col-md-6">
                                             {{$item->PROPIEDADES_NOMBRE}} <br>
-                                            {{'Precio'.$item->PROPIEDADES_PRECIO}}
+                                            {{'Precio '.$item->PROPIEDADES_PRECIO}}
                                         </div>
                                         <div class="col-md-3">
 

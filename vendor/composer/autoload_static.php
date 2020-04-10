@@ -165,6 +165,7 @@ class ComposerStaticInitb4d468ca7eb693074fb805340a06b671
         'A' => 
         array (
             'Asm89\\Stack\\' => 12,
+            'Aprendible\\StorageLinkRoute\\' => 28,
             'App\\' => 4,
         ),
     );
@@ -460,6 +461,10 @@ class ComposerStaticInitb4d468ca7eb693074fb805340a06b671
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack',
         ),
+        'Aprendible\\StorageLinkRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/aprendible/storage-link-route/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -507,6 +512,7 @@ class ComposerStaticInitb4d468ca7eb693074fb805340a06b671
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
+        'App\\Http\\Middleware\\CheckRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckRole.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -514,6 +520,7 @@ class ComposerStaticInitb4d468ca7eb693074fb805340a06b671
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Propiedades_validation' => __DIR__ . '/../..' . '/app/Http/Requests/Propiedades_validation.php',
         'App\\Http\\Requests\\User_validation' => __DIR__ . '/../..' . '/app/Http/Requests/User_validation.php',
+        'App\\Http\\Requests\\Validar_imagenes' => __DIR__ . '/../..' . '/app/Http/Requests/Validar_imagenes.php',
         'App\\Http\\Requests\\contacto_validation' => __DIR__ . '/../..' . '/app/Http/Requests/contacto_validation.php',
         'App\\Project' => __DIR__ . '/../..' . '/app/Project.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -523,6 +530,8 @@ class ComposerStaticInitb4d468ca7eb693074fb805340a06b671
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\cv_contactos' => __DIR__ . '/../..' . '/app/cv_contactos.php',
+        'Aprendible\\StorageLinkRoute\\Http\\Controllers\\StorageLinkController' => __DIR__ . '/..' . '/aprendible/storage-link-route/src/Http/Controllers/StorageLinkController.php',
+        'Aprendible\\StorageLinkRoute\\StorageLinkRouteServiceProvider' => __DIR__ . '/..' . '/aprendible/storage-link-route/src/StorageLinkRouteServiceProvider.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',

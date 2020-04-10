@@ -503,8 +503,8 @@
       alertify.success("te hace falta llenar Calle, por favor");
     }else if(NumeroExterior == null || NumeroExterior == '') {
       alertify.success("te hace falta llenar Numero Exterior, por favor");
-    }else if(NumeroInterior == null || NumeroInterior == '') {
-      alertify.success("te hace falta llenar Numero Interior, por favor");
+    // }else if(NumeroInterior == null || NumeroInterior == '') {
+    //   alertify.success("te hace falta llenar Numero Interior, por favor");
     // }else if(imagen == null || imagen == '') {
     //   alertify.success("te hace falta insertar la imagen, por favor");
     // }else if(Latitud == null || Latitud == '') {
@@ -515,7 +515,7 @@
       alertify.success("te hace falta llenar la descripcion, por favor");
     }else if(Clave == null || Clave == '') {
       alertify.success("te hace falta llenar el campo clave, por favor");
-    }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && NumeroExterior != null && NumeroInterior != null && descripcion != null && Clave != null) {
+    }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && NumeroInterior != null && descripcion != null && Clave != null) {
                     swal(
                         'Correcto',
                         'Guardando Propiedad...!',

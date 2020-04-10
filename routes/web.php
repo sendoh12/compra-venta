@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('storage-link', function () {
+    Artisan::call('storage:link');
+    });
 
 
 //pagina de inicio

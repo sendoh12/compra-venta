@@ -288,17 +288,32 @@ class PaginaPrincipal extends Controller
    public function insertar($id, Validar_imagenes $request) {
         if($request->hasFile('imagen')) {
             $file = $request->file('imagen');
-                $name = time().$file->getClientOriginalName();
-                //$key->move(public_path().'/fotos', $name);
-                \Storage::disk('local')->put($name,  \File::get($file));
+            $j=0;
+            $array = [];
+            foreach ($file as $key ) {
+                $name = time().$key->getClientOriginalName();
+                $array[$j] = $name;
+                \Storage::disk('local')->put($name, \File::get($key));
+                $j++;
                 
+            }
+            // echo '<pre>';
+            // var_dump($array);
+            // echo '</pre>';    
+            // die();
         }
+        
 
-               $imagenes = DB::table('cv_imagenes')->insert([
+        $i=0;
+        foreach ($request->file('imagen') as $key => $value) {
+            $imagenes = DB::table('cv_imagenes')->insert([
                 'IMAGENES_PROPIEDAD' => $id,
                 'IMAGENES_NOMBRE' => $request->input('nombre'),
-                'IMAGENES_ARCHIVO' => $name,
-                'IMAGENES_ORDEN' => 0                ]);
+                'IMAGENES_ARCHIVO' => $array[$i],
+                'IMAGENES_ORDEN' => $i
+                ]);
+            $i++;
+        }
 
 
         return redirect('VerPropiedades');
@@ -338,24 +353,27 @@ class PaginaPrincipal extends Controller
             
             if($request->hasFile('imagen')) {
                 $file = $request->file('imagen');
-                
-               // $j=0;
-                
-                    $name = time().$file->getClientOriginalName();
-                 //   $array[$j] = $name;
-                    \Storage::disk('local')->put($name,  \File::get($file));
-                   // $j++; 
+                $j=0;
+                $array = [];
+                foreach ($file as $key ) {
+                    $name = time().$key->getClientOriginalName();
+                    $array[$j] = $name;
+                    \Storage::disk('local')->put($name, \File::get($key));
+                    $j++;
+                    
+                }
+            
             }
     
-            // $i=0;
-            // foreach ($request->file('imagen') as $key => $value) {
+            $i=0;
+            foreach ($request->file('imagen') as $key => $value) {
                 $imagenes = DB::table('cv_inicio')->insert([
     
-                    'INICIO_NOMBRE' => $name,
+                    'INICIO_NOMBRE' => $array[$i],
                             
                     ]);
-               
-            //}
+                $i++;
+            }
             
         }
 

@@ -37,7 +37,7 @@
                 <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li>
                         <?php if(isset($prop->IMAGENES_ARCHIVO)): ?>
-                            <a target="_blank"><img src="fotos/<?php echo e($prop->IMAGENES_ARCHIVO); ?>" alt="image1"/></a>
+                            <a target="_blank"><img src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt=""/></a>
                         <?php endif; ?>
                         <div class="sb-description">
                             <h3><?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?></h3>
@@ -259,4 +259,4 @@
     
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('Paginasinicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/propiedades/propiedad.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/propiedades/propiedad.blade.php ENDPATH**/ ?>

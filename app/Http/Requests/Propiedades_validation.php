@@ -33,7 +33,7 @@ class Propiedades_validation extends FormRequest
             'CodigoPostal' =>'min:2|max:200|required',
             'Calle' =>'min:2|max:200|required',
             'NumeroExterior'=>'min:1|max:10|required',
-            'NumeroInterior'=>'min:1|max:10|required',
+            // 'NumeroInterior'=>'min:1|max:10|required',
             // 'Latitud'=>'min:1|max:200|',
             // 'longitud'=>'min:1|max:200|',
             // 'subtipo'=>'min:1|max:300|',

@@ -43,7 +43,6 @@
             </div>
             </form>
 
-
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -51,6 +50,7 @@
                   
                 </tr>
                 </thead>
+                
                 <tbody>
                     <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
@@ -58,11 +58,11 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                            <img class="card-img-top " style="width:200px; height:100px;"  src="/fotos/<?php echo e($item->PROPIEDADES_IMAGEN); ?>" alt="">
-                                        </div>  
+                                        <img class="card-img-top border" style="width:200px; height:100px;"  src="<?php echo e(asset(Storage::url($item->PROPIEDADES_IMAGEN))); ?>" alt="">
+                                        </div>
                                         <div class="col-md-6">
                                             <?php echo e($item->PROPIEDADES_NOMBRE); ?> <br>
-                                            <?php echo e('Precio'.$item->PROPIEDADES_PRECIO); ?>
+                                            <?php echo e('Precio '.$item->PROPIEDADES_PRECIO); ?>
 
                                         </div>
                                         <div class="col-md-3">

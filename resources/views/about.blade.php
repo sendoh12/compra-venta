@@ -14,7 +14,7 @@
         <ul class="slider">
             @foreach ($imagenes as $item)
             <li>
-                <img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
+                <img style="width: 100%; height: 400px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE)) }}" alt="">
                 <section class="caption">
                     <h1>GupoLacer</h1>
                     <p></p>
@@ -101,7 +101,7 @@
                         <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
                     {{-- @endisset --}}
                     <button type="submit">
-                        <img style="width: 400px;height: 250px;" src="fotos/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
+                        <img style="width: 400px;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" alt="imagen invitado">
                     </button>
                   </form>
 

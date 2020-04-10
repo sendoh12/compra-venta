@@ -14,7 +14,7 @@
         <ul class="slider">
             <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li>
-                <img style="width: 100%; height: 400px;"  src="fotos/<?=$item->INICIO_NOMBRE?>" alt="">
+                <img style="width: 100%; height: 400px;"  src="<?php echo e(asset(Storage::url($item->INICIO_NOMBRE))); ?>" alt="">
                 <section class="caption">
                     <h1>GupoLacer</h1>
                     <p></p>
@@ -99,7 +99,7 @@
                         <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
                     
                     <button type="submit">
-                        <img style="width: 400px;height: 250px;" src="fotos/<?php echo e($propiedad->PROPIEDADES_IMAGEN); ?>" alt="imagen invitado">
+                        <img style="width: 400px;height: 250px;" src="<?php echo e(asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))); ?>" alt="imagen invitado">
                     </button>
                   </form>
 

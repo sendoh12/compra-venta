@@ -2,7 +2,8 @@
 <?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
     
@@ -46,7 +47,7 @@
                                                   <div class="row ">
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="fotos/<?=$item->IMAGENES_ARCHIVO?>" alt="">
+                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="<?php echo e(asset(Storage::url($item->IMAGENES_ARCHIVO))); ?>" alt="">
                                                               <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-danger">Eliminar</a>
                                                               <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
                                                           </div>
@@ -95,7 +96,12 @@
 
 <script>
     $( function() {
-      $( "#sortable" ).sortable();
-      $( "#sortable" ).disableSelection();
-    } );
+        $( ".sortable" ).sortable({
+            animation: 500,
+            axis: 'y',
+            containment: 'parent',
+        }
+    );
+    $( ".sortable" ).disableSelection();
+  } );
     </script><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/administrador/imagenes_propiedades.blade.php ENDPATH**/ ?>
