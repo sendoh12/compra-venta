@@ -1,211 +1,211 @@
-/***** estilos generales ****/
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.limpia {
-    clear: both;
-}
-.examen-container {
-    border: 1px solid #D0D0D0;
-    margin: 10px;
-    box-shadow: 0 0 8px #D0D0D0;
-    padding: 10px;
-}
-#root {
-    display: flex;
-    flex: 1;
-}
-.page-container {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
-}
-#header {
-    display: flex;
-}
-
-/*** estilos del header ***/
-.header-examen-container {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-}
-
-.datos-area-container {
-    text-align: center;
-    flex: 1;
-    color: #00395E;
-}
-.titulo-area {
-    color: #00395E;
-    font-size: 25px;
-    font-weight: bold;
-}
-.tiempo-area {
-    color: #434343;
-    font-size: 16px;
-}
-
-.reloj {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    border: 1px solid #434343;
-    padding: 5px 10px;
-}
-.reloj-normal {
-    color: #333;
-}
-.reloj-rojo {
-    color: #f00;
-}
-
-/*** instrucciones ***/
-.area-instrucciones {
-    margin: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #cdcdcd;
-}
-
-
-/***** estilos de las preguntas ****/
-.titulo-numero-pregunta {
-    text-align: left;
-}
-.pregunta-enunciado {
-    margin: 15px;
-}
-
-.pregunta-respuesta {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-}
-
-.reactivo-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.anexos-container {
-    flex: 1
-}
-.pregunta-container {
-    flex: 1
-}
-
-.anexos-container-oculto {
-    display: none;
-}
-.pregunta-container-total {
-    flex: 1;
-}
-
-.respuestas-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.respuesta-container {
-    margin: 1px;
-    display: flex;
-    flex-direction: row;
-}
-
-.respuesta-radio, .respuesta-enunciado  {
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-}
-.avance-preguntas-container {
-    display: flex;
-    flex-direction: row;
-}
-.avance-preguntas-container button {
-    display:flex;
-    flex: 1;
-    text-align: center;
-}
-
-
-/*** estilos del cintillo de navegación ****/
-.cintillo-container {
-    margin-top: 20px;
-}
-.link-navegacion {
-    margin: 5px;
-    border: 1px solid #cdcdcd;
-}
-
-.barra-navegacion {
-    list-style: none;
-    margin: 0px; padding: 0px;
-}
-
-.barra-navegacion li {
-    float: left;
-}
-
-.barra-navegacion li a {
-    margin: 5px;
-    text-decoration: none;
-    color: #00395E;
-}
-.top{
-    padding-top: 2px;
-    /*width: 100%;*/
-    padding-bottom: 2px;
-    background-color: #003b5c;
-    z-index: 9999;
-}
-.topHeaderSection{
-    background: #fff;
-    padding: 0;
-    height: 150px;
-    padding-right: 33%;
-}
-.header{
-    z-index: 999;
-    position: relative;
-    padding: 0;
-}
-.container-header{
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-.navbar-brand{
-float: left;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-}
-
-
-/*** para la pantalla de espera  **/
-.pantalla-espera-container {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    margin: 100px;
-}
-
-.instrucciones-espera {
-    display: flex;
-    flex-grow: 1;
-    flex: 1;    
-    margin: 20px;
-}
-
-.boton-continuar-container {
-    display: flex;
-    flex: 1;
-    margin: 20px;
+/***** estilos generales ****/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.limpia {
+    clear: both;
+}
+.examen-container {
+    border: 1px solid #D0D0D0;
+    margin: 10px;
+    box-shadow: 0 0 8px #D0D0D0;
+    padding: 10px;
+}
+#root {
+    display: flex;
+    flex: 1;
+}
+.page-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+}
+#header {
+    display: flex;
+}
+
+/*** estilos del header ***/
+.header-examen-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.datos-area-container {
+    text-align: center;
+    flex: 1;
+    color: #00395E;
+}
+.titulo-area {
+    color: #00395E;
+    font-size: 25px;
+    font-weight: bold;
+}
+.tiempo-area {
+    color: #434343;
+    font-size: 16px;
+}
+
+.reloj {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 1px solid #434343;
+    padding: 5px 10px;
+}
+.reloj-normal {
+    color: #333;
+}
+.reloj-rojo {
+    color: #f00;
+}
+
+/*** instrucciones ***/
+.area-instrucciones {
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+
+/***** estilos de las preguntas ****/
+.titulo-numero-pregunta {
+    text-align: left;
+}
+.pregunta-enunciado {
+    margin: 15px;
+}
+
+.pregunta-respuesta {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.reactivo-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.anexos-container {
+    flex: 1
+}
+.pregunta-container {
+    flex: 1
+}
+
+.anexos-container-oculto {
+    display: none;
+}
+.pregunta-container-total {
+    flex: 1;
+}
+
+.respuestas-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.respuesta-container {
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+}
+
+.respuesta-radio, .respuesta-enunciado  {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+.avance-preguntas-container {
+    display: flex;
+    flex-direction: row;
+}
+.avance-preguntas-container button {
+    display:flex;
+    flex: 1;
+    text-align: center;
+}
+
+
+/*** estilos del cintillo de navegación ****/
+.cintillo-container {
+    margin-top: 20px;
+}
+.link-navegacion {
+    margin: 5px;
+    border: 1px solid #cdcdcd;
+}
+
+.barra-navegacion {
+    list-style: none;
+    margin: 0px; padding: 0px;
+}
+
+.barra-navegacion li {
+    float: left;
+}
+
+.barra-navegacion li a {
+    margin: 5px;
+    text-decoration: none;
+    color: #00395E;
+}
+.top{
+    padding-top: 2px;
+    /*width: 100%;*/
+    padding-bottom: 2px;
+    background-color: #003b5c;
+    z-index: 9999;
+}
+.topHeaderSection{
+    background: #fff;
+    padding: 0;
+    height: 150px;
+    padding-right: 33%;
+}
+.header{
+    z-index: 999;
+    position: relative;
+    padding: 0;
+}
+.container-header{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar-brand{
+float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+
+/*** para la pantalla de espera  **/
+.pantalla-espera-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 100px;
+}
+
+.instrucciones-espera {
+    display: flex;
+    flex-grow: 1;
+    flex: 1;    
+    margin: 20px;
+}
+
+.boton-continuar-container {
+    display: flex;
+    flex: 1;
+    margin: 20px;
 }
