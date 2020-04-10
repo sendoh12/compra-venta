@@ -38,7 +38,7 @@
 <br>
 <div>
 
-<img style="width: 400px;height: 250px;" src="{{asset(Storage::url($item->PROPIEDADES_IMAGEN))}}">
+<img style="width: 400px;height: 250px;" src="{{asset(Storage::url($propiedades[0]->PROPIEDADES_IMAGEN))}}">
     <div>
     <h4>Datos generales:</h4>
     <p>

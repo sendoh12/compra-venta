@@ -38,7 +38,8 @@
 </div>
 <br>
 <div>
-<img style="width: 400px;height: 250px;" src="fotos/<?php echo e($propiedades[0]->PROPIEDADES_IMAGEN); ?>" alt="imagen invitado">
+
+<img style="width: 400px;height: 250px;" src="<?php echo e(asset(Storage::url($propiedades[0]->PROPIEDADES_IMAGEN))); ?>">
     <div>
     <h4>Datos generales:</h4>
     <p>
