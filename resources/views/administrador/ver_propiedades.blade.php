@@ -59,7 +59,7 @@
                                 <div class="row ">
                                     <div class="col-md-16">
                                         <div class="card col-md-3" >
-                                        <img class="card-img-top border" style="width:200px; height:100px;"  src="{{asset(Storage::url($item->PROPIEDADES_IMAGEN))}}" alt="">
+                                        <img class="card-img-top border" style="width:200px; height:150px;"  src="{{asset(Storage::url($item->PROPIEDADES_IMAGEN))}}" alt="">
                                         </div>
                                         <div class="col-md-6">
                                             {{$item->PROPIEDADES_NOMBRE}} <br>

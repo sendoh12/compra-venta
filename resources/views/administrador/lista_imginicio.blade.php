@@ -43,7 +43,7 @@
                                                       <div class="col-md-16">
                                                           <div class="card col-md-3" >
 
-                                                              <img class="card-img-top " style="width:200px; height:100px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="">
+                                                              <img class="card-img-top " style="width:200px; height:150px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="">
                                                               <a href="EliminarImageninicio/<?= base64_encode($item->INICIO_ID)?>" class="btn btn-danger">Eliminar</a>
                                                               
                                                           </div>  
