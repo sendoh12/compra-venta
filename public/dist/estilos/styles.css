@@ -352,9 +352,6 @@ body {
     }
 } */
 
-
-/*  */
-
 .slider li,
 ul {
     width: 100%;
@@ -393,7 +390,8 @@ ul {
     font-size: 20px;
 }
 
-.pagination {
+
+/* .pagination {
     position: absolute;
     top: 102%;
     width: 100%;
@@ -406,7 +404,7 @@ ul {
     margin: 2px 5px;
     color: #858585;
     cursor: pointer;
-}
+} */
 
 .left,
 .right {
@@ -448,12 +446,13 @@ ul {
     }
 }
 
-.pagination li {
+
+/* .pagination li {
     font-size: 20px;
     margin: -20px 5px;
     color: #858585;
     cursor: pointer;
-}
+} */
 
 
 /* footer de la pagina */
@@ -641,7 +640,7 @@ div.invitado {
 div.invitado img {
     max-width: 100%;
     filter: gray;
-    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(0);
     /* -webkit-transition: all .5s ease-in-out; */
 }
 
@@ -722,6 +721,7 @@ div.texto p {
     padding: 0px 15px;
     margin: 5px;
     font-family: 'Oswald', sans-serif;
+    color: #0d47a1;
 }
 
 div.botones {
@@ -910,4 +910,22 @@ div.origenmapa {
 div#mapid {
     background: red;
     /* width: 500px; */
+}
+
+.fa {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: -17px;
+    display: none;
+}
+
+.paginando {
+    /* background-color: red; */
+    /* width: 300px;
+    height: 300px; */
+    margin-left: 45%;
 }

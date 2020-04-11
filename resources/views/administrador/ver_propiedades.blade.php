@@ -62,8 +62,12 @@
                                         <img class="card-img-top border" style="width:200px; height:150px;"  src="{{asset(Storage::url($item->PROPIEDADES_IMAGEN))}}" alt="">
                                         </div>
                                         <div class="col-md-6">
-                                            {{$item->PROPIEDADES_NOMBRE}} <br>
-                                            {{'Precio '.$item->PROPIEDADES_PRECIO}}
+                                          <h4><p>{{$item->PROPIEDADES_PRECIO.' MXN'}}</p></h4>  
+                                          <h4><p>{{$item->PROPIEDADES_TIPO.' en '.$item->PROPIEDADES_OPERACION}}</p></h4>
+                                          <p>{{$item->ESTADOS_NOMBRE.', '.$item->MUNICIPIOS_NOMBRE}}</p>
+                                          <p>{{$item->PROPIEDADES_COLONIA}}</p>
+                                          <p>{{$item->PROPIEDADES_ZONA}}</p> 
+
                                         </div>
                                         <div class="col-md-3">
 
@@ -114,9 +118,12 @@
                     @endforeach
                     
                 </tbody>
-               
+                
               </table>
-              {{$propiedades->links()}}
+              <div align="center">
+                {{$propiedades->links()}}
+              </div>
+              
             </div>
             <!-- /.box-body -->
           </div>

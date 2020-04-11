@@ -61,8 +61,11 @@
                                         <img class="card-img-top border" style="width:200px; height:150px;"  src="<?php echo e(asset(Storage::url($item->PROPIEDADES_IMAGEN))); ?>" alt="">
                                         </div>
                                         <div class="col-md-6">
-                                            <?php echo e($item->PROPIEDADES_NOMBRE); ?> <br>
-                                            <?php echo e('Precio '.$item->PROPIEDADES_PRECIO); ?>
+                                          <h4><p><?php echo e($item->PROPIEDADES_PRECIO.' MXN'); ?></p></h4>  
+                                          <h4><p><?php echo e($item->PROPIEDADES_TIPO.' en '.$item->PROPIEDADES_OPERACION); ?></p></h4>
+                                          <p><?php echo e($item->ESTADOS_NOMBRE.', '.$item->MUNICIPIOS_NOMBRE); ?></p>
+                                          <p><?php echo e($item->PROPIEDADES_COLONIA); ?></p>
+                                          <p><?php echo e($item->PROPIEDADES_ZONA); ?></p> 
 
                                         </div>
                                         <div class="col-md-3">
@@ -108,10 +111,13 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
                 </tbody>
-               
+                
               </table>
-              <?php echo e($propiedades->links()); ?>
+              <div align="center">
+                <?php echo e($propiedades->links()); ?>
 
+              </div>
+              
             </div>
             <!-- /.box-body -->
           </div>

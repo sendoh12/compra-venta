@@ -5,8 +5,8 @@
 
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> --}}
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> --}}
 {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --}}
 <div class="captura ">
         
@@ -108,8 +108,9 @@
                     <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
                 </div>
                 <div class="texto" style="width: 400px;height: 250px;">
+                    <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
                     <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
-                    <p>{{$propiedad->PROPIEDADES_NOMBRE}}</p>
+                    {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
                     <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
                     <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
                     <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
@@ -145,10 +146,13 @@
     </ul>
     
   </section>
-  
+  <div class="paginando">
+    {{$propiedades->links()}}
+  </div>
 
 
   @include('plantillas.menu_footer')
+  
 <script src="{{asset('js/dist/jspdf.min.js')}}"></script>
 
 <script>

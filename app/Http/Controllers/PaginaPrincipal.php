@@ -224,7 +224,11 @@ class PaginaPrincipal extends Controller
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            $propiedades = DB::table('cv_propiedades')->paginate(10);
+            $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->paginate(5);
             return view('administrador.ver_propiedades', compact('propiedades'));
             
         }

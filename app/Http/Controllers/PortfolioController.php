@@ -40,7 +40,7 @@ class PortfolioController extends Controller
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(9);
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')

@@ -5,8 +5,8 @@
 
 
 <?php $__env->startSection('content'); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 
 <div class="captura ">
         
@@ -106,8 +106,9 @@
                     <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
                 </div>
                 <div class="texto" style="width: 400px;height: 250px;">
+                    <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
                     <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
-                    <p><?php echo e($propiedad->PROPIEDADES_NOMBRE); ?></p>
+                    
                     <p><?php echo e($propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE); ?></p>
                     <p><?php echo e($propiedad->PROPIEDADES_COLONIA); ?></p>
                     <p><?php echo e($propiedad->PROPIEDADES_ZONA); ?></p> 
@@ -146,10 +147,14 @@
     </ul>
     
   </section>
-  
+  <div class="paginando">
+    <?php echo e($propiedades->links()); ?>
+
+  </div>
 
 
   <?php echo $__env->make('plantillas.menu_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+  
 <script src="<?php echo e(asset('js/dist/jspdf.min.js')); ?>"></script>
 
 <script>

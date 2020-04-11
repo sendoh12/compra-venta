@@ -75,17 +75,13 @@
           <?php endif;?>
       </div>
     </div>
-    <!-- search form -->
     
-    <!-- /.search form -->
-    <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu" data-widget="tree">
+
+ 
+    <ul class="sidebar-menu " data-widget="tree">
       <li class="header">Menu de administracion</li>
-      
 
-      
-
-      <li class="nav-item ">
+      <li class="nav-item" >
         <a href="<?php echo e(route('administrador.captura_imagenes')); ?>" class="nav-link ">
           <i class="fas fa-image "></i>
           <span> Capturar Imagenes</span>
@@ -138,9 +134,6 @@
           <span>Salir</span>
         </a>
       </li>
-      
-      
-      
     </ul>
   </section>
   <!-- /.sidebar -->
