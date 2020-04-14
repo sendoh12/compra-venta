@@ -82,15 +82,6 @@
                   </div>
               </section>
               <!--/ Zero configuration table -->
-             
-
-              
-
-            
-
-              
-
-             
           </div>
       </div>
   </div>

@@ -12,3 +12,4 @@
 # yarn-error.log
 /public/fotos
 /public/images
+!*/public/frest
