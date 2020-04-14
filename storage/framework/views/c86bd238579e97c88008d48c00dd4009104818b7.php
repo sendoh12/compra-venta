@@ -104,7 +104,7 @@ unset($__errorArgs, $__bag); ?>
                               <!-- right section image -->
                               <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
                                   <div class="card-content">
-                                      <img class="img-fluid" src="<?php echo e(asset('frest-full/images/pages/login.png')); ?> " alt="branding logo">
+                                      <img class="img-fluid" src="<?php echo e(asset('frest-full/images/pages/register.png')); ?> " alt="branding logo">
                                   </div>
                               </div>
                           </div>
