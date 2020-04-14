@@ -491,18 +491,42 @@
     var Clave = document.getElementById('Clave').value;
     
     if(propiedad == null || propiedad == '') {
-      alertify.success("te hace falta llenar Nombre de propiedad, por favor");
+                  swal(
+                      'Campo vacio',
+                      'No has llenado el campo de propiedad!',
+                      'warning'
+                   )
 
     }else if(Colonia == null || Colonia == '') {
-      alertify.success("te hace falta llenar Colonia, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Clonia!',
+                      'warning'
+                   )
     }else if(Zona == null || Zona == '') {
-      alertify.success("te hace falta llenar Zona, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Zona!',
+                      'warning'
+                   )
     }else if(CodigoPostal == null || CodigoPostal == '') {
-      alertify.success("te hace falta llenar Codigo Postal, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Codigo Postal!',
+                      'warning'
+                   )
     }else if(Calle == null || Calle == '') {
-      alertify.success("te hace falta llenar Calle, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Calle!',
+                      'warning'
+                   )
     }else if(NumeroExterior == null || NumeroExterior == '') {
-      alertify.success("te hace falta llenar Numero Exterior, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Numero Exterior!',
+                      'warning'
+                   )
     // }else if(NumeroInterior == null || NumeroInterior == '') {
     //   alertify.success("te hace falta llenar Numero Interior, por favor");
     // }else if(imagen == null || imagen == '') {
@@ -512,9 +536,17 @@
     // }else if(longitud == null || longitud == '') {
     //   alertify.success("te hace falta llenar Longitud de la ubicacion, por favor");
     }else if(descripcion == null || descripcion == '') {
-      alertify.success("te hace falta llenar la descripcion, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Descripcion!',
+                      'warning'
+                   )
     }else if(Clave == null || Clave == '') {
-      alertify.success("te hace falta llenar el campo clave, por favor");
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Clave!',
+                      'warning'
+                   )
     }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && NumeroInterior != null && descripcion != null && Clave != null) {
                     swal(
                         'Correcto',
@@ -634,6 +666,40 @@ function buscar() {
   });
 
   function MostrarMunicipios() {
+    var valor = document.getElementById('estados').value;
+    document.getElementById("Municipio").length=0;
+    var Municipio = document.getElementById("Municipio");
+    var element = [];
+    var aTag = [];
+    // console.log(valor);
+        $.ajax({
+            //async:true,
+            cache:false,
+            dataType:"json",
+            type: 'POST',
+            url:'AgregarMunicipio',
+            data: {valor:valor},
+            success:  function(response){
+              // var arreglo = JSON.parse(response.mensaje);
+              // console.log(response.mensaje.length);
+              j=0;
+              for (let i = 0; i < response.mensaje.length; i++) {
+                // var option = document.createElement("option");
+                // option.innerHTML = response.mensaje[i].MUNICIPIOS_NOMBRE;
+                // Municipio.appendChild(option);
+                document.getElementById("Municipio").innerHTML += "<option value='"+response.mensaje[i].MUNICIPIOS_ID+"'>"
+                                                                +response.mensaje[i].MUNICIPIOS_NOMBRE+"</option>";
+
+              }
+            
+            },
+            beforeSend:function(){},
+            error:function(objXMLHttpRequest){}
+        });
+
+  }
+
+  window.onload = function MostrarMuni() {
     var valor = document.getElementById('estados').value;
     document.getElementById("Municipio").length=0;
     var Municipio = document.getElementById("Municipio");

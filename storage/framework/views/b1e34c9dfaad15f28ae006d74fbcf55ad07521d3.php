@@ -14,7 +14,7 @@
       <meta name="description" content="Frest admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
       <meta name="keywords" content="admin template, Frest admin template, dashboard template, flat admin template, responsive admin template, web app">
       <meta name="author" content="PIXINVENT">
-      <title>Dashboard Ecommerce - Frest - Bootstrap HTML admin template</title>
+      <title>GrupoLacer</title>
       <link rel="apple-touch-icon" href="<?php echo e(asset('frest/ico/6.png')); ?>">
       <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('frest/ico/favicon.ico')); ?>">
 
@@ -28,18 +28,18 @@
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/bootstrap.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/bootstrap-extended.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/colors.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/components.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/themes/dark-layout.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/themes/semi-dark-layout.css')); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/custom-rtl.css')); ?>">
+    
+    
+    
+    
+    
+    
+    
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
     
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest-full/css/core/menu/menu-types/vertical-menu.css')); ?>">
+    
     <?php echo $__env->yieldContent('page-styles'); ?>
     <!-- END: Page CSS-->
 
@@ -49,8 +49,8 @@
     <!-- END: Custom CSS-->
 
   
-      <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest/css/vendors.min.css')); ?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest/css/apexcharts.css')); ?>">
+      
+      
       <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest/css/dragula.min.css')); ?>">
       <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest/css/flag-icon.min.css')); ?>">
       <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frest/css/boxicons.min.css')); ?>">

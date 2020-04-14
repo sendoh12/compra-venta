@@ -212,6 +212,7 @@ class PaginaPrincipal extends Controller
 
     public function busqueda(Request $request)
     {
+        
 
             if($request->get('busqueda')){
                 $propiedades = DB::table('cv_propiedades')->where("PROPIEDADES_NOMBRE", "LIKE", "%{$request->get('busqueda')}%")
@@ -294,53 +295,65 @@ class PaginaPrincipal extends Controller
 
    //insertar las imagenes
    public function insertar($id, Validar_imagenes $request) {
-        if($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $j=0;
-            $array = [];
-            foreach ($file as $key ) {
-                $name = time().$key->getClientOriginalName();
-                $array[$j] = $name;
-                \Storage::disk('local')->put($name, \File::get($key));
-                $j++;
-                
+        if(session()->has('admin')==false){
+            return redirect('login');
+        }else{
+            
+            
+            
+            if($request->hasFile('imagen')) {
+                $file = $request->file('imagen');
+                $j=0;
+                $array = [];
+                foreach ($file as $key ) {
+                    $name = time().$key->getClientOriginalName();
+                    $array[$j] = $name;
+                    \Storage::disk('local')->put($name, \File::get($key));
+                    $j++;
+                    
+                }
             }
-            // echo '<pre>';
-            // var_dump($array);
-            // echo '</pre>';    
-            // die();
+            
+    
+            $i=0;
+            foreach ($request->file('imagen') as $key => $value) {
+                $imagenes = DB::table('cv_imagenes')->insert([
+                    'IMAGENES_PROPIEDAD' => $id,
+                    'IMAGENES_NOMBRE' => $request->input('nombre'),
+                    'IMAGENES_ARCHIVO' => $array[$i],
+                    'IMAGENES_ORDEN' => $i
+                    ]);
+                $i++;
+            }
+    
+    
+            return redirect('VerPropiedades');
         }
-        
-
-        $i=0;
-        foreach ($request->file('imagen') as $key => $value) {
-            $imagenes = DB::table('cv_imagenes')->insert([
-                'IMAGENES_PROPIEDAD' => $id,
-                'IMAGENES_NOMBRE' => $request->input('nombre'),
-                'IMAGENES_ARCHIVO' => $array[$i],
-                'IMAGENES_ORDEN' => $i
-                ]);
-            $i++;
-        }
-
-
-        return redirect('VerPropiedades');
 
     }
 
     public function verimagenes(Request $request) {
-        $id=base64_decode($request->input('id_propiedade'));
-        $verimagenes = DB::table('cv_imagenes')
-                    ->select('*')
-                    ->where('IMAGENES_PROPIEDAD','=',$id)
-                    ->orderBy('IMAGENES_ORDEN','ASC')
-                    ->get();
-                    // var_dump($verimagenes);
-                    // die;
-
-            return view('administrador.imagenes_propiedades', array(
-                'imagenes' => $verimagenes,
-            ));
+        if(session()->has('admin')==false){
+            return redirect('login');
+        }else{
+            
+            
+            $id=base64_decode($request->input('id_propiedade'));
+            $verimagenes = DB::table('cv_imagenes')
+                        ->select('*')
+                        ->where('IMAGENES_PROPIEDAD','=',$id)
+                        ->join('cv_propiedades','cv_imagenes.IMAGENES_PROPIEDAD','=','cv_propiedades.PROPIEDADES_ID')
+                        // ->select('cv_propiedades.*', 'cv_propiedades.*')
+                        ->orderBy('IMAGENES_ORDEN','ASC')
+                        ->get();
+                        // var_dump($verimagenes);
+                        // die;
+    
+                return view('administrador.imagenes_propiedades', array(
+                    'imagenes' => $verimagenes,
+                ));
+            
+        }
     }
 
     // caputar imagenes

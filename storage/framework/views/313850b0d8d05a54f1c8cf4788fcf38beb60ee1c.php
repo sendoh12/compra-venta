@@ -69,9 +69,6 @@
           <!-- Basic Inputs end -->
 
           
-         
-          <!-- Tooltip validations end -->
-
       </div>
   </div>
 </div>

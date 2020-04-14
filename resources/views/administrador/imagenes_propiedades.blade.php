@@ -39,7 +39,10 @@
                               </div>
                               <div class="card-content">
                                   <div class="card-body card-dashboard">
-                                      
+                                    <form action="guardaorden" method="post">
+                                        @csrf
+                                        <input class="btn btn-success" align="right" type="submit" value="Guardar">
+                                        <br><br>
                                       <div class="table-responsive">
                                           <table class="table zero-configuration">
                                               <thead>
@@ -50,14 +53,20 @@
                                               <tbody id="sortable">
                                                 @foreach ($imagenes as $item)
                                                 <tr>
+                                                    <td>
                                                         <div class="row ">
                                                                 <div class="card col-md-2" >
                                                                     <img class="card-img-top " style="width:200px; height:120px;"  src="{{asset(Storage::url($item->IMAGENES_ARCHIVO))}}" alt="">
                                                                   </div>
                                                                   <div class="col-md-6" >
-                                                                    <a href="EliminarImagen/<?=$item->IMAGENES_ID?>" class="btn btn-primary">Eliminar</a>
+                                                                      
+                                                                      <input type="hidden" id="id_imagen" value="{{$item->IMAGENES_ID}}">
+                                                                      <input type="hidden" id="id_propiedad" value="{{$item->PROPIEDADES_ID}}">
+                                                                      <input type="button" onclick="eliminar()" class="btn btn-primary" value="Eliminar">
+                                                                  {{-- <a href="EliminarImagen/{{$item->IMAGENES_ID}}/{{$item->PROPIEDADES_ID}}" class="btn btn-primary">Eliminar</a> --}}
                                                                   </div>
                                                                     <input type="hidden" name="orden[]" value="<?=$item->IMAGENES_ID?>">
+                                                                    
                                                                 
                                                         </div>
                                                     </td>
@@ -69,6 +78,7 @@
                                               
                                           </table>
                                       </div>
+                                    </form>
                                   </div>
                               </div>
                           </div>
@@ -89,12 +99,50 @@
 
 <script>
     $( function() {
-        $( ".sortable" ).sortable({
-            animation: 500,
-            axis: 'y',
-            containment: 'parent',
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+    } );
+    </script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    );
-    $( ".sortable" ).disableSelection();
-  } );
+    });
+  </script>
+
+    <script>
+        function eliminar() {
+            var id_imagen = document.getElementById('id_imagen').value;
+            var id_propiedad = document.getElementById('id_propiedad').value;
+            // console.log(id_imagen);
+            $.ajax({
+                type: 'POST',
+                url: "EliminarImagen",
+                data: {id_imagen:id_imagen, id_propiedad:id_propiedad},
+                dataType: 'json',
+                    success: function (response) {
+                        // console.log(response.bandera);
+                        if(response.bandera==1) {
+                                    swal(
+                                        'Correcto',
+                                        'Eliminando Imagen...!',
+                                        'success'
+                                    )
+                            setTimeout(function(){ location.reload(true); }, 2000);
+                        }else{
+                                swal(
+                                    'Error!',
+                                    'Hubo un error',
+                                    'error'
+                                    )
+                        }
+
+                    },
+                    beforeSend:function(){},
+                    error:function(objXMLHttpRequest){}
+                    
+            });
+        }
     </script>

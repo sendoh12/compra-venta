@@ -136,14 +136,19 @@ class PortfolioController extends Controller
         }
     }
 
-    public function Elimiarimagen($id_imagen)
+    public function Elimiarimagen(Request $request)
     {
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            
-            DB::table('cv_imagenes')->where('IMAGENES_ID', '=', $id_imagen)->delete();
-            return redirect("VerPropiedades");
+            // var_dump($request->id_imagen);
+            // die();
+
+            DB::table('cv_imagenes')->where('IMAGENES_ID', '=', $request->id_imagen)->delete();
+            return response()->json([
+                'bandera'=> 1
+            ]);
+            // return redirect("VerImagenes".$request->id_propiedad);
             
         }
     }

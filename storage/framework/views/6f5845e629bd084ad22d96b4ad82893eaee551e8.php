@@ -178,11 +178,23 @@ unset($__errorArgs, $__bag); ?>
       var password = document.getElementById('password').value;
 
       if(Nombre == null || Nombre == '') {
-      alertify.success("te hace falta llenar el Nombre, por favor");
+        swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Nombre!',
+                      'warning'
+                   )
       }else if(correo == null || correo == '') {
-        alertify.success("te hace falta llenar el correo, por favor");
+        swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Correo Electronico!',
+                      'warning'
+                   )
       }else if(password == null || password == '') {
-        alertify.success("te hace falta llenar la contraseña, por favor");
+        swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Contraseña!',
+                      'warning'
+                   )
       }else if(Nombre != null && correo != null && password != null) {
                     swal(
                         'Correcto',
