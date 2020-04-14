@@ -31,7 +31,7 @@ class PortfolioController extends Controller
         // return view('layout');
     }
 
-    public function about() {
+    public function about(Request $request) {
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
                     ->get();
@@ -40,15 +40,20 @@ class PortfolioController extends Controller
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->paginate(9);
+                    ->paginate(6);
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
 
-        // var_dump($propiedades);
-        // die();
-
+        if($request->ajax()) {
+            return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+            return view('lista_propiedades', array(
+                'imagenes' => $imagenes,
+                'tipos' => $tipos
+            ));
+        }
+        
         return view('about', array(
             'imagenes' => $imagenes,
             'propiedades' => $propiedades,

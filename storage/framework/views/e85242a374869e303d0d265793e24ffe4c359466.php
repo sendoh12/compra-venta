@@ -1,150 +1,285 @@
 
 
-<body class="hold-transition skin-blue sidebar-mini">
-  <!-- Site wrapper -->
-  <div class="wrapper">
-  
-    <header class="main-header">
-      <!-- Logo -->
-      <a href="#" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>RQ</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Grupo</b>Lacer</span>
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-  
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            
-            
-            <!-- User Account: style can be found in dropdown.less -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <?php
-                if (session()->has('admin')):
-                  $usario=session()->get('admin');              
-                  ?>
-                  <div class="info">
-                  <span class="hidden-xs"> <?php echo e('Hola: '.$usario['Nombre']); ?></span>
-                  </div>
-                <?php endif;?>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-success btn-flat">Ajustes</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="salir" class="btn btn-success btn-flat">Cerrar Session</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            
-          </ul>
-        </div>
-      </nav>
-    </header>
-  
-    <!-- =============================================== -->
+<body class="vertical-layout vertical-menu-modern 2-columns  navbar-sticky footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
-<!-- Left side column. contains the sidebar -->
-<aside class="main-sidebar">
-  <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
-    <!-- Sidebar user panel -->
-    <div class="user-panel">
-      
-      <div class=" info">
-        <?php if (session()->has('admin')):
-            $usario=session()->get('admin');?>
-            
-            <div class="info">
-            <a href="#" class="d-block"><?=$usario['Nombre']?></a>
+    <!-- BEGIN: Header-->
+    <div class="header-navbar-shadow"></div>
+    <nav class="header-navbar main-header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top ">
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="navbar-collapse" id="navbar-mobile">
+                    <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon bx bx-menu"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav bookmark-icons">
+                            
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-nav float-right">
+                        <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language">English</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us mr-50"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr mr-50"></i> French</a><a class="dropdown-item"
+                                    href="#" data-language="de"><i class="flag-icon flag-icon-de mr-50"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt mr-50"></i> Portuguese</a></div>
+                        </li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon bx bx-fullscreen"></i></a></li>
+                        <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon bx bx-search"></i></a>
+                            <div class="search-input">
+                                <div class="search-input-icon"><i class="bx bx-search primary"></i></div>
+                                <input class="input" type="text" placeholder="Explore Frest..." tabindex="-1" data-search="template-search">
+                                <div class="search-input-close"><i class="bx bx-x"></i></div>
+                                <ul class="search-list"></ul>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon bx bx-bell bx-tada bx-flip-horizontal"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <div class="dropdown-header px-1 py-75 d-flex justify-content-between"><span class="notification-title">7 new Notification</span><span class="text-bold-400 cursor-pointer">Mark all as read</span></div>
+                                </li>
+                                <li class="scrollable-container media-list">
+                                    <a class="d-flex justify-content-between" href="javascript:void(0)">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar mr-1 m-0"><img src="<?php echo e(asset('frest/css/portrait/small/avatar-s-11.jpg')); ?>" alt="avatar" height="39" width="39"></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">Congratulate Socrates Itumay</span> for work anniversaries</h6><small class="notification-text">Mar 15 12:32pm</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="d-flex justify-content-between read-notification cursor-pointer">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar mr-1 m-0"><img src="../../../app-assets/images/portrait/small/avatar-s-16.jpg" alt="avatar" height="39" width="39"></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">New Message</span> received</h6><small class="notification-text">You have 18 unread messages</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between cursor-pointer">
+                                        <div class="media d-flex align-items-center py-0">
+                                            <div class="media-left pr-0"><img class="mr-1" src="../../../app-assets/images/icon/sketch-mac-icon.png" alt="avatar" height="39" width="39"></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">Updates Available</span></h6><small class="notification-text">Sketch 50.2 is currently newly added</small>
+                                            </div>
+                                            <div class="media-right pl-0">
+                                                <div class="row border-left text-center">
+                                                    <div class="col-12 px-50 py-75 border-bottom">
+                                                        <h6 class="media-heading text-bold-500 mb-0">Update</h6>
+                                                    </div>
+                                                    <div class="col-12 px-50 py-75">
+                                                        <h6 class="media-heading mb-0">Close</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between cursor-pointer">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar bg-primary bg-lighten-5 mr-1 m-0 p-25"><span class="avatar-content text-primary font-medium-2">LD</span></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">New customer</span> is registered</h6><small class="notification-text">1 hrs ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cursor-pointer">
+                                        <div class="media d-flex align-items-center justify-content-between">
+                                            <div class="media-left pr-0">
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">New Offers</h6>
+                                                </div>
+                                            </div>
+                                            <div class="media-right">
+                                                <div class="custom-control custom-switch">
+                                                    <input class="custom-control-input" type="checkbox" checked id="notificationSwtich">
+                                                    <label class="custom-control-label" for="notificationSwtich"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between cursor-pointer">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar bg-danger bg-lighten-5 mr-1 m-0 p-25"><span class="avatar-content"><i class="bx bxs-heart text-danger"></i></span></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">Application</span> has been approved</h6><small class="notification-text">6 hrs ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between read-notification cursor-pointer">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar mr-1 m-0"><img src="../../../app-assets/images/portrait/small/avatar-s-4.jpg" alt="avatar" height="39" width="39"></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">New file</span> has been uploaded</h6><small class="notification-text">4 hrs ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between cursor-pointer">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar bg-rgba-danger m-0 mr-1 p-25">
+                                                    <div class="avatar-content"><i class="bx bx-detail text-danger"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">Finance report</span> has been generated</h6><small class="notification-text">25 hrs ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between cursor-pointer">
+                                        <div class="media d-flex align-items-center border-0">
+                                            <div class="media-left pr-0">
+                                                <div class="avatar mr-1 m-0"><img src="../../../app-assets/images/portrait/small/avatar-s-16.jpg" alt="avatar" height="39" width="39"></div>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading"><span class="text-bold-500">New customer</span> comment recieved</h6><small class="notification-text">2 days ago</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown-menu-footer"><a class="dropdown-item p-50 text-primary justify-content-center" href="javascript:void(0)">Read all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user nav-item">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                              <?php
+                                if (session()->has('admin')):
+                                  $usario=session()->get('admin');              
+                              ?>
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name"><?php echo e($usario['Nombre']); ?></span><span class="user-status text-muted">Available</span></div><span><img class="round" src="<?php echo e(asset('frest/css/portrait/small/avatar-s-11.jpg')); ?>" alt="avatar" height="40" width="40"></span>
+                              <?php endif;?>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item" href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="bx bx-envelope mr-50"></i> My Inbox</a><a class="dropdown-item"
+                                    href="app-todo.html"><i class="bx bx-check-square mr-50"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="bx bx-message mr-50"></i> Chats</a>
+                                <div class="dropdown-divider mb-0"></div><a class="dropdown-item" href="auth-login.html"><i class="bx bx-power-off mr-50"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          <?php endif;?>
-      </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto">
+                    <a class="navbar-brand">
+                        <div class="brand-logo"><img class="logo" src="frest-full/images/logo/logo.png" /></div>
+                        <h2 class="brand-text mb-0">GrupoLacer</h2>
+                    </a>
+                </li>
+                <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="bx bx-x d-block d-xl-none font-medium-4 primary"></i><i class="toggle-icon bx bx-disc font-medium-4 d-none d-xl-block primary" data-ticon="bx-disc"></i></a></li>
+            </ul>
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
+                <li class=" nav-item"><a ><i class="" data-icon="desktop"></i><span class="menu-title" data-i18n="Dashboard"></span><span class="badge badge-light-danger badge-pill badge-round float-right mr-2"></span></a>
+                    <ul class="menu-content">
+                      <?php if (session()->has('admin')):
+                            $usario=session()->get('admin');?>
+                        <li class="active"><a ><i class=""></i><span class="menu-item" data-i18n="eCommerce"><?=$usario['Nombre']?></span></a>
+                        </li>
+                        
+                        <?php endif;?>
+                    </ul>
+                </li>
+                <li class=" navigation-header"><span>Capturar</span>
+                </li>
+                
+                <li class="nav-item" >
+                  <a href="<?php echo e(route('administrador.captura_imagenes')); ?>" class="nav-link ">
+                    <i class="fas fa-image "></i>
+                    <span> Capturar Imagenes</span>
+                  </a>
+                </li>
+          
+                <li class="nav-item">
+                  <a href="<?php echo e(route('Registro_usurio')); ?>" class="nav-link">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Crear Administradores</span>
+                  </a>
+                </li>
+          
+                <li class="nav-item">
+                  <a href="<?php echo e(route('administrador.agregar_propiedad')); ?>" class="nav-link">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Agregar Propiedad</span>
+                  </a>
+                </li>
+                
+          
+                
+               
+                
+                <li class=" navigation-header"><span>Visualizar</span>
+                </li>
+                <li class="nav-item ">
+                  <a href="<?php echo e(route('administrador.lista_imginicio')); ?>" class="nav-link ">
+                    <i class="fas fa-eye "></i>
+                    <span>Ver Imagenes de Inicio</span>
+                  </a>
+                </li>
+                
+                <li class="nav-item ">
+                  <a href="<?php echo e(route('home')); ?>" class="nav-link ">
+                    <i class="fas fa-eye "></i>
+                    <span>Ver administradores</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="<?php echo e(route('administrador.ver_propiedades')); ?>" class="nav-link">
+                    <i class="fas fa-eye "></i>
+                    <span>Ver Propiedad</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?php echo e(route('VerContactos')); ?>" class="nav-link">
+                    <i class="fas fa-eye "></i>
+                    <span>Ver Contactos</span>
+                  </a>
+                </li>
+
+                <li class="nav-item ">
+                  <a href="<?php echo e(route('home')); ?>" class="nav-link ">
+                    <i class="fas fa-eye "></i>
+                    <span>Ver administradores</span>
+                  </a>
+                </li>
+
+                
+                <li class=" navigation-header"><span>Cerrar Session</span>
+                </li>
+
+                <li class="nav-item">
+                  <a href="<?php echo e(route('salir')); ?>" class="nav-link">
+                    <i class="nav-icon fas fa-th "></i>
+                    <span>Salir</span>
+                  </a>
+                </li>
+               
+                
+                
+            </ul>
+        </div>
     </div>
-    
+    <!-- END: Main Menu-->
 
- 
-    <ul class="sidebar-menu " data-widget="tree">
-      <li class="header">Menu de administracion</li>
-
-      <li class="nav-item" >
-        <a href="<?php echo e(route('administrador.captura_imagenes')); ?>" class="nav-link ">
-          <i class="fas fa-image "></i>
-          <span> Capturar Imagenes</span>
-        </a>
-      </li>
-
-      <li class="nav-item ">
-        <a href="<?php echo e(route('administrador.lista_imginicio')); ?>" class="nav-link ">
-          <i class="fas fa-eye "></i>
-          <span> Imagenes de Inicio</span>
-        </a>
-      </li>
-
-      <li class="nav-item ">
-        <a href="<?php echo e(route('home')); ?>" class="nav-link ">
-          <i class="fas fa-eye "></i>
-          <span>Ver administradores</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<?php echo e(route('Registro_usurio')); ?>" class="nav-link">
-          <i class="fas fa-plus-circle"></i>
-          <span>Crear Administradores</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<?php echo e(route('administrador.agregar_propiedad')); ?>" class="nav-link">
-          <i class="fas fa-plus-circle"></i>
-          <span>Agregar Propiedad</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="<?php echo e(route('administrador.ver_propiedades')); ?>" class="nav-link">
-          <i class="fas fa-eye "></i>
-          <span>Ver Propiedad</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="<?php echo e(route('VerContactos')); ?>" class="nav-link">
-          <i class="fas fa-eye "></i>
-          <span>Ver Contactos</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<?php echo e(route('salir')); ?>" class="nav-link">
-          <i class="nav-icon fas fa-th "></i>
-          <span>Salir</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-  <!-- /.sidebar -->
-</aside>
-
-<!-- =============================================== -->
-
-
-
-<script>
-  function Registrar() {
-      location.href="Registro_usurio";
-  }
-  </script><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/plantillas/menu.blade.php ENDPATH**/ ?>
+    <script>
+      function Registrar() {
+          location.href="Registro_usurio";
+      }
+      </script><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/plantillas/menu.blade.php ENDPATH**/ ?>

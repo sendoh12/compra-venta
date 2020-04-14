@@ -220,7 +220,9 @@ class PaginaPrincipal extends Controller
             }
             return back();
     }
-    public function verpropiedades() {
+
+
+    public function verpropiedades(Request $request) {
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
@@ -229,8 +231,10 @@ class PaginaPrincipal extends Controller
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->paginate(5);
+            if($request->ajax()) {
+                return response()->json(view('administrador.VerProp_pagin', compact('propiedades'))->render()); 
+            }
             return view('administrador.ver_propiedades', compact('propiedades'));
-            
         }
     }
     

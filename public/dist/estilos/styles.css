@@ -924,8 +924,32 @@ div#mapid {
 }
 
 .paginando {
-    /* background-color: red; */
-    /* width: 300px;
-    height: 300px; */
-    margin-left: 45%;
+    /* margin-left: 45%; */
+    display: block;
 }
+
+.pagination {
+    display: block;
+}
+
+@media only screen and (min-width: 768px) {
+    .pagination {
+        display: block;
+        margin-left: 45%;
+    }
+}
+
+@media screen and (min-width:360px) {
+    .pagination {
+        display: block;
+        /* margin-left: 65%; */
+    }
+}
+
+
+/* @media (max-width:1080px) {
+    .pagination {
+        display: block;
+        margin-left: 40%;
+    }
+} */

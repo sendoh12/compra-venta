@@ -1,73 +1,74 @@
 @include('plantillas.header')
 @include('plantillas.menu')
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <br><br><br>
-    <section class="content-header col-md-offset-2">
-      <h1>
-        Capturar Imagenes
-      </h1>
-      
-    </section>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-
-        <!-- Main content -->
-        <section class="content">
-
-        <!-- Default box -->
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">Capture las imagenes para la pagina de inicio</h3>
-
-         
-          </div>
-          <div class="box-body">
-            <form id="" class="form-horizontal" action="{{route('InsertarInicio')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="box-footer">
-
-                  {{-- <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Nombre de la imagen</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" name="nombre" id="nombre" required placeholder="">
-                    </div>
-                  </div> --}}
-
-                  <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Seleccionar Imagenes</label>
-                    <div class="col-sm-6">
-                      <input type="file" class="" name="imagen[]" id="imagen" required placeholder="" multiple>
-                    </div>
+<!-- BEGIN: Content-->
+<div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+      <div class="content-header row">
+          <div class="content-header-left col-12 mb-2 mt-1">
+              <div class="row breadcrumbs-top">
+                  <div class="col-12">
+                      <h5 class="content-header-title float-left pr-1 mb-0">Capturar Imagenes</h5>
+                      <div class="breadcrumb-wrapper col-12">
+                          <ol class="breadcrumb p-0 mb-0">
+                              {{-- <li class="breadcrumb-item"><a href="index.html"><i class="bx bx-home-alt"></i></a>
+                              </li>
+                              <li class="breadcrumb-item"><a href="#">Form Elements</a>
+                              </li>
+                              <li class="breadcrumb-item active">Input
+                              </li> --}}
+                          </ol>
+                      </div>
                   </div>
+              </div>
+          </div>
+      </div>
+      <div class="content-body">
+          <!-- Basic Inputs start -->
+          <section id="basic-input">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="card">
+                          <div class="card-header">
+                              <h4 class="card-title">Capture las imagenes para la pagina de inicio</h4>
+                          </div>
+                          <form id="" class="" action="{{route('InsertarInicio')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                          <div class="card-content">
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <fieldset class="form-group">
+                                              <label for="basicInput">Seleccionar Imagenes</label>
+                                              <input type="file" class="form-control" name="imagen[]" id="imagen" required placeholder="" multiple>
+                                          </fieldset>
 
+                                          <div class="box-footer" align="right">
+                                            <button  type="submit" class="btn btn-info ">Guardar Cambios</button>
+                      
+                                          </div>
 
-                  
-                    {{-- <button type="submit" class="btn btn-default">Cancel</button> --}}
-                    {{-- <input type="button" class="btn btn-info pull-right" value="Guardar fotos"> --}}
-                    <div class="box-footer" align="right">
-                      <button  type="submit" class="btn btn-info ">Guardar Cambios</button>
+                                  
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                        </form>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <!-- Basic Inputs end -->
 
-                    </div>
-                </div>
-              </form>
-            
-
-        </div>
-        <!-- /.box-body -->
+          
+         
+          <!-- Tooltip validations end -->
 
       </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-
-    </div>
   </div>
-  </div>
-  <!-- /.content-wrapper -->
+</div>
+<!-- END: Content-->
 
   @include('plantillas.footer')

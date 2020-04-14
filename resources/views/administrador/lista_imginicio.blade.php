@@ -7,89 +7,86 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     
 
-    <div class="content-wrapper">
-      <br><br><br>
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Imagenes de Inicio
-            <small></small>
-          </h1>
-          
-        </section>
-    
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-    
-              <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title"></h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                                <table id="registros" class="table table-bordered">
-                                  <thead>
-                                      <tr>
-                                      <th></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody id="sortable">
-                                      @foreach ($imagenes as $item)
-                                          <tr>
-                                              <td> 
-                                                  <div class="row ">
-                                                      <div class="col-md-16">
-                                                          <div class="card col-md-3" >
-
-                                                              <img class="card-img-top " style="width:200px; height:150px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="">
-                                                              <a href="EliminarImageninicio/<?= base64_encode($item->INICIO_ID)?>" class="btn btn-danger">Eliminar</a>
-                                                              
-                                                          </div>  
-                                                          
-                                                      </div>
-                                                      
-                                                  </div>
-                                                    
-                                              </td>
-                                          </tr>
-                  
-                                          
-                                      @endforeach
-                                      
-                                  </tbody>
-                                
-                                </table>
-                  
-                </div>
-                <!-- /.box-body -->
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+      <div class="content-overlay"></div>
+      <div class="content-wrapper">
+          <div class="content-header row">
+              <div class="content-header-left col-12 mb-2 mt-1">
+                  <div class="row breadcrumbs-top">
+                      <div class="col-12">
+                          <h5 class="content-header-title float-left pr-1 mb-0">Imagenes de Inicio</h5>
+                          <div class="breadcrumb-wrapper col-12">
+                              <ol class="breadcrumb p-0 mb-0">
+                                  
+                              </ol>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
-        </section>
-        <!-- /.content -->
-    
+          <div class="content-body">
+              <div class="row">
+               
+              </div>
+              <!-- Zero configuration table -->
+              <section id="basic-datatable">
+                  <div class="row">
+                      <div class="col-12">
+                          <div class="card">
+                              <div class="card-header">
+                              </div>
+                              <div class="card-content">
+                                  <div class="card-body card-dashboard">
+                                      
+                                      <div class="table-responsive">
+                                          <table class="table zero-configuration">
+                                              <thead>
+                                                  <tr>
+                                                      
+                                                  </tr>
+                                              </thead>
+                                              <tbody id="sortable">
+                                                @foreach ($imagenes as $item)
+                                                <tr>
+                                                    <td> 
+                                                        <div class="row ">
+                                                            {{-- <div class="col-md-12"> --}}
+                                                                <div class="col-md-2" >
+                                                                    <img class="card-img-top " style="width:200px; height:150px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="">
+                                                                  </div>  
+                                                                  <div class="col-md-6" >
+                                                                    <a href="EliminarImageninicio/<?= base64_encode($item->INICIO_ID)?>" class="btn btn-primary">Eliminar</a>
+                                                                  </div>
+                                                                
+                                                                
+                                                            {{-- </div> --}}
+                                                            
+                                                        </div>
+                                                          
+                                                    </td>
+                                                </tr>
+                        
+                                                
+                                            @endforeach
+                                                
+                                               
+                                              </tbody>
+                                              
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+              <!--/ Zero configuration table -->
+          </div>
       </div>
-      <!-- /.content-wrapper -->
-    
-    
-        
-     
-      
-    
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-          <h5>Title</h5>
-          <p>Sidebar content</p>
-        </div>
-      </aside>
-      <!-- /.control-sidebar -->
+  </div>
+  <!-- END: Content-->
+
  
 
       

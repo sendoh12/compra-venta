@@ -2,109 +2,124 @@
 @include('plantillas.menu')
 
 
-
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <br><br><br>
-    <!-- Content Header (Page header) -->
-    <section class="content-header col-md-offset-2">
-      <h1>
-        Crear Administrador
-        <small>Llena el formulario para crear un administrador</small>
-      </h1>
-      
-    </section>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-
-        <!-- Main content -->
-        <section class="content">
-
-        <!-- Default box -->
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">Crear Administrador</h3>
+ <!-- BEGIN: Content-->
+ <div class="app-content content">
+  <div class="content-overlay"></div>
+  <div class="content-wrapper">
+      <div class="content-header row">
+          <div class="content-header-left col-12 mb-2 mt-1">
+              <div class="row breadcrumbs-top">
+                  <div class="col-12">
+                      <h5 class="content-header-title float-left pr-1 mb-0">Crear Administrador</h5>
+                      <div class="breadcrumb-wrapper col-12">
+                          <ol class="breadcrumb p-0 mb-0">
+                             
+                          </ol>
+                      </div>
+                  </div>
+              </div>
           </div>
-          @if(count($errors) > 0)
-          <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            </div>
-          @endif
-          <div class="box-body">
-          <form id="CrearUsuario" method="post" action="Registros">
-            @csrf
-                <div class="box-body">
-                  <div class="form-group">
-                    <label for="usuario">Usuario:</label>
-                    <input id="Nombre" class="form-control" type="text"name="Nombre" placeholder="Nombre de usuario" class="@error('Nombre', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
-                      echo $editar_usu->NOMBRE_USER;
-                    }?>">
+      </div>
+      <div class="content-body">
+          
 
-                  </div>
+        
 
-                  <div class="form-group">
-                    <label for="nombre">Correo:</label>
-                    <input id="correo" class="form-control" type="email" name="correo" placeholder="Correo" class="@error('email', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
-                      echo $editar_usu->EMAIL_USER;
-                    }?>">
+          <!-- vertical Wizard start-->
+          <section id="vertical-wizard">
+              <div class="card">
+                  <div class="card-header">
+                      <h4 class="card-title">Llena el formulario para crear un administrador</h4>
                   </div>
+                  @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                              <ul>
+                                  @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                              </div>
+                            @endif
+                  <div class="card-content">
+                      <div class="card-body">
+                          <form id="CrearUsuario" method="post" action="Registros" class="wizard-vertical">
+                            @csrf
+                            
+                              
+                              <!-- step 1 content -->
+                              <fieldset class="pt-0">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="form-group">
+                                              <label for="firstName12">Nombre de Usuario</label>
+                                              <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre de usuario" class="@error('Nombre', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
+                                                echo $editar_usu->NOMBRE_USER;
+                                              }?>">
+                                              <small class="text-muted form-text">Por favor ingresa el nombre de usuario.</small>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                          <div class="form-group">
+                                              <label for="lastName1">Ingresa Correo Electronico</label>
+                                              <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo electronico"class="@error('email', 'login') is-invalid @enderror" value="<?php if(isset($editar_usu)){
+                                                echo $editar_usu->EMAIL_USER;
+                                              }?>">
+                                              <small class="text-muted form-text">Por favor ingresa un correo electronico.</small>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-sm-6">
+                                          <div class="form-group">
+                                              <label for="emailAddress12">Contraseña</label>
+                                              <input type="password" class="form-control" name="password" id="password" placeholder="Ingresar contraseña"class="@error('password', 'login') is-invalid @enderror">
+                                              <input type="hidden"name="id_usuario" value="<?php if(isset($id_usuario)){
+                                                echo $id_usuario;
+                                              } ?>" >
+                                              <small class="text-muted form-text">Por favor ingrese su contraseña.</small>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="form-group">
+                                          <label for="password">Tipo de usuario:</label>
+                                              <select class="form-control" name="Rol" id="Rol">
+                                                  <option value="4">Administrador</option>
+                                                  <option value="1">visitantes</option>
+                                              </select>
+                                        </div>
+                                      </div>
+                                      <div align="right" class="box-footer">
+                                        <input type="hidden" name="registro" value="nuevo">
+                                        <button  type="button" onclick="validar()" class="btn btn-info ">Guardar</button>
+                                        {{-- <button onclick="validar()" class="btn btn-primary" >Guardar</button> --}}
+                                      </div>
+                                  </div>
+                              </fieldset>
+                              <!-- step 1 content end-->
+                              
+                          </form>
 
-                  <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input id="password" class="form-control" type="password"name="password" placeholder="Contraseña" class="@error('password', 'login') is-invalid @enderror">
-                    <input type="hidden"name="id_usuario" value="<?php if(isset($id_usuario)){
-                      echo $id_usuario;
-                    } ?>" >
+                          @error('email', 'login')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
+                          @error('password', 'login')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
+                          @error('Nombre', 'login')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
+                      </div>
                   </div>
-                    
-                  <div class="form-group">
-                    <label for="password">Tipo de usuario:</label>
-                        <select class="form-control" name="Rol" id="Rol">
-                            <option value="4">Administrador</option>
-                            <option value="1">visitantes</option>
-                        </select>
-                  </div>
-                  
-                
-                
               </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <input type="hidden" name="registro" value="nuevo">
-                <button type="button" onclick="validar()" class="btn btn-info ">Guardar</button>
-                {{-- <button onclick="validar()" class="btn btn-primary" >Guardar</button> --}}
-              </div>
-            </form>
-            @error('email', 'login')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-            @error('password', 'login')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-            @error('Nombre', 'login')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-
-        </div>
-        <!-- /.box-body -->
+          </section>
+          <!-- vertical Wizard end-->
 
       </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-
-    </div>
   </div>
-  </div>
-  <!-- /.content-wrapper -->
+</div>
+<!-- END: Content-->
+
+
 
   @include('plantillas.footer')
 
