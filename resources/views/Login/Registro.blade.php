@@ -179,31 +179,7 @@
         var datos = $(this).serializeArray();
         console.log(datos);
 
-        //crear el llamado a ajax
-        // $.ajax({
-        //     //metodo que esta en el fomulario
-        //     type: $(this).attr('method'),
-        //     url: $(this).attr('action'),
-        //     data: datos,
-        //     dataType: 'json',
-        //     success: function (data) {
-        //         console.log(data);
-        //         var resultado = data;
-        //         if(resultado.respuesta == 'exito'){
-        //             swal(
-        //                 'Correcto',
-        //                 'Se guardo correctamente!',
-        //                 'success'
-        //               )
-        //         }else{
-        //             swal(
-        //                 'Error!',
-        //                 'Hubo un error',
-        //                 'error'
-        //               )
-        //         }
-        //     }
-        // });
+      
     });
     
   </script>

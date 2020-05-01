@@ -73,6 +73,7 @@
 
  {{-- <script src=" {{asset('frest/js/apexcharts.min.js')}} "></script> --}}
  <script src=" {{asset('frest/js/dragula.min.js')}} "></script>
+ <script src=" {{asset('frest/js/jquery.sticky.js')}} "></script>
 
  <script src=" {{asset('frest/js/vertical-menu-light.js')}} "></script>
  <script src=" {{asset('frest/js/app-menu.js')}} "></script>
@@ -82,6 +83,7 @@
  <script src=" {{asset('frest/js/documentation.min.js')}} "></script>
  <script src=" {{asset('frest/js/footer.js')}} "></script>
 
+ <script src=" {{asset('frest/js/horizontal-menu.js')}} "></script>
  <script src=" {{asset('frest/js/dashboard-analytics.min.js')}} "></script>
  <script src=" {{asset('frest/js/dashboard-analytics.js')}} "></script>
  <script src=" {{asset('frest/js/widgets.min.js')}} "></script>

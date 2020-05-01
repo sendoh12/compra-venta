@@ -54,7 +54,7 @@
     <!-- END: Custom CSS-->
 
   
-      {{-- <link rel="stylesheet" type="text/css" href="{{asset('frest/css/vendors.min.css')}}"> --}}
+      <link rel="stylesheet" type="text/css" href="{{asset('frest/css/vendors.min.css')}}">
       {{-- <link rel="stylesheet" type="text/css" href="{{asset('frest/css/apexcharts.css')}}"> --}}
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/dragula.min.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/flag-icon.min.css')}}">
@@ -68,12 +68,15 @@
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/dark-layout.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/semi-dark-layout.css')}}">
 
+      <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/horizontal-menu.css">
+      <link rel="stylesheet" type="text/css" href="{{asset('frest/css/horizontal-menu.css')}}">
+
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/vertical-menu.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/dashboard-analytics.css')}}">
       {{-- <link rel="stylesheet" type="text/css" href="{{asset('frest/css/dashboard-analytics.min.css')}}"> --}}
  
-      {{-- <link rel="stylesheet" type="text/css" href="{{asset('frest/css/style.css')}}">
-      <link rel="stylesheet" type="text/css" href="{{asset('frest/css/widgets.min.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('frest/css/style.css')}}">
+      {{-- <link rel="stylesheet" type="text/css" href="{{asset('frest/css/widgets.min.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/fuentes/animate.min.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/fuentes/app-calendar.min.css')}}">
       <link rel="stylesheet" type="text/css" href="{{asset('frest/css/fuentes/app-chat.min.css')}}">

@@ -207,6 +207,7 @@
                           <div class="card-header">
                               <h4 align="center" class="card-title">Coordenadas GPS</h4>
                               <button align="center" type="button" class="btn btn-primary" onclick="buscar();">Buscar</button>
+                              {{-- <button align="center" type="button" class="btn btn-primary" onclick="MostrarUbicacion();">Mostrar coordenadas</button> --}}
 
                           </div>
                           
@@ -299,7 +300,7 @@
                                                   <select name="subtipo" id="subtipo"  class="form-control">
                                                     <option value="Sola">Sola</option>
                                                     <option value="Condominio">Condominio</option>
-                                                    <option value="Financiamiento">Financiamiento</option>
+                                                    <option value="Financiamiento">Fraccionamiento</option>
                                                   </select>                                                
                                                 </div>
                                             </div>
@@ -459,6 +460,7 @@
                                   </div>
                                   <button type="button" onclick="validaciones()" class="btn btn-info ">Guardar Cambios</button>
                                 </form>
+                                
                           </div>
                       </div>
                   </div>
@@ -474,6 +476,23 @@
 <!-- END: Content-->
 
 @include('plantillas.footer')
+
+<script>
+  function MostrarUbicacion() {
+    var popup = L.popup();
+
+  window.onload = function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+  }
+  
+</script>
+
 {{-- validar campos --}}
 <script>
   function validaciones() {
@@ -578,7 +597,7 @@
     }else{
         return true;
     }
-    }
+  }
     $(document).ready(function () {
 
     $(".validar").on("keydown", function(evt){
@@ -619,10 +638,24 @@
                 L.marker([<?=$editar->PROPIEDADES_LATITUD?>, <?=$editar->PROPIEDADES_LONGITUD?>]).addTo(mymap);
           <?php else:?>
             L.marker([19.0412894,-98.2062013]).addTo(mymap);
+            
           <?php endif?>
 <?php else:?>
   L.marker([19.0412894,-98.2062013]).addTo(mymap);
-<?php endif?>
+  
+<?php endif;?>
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+
+mymap.on('click', onMapClick);
+
   
 </script>
 <script>
@@ -644,6 +677,7 @@ function buscar() {
     var validatorsLayer = new OsmJs.Weather.LeafletLayer({lang: 'es'});
     map.addLayer(validatorsLayer);
     map.addLayer(posision);
+
 }
 </script>
 <script>

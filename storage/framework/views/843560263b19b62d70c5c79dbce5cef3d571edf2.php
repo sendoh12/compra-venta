@@ -67,6 +67,7 @@
 
  
  <script src=" <?php echo e(asset('frest/js/dragula.min.js')); ?> "></script>
+ <script src=" <?php echo e(asset('frest/js/jquery.sticky.js')); ?> "></script>
 
  <script src=" <?php echo e(asset('frest/js/vertical-menu-light.js')); ?> "></script>
  <script src=" <?php echo e(asset('frest/js/app-menu.js')); ?> "></script>
@@ -76,6 +77,7 @@
  <script src=" <?php echo e(asset('frest/js/documentation.min.js')); ?> "></script>
  <script src=" <?php echo e(asset('frest/js/footer.js')); ?> "></script>
 
+ <script src=" <?php echo e(asset('frest/js/horizontal-menu.js')); ?> "></script>
  <script src=" <?php echo e(asset('frest/js/dashboard-analytics.min.js')); ?> "></script>
  <script src=" <?php echo e(asset('frest/js/dashboard-analytics.js')); ?> "></script>
  <script src=" <?php echo e(asset('frest/js/widgets.min.js')); ?> "></script>

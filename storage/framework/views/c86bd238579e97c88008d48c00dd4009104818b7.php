@@ -21,7 +21,7 @@
                                   <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
                                       <div class="card-header pb-1">
                                           <div class="card-title">
-                                              <h4 class="text-center mb-2">Welcome Back</h4>
+                                              <h4 class="text-center mb-2">GrupoLacer</h4>
                                           </div>
                                       </div>
                                       <div class="card-content">
@@ -136,9 +136,17 @@ unset($__errorArgs, $__bag); ?>
         console.log(email);
 
         if(email == null || email == '') {
-          alertify.success("Te hace falta llenar el Correo, por favor");
+            swal(
+                      'Campo vacio',
+                      'Por favor ingresa tu correo electronico!',
+                      'warning'
+                   )
         }else if(password == null || password == '') {
-          alertify.success("Te hace falta llenar la contraseña, por favor");
+            swal(
+                      'Campo vacio',
+                      'Por favor ingrese su contraseña!',
+                      'warning'
+                   )
         }else {
 
               $.ajax({
@@ -162,7 +170,7 @@ unset($__errorArgs, $__bag); ?>
                   }else{
                         swal(
                               'Error!',
-                              'Usuario o contraseña no registrados',
+                              'Usuario o contraseña incorrectos',
                               'error'
                             )
                   }
