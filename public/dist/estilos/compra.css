@@ -711,11 +711,12 @@ div.invitado:hover p {
 /* ajustes del footer */
 .ajustar-footer{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     background-color: #0e3b70;
     color: #ffffff;
     text-align: left;
 }
+
 
 .ajustar-footer h3{
     text-align: center;
@@ -724,6 +725,7 @@ div.invitado:hover p {
 .color-footer{
     background-color: #0e3b70;
 }
+
 
 
 /* ajustar el mapa de las propiedades */
