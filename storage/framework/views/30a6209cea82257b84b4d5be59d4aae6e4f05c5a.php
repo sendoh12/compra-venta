@@ -5,163 +5,157 @@
 
 
 <?php $__env->startSection('content'); ?>
-
-
+<link rel="stylesheet" type="text/css" href=" <?php echo e(asset('sider/css/estilos.css')); ?> ">
 
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
-
-<div class="captura ">
-        
-    <div class="slideshow">
-        <ul class="slider">
-            <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li>
-                <img style="width: 100%; height: 400px;"  src="<?php echo e(asset(Storage::url($item->INICIO_NOMBRE))); ?>" alt="">
-                <section class="caption">
-                    <h1>GupoLacer</h1>
-                    <p></p>
-                </section>
-            </li>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </ul>
-        <div class="left">
-            <span class="fa fa-chevron-left"></span>
-        </div>
-        <div class="right">
-            <span class="fa fa-chevron-right"></span>
-        </div>
-    
- </div>
-
- 
- <div class="busqueda">
+<br><br>
+<div class="busqueda">
     <div class="quienesSomos">
-        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
+        <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
+            <fieldset>
+                <legend>Buscar propiedad</legend>
+            
             <?php echo csrf_field(); ?>
-            <br> 
-            <button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-            <button type="button" class="btn-3d" onclick="clave()"> Clave</button>
+            <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+            <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
             <br><br>
         <div id="filtro">
             <div class="form-group">
-                <label class="letra">Operacion</label>
-                <select class="form-control letra" name="" id="">
+                <label>Operacion</label>
+                <select name="" id="">
                     <option value="Venta" selected="true">Venta</option>
                     <option value="Renta">Renta</option>
                 </select>
                     
             </div>
             <div class="form-group">
-                <label class="letra">Tipo de inmueble:</label>
-                <select class="form-control" name="" id="">
+                <label >Tipo de inmueble:</label>
+                <select name="" id="">
                     <option selected="true">(Todos)</option>
                     <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label class="letra">Nombre</label>
-                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+            <div >
+                <label>Nombre</label>
+                <input type="text" id="" placeholder="Nombre de la propiedad">
             </div>
-            <button type="submit" class="btn-3d form-control">Buscar</button>
+            <button type="submit" class="boton boton-azul">Buscar</button>
         </form>
         </div>
 
         <div id="clave" style="display:none;">
-        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
-            <div class="form-group">
-                <label class="letra">Buscar por clave</label>
-                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
-            </div>
-            <button type="submit" class="btn-3d" style="align:right;">Buscar</button>
-
-
+        <form action="Flitar_busquedad" method="post" class="contacto-propiedad">
+                <label >Buscar por clave</label>
+                <input type="text" id="" placeholder="Nombre de la propiedad">
+            <button type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
         </div>
             
         </form>
-    </div><br><br>
+    </fieldset>
+    </div><br>
 
  </div> 
-
-
  
-    <div class="users">
+ <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
+ 
+ <div class="users">
+    <div class="contenedor">
+        <div class="container">
+            <div class="row">
+                <?php if(isset($propiedades)): ?>
+                <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $propiedad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-md-4 propied">
+                    
+                    
+
+                    <form action="CasaVenta" method="get">
+                            <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
+                        <div class="centrar-imagen">
+                            <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                <img style="width:100% ;height: 250px;" src="<?php echo e(asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))); ?>" >
+                            
+                                <div class="texto-encima">
+                                    <p class="etiqueta"><?php echo e($propiedad->PROPIEDADES_OPERACION); ?></p>
+                                </div>
+                            </button>
+                            </div>
+                    </form>
+
+                    <div class="centrar-propiedad">
+                        <div class="datos-propiedad">
+                            <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
+                            <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
+                            <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
+                            
+                            <p><?php echo e($propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE); ?></p>
+                            <p><?php echo e($propiedad->PROPIEDADES_COLONIA); ?></p>
+                            <p><?php echo e($propiedad->PROPIEDADES_ZONA); ?></p> 
+                            <ul class="iconos-caracteristicas">
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_wc.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_BAÑOS); ?></p>
+                                </li>
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_estacionamiento.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_CONSTRUCCION); ?></p>
+                                </li>
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_dormitorio.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_HABITACIONES); ?></p>
+                                </li>
+                            </ul> 
+                        </div>                        
+                    </div>
+                    <div class="centrar-funciones">
+
+                        <div class="funciones">
+                            
+                            <form action="CasaVenta" method="get">
+                                <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
+                                <input type="submit" value="Ver propiedad">
+                            </form>   
+
+                            
+                                <input type="submit" value="Contacto">
+
+                            
+                            <form action="pdfjava" method="post">
+                                <?php echo csrf_field(); ?>
+                                <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
+                                <input type="submit" value="Descargar">
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>    
+            </div>
+        </div>
+    </div>
+                <div class="paginando">
+                    <?php echo e($propiedades->links()); ?>
+
+                </div>
+
+    
         
-        <section class="invitados contenedor2 seccion">
-           <h2>Propiedades</h2>
-           <ul class="lista-invitados clearfix">
-               <?php if(isset($propiedades)): ?>
-               <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $propiedad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-               <li>
-                   <div class="invitado">
-                       <div class="etiqueta"><?php echo e($propiedad->PROPIEDADES_OPERACION); ?></div>
-                       
-       
-                       <form action="CasaVenta" method="get">
-                           
-                               <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
-                           
-                           <button type="submit">
-                               <img style="width: 400px;height: 250px;" src="<?php echo e(asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))); ?>" >
-                           </button>
-                         </form>
-       
-                           <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
-                       </div>
-                       <div class="texto" style="width: 400px;height: 250px;">
-                           <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
-                           <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
-                           
-                           <p><?php echo e($propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE); ?></p>
-                           <p><?php echo e($propiedad->PROPIEDADES_COLONIA); ?></p>
-                           <p><?php echo e($propiedad->PROPIEDADES_ZONA); ?></p> 
-       
-                           <nav class="iconos">
-                               <?php echo e('Habs '.$propiedad->PROPIEDADES_HABITACIONES); ?>
-
-                               <a ><i class="fas fa-person-booth"></i></a>
-                               <?php echo e('Baño(s) '.$propiedad->PROPIEDADES_BAÑOS); ?>
-
-                               <a ><i class="fas fa-toilet"></i></a>
-                               <?php echo e($propiedad->PROPIEDADES_CONSTRUCCION); ?>
-
-                               <a><i class="fas fa-home"></i></a>
-                           </nav>
-                       
-                           <div class="botones">
-                               
-                               <form action="pdfjava" method="post">
-                                   <?php echo csrf_field(); ?>
-                                   <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
-                                   <input type="submit" value="Descargar">
-                               </form>
-                               
-                               
-                               
-                               
-       
-                           </div>
-                   </div>
-               </li>
-               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-               <?php endif; ?>
-       
-               
-           </ul>
-           
-         </section>
-         <div class="paginando">
-           <?php echo e($propiedades->links()); ?>
-
-         </div>
+        
+         
     </div>
 
-    <br><br><br>
+
+
+
 
   <?php echo $__env->make('plantillas.menu_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   
-<script src="<?php echo e(asset('js/dist/jspdf.min.js')); ?>"></script>
+
+
+  <script src="<?php echo e(asset('js/dist/jspdf.min.js')); ?>"></script>
 
 <script>
     $.ajaxSetup({

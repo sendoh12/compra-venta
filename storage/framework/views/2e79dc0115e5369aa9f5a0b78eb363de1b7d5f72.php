@@ -1,127 +1,207 @@
-
+ 
 
 <?php $__env->startSection('title', 'Inicio'); ?>
 
 
-<link rel="stylesheet" type="text/css" href=" <?php echo e(asset('sider/css/estilos.css')); ?> ">
-<link rel="stylesheet" type="text/css" href=" <?php echo e(asset('sider/css/font-awesome.css')); ?> ">
+
 <?php $__env->startSection('content'); ?>
 
+ 			
 
-    <div class="captura ">
-    	<div class="slideshow">
-		<ul class="slider">
-            <?php $__currentLoopData = $imagenes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-			<li>
-				<img style="width: 100%; height: 400px;"  src="<?php echo e(asset(Storage::url($item->INICIO_NOMBRE))); ?>" alt="">
-				<section class="caption">
-					<h1>GupoLacer</h1>
-					<p></p>
-				</section>
-            </li>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-		</ul>
-	
-		<div class="left">
-			<span class="fa fa-chevron-left"></span>
-		</div>
 
-		<div class="right">
-			<span class="fa fa-chevron-right"></span>
-		</div>
-
-	</div>
-
-		<div class="contenido">
-			<div class="filtro">
-			<?php if(count($errors) > 0): ?>
-				<div class="alert alert-danger">
-					<ul>
-						<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-						<li><?php echo e($error); ?></li>
-						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-					</ul>
+<br>
+		<section class="contenedor">
+			<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
+			<br>
+			<div class="contenido-nosotros">
+				<div class="imagen">
+					<img src="<?php echo e(asset('dist/img/nosotros.jpg')); ?>" alt="imagen sobre nosotros">
 				</div>
-        	<?php endif; ?>
-				<form  action="contactos"  method="post" class="col-md-10 col-md-offset-1 colorform">
-					<?php echo csrf_field(); ?>
-					<br>
-					
-						<label class="letra">Contactanos</label>
-					
-					<br><br>
-					<div class="form-group">
-						<input type="text" name="nombre" class="form-control tipoletra" id="" placeholder="Nombre de la persona y apellidos"  minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="email" name="email" class="form-control tipoletra" id="" placeholder="Email" minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" required>
-					</div>
-					<div class="form-group">
-						<input type="text" name="asunto" class="form-control tipoletra" id="" placeholder="Asunto" minlength="2" maxlength="120"  required>
-					</div>
-					<div class="form-group">
-						<textarea class="form-control tipoletra" name="mesaje" id="" placeholder="Mensaje*" minlength="2" maxlength="1000"  required></textarea>
-					</div>
-						<button type="submit" class="btn-3d form-control">Enviar</button>
-				</form>
+				<div class="texto-nosotros">
+					<blockquote>25 Años de Experiencia</blockquote>
+					<p>
+						Somos un grupo de profesionistas enfocados en apoyar 
+						en la compra, venta o renta de su bien inmueble, con 
+						el objetivo de satisfacer las necesidades inmobiliarias 
+						de nuestros clientes. <br>
+
+						Proin consequat viverra sapien, malesuada tempor tortor 
+						feugiat vitae. In dictum felis et nunc aliquet molestie. 
+						Proin tristique commodo felis, sed auctor elit auctor pulvinar.
+						 Nunc porta, nibh quis convallis sollicitudin, arcu nisl 
+						 semper mi, vitae sagittis lorem dolor non risus. Vivamus 
+						 accumsan maximus est, eu mollis mi. Proin id nisl vel odio 
+						 semper hendrerit. Nunc porta in justo finibus tempor. 
+						 Suspendisse lobortis dolor quis elit suscipit molestie. 
+						 Sed condimentum, erat at tempor finibus, urna nisi 
+						 fermentum est, a dignissim nisi libero vel est. Donec 
+						 et imperdiet augue. Curabitur malesuada sodales congue. 
+						 Suspendisse potenti. Ut sit amet convallis nisi.
+					</p>
+				</div>
 			</div>
+		</section>
+<br>
+		<main class="seccion contenedor">
+			<h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2>
+			<br>
+			<div class="contenedor">
+        <div class="container">
+            <div class="row">
+                <?php if(isset($propiedades)): ?>
+                <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $propiedad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-md-4 propied">
+                    
+                    
 
+                    <form action="CasaVenta" method="get">
+                            <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
+                        <div class="centrar-imagen">
+                            <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                <img style="width:100% ;height: 250px;" src="<?php echo e(asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))); ?>" >
+                            
+                                <div class="texto-encima">
+                                    <p class="etiqueta"><?php echo e($propiedad->PROPIEDADES_OPERACION); ?></p>
+                                </div>
+                            </button>
+                            </div>
+                    </form>
 
-			<div class="quienesSomos">
-				<form id="filtro" action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
-					<?php echo csrf_field(); ?>
-					<br>
-					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
-					<br><br>
-				<div>
-					<div class="form-group">
-						<label class="letra">Operacion</label>
-						<select class="form-control" name="operacion" id="">
-							<option value="Venta" selected="true">Venta</option>
-                    		<option value="Renta">Renta</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="letra">Tipo de inmueble:</label>
-						<select class="form-control" name="inmueble" id="">
-							<option selected="true">Todos</option>
-							<?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
-							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="letra">Nombre</label>
-						<input type="text" class="form-control tipoletra" name="nombre" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
-					</div>
-					<button type="submit" class="btn-3d form-control">Buscar</button>
-				</div>
-				</form>
-			<div id="clave" style="display:none;">
-				<form action="Filtro_buscar_nombre" method="post" class="col-md-10 col-md-offset-1 colorform">
-				<?php echo csrf_field(); ?>
+                    <div class="centrar-propiedad">
+                        <div class="datos-propiedad">
+                            <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
+                            <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
+                            <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
+                            
+                            <p><?php echo e($propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE); ?></p>
+                            <p><?php echo e($propiedad->PROPIEDADES_COLONIA); ?></p>
+                            <p><?php echo e($propiedad->PROPIEDADES_ZONA); ?></p> 
+                            <ul class="iconos-caracteristicas">
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_wc.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_BAÑOS); ?></p>
+                                </li>
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_estacionamiento.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_CONSTRUCCION); ?></p>
+                                </li>
+                                <li>
+                                    <img src="<?php echo e(asset('dist/img/icono_dormitorio.svg')); ?>" alt="icono wc">
+                                    <p><?php echo e($propiedad->PROPIEDADES_HABITACIONES); ?></p>
+                                </li>
+                            </ul> 
+                        </div>                        
+                    </div>
+                    <div class="centrar-funciones">
+
+                        <div class="funciones">
+                            
+                            <form action="CasaVenta" method="get">
+                                <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
+                                <input type="submit" value="Ver propiedad">
+                            </form>   
+
+                            
+                                <input type="submit" value="Contacto">
+
+                            
+                            <form action="pdfjava" method="post">
+                                <?php echo csrf_field(); ?>
+                                <input type="hidden" name="ide" value="<?php echo e($propiedad->PROPIEDADES_ID); ?>">
+                                <input type="submit" value="Descargar">
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>    
+            </div>
+        </div>
+    </div>
+                
+
+			<div class="ver-todas">
+				<!-- Accent-colored raised button with ripple -->  
+			<a href="<?php echo e(route('propiedades')); ?>" class="boton boton-verde ">Ver Todas</a>
+			</div>
+		</main>
+
+		<br>
+		<section class="imagen-contacto">
+			<div class="contenedor contenido-contacto ">
+				<h2>Encuentra la casa de tus sueños</h2>
+				<p>
+					Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad
+				</p>
+				<a href="<?php echo e(route('contacto')); ?>" class="boton boton-verde">Contactanos</a>
+			</div>
+		</section>
+
+		<br>
+		<div class="seccion-inferior contenedor seccion">
+			<section class="blog">
+				<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
 				<br>
-					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
-					<br><br>
-					<div class="form-group">
-						<label class="letra">Buscar por clave</label>
-						<input type="text" class="form-control tipoletra" name="nombre1" placeholder="Nombre de 1la propiedad" minlength="2" maxlength="120"  required>
+				<article class="entrada-blog">
+					<div class="imagen">
+						<img src="<?php echo e(asset('dist/img/blog1.jpg')); ?>" alt="icono seguridad" />
 					</div>
-					<button type="submit" class="btn-3d" style="align:right;">Buscar</button>
-
-				</form>
-			</div>
+					<div class="texto-entrada">
+						<a href="#">
+							<h4>Terraza en el techo de tu casa</h4>
+						</a>
+						
+					<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
+					<p>
+						Consejos para construir una terraza en el
+						techo de tu casa con los mejores materiaes y ahorro de dinero
+					</p>
+					</div>
+					
+				</article>
+	
+	
+				<article class="entrada-blog">
+					<div class="imagen">
+						<img src="<?php echo e(asset('dist/img/blog2.jpg')); ?>" alt="icono seguridad" />
+					</div>
+					<div class="texto-entrada">
+						<a href="#">
+							<h4>Guia para la decoracion de tu hogar</h4>
+						</a>
+						
+						<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
+						<p>
+							Consejos para construir una terraza en el
+							techo de tu casa con los mejores materiaes y ahorro de dinero
+						</p>
+					</div>
+					
+				</article>
+	
+			</section>
+	
+			
+			<section class="testimoniales">
+				<h3 class="centrar-texto fw-300">Testimoniales</h3>
+				<br>
+				<div class="testimonial">
+					<blockquote>
+						El personal se comporto de una excelente forma, muy buena atencion
+						y la casa que me ofrecieron cumple con toas las expectativas
+					</blockquote>
+					<p>- Eduardo Cervantes</p>
+				</div>
+			</section>
 		</div>
-	</div>
+
+
+
 
 <?php echo $__env->make('plantillas.menu_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-	</div>
 	
 	<script>
 		function filtro() {
@@ -134,7 +214,7 @@
 			document.getElementById('filtro').style.display = 'none';
 		}
 	</script>
-<?php $__env->stopSection(); ?>
-
+<?php $__env->stopSection(); ?> 
+ 
 
 <?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/lacer.blade.php ENDPATH**/ ?>

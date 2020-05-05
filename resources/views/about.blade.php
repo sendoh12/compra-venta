@@ -5,161 +5,158 @@
 
 
 @section('content')
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> --}}
-{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> --}}
-{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> --}}
+<link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">
+
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-<div class="captura ">
-        
-    <div class="slideshow">
-        <ul class="slider">
-            @foreach ($imagenes as $item)
-            <li>
-                <img style="width: 100%; height: 400px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE)) }}" alt="">
-                <section class="caption">
-                    <h1>GupoLacer</h1>
-                    <p></p>
-                </section>
-            </li>
-            @endforeach
-        </ul>
-        <div class="left">
-            <span class="fa fa-chevron-left"></span>
-        </div>
-        <div class="right">
-            <span class="fa fa-chevron-right"></span>
-        </div>
-    
- </div>
-
- {{-- seccion para la busqueda --}}
- <div class="busqueda">
+<br><br>
+<div class="busqueda">
     <div class="quienesSomos">
-        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
+        <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
+            <fieldset>
+                <legend>Buscar propiedad</legend>
+            
             @csrf
-            <br> 
-            <button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-            <button type="button" class="btn-3d" onclick="clave()"> Clave</button>
+            <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+            <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
             <br><br>
         <div id="filtro">
             <div class="form-group">
-                <label class="letra">Operacion</label>
-                <select class="form-control letra" name="" id="">
+                <label>Operacion</label>
+                <select name="" id="">
                     <option value="Venta" selected="true">Venta</option>
                     <option value="Renta">Renta</option>
                 </select>
                     
             </div>
             <div class="form-group">
-                <label class="letra">Tipo de inmueble:</label>
-                <select class="form-control" name="" id="">
+                <label >Tipo de inmueble:</label>
+                <select name="" id="">
                     <option selected="true">(Todos)</option>
                     @foreach ($tipos as $item)
                         <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
-                <label class="letra">Nombre</label>
-                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
+            <div >
+                <label>Nombre</label>
+                <input type="text" id="" placeholder="Nombre de la propiedad">
             </div>
-            <button type="submit" class="btn-3d form-control">Buscar</button>
+            <button type="submit" class="boton boton-azul">Buscar</button>
         </form>
         </div>
 
         <div id="clave" style="display:none;">
-        <form action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
-            <div class="form-group">
-                <label class="letra">Buscar por clave</label>
-                <input type="text" class="form-control tipoletra" id="" placeholder="Nombre de la propiedad">
-            </div>
-            <button type="submit" class="btn-3d" style="align:right;">Buscar</button>
-
-
+        <form action="Flitar_busquedad" method="post" class="contacto-propiedad">
+                <label >Buscar por clave</label>
+                <input type="text" id="" placeholder="Nombre de la propiedad">
+            <button type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
         </div>
             
         </form>
-    </div><br><br>
+    </fieldset>
+    </div><br>
 
  </div> 
-
-
+ 
+ <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
  {{-- seccion de propiedades --}}
-    <div class="users">
+ <div class="users">
+    <div class="contenedor">
+        <div class="container">
+            <div class="row">
+                @if(isset($propiedades))
+                @foreach ($propiedades as $propiedad)
+                <div class="col-md-4 propied">
+                    
+                    {{-- <div class="etiqueta">
+                        {{$propiedad->PROPIEDADES_OPERACION}}
+                    </div> --}}
+
+                    <form action="CasaVenta" method="get">
+                            <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                        <div class="centrar-imagen">
+                            <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                <img style="width:100% ;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" >
+                            
+                                <div class="texto-encima">
+                                    <p class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</p>
+                                </div>
+                            </button>
+                            </div>
+                    </form>
+
+                    <div class="centrar-propiedad">
+                        <div class="datos-propiedad">
+                            <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
+                            <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
+                            <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
+                            {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
+                            <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
+                            <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
+                            <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
+                            <ul class="iconos-caracteristicas">
+                                <li>
+                                    <img src="{{asset('dist/img/icono_wc.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_BAÑOS}}</p>
+                                </li>
+                                <li>
+                                    <img src="{{asset('dist/img/icono_estacionamiento.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_CONSTRUCCION}}</p>
+                                </li>
+                                <li>
+                                    <img src="{{asset('dist/img/icono_dormitorio.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_HABITACIONES}}</p>
+                                </li>
+                            </ul> 
+                        </div>                        
+                    </div>
+                    <div class="centrar-funciones">
+
+                        <div class="funciones">
+                            {{-- ver propiedad --}}
+                            <form action="CasaVenta" method="get">
+                                <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                                <input type="submit" value="Ver propiedad">
+                            </form>   
+
+                            {{-- contacto --}}
+                                <input type="submit" value="Contacto">
+
+                            {{-- descargar pdf --}}
+                            <form action="pdfjava" method="post">
+                                @csrf
+                                <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
+                                <input type="submit" value="Descargar">
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                @endforeach
+                @endif    
+            </div>
+        </div>
+    </div>
+                <div class="paginando">
+                    {{$propiedades->links()}}
+                </div>
+
+    
         
-        <section class="invitados contenedor2 seccion">
-           <h2>Propiedades</h2>
-           <ul class="lista-invitados clearfix">
-               @if(isset($propiedades))
-               @foreach ($propiedades as $propiedad)
-               <li>
-                   <div class="invitado">
-                       <div class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</div>
-                       {{-- <a href="{{route('CasaVenta',$propiedad->PROPIEDADES_ID)}}">
-                           <img style="width: 400px;height: 250px;" src="images/{{$propiedad->PROPIEDADES_IMAGEN}}" alt="imagen invitado">
-                       </a> --}}
-       
-                       <form action="CasaVenta" method="get">
-                           {{-- @isset($propiedad->PROPIEDADES_ID) --}}
-                               <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
-                           {{-- @endisset --}}
-                           <button type="submit">
-                               <img style="width: 400px;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" >
-                           </button>
-                         </form>
-       
-                           <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
-                       </div>
-                       <div class="texto" style="width: 400px;height: 250px;">
-                           <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
-                           <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
-                           {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
-                           <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
-                           <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
-                           <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
-       
-                           <nav class="iconos">
-                               {{'Habs '.$propiedad->PROPIEDADES_HABITACIONES}}
-                               <a ><i class="fas fa-person-booth"></i></a>
-                               {{'Baño(s) '.$propiedad->PROPIEDADES_BAÑOS}}
-                               <a ><i class="fas fa-toilet"></i></a>
-                               {{$propiedad->PROPIEDADES_CONSTRUCCION}}
-                               <a><i class="fas fa-home"></i></a>
-                           </nav>
-                       {{-- </div> --}}
-                           <div class="botones">
-                               {{-- <input type="submit" value="Enviar"> --}}
-                               <form action="pdfjava" method="post">
-                                   @csrf
-                                   <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
-                                   <input type="submit" value="Descargar">
-                               </form>
-                               {{-- <!-- <a href="pdfjava/{{$propiedad->PROPIEDADES_ID}}">Descargar</a> --> --}}
-                               {{-- <!-- <a onclick="Generar_pdf({{$propiedad->PROPIEDADES_ID}})">Descargar</a> --> --}}
-                               {{-- <input type="submit" value="Contactar"> --}}
-                               
-       
-                           </div>
-                   </div>
-               </li>
-               @endforeach
-               @endif
-       
-               
-           </ul>
-           
-         </section>
-         <div class="paginando">
-           {{$propiedades->links()}}
-         </div>
+        
+         
     </div>
 
-    <br><br><br>
+
+
+
 
   @include('plantillas.menu_footer')
   
-<script src="{{asset('js/dist/jspdf.min.js')}}"></script>
+
+
+  <script src="{{asset('js/dist/jspdf.min.js')}}"></script>
 
 <script>
     $.ajaxSetup({

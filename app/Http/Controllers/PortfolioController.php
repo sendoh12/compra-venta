@@ -63,10 +63,15 @@ class PortfolioController extends Controller
 
     public function portafolio() {
 
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
         $projects = Project::latest()->paginate(1);
 
         return view('portfolio', [
-            'projects' => Project::latest()->paginate()
+            'projects' => Project::latest()->paginate(),
+            'imagenes' => $imagenes
         ]);
     }
 
@@ -75,17 +80,37 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->paginate(3);
+
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
 
+        // foreach ($imagenes as $key => $value) {
+        //     var_dump($key);
+        // }
+        // echo '<pre>';
+        // // var_dump($arreglo);
+        // echo '</pre>';
+        // die();
 
-        // $imagenes = DB::table('cv_inicio')->simplePaginate(1);
+        // if($request->ajax()) {
+        //     return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+        //     return view('lista_propiedades', array(
+        //         'imagenes' => $imagenes,
+        //         'tipos' => $tipos
+        //     ));
+        // }
         
-       return view('lacer', array(
-           'imagenes' => $imagenes,
-           'tipos' => $tipos
-       ));
+        return view('lacer', array(
+            'imagenes' => $imagenes,
+            'propiedades' => $propiedades,
+            'tipos' => $tipos
+        ));
     }
 
     public function show($id) {
@@ -276,6 +301,10 @@ class PortfolioController extends Controller
 
 
     public function CasaVenta(Request $request) {
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+        
         $propiedades = DB::table('cv_imagenes')
                         ->select('*')
                         ->where('IMAGENES_PROPIEDAD','=',base64_decode($request->input('id')))
@@ -284,7 +313,11 @@ class PortfolioController extends Controller
                         ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                         ->orderByRaw('IMAGENES_ORDEN ASC')
                         ->get();
-            return view('propiedades.propiedad', compact('propiedades'));
+            return view('propiedades.propiedad', array(
+                'propiedades' => $propiedades,
+                'imagenes' => $imagenes
+            ));
+        
 
     }
 

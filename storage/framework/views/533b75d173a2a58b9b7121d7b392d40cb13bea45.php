@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-    <h1><?php echo e($propiedades[0]->PROPIEDADES_OPERACION); ?>  <?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?></h1>
+    <h1><?php echo e($propiedades[0]->PROPIEDADES_TIPO.' en '.$propiedades[0]->PROPIEDADES_OPERACION); ?> </h1>
 <div>
     <div >
         <h1>

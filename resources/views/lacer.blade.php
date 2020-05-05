@@ -1,127 +1,212 @@
-@extends('PaginasInicio.inicio')
+ @extends('PaginasInicio.inicio')
 
 @section('title', 'Inicio')
 
 
-<link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">
-<link rel="stylesheet" type="text/css" href=" {{asset('sider/css/font-awesome.css')}} ">
+{{-- <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">
+<link rel="stylesheet" type="text/css" href=" {{asset('sider/css/font-awesome.css')}} "> --}}
 @section('content')
 
+ 			
 
-    <div class="captura ">
-    	<div class="slideshow">
-		<ul class="slider">
-            @foreach ($imagenes as $item)
-			<li>
-				<img style="width: 100%; height: 400px;"  src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="">
-				<section class="caption">
-					<h1>GupoLacer</h1>
-					<p></p>
-				</section>
-            </li>
-            @endforeach
-		</ul>
-	
-		<div class="left">
-			<span class="fa fa-chevron-left"></span>
-		</div>
 
-		<div class="right">
-			<span class="fa fa-chevron-right"></span>
-		</div>
-
-	</div>
-
-		<div class="contenido">
-			<div class="filtro">
-			@if(count($errors) > 0)
-				<div class="alert alert-danger">
-					<ul>
-						@foreach($errors->all() as $error)
-						<li>{{ $error }}</li>
-						@endforeach
-					</ul>
+<br>
+		<section class="contenedor">
+			<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
+			<br>
+			<div class="contenido-nosotros">
+				<div class="imagen">
+					<img src="{{asset('dist/img/nosotros.jpg')}}" alt="imagen sobre nosotros">
 				</div>
-        	@endif
-				<form  action="contactos"  method="post" class="col-md-10 col-md-offset-1 colorform">
-					@csrf
-					<br>
-					{{-- <div class="form-group"> --}}
-						<label class="letra">Contactanos</label>
-					{{-- </div> --}}
-					<br><br>
-					<div class="form-group">
-						<input type="text" name="nombre" class="form-control tipoletra" id="" placeholder="Nombre de la persona y apellidos"  minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="email" name="email" class="form-control tipoletra" id="" placeholder="Email" minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" required>
-					</div>
-					<div class="form-group">
-						<input type="text" name="asunto" class="form-control tipoletra" id="" placeholder="Asunto" minlength="2" maxlength="120"  required>
-					</div>
-					<div class="form-group">
-						<textarea class="form-control tipoletra" name="mesaje" id="" placeholder="Mensaje*" minlength="2" maxlength="1000"  required></textarea>
-					</div>
-						<button type="submit" class="btn-3d form-control">Enviar</button>
-				</form>
+				<div class="texto-nosotros">
+					<blockquote>25 Años de Experiencia</blockquote>
+					<p>
+						Somos un grupo de profesionistas enfocados en apoyar 
+						en la compra, venta o renta de su bien inmueble, con 
+						el objetivo de satisfacer las necesidades inmobiliarias 
+						de nuestros clientes. <br>
+
+						Proin consequat viverra sapien, malesuada tempor tortor 
+						feugiat vitae. In dictum felis et nunc aliquet molestie. 
+						Proin tristique commodo felis, sed auctor elit auctor pulvinar.
+						 Nunc porta, nibh quis convallis sollicitudin, arcu nisl 
+						 semper mi, vitae sagittis lorem dolor non risus. Vivamus 
+						 accumsan maximus est, eu mollis mi. Proin id nisl vel odio 
+						 semper hendrerit. Nunc porta in justo finibus tempor. 
+						 Suspendisse lobortis dolor quis elit suscipit molestie. 
+						 Sed condimentum, erat at tempor finibus, urna nisi 
+						 fermentum est, a dignissim nisi libero vel est. Donec 
+						 et imperdiet augue. Curabitur malesuada sodales congue. 
+						 Suspendisse potenti. Ut sit amet convallis nisi.
+					</p>
+				</div>
 			</div>
+		</section>
+<br>
+		<main class="seccion contenedor">
+			<h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2>
+			<br>
+			<div class="contenedor">
+        <div class="container">
+            <div class="row">
+                @if(isset($propiedades))
+                @foreach ($propiedades as $propiedad)
+                <div class="col-md-4 propied">
+                    
+                    {{-- <div class="etiqueta">
+                        {{$propiedad->PROPIEDADES_OPERACION}}
+                    </div> --}}
 
+                    <form action="CasaVenta" method="get">
+                            <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                        <div class="centrar-imagen">
+                            <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                <img style="width:100% ;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" >
+                            
+                                <div class="texto-encima">
+                                    <p class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</p>
+                                </div>
+                            </button>
+                            </div>
+                    </form>
 
-			<div class="quienesSomos">
-				<form id="filtro" action="Flitar_busquedad" method="post" class="col-md-10 col-md-offset-1 colorform">
-					@csrf
-					<br>
-					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
-					<br><br>
-				<div>
-					<div class="form-group">
-						<label class="letra">Operacion</label>
-						<select class="form-control" name="operacion" id="">
-							<option value="Venta" selected="true">Venta</option>
-                    		<option value="Renta">Renta</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="letra">Tipo de inmueble:</label>
-						<select class="form-control" name="inmueble" id="">
-							<option selected="true">Todos</option>
-							@foreach ($tipos as $item)
-								<option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
-							@endforeach
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="letra">Nombre</label>
-						<input type="text" class="form-control tipoletra" name="nombre" placeholder="Nombre de la propiedad" minlength="2" maxlength="120"  required>
-					</div>
-					<button type="submit" class="btn-3d form-control">Buscar</button>
-				</div>
-				</form>
-			<div id="clave" style="display:none;">
-				<form action="Filtro_buscar_nombre" method="post" class="col-md-10 col-md-offset-1 colorform">
-				@csrf
+                    <div class="centrar-propiedad">
+                        <div class="datos-propiedad">
+                            <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
+                            <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
+                            <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
+                            {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
+                            <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
+                            <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
+                            <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
+                            <ul class="iconos-caracteristicas">
+                                <li>
+                                    <img src="{{asset('dist/img/icono_wc.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_BAÑOS}}</p>
+                                </li>
+                                <li>
+                                    <img src="{{asset('dist/img/icono_estacionamiento.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_CONSTRUCCION}}</p>
+                                </li>
+                                <li>
+                                    <img src="{{asset('dist/img/icono_dormitorio.svg')}}" alt="icono wc">
+                                    <p>{{$propiedad->PROPIEDADES_HABITACIONES}}</p>
+                                </li>
+                            </ul> 
+                        </div>                        
+                    </div>
+                    <div class="centrar-funciones">
+
+                        <div class="funciones">
+                            {{-- ver propiedad --}}
+                            <form action="CasaVenta" method="get">
+                                <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                                <input type="submit" value="Ver propiedad">
+                            </form>   
+
+                            {{-- contacto --}}
+                                <input type="submit" value="Contacto">
+
+                            {{-- descargar pdf --}}
+                            <form action="pdfjava" method="post">
+                                @csrf
+                                <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
+                                <input type="submit" value="Descargar">
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                @endforeach
+                @endif    
+            </div>
+        </div>
+    </div>
+                {{-- <div class="paginando">
+                    {{$propiedades->links()}}
+                </div> --}}
+
+			<div class="ver-todas">
+				<!-- Accent-colored raised button with ripple -->  
+			<a href="{{route('propiedades')}}" class="boton boton-verde ">Ver Todas</a>
+			</div>
+		</main>
+
+		<br>
+		<section class="imagen-contacto">
+			<div class="contenedor contenido-contacto ">
+				<h2>Encuentra la casa de tus sueños</h2>
+				<p>
+					Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad
+				</p>
+				<a href="{{ route('contacto') }}" class="boton boton-verde">Contactanos</a>
+			</div>
+		</section>
+
+		<br>
+		<div class="seccion-inferior contenedor seccion">
+			<section class="blog">
+				<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
 				<br>
-					<button type="button" class="btn-3d" onclick="filtro()"> Filtro</button>
-					<button type="button" class="btn-3d" onclick="clave()"> Clave</button>
-					<br><br>
-					<div class="form-group">
-						<label class="letra">Buscar por clave</label>
-						<input type="text" class="form-control tipoletra" name="nombre1" placeholder="Nombre de 1la propiedad" minlength="2" maxlength="120"  required>
+				<article class="entrada-blog">
+					<div class="imagen">
+						<img src="{{asset('dist/img/blog1.jpg')}}" alt="icono seguridad" />
 					</div>
-					<button type="submit" class="btn-3d" style="align:right;">Buscar</button>
-
-				</form>
-			</div>
+					<div class="texto-entrada">
+						<a href="#">
+							<h4>Terraza en el techo de tu casa</h4>
+						</a>
+						
+					<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
+					<p>
+						Consejos para construir una terraza en el
+						techo de tu casa con los mejores materiaes y ahorro de dinero
+					</p>
+					</div>
+					
+				</article>
+	
+	
+				<article class="entrada-blog">
+					<div class="imagen">
+						<img src="{{asset('dist/img/blog2.jpg')}}" alt="icono seguridad" />
+					</div>
+					<div class="texto-entrada">
+						<a href="#">
+							<h4>Guia para la decoracion de tu hogar</h4>
+						</a>
+						
+						<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
+						<p>
+							Consejos para construir una terraza en el
+							techo de tu casa con los mejores materiaes y ahorro de dinero
+						</p>
+					</div>
+					
+				</article>
+	
+			</section>
+	
+			
+			<section class="testimoniales">
+				<h3 class="centrar-texto fw-300">Testimoniales</h3>
+				<br>
+				<div class="testimonial">
+					<blockquote>
+						El personal se comporto de una excelente forma, muy buena atencion
+						y la casa que me ofrecieron cumple con toas las expectativas
+					</blockquote>
+					<p>- Eduardo Cervantes</p>
+				</div>
+			</section>
 		</div>
-	</div>
+
+
+
 
 @include('plantillas.menu_footer')
 
-	</div>
 	
 	<script>
 		function filtro() {
@@ -134,5 +219,5 @@
 			document.getElementById('filtro').style.display = 'none';
 		}
 	</script>
-@endsection
-
+@endsection 
+ 
