@@ -101,7 +101,7 @@
                                 </li>
                                 <li>
                                     <img src="{{asset('dist/img/icono_estacionamiento.svg')}}" alt="icono wc">
-                                    <p>{{$propiedad->PROPIEDADES_CONSTRUCCION}}</p>
+                                    <p>{{$propiedad->PROPIEDADES_ESTACIONAMIENTO}}</p>
                                 </li>
                                 <li>
                                     <img src="{{asset('dist/img/icono_dormitorio.svg')}}" alt="icono wc">

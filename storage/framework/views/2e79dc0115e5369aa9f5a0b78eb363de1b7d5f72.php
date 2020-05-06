@@ -18,25 +18,14 @@
 					<img src="<?php echo e(asset('dist/img/nosotros.jpg')); ?>" alt="imagen sobre nosotros">
 				</div>
 				<div class="texto-nosotros">
-					<blockquote>25 Años de Experiencia</blockquote>
+					<blockquote>Experiencia</blockquote>
 					<p>
 						Somos un grupo de profesionistas enfocados en apoyar 
 						en la compra, venta o renta de su bien inmueble, con 
 						el objetivo de satisfacer las necesidades inmobiliarias 
 						de nuestros clientes. <br>
 
-						Proin consequat viverra sapien, malesuada tempor tortor 
-						feugiat vitae. In dictum felis et nunc aliquet molestie. 
-						Proin tristique commodo felis, sed auctor elit auctor pulvinar.
-						 Nunc porta, nibh quis convallis sollicitudin, arcu nisl 
-						 semper mi, vitae sagittis lorem dolor non risus. Vivamus 
-						 accumsan maximus est, eu mollis mi. Proin id nisl vel odio 
-						 semper hendrerit. Nunc porta in justo finibus tempor. 
-						 Suspendisse lobortis dolor quis elit suscipit molestie. 
-						 Sed condimentum, erat at tempor finibus, urna nisi 
-						 fermentum est, a dignissim nisi libero vel est. Donec 
-						 et imperdiet augue. Curabitur malesuada sodales congue. 
-						 Suspendisse potenti. Ut sit amet convallis nisi.
+						
 					</p>
 				</div>
 			</div>
@@ -83,7 +72,7 @@
                                 </li>
                                 <li>
                                     <img src="<?php echo e(asset('dist/img/icono_estacionamiento.svg')); ?>" alt="icono wc">
-                                    <p><?php echo e($propiedad->PROPIEDADES_CONSTRUCCION); ?></p>
+                                    <p><?php echo e($propiedad->PROPIEDADES_ESTACIONAMIENTO); ?></p>
                                 </li>
                                 <li>
                                     <img src="<?php echo e(asset('dist/img/icono_dormitorio.svg')); ?>" alt="icono wc">

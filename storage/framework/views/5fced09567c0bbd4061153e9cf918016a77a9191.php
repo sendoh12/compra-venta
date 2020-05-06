@@ -20,7 +20,7 @@
         <div class="contenedor">
             <div class="barra">
                 <a href="<?php echo e(asset('/')); ?>">
-                    <img src="<?php echo e(asset('uploads/lacerInmovibiliaria.jpeg')); ?>" alt="logotipo">
+                    <img style="width: 250px; height: 100px;" src="<?php echo e(asset('uploads/lacerInmovibiliaria.jpeg')); ?>" alt="logotipo">
                 </a>
                 <p><i class="fas fa-sms "></i> 
                     Escribenos a: arquitectura_inmobiliaria@grupolacer.com Telefono: 
