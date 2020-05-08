@@ -11,26 +11,48 @@
 <br><br>
 <div class="busqueda">
     <div class="quienesSomos">
-        <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
             <fieldset>
                 <legend>Buscar propiedad</legend>
-            
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+                        <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
+                        <div class="dropdown" style="float:left; margin-Right:5px;">
+                                <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Por precio
+                                    <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="precios_0_a_1000">De $0 a $ 1,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
+                                        </li>
+                                        <li>
+                                        <a href="precios_mayor_10000">Mas de $10,000</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                    </div>
+                </div>
+<form action="Flitar_busquedad" method="post" class="contacto-busqueda">
             @csrf
-            <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
-            <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
-            <br><br>
         <div id="filtro">
             <div class="form-group">
                 <label>Operacion</label>
-                <select name="" id="">
-                    <option value="Venta" selected="true">Venta</option>
+                <select name="operacion" id="">
+                    <option value="Venta" selected="true">Ventas</option>
                     <option value="Renta">Renta</option>
                 </select>
-                    
             </div>
             <div class="form-group">
                 <label >Tipo de inmueble:</label>
-                <select name="" id="">
+                <select name="inmueble" id="">
                     <option selected="true">(Todos)</option>
                     @foreach ($tipos as $item)
                         <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
@@ -39,24 +61,23 @@
             </div>
             <div >
                 <label>Nombre</label>
-                <input type="text" id="" placeholder="Nombre de la propiedad">
+                <input type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
             </div>
             <button type="submit" class="boton boton-azul">Buscar</button>
         </form>
         </div>
 
         <div id="clave" style="display:none;">
-        <form action="Flitar_busquedad" method="post" class="contacto-propiedad">
+        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
+            @csrf
                 <label >Buscar por clave</label>
-                <input type="text" id="" placeholder="Nombre de la propiedad">
+                <input type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
             <button type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
         </div>
-            
         </form>
     </fieldset>
-    </div><br>
-
- </div> 
+    </div>
+ </div>
  
  <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
  {{-- seccion de propiedades --}}
@@ -138,9 +159,7 @@
             </div>
         </div>
     </div>
-                <div class="paginando">
-                    {{$propiedades->links()}}
-                </div>
+               
 
     
         

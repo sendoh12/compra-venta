@@ -243,11 +243,12 @@ class PortfolioController extends Controller
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->where('PROPIEDADES_OPERACION',$operacion)
-                    ->where('PROPIEDADES_TIPO',$inmueble)
+                    //->where('PROPIEDADES_TIPO',$inmueble)
                     ->where('PROPIEDADES_NOMBRE','like',$nombre)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
-
+        var_dump($propiedades);
+        die();
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
@@ -259,9 +260,9 @@ class PortfolioController extends Controller
                     ));
     }
 
-    public function Filtro_buscar_nombre(Request $request)
+    public function Filtro_buscar_clave(Request $request)
     {
-        $nombre     =   $request->nombre1;
+        $nombre     =   $request->clave;
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
                     ->get();
@@ -269,12 +270,9 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    //->where('PROPIEDADES_OPERACION',$operacion)
-                    //->where('PROPIEDADES_TIPO',$inmueble)
-                    ->where('PROPIEDADES_NOMBRE','like',$nombre)
+                    ->where('PROPIEDADES_CLAVE','like',$nombre)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
-
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
@@ -345,5 +343,104 @@ class PortfolioController extends Controller
             DB::table('cv_contactos')->where('ID_CONTACTO', '=', $id_contacto)->delete();
             return redirect("VerContactos");
         }
+    }
+
+    public function Precios_de_0_a_1000()
+    {
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_PRECIO','>=',0)
+                    ->where('PROPIEDADES_PRECIO','<=',1000)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
+    }
+
+    public function precios_1000_a_5000()
+    {
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_PRECIO','>=',1000)
+                    ->where('PROPIEDADES_PRECIO','<=',5000)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
+    }
+
+    public function precios_De_5000_a_10000()
+    {
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_PRECIO','>=',5000)
+                    ->where('PROPIEDADES_PRECIO','<=',10000)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
+    }
+
+    public function precios_mayor_10000()
+    {
+        $imagenes = DB::table('cv_inicio')
+                    ->select('*')
+                    ->get();
+
+        $propiedades = DB::table('cv_propiedades')
+                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
+                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->where('PROPIEDADES_PRECIO','>=',10000)
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->get();
+
+        $tipos = DB::table('cv_tipos')
+                    ->select('*')
+                    ->get();
+
+                    return view('about', array(
+                        'imagenes' => $imagenes,
+                        'propiedades' => $propiedades,
+                        'tipos' => $tipos
+                    ));
     }
 }
