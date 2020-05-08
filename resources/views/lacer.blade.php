@@ -153,8 +153,9 @@
                                 <input type="submit" value="Ver propiedad">
                             </form>   
 
-                            {{-- contacto --}}
-                                <input type="submit" value="Contacto">
+							{{-- contacto --}}
+							<input type="button" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
+							
 
                             {{-- descargar pdf --}}
                             <form action="pdfjava" method="post">
@@ -171,10 +172,52 @@
                 @endif    
             </div>
         </div>
-    </div>
-                {{-- <div class="paginando">
-                    {{$propiedades->links()}}
-                </div> --}}
+	</div>
+	
+	{{-- SECCION DEL MODAL --}}
+	 <!-- Modal -->
+	 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<label for="">Clave de la propiedad</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" value="">
+			</div>
+			<div class="modal-body">
+				<label for="">Nombre</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+			</div>
+			<div class="modal-body">
+				<label for="">E-mail</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+			</div>
+			<div class="modal-body">
+				<label for="">Telefono</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+			</div>
+			<div class="modal-body">
+				<label for="">Asunto</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+			</div>
+			<div class="modal-body">
+				<label for="">Mensaje</label>
+				<textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			  <button type="button" class="btn btn-primary">Enviar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  {{-- ACA TERMINA LA SECCION DEL MODAL --}}
+                
 
 			<div class="ver-todas">
 				<!-- Accent-colored raised button with ripple -->  

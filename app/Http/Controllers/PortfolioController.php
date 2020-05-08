@@ -292,8 +292,9 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->join('cv_imagenes', 'cv_imagenes.IMAGENES_PROPIEDAD', '=','cv_propiedades.PROPIEDADES_ID')
                     ->where('PROPIEDADES_ID',$idPropieada)
-                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*', 'cv_imagenes.*')
                     ->get();
         $data = [
             'propiedades' => $propiedades
