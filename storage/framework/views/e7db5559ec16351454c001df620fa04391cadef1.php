@@ -17,160 +17,185 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/demo.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/custom.css')); ?>" />
 <?php $__env->startSection('content'); ?>
+
+<br>
     
-    
-    
+<?php if(count($propiedades)!=0): ?>
     <div class="container">
+        <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
 
-		<?php if(count($propiedades)!=0): ?>
-        
-        
-        
-        
-        <div class="wrapper" id="fotos" style="display:block">
-            <button type="button" class="btn-3d" onclick="fotos()"> Fotos</button>
-            <button type="button" class="btn-3d" onclick="mapa()">Mapa</button>
-			
-			
-
-            <ul id="sb-slider" class="sb-slider" style="max-width: 1600px; overflow: hidden;">
-                <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li>
-                        <?php if(isset($prop->IMAGENES_ARCHIVO)): ?>
-                            <a target="_blank"><img src="fotos/<?php echo e($prop->IMAGENES_ARCHIVO); ?>" alt="image1"/></a>
-                        <?php endif; ?>
-                        <div class="sb-description">
-                            <h3><?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?></h3>
+            <div class="row">
+                <div class="col-md-6 slider-propiedad">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(isset($prop->IMAGENES_ARCHIVO)): ?>
+                                    <?php if($key == 0): ?>
+                                        <li data-target="#myCarousel" data-slide-to="<?php echo e($key); ?>" class="active"></li>
+                                    <?php else: ?>
+                                        <li data-target="#myCarousel" data-slide-to="<?php echo e($key); ?>"></li>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ol>
+                      
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if(isset($prop->IMAGENES_ARCHIVO)): ?>
+                                    <?php if($key == 0): ?>
+                                        <div class="item active">
+                                            <img style="height: 50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Los Angeles">
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="item">
+                                            <img style="height: 50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Chicago">
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
-                    </li>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-               
-            </ul>
+                      
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                            </a>
+                      </div>    
+                    
+                </div>
 
-            <div id="shadow" class="shadow"></div>
 
-            <div id="nav-arrows" class="nav-arrows">
-                <a href="#">Next</a>
-                <a href="#">Previous</a>
-            </div>
-        </div>
+                <div class="col-md-6">
+                    <div class="description">
+                        <h3>Ubicacion</h3>
+                            <?php echo e('Codigo '.$propiedades[0]->PROPIEDADES_CLAVE); ?> <br>
+                            <?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?> <br>
+                            <?php echo e($propiedades[0]->PROPIEDADES_PAIS.', '); ?>
+
+                            <?php echo e($propiedades[0]->ESTADOS_NOMBRE.', '); ?>
+
+                            <?php echo e($propiedades[0]->MUNICIPIOS_NOMBRE.', '); ?>
+
+                            <?php echo e($propiedades[0]->PROPIEDADES_COLONIA); ?><br>
+                            <?php echo e($propiedades[0]->PROPIEDADES_ZONA); ?><br>
+                            <?php echo e($propiedades[0]->PROPIEDADES_CP); ?><br>
+                            <?php echo e($propiedades[0]->PROPIEDADES_CALLE); ?><br>
+                        <h3>Descripción</h3>
+                            <?php echo e($propiedades[0]->PROPIEDADES_DESCRIPCION); ?>
+
+                        <h3>Datos Complementatios</h3>
+                            <?php echo e('Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO); ?> <br>
+                            <?php echo e('Niveles '.$propiedades[0]->PROPIEDADES_NIVELES); ?> <br>
+                            <?php echo e('Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION); ?> <br>
+                            <?php echo e('Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS); ?> <br>
+                            <?php echo e('Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO); ?>
 
         
-        <div class="wrapper" id="mapas" style="display:none">
-            <button type="button" class="btn-3d" onclick="fotos()"> Fotos</button>
-            <button type="button" class="btn-3d" onclick="mapa()">Mapa</button>
-            <input type="hidden" id="latitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LATITUD); ?>">
-            <input type="hidden" id="longitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LONGITUD); ?>">
-          
-            <div class="origenmapa">
-                <div id="mapid" style="width:730px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
-                    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(173px, 104px, 0px);">
-                                        
-                        <div class="leaflet-pane leaflet-tile-pane">
-                            <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
-                                <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
-                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
-                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, -347px, 0px); opacity: 1;">
-                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, 165px, 0px); opacity: 1;">
-                                    <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, 165px, 0px); opacity: 1;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="leaflet-pane leaflet-shadow-pane"></div>
-                        <div class="leaflet-pane leaflet-overlay-pane"></div>
-                        <div class="leaflet-pane leaflet-marker-pane"></div>
-                        <div class="leaflet-pane leaflet-tooltip-pane"></div>
-                        <div class="leaflet-pane leaflet-popup-pane"></div>
-                        <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04788e+06px, 697275px, 0px) scale(4096);"></div>
                     </div>
                 </div>
             </div>
-            
+
+        <h1 class="fw-300 centrar-texto">Zona de la propiedad</h1>
+			<br>
+
+		
+
+        <div class="mapid" id="mapid">
+            <input type="hidden" id="latitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LATITUD); ?>">
+            <input type="hidden" id="longitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LONGITUD); ?>">
         </div>
 
-        <div class="caracteristicas">
-            <div class="description">
-                <h3>Ubicacion</h3>
-                    <?php echo e('Codigo '.$propiedades[0]->PROPIEDADES_CLAVE); ?> <br>
-                    <?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?> <br>
-                    <?php echo e($propiedades[0]->PROPIEDADES_PAIS.', '); ?>
-
-                    <?php echo e($propiedades[0]->ESTADOS_NOMBRE.', '); ?>
-
-                    <?php echo e($propiedades[0]->MUNICIPIOS_NOMBRE.', '); ?>
-
-                    <?php echo e($propiedades[0]->PROPIEDADES_COLONIA); ?><br>
-                    <?php echo e($propiedades[0]->PROPIEDADES_ZONA); ?><br>
-                    <?php echo e($propiedades[0]->PROPIEDADES_CP); ?><br>
-                    <?php echo e($propiedades[0]->PROPIEDADES_CALLE); ?><br>
-                <h3>Descripción</h3>
-                    <?php echo e($propiedades[0]->PROPIEDADES_DESCRIPCION); ?>
-
-                <h3>Datos Complementatios</h3>
-                    <?php echo e('Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO); ?> <br>
-                    <?php echo e('Niveles '.$propiedades[0]->PROPIEDADES_NIVELES); ?> <br>
-                    <?php echo e('Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION); ?> <br>
-                    <?php echo e('Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS); ?> <br>
-                    <?php echo e('Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO); ?>
-
-
-            </div>
-            <div class="datos">
-                <form  class="form-horizontal col-md-8 col-md-offset-2 formprecio">
-                    <br>
-                    <label class="col-sm-9 control-label">
-                        <h3>
-                            <?php echo e('Casa en '.$propiedades[0]->PROPIEDADES_OPERACION); ?> <br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_PRECIO); ?>
-
-                        </h3>
-                        <nav class="iconospropied">
-                            <?php echo e('Habs '.$propiedades[0]->PROPIEDADES_HABITACIONES); ?>
-
-                            <a ><i class="fas fa-person-booth"></i></a>
-                            <?php echo e('Baño(s) '.$propiedades[0]->PROPIEDADES_BAÑOS); ?>
-
-                            <a ><i class="fas fa-toilet"></i></a>
-                            <?php echo e($propiedades[0]->PROPIEDADES_CONSTRUCCION); ?>
-
-                            <a><i class="fas fa-home"></i></a>
-                        </nav>
-                        
-                    </label>
-                    
-                </form>
-
-                
-
-                <form  action="contactos"  method="post" class="col-md-8 col-md-offset-2 formcolor">
-					<?php echo csrf_field(); ?>
-					<br>
-					
-						<label class="letra">Contactanos</label>
-					
-					<br><br>
-					<div class="form-group">
-						<input type="text" name="nombre" class="form-control tipoletra" id="" placeholder="Nombre de la persona y apellidos"  minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="email" name="email" class="form-control tipoletra" id="" placeholder="Email" minlength="2" maxlength="80"  required>
-					</div>
-					<div class="form-group">
-						<input type="tel" name="tel" class="form-control tipoletra" id="" placeholder="Telefono" minlength="2" maxlength="10" required>
-					</div>
-					<div class="form-group">
-						<input type="text" name="asunto" class="form-control tipoletra" id="" placeholder="Asunto" minlength="2" maxlength="120"  required>
-					</div>
-					<div class="form-group">
-						<textarea class="form-control tipoletra" name="mesaje" id="" placeholder="Mensaje*" minlength="2" maxlength="1000"  required></textarea>
-					</div>
-						<button type="submit" class="btn-3d form-control">Contactar</button>
-				</form>
-                
-            </div>
-        </div>
     </div>
-    <?php endif; ?>
+<?php endif; ?>
+<br>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row color-footer">
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3">
+        <!-- Content -->
+        <div class="ajustar-footer">
+          <h5 class="text-uppercase ">
+            <h3>¿Quienes <span>Somos?</span></h3>
+          </h5>
+          <p>
+            Somos un grupo de profesionistas enfocados en apoyar en la compra, 
+            venta o renta de su bien inmueble, con el objetivo de satisfacer las necesidades 
+            inmobiliarias de nuestros clientes.
+  
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Grid column -->
+      
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3">
+        <!-- Content -->
+        <div class="ajustar-footer">
+          <h5 class="text-uppercase ">
+            <h3>Sobre <span>Grupolacer</span></h3>
+          </h5>
+          <p>
+            <li>Ser la mejor opción inmobiliaria, superando las expectativas de nuestros clientes y generando calidad.</li>
+            <li>Desarrollar para nuestros clientes soluciones inmobiliarias trascendentes, creadas por un grupo de personas enfocado en la excelencia.</li>
+            <h5>Valores</h5>
+              • Honestidad 
+              • Respeto <br>
+              • Profesionalismo 
+              • Responsabilidad <br>
+              • Puntualidad 
+              • Espíritu de servicio <br>
+              • Compromiso
+          </p>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3">
+        <!-- Content -->
+        <div class="ajustar-footer">
+          <h5 class="text-uppercase ">
+            <h3>Redes <span>Sociales</span></h3>
+          </h5>
+          <nav class="redes-sociales">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </nav>
+      </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+</footer>
+<!-- Footer -->
+
+
+  
+
+  <div class="copyright">
+    <p class="contenedor">
+      Todos los derechos Reservados GRUPOLACER 2020
+    </p>
+  </div>
+
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/modernizr.custom.46884.js')); ?>"></script>
@@ -227,21 +252,12 @@
     </script>
 
     <script>
-        function fotos() {
-            document.getElementById('fotos').style.display = 'block';
-            document.getElementById('mapas').style.display = 'none';
-
-        }
-
-        function mapa() {
-            document.getElementById('fotos').style.display = 'none';
-            document.getElementById('mapas').style.display = 'block';
 
             var latitud = document.getElementById('latitud').value;
             var longitud = document.getElementById('longitud').value;
-            console.log(latitud, longitud);
+            // console.log(latitud, longitud);
 
-            var mymap = L.map('mapid').setView([latitud, longitud], 13);
+            var mymap = L.map('mapid').setView([latitud, longitud], 17);
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -251,12 +267,12 @@
             tileSize: 512,
             zoomOffset: -1
             }).addTo(mymap);
-            L.marker([latitud, longitud]).addTo(mymap);
+            // L.marker([latitud, longitud]).addTo(mymap);
             
-        }
+        
         
     </script>
     
 
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('Paginasinicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/propiedades/propiedad.blade.php ENDPATH**/ ?>
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('PaginasInicio.inicio', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/propiedades/propiedad.blade.php ENDPATH**/ ?>
