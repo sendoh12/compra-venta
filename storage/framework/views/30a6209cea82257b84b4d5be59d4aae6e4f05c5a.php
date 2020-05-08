@@ -11,26 +11,48 @@
 <br><br>
 <div class="busqueda">
     <div class="quienesSomos">
-        <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
             <fieldset>
                 <legend>Buscar propiedad</legend>
-            
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+                        <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
+                        <div class="dropdown" style="float:left; margin-Right:5px;">
+                                <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Por precio
+                                    <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="precios_0_a_1000">De $0 a $ 1,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
+                                        </li>
+                                        <li>
+                                        <a href="precios_mayor_10000">Mas de $10,000</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                    </div>
+                </div>
+<form action="Flitar_busquedad" method="post" class="contacto-busqueda">
             <?php echo csrf_field(); ?>
-            <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
-            <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
-            <br><br>
         <div id="filtro">
             <div class="form-group">
                 <label>Operacion</label>
-                <select name="" id="">
-                    <option value="Venta" selected="true">Venta</option>
+                <select name="operacion" id="">
+                    <option value="Venta" selected="true">Ventas</option>
                     <option value="Renta">Renta</option>
                 </select>
-                    
             </div>
             <div class="form-group">
                 <label >Tipo de inmueble:</label>
-                <select name="" id="">
+                <select name="inmueble" id="">
                     <option selected="true">(Todos)</option>
                     <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
@@ -39,24 +61,23 @@
             </div>
             <div >
                 <label>Nombre</label>
-                <input type="text" id="" placeholder="Nombre de la propiedad">
+                <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
             </div>
             <button type="submit" class="boton boton-azul">Buscar</button>
         </form>
         </div>
 
         <div id="clave" style="display:none;">
-        <form action="Flitar_busquedad" method="post" class="contacto-propiedad">
+        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
+            <?php echo csrf_field(); ?>
                 <label >Buscar por clave</label>
-                <input type="text" id="" placeholder="Nombre de la propiedad">
+                <input type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
             <button type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
         </div>
-            
         </form>
     </fieldset>
-    </div><br>
-
- </div> 
+    </div>
+ </div>
  
  <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
  
@@ -118,7 +139,7 @@
                             </form>   
 
                             
-                                <input type="submit" value="Contacto">
+							<input type="button" onclick="PasarClave(<?php echo e($propiedad->PROPIEDADES_ID); ?>)" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
 
                             
                             <form action="pdfjava" method="post">
@@ -136,16 +157,56 @@
             </div>
         </div>
     </div>
-                <div class="paginando">
-                    <?php echo e($propiedades->links()); ?>
+               
+    <div class="paginando">
+        <?php echo e($propiedades->links()); ?>
 
-                </div>
+    </div>
 
     
-        
-        
-         
-    </div>
+	 <!-- Modal -->
+	 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<label for="">Propiedad de interes</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" disabled>
+			</div>
+			<div class="modal-body">
+				<label for="">Nombre</label>
+				<input type="text" class="form-control" name="nombre" id="nombre" >
+			</div>
+			<div class="modal-body">
+				<label for="">E-mail</label>
+				<input type="text" class="form-control" name="correo" id="correo" >
+			</div>
+			<div class="modal-body">
+				<label for="">Telefono</label>
+				<input type="text" class="form-control validar" name="telefono" id="telefono" >
+			</div>
+			<div class="modal-body">
+				<label for="">Mensaje</label>
+				<textarea name="mensaje" id="mensaje" class="form-control" cols="30" rows="10"></textarea>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			  <button type="button" onclick="EnviarContacto()" class="btn btn-primary">Enviar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  
+
+</div>
+
+
+
 
 
 
@@ -156,6 +217,8 @@
 
 
   <script src="<?php echo e(asset('js/dist/jspdf.min.js')); ?>"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<?php echo e(asset('frest/js/sweetalert2.all.min.js')); ?>"></script>
 
 <script>
     $.ajaxSetup({
@@ -227,6 +290,115 @@
         document.getElementById('filtro').style.display = 'none';
     }
 </script>
+
+
+	<script>
+		function PasarClave(clave) {
+
+			$.ajax({
+				type: 'POST',
+				url: "PropiedadClave",
+				data: {clave:clave},
+				dataType: 'json',
+					success: function (response) {
+						// console.log(response.arreglo[0].PROPIEDADES_CLAVE);
+						$("#ClavePropiedad").val(response.arreglo[0].PROPIEDADES_CLAVE);
+					}
+				});
+		}
+		function EnviarContacto() {
+			var ClavePropiedad = document.getElementById('ClavePropiedad').value;
+			var nombre = document.getElementById('nombre').value;
+			var email = document.getElementById('correo').value;
+			var telefono = document.getElementById('telefono').value;
+			var mensaje = document.getElementById('mensaje').value;
+			if(nombre == null || nombre == '') {
+                  swal(
+                      'Campo vacio',
+                      'No has llenado el campo Nombre!',
+                      'warning'
+                   )
+
+				}else if(email == null || email == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Correo Electronico!',
+                      'warning'
+                   )
+				}else if(telefono == null || telefono == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Telefono!',
+                      'warning'
+                   )
+				}else if(mensaje == null || mensaje == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Mensaje!',
+                      'warning'
+                   )
+				}
+				else{
+					$.ajax({
+						cache:false,
+						dataType:"json",
+						type: 'POST',
+						url:'contactos',
+						data: {
+							ClavePropiedad:ClavePropiedad,
+							nombre:nombre, 
+							email:email,
+							telefono:telefono,
+							mensaje:mensaje,
+						},
+							success: function(response){
+								if(response.bandera == 1) {
+									swal(
+										'Correcto',
+										'Tus datos han sido enviados...!',
+										'success'
+									)
+									setTimeout(function(){location.reload(); }, 2000);
+								}
+							
+							},
+
+							beforeSend:function(){},
+							error:function(objXMLHttpRequest){}
+					});
+				}
+        }
+        
+
+        // validar los campos de numeros
+		function validarNumeros(evt){
+
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57) && (iKeyCode < 96 || iKeyCode > 105))
+            {
+                evt.preventDefault();
+                evt.stopPropagation();
+                //  return false;
+            }else{
+                return true;
+            }
+            }
+            $(document).ready(function () {
+
+                $(".validar").on("keydown", function(evt){
+                    console.log(evt);
+                    let iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+                    console.log(iKeyCode);
+                    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57) && (iKeyCode < 96 || iKeyCode > 105))
+                    {
+                        console.log('no es numero');
+                        return false;
+                    }
+                    return true;
+                });  
+            });
+	</script>
+
 <?php $__env->stopSection(); ?>
 
 

@@ -69,6 +69,7 @@
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
+                                                  <th>Clave</th>
                                                   <th>Nombre</th>
                                                   <th>E-mail</th>
                                                   <th>Telefono</th>
@@ -84,7 +85,7 @@
                                             <tbody id="sortable">
                                               @foreach ($contactos as $item)
                                                   <tr>
-                                                    {{-- <td> {{$item->ID_CONTACTO}} </td> --}}
+                                                    <td> {{$item->CONTACTO_CLAVE_PROPIEDAD}} </td>
                                                     <td> {{$item->CONTACTO_NOMBRE}} </td>
                                                     <td> {{$item->CONTACTO_EMAIL}} </td>
                                                     <td> {{$item->CONTACTO_TELEFONO}} </td>

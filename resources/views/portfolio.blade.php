@@ -15,29 +15,29 @@
 				@csrf
 				<fieldset>
 					<legend>Información Personal</legend>
-					<label for="nombre">Nombre:</label>
+					<label class="estilos-label" for="nombre">Nombre:</label>
 					<input class="boton-contacto" class="nombre" type="text" id="nombre" name="nombre" placeholder="Nombre">
 
-					<label for="email">E-mail</label>
+					<label class="estilos-label" for="email">E-mail</label>
 					<input class="boton-contacto" type="email" id="email" name="email" placeholder="Correo Electronico">
 
-					<label for="telefono">Teléfono</label>
+					<label class="estilos-label" for="telefono">Teléfono</label>
 					<input class="boton-contacto" type="tel" id="telefono" name="tel" placeholder="Telefono">
 
-					<label for="mensaje">Mensaje</label>
+					<label class="estilos-label" for="mensaje">Mensaje</label>
 					<textarea name="mensaje" id="mensaje"></textarea>
 				</fieldset>
 
 				<fieldset>
 					<legend>Informacion sobre Propiedad (Opcional)</legend>
-					<label for="opciones">Vende o Compra</label>
+					<label class="estilos-label" for="opciones">Vende o Compra</label>
 					<select name="opciones" id="opciones">
 						<option value="Compra">Compra</option>
 						<option value="Venta">Venta</option>
 						<option value="" disabled selected>--Seleccione--</option>
 					</select>
 
-					<label for="cantidad"> Cantidad:</label>
+					<label class="estilos-label" for="cantidad"> Cantidad:</label>
 					<input class="boton-contacto" type="text" id="cantidad" placeholder="Cantidad">
 
 				</fieldset>
@@ -46,19 +46,19 @@
 					<legend>Contacto (Opcional)</legend>
 					<p>Como desea ser contactado</p>
 					<div class="forma-contacto">
-						<label for="phone">Teléfono</label>
+						<label class="estilos-label" for="phone">Teléfono</label>
 						<input type="radio" name="comunicarse" value="telefono" id="phone">
 	
-						<label for="correo">E-mail</label>
+						<label class="estilos-label" for="correo">E-mail</label>
 						<input type="radio" name="comunicarse" value="correo" id="correo">
 
 					</div>
 
 					<p>Si eligió Telefono, elija la fecha y la hora</p>
-					<label for="fecha">Fecha</label>
+					<label class="estilos-label" for="fecha">Fecha</label>
 					<input class="boton-contacto" type="date" name="fecha" id="fecha">
 
-					<label for="hora">Hora</label>
+					<label class="estilos-label" for="hora">Hora</label>
 					<input class="boton-contacto" type="time" name="hora" id="hora" min="9:00" max="18:00">
 				</fieldset>
 

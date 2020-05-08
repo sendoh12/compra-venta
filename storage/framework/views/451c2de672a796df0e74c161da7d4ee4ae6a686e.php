@@ -55,7 +55,7 @@
                         </form>   
 
                         
-                            <input type="submit" value="Contacto">
+                        <input type="button" onclick="PasarClave(<?php echo e($propiedad->PROPIEDADES_ID); ?>)" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
 
                         
                         <form action="pdfjava" method="post">
@@ -76,4 +76,44 @@
             <div class="paginando">
                 <?php echo e($propiedades->links()); ?>
 
-            </div><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/lista_propiedades.blade.php ENDPATH**/ ?>
+            </div>
+
+            
+	 <!-- Modal -->
+	 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<label for="">Propiedad de interes</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" disabled>
+			</div>
+			<div class="modal-body">
+				<label for="">Nombre</label>
+				<input type="text" class="form-control" name="nombre" id="nombre" >
+			</div>
+			<div class="modal-body">
+				<label for="">E-mail</label>
+				<input type="text" class="form-control" name="correo" id="correo" >
+			</div>
+			<div class="modal-body">
+				<label for="">Telefono</label>
+				<input type="text" class="form-control" name="telefono" id="telefono" >
+			</div>
+			<div class="modal-body">
+				<label for="">Mensaje</label>
+				<textarea name="mensaje" id="mensaje" class="form-control" cols="30" rows="10"></textarea>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			  <button type="button" onclick="EnviarContacto()" class="btn btn-primary">Enviar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/lista_propiedades.blade.php ENDPATH**/ ?>

@@ -5,6 +5,7 @@
 
 
 <?php $__env->startSection('content'); ?>
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
 <div class="contenedor-slider">
 	<div class="row imagen-principal">
@@ -151,8 +152,7 @@
                             </form>   
 
 							
-							<input type="button" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
-							
+							<input type="button" onclick="PasarClave(<?php echo e($propiedad->PROPIEDADES_ID); ?>)" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
 
                             
                             <form action="pdfjava" method="post">
@@ -183,32 +183,28 @@
 			  </button>
 			</div>
 			<div class="modal-body">
-				<label for="">Clave de la propiedad</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" value="">
+				<label for="">Propiedad de interes</label>
+				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" disabled>
 			</div>
 			<div class="modal-body">
 				<label for="">Nombre</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+				<input type="text" class="form-control" name="nombre" id="nombre" >
 			</div>
 			<div class="modal-body">
 				<label for="">E-mail</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+				<input type="email" class="form-control" name="correo" id="correo" >
 			</div>
 			<div class="modal-body">
 				<label for="">Telefono</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
-			</div>
-			<div class="modal-body">
-				<label for="">Asunto</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" >
+				<input type="text" class="form-control validar" name="telefono" id="telefono" >
 			</div>
 			<div class="modal-body">
 				<label for="">Mensaje</label>
-				<textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
+				<textarea name="mensaje" id="mensaje" class="form-control" cols="30" rows="10"></textarea>
 			</div>
 			<div class="modal-footer">
 			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			  <button type="button" class="btn btn-primary">Enviar</button>
+			  <button type="button" onclick="EnviarContacto()" class="btn btn-primary">Enviar</button>
 			</div>
 		  </div>
 		</div>
@@ -295,19 +291,121 @@
 
 
 <?php echo $__env->make('plantillas.menu_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<?php echo e(asset('frest/js/sweetalert2.all.min.js')); ?>"></script>
+	<script>
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+	
+		function PasarClave(clave) {
+
+			$.ajax({
+				type: 'POST',
+				url: "PropiedadClave",
+				data: {clave:clave},
+				dataType: 'json',
+					success: function (response) {
+						// console.log(response.arreglo[0].PROPIEDADES_CLAVE);
+						$("#ClavePropiedad").val(response.arreglo[0].PROPIEDADES_CLAVE);
+					}
+				});
+		}
+		function EnviarContacto() {
+			var ClavePropiedad = document.getElementById('ClavePropiedad').value;
+			var nombre = document.getElementById('nombre').value;
+			var email = document.getElementById('correo').value;
+			var telefono = document.getElementById('telefono').value;
+			var mensaje = document.getElementById('mensaje').value;
+			if(nombre == null || nombre == '') {
+                  swal(
+                      'Campo vacio',
+                      'No has llenado el campo Nombre!',
+                      'warning'
+                   )
+
+				}else if(email == null || email == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Correo Electronico!',
+                      'warning'
+                   )
+				}else if(telefono == null || telefono == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Telefono!',
+                      'warning'
+                   )
+				}else if(mensaje == null || mensaje == '') {
+				swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Mensaje!',
+                      'warning'
+                   )
+				}
+				else{
+					$.ajax({
+						cache:false,
+						dataType:"json",
+						type: 'POST',
+						url:'contactos',
+						data: {
+							ClavePropiedad:ClavePropiedad,
+							nombre:nombre, 
+							email:email,
+							telefono:telefono,
+							mensaje:mensaje,
+						},
+							success: function(response){
+								if(response.bandera == 1) {
+									swal(
+										'Correcto',
+										'Tus datos han sido enviados...!',
+										'success'
+									)
+									setTimeout(function(){location.reload(); }, 2000);
+								}
+							
+							},
+
+							beforeSend:function(){},
+							error:function(objXMLHttpRequest){}
+					});
+				}
+		}
+
+		// validar los campos de numeros
+		function validarNumeros(evt){
+
+			var iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+			if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57) && (iKeyCode < 96 || iKeyCode > 105))
+			{
+				evt.preventDefault();
+				evt.stopPropagation();
+				//  return false;
+			}else{
+				return true;
+			}
+		}
+			$(document).ready(function () {
+
+				$(".validar").on("keydown", function(evt){
+					console.log(evt);
+					let iKeyCode = (evt.which) ? evt.which : evt.keyCode;
+					console.log(iKeyCode);
+					if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57) && (iKeyCode < 96 || iKeyCode > 105))
+					{
+						console.log('no es numero');
+						return false;
+					}
+					return true;
+				});  
+			});
+	</script>
 
 	
-	<script>
-		function filtro() {
-			document.getElementById('clave').style.display = 'none';
-			document.getElementById('filtro').style.display = 'block';
-		}
-		
-		function clave() {
-			document.getElementById('clave').style.display = 'block';
-			document.getElementById('filtro').style.display = 'none';
-		}
-	</script>
 <?php $__env->stopSection(); ?> 
  
 
