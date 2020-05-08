@@ -13,29 +13,33 @@
     <div class="quienesSomos">
             <fieldset>
                 <legend>Buscar propiedad</legend>
-            <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
-            <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
-            <div class="dropdown" style="float:left; margin-Right:5px;">
-            <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Por precio
-                <span class="caret"></span>
-            </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>
-                        <a href="precios_0_a_1000">De $0 a $ 1,000</a>
-                    </li>
-                    <li>
-                        <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
-                    </li>
-                    <li>
-                        <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
-                    </li>
-                    <li>
-                    <a href="precios_mayor_10000">Mas de $10,000</a>
-                    </li>
-                </ul>
-            </div>
-            <br><br>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+                        <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
+                        <div class="dropdown" style="float:left; margin-Right:5px;">
+                                <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Por precio
+                                    <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li>
+                                            <a href="precios_0_a_1000">De $0 a $ 1,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
+                                        </li>
+                                        <li>
+                                            <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
+                                        </li>
+                                        <li>
+                                        <a href="precios_mayor_10000">Mas de $10,000</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                    </div>
+                </div>
 <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
             @csrf
         <div id="filtro">
@@ -72,9 +76,8 @@
         </div>
         </form>
     </fieldset>
-    </div><br>
-
- </div> 
+    </div>
+ </div>
  
  <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
  {{-- seccion de propiedades --}}
