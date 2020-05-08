@@ -22,10 +22,38 @@
     
 @if (count($propiedades)!=0)
     <div class="container">
-        <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
 
-            <div class="row">
-                <div class="col-md-6 slider-propiedad">
+
+        <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
+            <div class="row tamano-row">
+              <div class="col-md-4">
+                <div class="description">
+                  <h1 class="fw-300 centrar-texto">{{'Casa en '.$propiedades[0]->PROPIEDADES_OPERACION}}</h1>
+                        <div class="ubicacion">
+                          <h3>Ubicacion</h3>
+                          <p>{{$propiedades[0]->PROPIEDADES_CLAVE}}</p> 
+                          <p>{{$propiedades[0]->PROPIEDADES_NOMBRE}}</p> 
+                          <p>{{$propiedades[0]->PROPIEDADES_PAIS.', '.
+                              $propiedades[0]->ESTADOS_NOMBRE.', '.
+                              $propiedades[0]->MUNICIPIOS_NOMBRE.', '.
+                              $propiedades[0]->PROPIEDADES_COLONIA}}</p>
+
+                          <p>{{'Zona '.$propiedades[0]->PROPIEDADES_ZONA}}</p>
+                          <p>{{'CP: '.$propiedades[0]->PROPIEDADES_CP}}</p>
+                          <p>{{$propiedades[0]->PROPIEDADES_CALLE}}</p>
+
+                          
+                        </div>
+                        <div class="barra-azul">
+
+                        </div>
+                  </div>
+              </div>
+
+              
+                <div class="col-md-8 ">
+                  <div class="slider-img">
+
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
@@ -41,20 +69,23 @@
                         </ol>
                       
                         <!-- Wrapper for slides -->
+                        <div class="modificar-sli">
                         <div class="carousel-inner">
+
                             @foreach ($propiedades as $key => $prop)
                                 @if (isset($prop->IMAGENES_ARCHIVO))
                                     @if ($key == 0)
                                         <div class="item active">
-                                            <img style="height: 50rem" src="{{asset(Storage::url($prop->IMAGENES_ARCHIVO))}}" alt="Los Angeles">
+                                            <img style="height:50rem" src="{{asset(Storage::url($prop->IMAGENES_ARCHIVO))}}" alt="Los Angeles">
                                         </div>
                                     @else
                                         <div class="item">
-                                            <img style="height: 50rem" src="{{asset(Storage::url($prop->IMAGENES_ARCHIVO))}}" alt="Chicago">
+                                            <img style="height:50rem" src="{{asset(Storage::url($prop->IMAGENES_ARCHIVO))}}" alt="Chicago">
                                         </div>
                                     @endif
                                 @endif
                             @endforeach
+                          </div>
                         </div>
                       
                             <!-- Left and right controls -->
@@ -67,33 +98,42 @@
                             <span class="sr-only">Next</span>
                             </a>
                       </div>    
-                    
+                  </div>
                 </div>
+            </div>
+            <br>
+            <h1 class="fw-300 centrar-texto">Informacion completa</h1>
 
-
-                <div class="col-md-6">
-                    <div class="description">
-                        <h3>Ubicacion</h3>
-                            {{'Codigo '.$propiedades[0]->PROPIEDADES_CLAVE}} <br>
-                            {{$propiedades[0]->PROPIEDADES_NOMBRE}} <br>
-                            {{$propiedades[0]->PROPIEDADES_PAIS.', '}}
-                            {{$propiedades[0]->ESTADOS_NOMBRE.', '}}
-                            {{$propiedades[0]->MUNICIPIOS_NOMBRE.', '}}
-                            {{$propiedades[0]->PROPIEDADES_COLONIA}}<br>
-                            {{$propiedades[0]->PROPIEDADES_ZONA}}<br>
-                            {{$propiedades[0]->PROPIEDADES_CP}}<br>
-                            {{$propiedades[0]->PROPIEDADES_CALLE}}<br>
-                        <h3>Descripción</h3>
-                            {{$propiedades[0]->PROPIEDADES_DESCRIPCION}}
-                        <h3>Datos Complementatios</h3>
-                            {{'Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO}} <br>
-                            {{'Niveles '.$propiedades[0]->PROPIEDADES_NIVELES}} <br>
-                            {{'Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION}} <br>
-                            {{'Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS}} <br>
-                            {{'Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO}}
-        
-                    </div>
+            <div class="row tamaño-cuadro">
+              <div class="col-md-6">
+                <div class="description">
+                  <div class="ubicacion cambiar-des">
+                    <h3>Descripción</h3>
+                    <textarea class="descript" readonly>
+                        {{$propiedades[0]->PROPIEDADES_DESCRIPCION}}
+                    </textarea>
+                      
+                  </div>
+                  <div class="barra-azul">
+                  </div>
                 </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="description">
+                  <div class="ubicacion">
+                    <h3>Datos Complementatios</h3>
+                      <p>{{'Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO}}</p>
+                      <p>{{'Niveles '.$propiedades[0]->PROPIEDADES_NIVELES}}</p>
+                      <p>{{'Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION}}</p> 
+                      <p>{{'Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS}}</p>
+                      <p>{{'Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO}}</p>
+                  </div>
+                  <div class="barra-azul">
+                  </div>
+                </div>
+              </div>
+
             </div>
 
         <h1 class="fw-300 centrar-texto">Zona de la propiedad</h1>

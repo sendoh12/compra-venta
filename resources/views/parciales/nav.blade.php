@@ -16,108 +16,113 @@
     <title>GrupoLacer</title>
 </head>
 <body>
-    <header class="site-header inicio">
-        <div class="contenedor">
-            <div class="barra">
-                <a href="{{asset('/')}}">
-                    <img style="width: 250px; height: 100px;" src="{{asset('uploads/lacerInmovibiliaria.jpeg')}}" alt="logotipo">
-                </a>
-                <p><i class="fas fa-sms "></i> 
-                    Escribenos a: arquitectura_inmobiliaria@grupolacer.com Telefono: 
-                    <i class=" fas fa-phone-square "></i> 
-                    229 118 7076 
-                </p>
-            </div> 
-            {{-- contenedor fin --}}
+
+    <header class="contenedor logotipo-header ">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="logo-site">
+                    <a href="{{asset('/')}}">
+                        <img style="width: 250px; height: 100px;" src="{{asset('uploads/lacerInmovibiliaria.jpeg')}}" alt="logotipo">
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="site-text">
+                    <p><i class="fas fa-sms "></i> 
+                        Escribenos a: arquitectura_inmobiliaria@grupolacer.com Telefono: 
+                        <i class=" fas fa-phone-square "></i> 
+                        229 118 7076 
+                    </p>
+
+                </div>
+            </div>
         </div>
     </header>
 
-    
-    <div class="menu ">
-        <div class="navegacion-principal fw-700 contenedor ">
-            <nav class="navegacion">
-                <a href="{{ route('/') }}">Inicio </a>
-                <a href="{{ route('propiedades') }}">Propiedades </a>
-                <a href="{{ route('contacto') }}">Contacto</a>
-                {{-- <a href="{{ route('contact') }}">Favoritos </a> --}}
-                <a href="#">Proyectos </a>
-            </nav>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-            
-                <!-- aqui insertaremos el slider -->
-                <div id="carousel1" class="carousel slide" data-ride="carousel">
-                    <!-- Indicatodores -->
-                    <ol class="carousel-indicators">
-                        @foreach ($imagenes as $key => $item)
-                            @if ($key == 0)
-                                <li data-target="#carousel1" data-slide-to="{{$key}}" class="active"></li>
-                            @else
-                                <li data-target="#carousel1" data-slide-to="{{$key}}"></li>
-                            @endif
-                        @endforeach
-                    </ol>
-                
-                    <!-- Contenedor de las imagenes -->
-                    <div class="ajustar-slider">
-                        <div class="carousel-inner" role="listbox">
-                            
-                            @foreach ($imagenes as $key => $item)
-                                @if ($key == 0)
-                                    <div class="item active">
-                                        <img style="width: 100%; height: 500px;" src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="Imagen 1">
-                                        <div class="carousel-caption"></div>
-                                    </div>
-                                @else
-                                    <div class="item">
-                                        <img style="width: 100%; height: 500px;" src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="Imagen 2">
-                                        <div class="carousel-caption"></div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Siguiente</span>
-                    </a>
-                
-                </div>
-                
-            
+
+        <nav id="menu" class="navbar navbar-default menu" role="navigation">
+            <!-- El logotipo y el icono que despliega el menú se agrupan
+                 para mostrarlos mejor en los dispositivos móviles -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+                      data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a style="display: none" id="nombre-nav" class="navbar-brand" href="{{asset('/')}}">
+                <p>GrupoLacer</p>   
+              </a>
             </div>
-        </div>
-    </div>
-   
-      
-      
+          
+            <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                 otro elemento que se pueda ocultar al minimizar la barra -->
+            <div class="colapsar-menu">
 
-    {{-- <section class="imagen-contacto2">
-        <div class="contenedor contenido-contacto ">
-            <h2>Encuentra la casa de tus sueños</h2>
-            <p>
-                Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad
-            </p>
-            <a href="{{ route('contacto') }}" class="boton boton-verde">Contactanos</a>
-        </div>
-    </section> --}}
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <div class="menu-nav">
+
+                        <ul class="nav navbar-nav ">
+            
+                        <li class="{{ request()->routeIs('/') ? 'activo' : '' }}">
+                            <a href="{{ route('/') }}">Inicio</a>
+                        </li>
+            
+                        <li class="{{ request()->routeIs('propiedades') ? 'activo' : '' }}">
+                            <a href="{{ route('propiedades') }}">Propiedades</a>
+                        </li>
+            
+                        <li class="{{ request()->routeIs('contacto') ? 'activo' : '' }}">
+                            <a href="{{ route('contacto') }}">Contacto</a>
+                        </li>
+            
+                        <li class="{{ request()->routeIs('informes') ? 'activo' : '' }}">
+                            <a href="#">Proyectos</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </nav>
+
+
+
+
+
 
     
-    
+    {{-- <!-- ./wrapper -->
+<script src=" {{asset('plugins/jquery/jquery.min.js')}} "></script>
+<!-- jQuery 3 -->
+<script src=" {{asset('dist/js/jquery.min.js')}} "></script> --}}
     <script src="{{asset('dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('slider/js/jquery-3.1.0.min.js')}}"></script>
     <script src="{{asset('slider/js/main.js')}}"></script>
 
+    {{-- scrip para el scroll de la pantalla --}}
+    <script>
+        var windowHeight = $(window).height();
+        var barraAltura = $('#menu').innerHeight();
+        console.log(barraAltura);
+        
+        // console.log(windowHeight);
+        $(window).scroll(function(){
+            var scroll = $(window).scrollTop();
+            if(scroll > 100) {
+                $('#menu').addClass('fixed');
+                $('body').css({'margin-top':barraAltura+'px'});
+            }else{
+                $('#menu').removeClass('fixed');
+                $('body').css({'margin-top':'0px'});
+            }
+
+        });
+
+    </script>
     
     
 </body>

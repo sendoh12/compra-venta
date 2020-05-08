@@ -99,7 +99,7 @@
                                 </li>
                                 <li>
                                     <img src="<?php echo e(asset('dist/img/icono_estacionamiento.svg')); ?>" alt="icono wc">
-                                    <p><?php echo e($propiedad->PROPIEDADES_CONSTRUCCION); ?></p>
+                                    <p><?php echo e($propiedad->PROPIEDADES_ESTACIONAMIENTO); ?></p>
                                 </li>
                                 <li>
                                     <img src="<?php echo e(asset('dist/img/icono_dormitorio.svg')); ?>" alt="icono wc">

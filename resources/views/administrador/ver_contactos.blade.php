@@ -70,9 +70,15 @@
                                             <thead>
                                                 <tr>
                                                   <th>Nombre</th>
+                                                  <th>E-mail</th>
                                                   <th>Telefono</th>
-                                                  <th>Asunto</th>
                                                   <th>Mensaje</th>
+                                                  <th>Operación</th>
+                                                  <th>Cantidad</th>
+                                                  <th>Contactarlo</th>
+                                                  <th>Fecha</th>
+                                                  <th>Hora</th>
+                                                  <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="sortable">
@@ -80,9 +86,14 @@
                                                   <tr>
                                                     {{-- <td> {{$item->ID_CONTACTO}} </td> --}}
                                                     <td> {{$item->CONTACTO_NOMBRE}} </td>
+                                                    <td> {{$item->CONTACTO_EMAIL}} </td>
                                                     <td> {{$item->CONTACTO_TELEFONO}} </td>
-                                                    <td> {{$item->CONTACTO_ASUNTO}} </td>
                                                     <td> {{$item->CONTACTO_MENSAJE}} </td>
+                                                    <td> {{$item->CONTACTO_OPERACION}} </td>
+                                                    <td> {{$item->CONTACTO_CANTIDAD}} </td>
+                                                    <td> {{$item->CONTACTO_CONTACTAR}} </td>
+                                                    <td> {{$item->CONTACTO_FECHA}} </td>
+                                                    <td> {{$item->CONTACTO_HORA}} </td>
                                                     <td>
                                                       <div class="col-md-12">
 
