@@ -61,9 +61,15 @@
                                             <thead>
                                                 <tr>
                                                   <th>Nombre</th>
+                                                  <th>E-mail</th>
                                                   <th>Telefono</th>
-                                                  <th>Asunto</th>
                                                   <th>Mensaje</th>
+                                                  <th>Operación</th>
+                                                  <th>Cantidad</th>
+                                                  <th>Contactarlo</th>
+                                                  <th>Fecha</th>
+                                                  <th>Hora</th>
+                                                  <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="sortable">
@@ -71,9 +77,14 @@
                                                   <tr>
                                                     
                                                     <td> <?php echo e($item->CONTACTO_NOMBRE); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_EMAIL); ?> </td>
                                                     <td> <?php echo e($item->CONTACTO_TELEFONO); ?> </td>
-                                                    <td> <?php echo e($item->CONTACTO_ASUNTO); ?> </td>
                                                     <td> <?php echo e($item->CONTACTO_MENSAJE); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_OPERACION); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_CANTIDAD); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_CONTACTAR); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_FECHA); ?> </td>
+                                                    <td> <?php echo e($item->CONTACTO_HORA); ?> </td>
                                                     <td>
                                                       <div class="col-md-12">
 

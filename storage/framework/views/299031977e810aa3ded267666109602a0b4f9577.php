@@ -22,10 +22,38 @@
     
 <?php if(count($propiedades)!=0): ?>
     <div class="container">
-        <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
 
-            <div class="row">
-                <div class="col-md-6 slider-propiedad">
+
+        <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
+            <div class="row tamano-row">
+              <div class="col-md-4">
+                <div class="description">
+                  <h1 class="fw-300 centrar-texto"><?php echo e('Casa en '.$propiedades[0]->PROPIEDADES_OPERACION); ?></h1>
+                        <div class="ubicacion">
+                          <h3>Ubicacion</h3>
+                          <p><?php echo e($propiedades[0]->PROPIEDADES_CLAVE); ?></p> 
+                          <p><?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?></p> 
+                          <p><?php echo e($propiedades[0]->PROPIEDADES_PAIS.', '.
+                              $propiedades[0]->ESTADOS_NOMBRE.', '.
+                              $propiedades[0]->MUNICIPIOS_NOMBRE.', '.
+                              $propiedades[0]->PROPIEDADES_COLONIA); ?></p>
+
+                          <p><?php echo e('Zona '.$propiedades[0]->PROPIEDADES_ZONA); ?></p>
+                          <p><?php echo e('CP: '.$propiedades[0]->PROPIEDADES_CP); ?></p>
+                          <p><?php echo e($propiedades[0]->PROPIEDADES_CALLE); ?></p>
+
+                          
+                        </div>
+                        <div class="barra-azul">
+
+                        </div>
+                  </div>
+              </div>
+
+              
+                <div class="col-md-8 ">
+                  <div class="slider-img">
+
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
@@ -41,20 +69,23 @@
                         </ol>
                       
                         <!-- Wrapper for slides -->
+                        <div class="modificar-sli">
                         <div class="carousel-inner">
+
                             <?php $__currentLoopData = $propiedades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $prop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if(isset($prop->IMAGENES_ARCHIVO)): ?>
                                     <?php if($key == 0): ?>
                                         <div class="item active">
-                                            <img style="height: 50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Los Angeles">
+                                            <img style="height:50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Los Angeles">
                                         </div>
                                     <?php else: ?>
                                         <div class="item">
-                                            <img style="height: 50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Chicago">
+                                            <img style="height:50rem" src="<?php echo e(asset(Storage::url($prop->IMAGENES_ARCHIVO))); ?>" alt="Chicago">
                                         </div>
                                     <?php endif; ?>
                                 <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          </div>
                         </div>
                       
                             <!-- Left and right controls -->
@@ -67,38 +98,43 @@
                             <span class="sr-only">Next</span>
                             </a>
                       </div>    
-                    
+                  </div>
                 </div>
+            </div>
+            <br>
+            <h1 class="fw-300 centrar-texto">Informacion completa</h1>
 
+            <div class="row tamaño-cuadro">
+              <div class="col-md-6">
+                <div class="description">
+                  <div class="ubicacion cambiar-des">
+                    <h3>Descripción</h3>
+                    <textarea class="descript" readonly>
+                        <?php echo e($propiedades[0]->PROPIEDADES_DESCRIPCION); ?>
 
-                <div class="col-md-6">
-                    <div class="description">
-                        <h3>Ubicacion</h3>
-                            <?php echo e('Codigo '.$propiedades[0]->PROPIEDADES_CLAVE); ?> <br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_NOMBRE); ?> <br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_PAIS.', '); ?>
-
-                            <?php echo e($propiedades[0]->ESTADOS_NOMBRE.', '); ?>
-
-                            <?php echo e($propiedades[0]->MUNICIPIOS_NOMBRE.', '); ?>
-
-                            <?php echo e($propiedades[0]->PROPIEDADES_COLONIA); ?><br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_ZONA); ?><br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_CP); ?><br>
-                            <?php echo e($propiedades[0]->PROPIEDADES_CALLE); ?><br>
-                        <h3>Descripción</h3>
-                            <?php echo e($propiedades[0]->PROPIEDADES_DESCRIPCION); ?>
-
-                        <h3>Datos Complementatios</h3>
-                            <?php echo e('Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO); ?> <br>
-                            <?php echo e('Niveles '.$propiedades[0]->PROPIEDADES_NIVELES); ?> <br>
-                            <?php echo e('Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION); ?> <br>
-                            <?php echo e('Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS); ?> <br>
-                            <?php echo e('Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO); ?>
-
-        
-                    </div>
+                    </textarea>
+                      
+                  </div>
+                  <div class="barra-azul">
+                  </div>
                 </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="description">
+                  <div class="ubicacion">
+                    <h3>Datos Complementatios</h3>
+                      <p><?php echo e('Estacionamientos '.$propiedades[0]->PROPIEDADES_ESTACIONAMIENTO); ?></p>
+                      <p><?php echo e('Niveles '.$propiedades[0]->PROPIEDADES_NIVELES); ?></p>
+                      <p><?php echo e('Construción '.$propiedades[0]->PROPIEDADES_CONSTRUCCION); ?></p> 
+                      <p><?php echo e('Terreno '.$propiedades[0]->PROPIEDADES_TERRENOS); ?></p>
+                      <p><?php echo e('Año de construccion '.$propiedades[0]->PROPIEDADES_AÑO); ?></p>
+                  </div>
+                  <div class="barra-azul">
+                  </div>
+                </div>
+              </div>
+
             </div>
 
         <h1 class="fw-300 centrar-texto">Zona de la propiedad</h1>

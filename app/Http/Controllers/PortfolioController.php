@@ -206,23 +206,27 @@ class PortfolioController extends Controller
         }
     }
 
-    public function guradarmensages(contacto_validation $request)
+    public function guradarmensages(Request $request)
     {
-        if(session()->has('admin')==false){
-            return redirect('login');
-        }else{
+        
             
             $contactos  = new cv_contactos;
-            $contactos->CONTACTO_NOMBRE     =   $request->nombre;
-            $contactos->CONTACTO_EMAIL      =   $request->email;
-            $contactos->CONTACTO_ASUNTO     =   $request->asunto;
-            $contactos->CONTACTO_TELEFONO   =   $request->tel;
-            $contactos->CONTACTO_MENSAJE    =   $request->mesaje;
+            $contactos->CONTACTO_NOMBRE = $request->nombre;
+            $contactos->CONTACTO_EMAIL = $request->email;
+            $contactos->CONTACTO_TELEFONO = $request->telefono;
+            $contactos->CONTACTO_MENSAJE = $request->mensaje;
+            $contactos->CONTACTO_OPERACION = $request->opciones;
+            $contactos->CONTACTO_CANTIDAD = $request->cantidad;
+            $contactos->CONTACTO_CONTACTAR = $request->comunicarse;
+            $contactos->CONTACTO_FECHA = $request->fecha;
+            $contactos->CONTACTO_HORA = $request->hora;
             $contactos->save();
     
-            return back();
+            return response()->json([
+                'bandera'=> 1
+            ]);
             
-        }
+        
     }
 
     public function Filtro_busquedad(Request  $request)

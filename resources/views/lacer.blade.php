@@ -7,17 +7,74 @@
 <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/font-awesome.css')}} "> --}}
 @section('content')
 
- 			
+<div class="contenedor-slider">
+	<div class="row imagen-principal">
+		<div class="col-md-12">
+		
+			<!-- aqui insertaremos el slider -->
+			<div id="carousel1" class="carousel slide" data-ride="carousel">
+				<!-- Indicatodores -->
+				<ol class="carousel-indicators">
+					@foreach ($imagenes as $key => $item)
+						@if ($key == 0)
+							<li data-target="#carousel1" data-slide-to="{{$key}}" class="active"></li>
+						@else
+							<li data-target="#carousel1" data-slide-to="{{$key}}"></li>
+						@endif
+					@endforeach
+				</ol>
+			
+				<!-- Contenedor de las imagenes -->
+				<div class="ajustar-slider">
+					<div class="carousel-inner" role="listbox">
+						
+						@foreach ($imagenes as $key => $item)
+							@if ($key == 0)
+								<div class="item active">
+									<img style="width: 100%; height: 500px;" src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="Imagen 1">
+									<div class="carousel-caption"></div>
+								</div>
+							@else
+								<div class="item">
+									<img style="width: 100%; height: 500px;" src="{{asset(Storage::url($item->INICIO_NOMBRE))}}" alt="Imagen 2">
+									<div class="carousel-caption"></div>
+								</div>
+							@endif
+						@endforeach
+					</div>
+				</div>
+			
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Anterior</span>
+				</a>
+				<a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Siguiente</span>
+				</a>
+			
+			</div>
+			
+		
+		</div>
+	</div>
+</div>
 
 
 <br>
-		<section class="contenedor">
-			<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
+
+<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
 			<br>
-			<div class="contenido-nosotros">
-				<div class="imagen">
+	<div class="contenedor quienes-somos">
+		
+		<div class="row">
+			<div class="col-md-6">
+				<div class="imagen-somos">
 					<img src="{{asset('dist/img/nosotros.jpg')}}" alt="imagen sobre nosotros">
 				</div>
+			</div>
+			<div class="col-md-6">
 				<div class="texto-nosotros">
 					<blockquote>Experiencia</blockquote>
 					<p>
@@ -30,7 +87,10 @@
 					</p>
 				</div>
 			</div>
-		</section>
+		</div>
+	</div>
+
+
 <br>
 		<main class="seccion contenedor">
 			<h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2>
@@ -134,63 +194,63 @@
 		</section>
 
 		<br>
-		<div class="seccion-inferior contenedor seccion">
-			<section class="blog">
-				<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
-				<br>
-				<article class="entrada-blog">
-					<div class="imagen">
-						<img src="{{asset('dist/img/blog1.jpg')}}" alt="icono seguridad" />
-					</div>
-					<div class="texto-entrada">
-						<a href="#">
-							<h4>Terraza en el techo de tu casa</h4>
-						</a>
-						
-					<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
-					<p>
-						Consejos para construir una terraza en el
-						techo de tu casa con los mejores materiaes y ahorro de dinero
-					</p>
-					</div>
-					
-				</article>
-	
-	
-				<article class="entrada-blog">
-					<div class="imagen">
-						<img src="{{asset('dist/img/blog2.jpg')}}" alt="icono seguridad" />
-					</div>
-					<div class="texto-entrada">
-						<a href="#">
-							<h4>Guia para la decoracion de tu hogar</h4>
-						</a>
-						
-						<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
+		<div class="contenedor">
+			<div class="row">
+				<div class="col-md-8">
+					<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
+					<br>
+					<article class="entrada-blog">
+						<div class="imagen">
+							<img src="{{asset('dist/img/blog1.jpg')}}" alt="icono seguridad" />
+						</div>
+						<div class="texto-entrada">
+							<a href="#">
+								<h4>Terraza en el techo de tu casa</h4>
+							</a>
+							
+						<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
 						<p>
 							Consejos para construir una terraza en el
 							techo de tu casa con los mejores materiaes y ahorro de dinero
 						</p>
-					</div>
-					
-				</article>
-	
-			</section>
-	
-			
-			<section class="testimoniales">
-				<h3 class="centrar-texto fw-300">Testimoniales</h3>
-				<br>
-				<div class="testimonial">
-					<blockquote>
-						El personal se comporto de una excelente forma, muy buena atencion
-						y la casa que me ofrecieron cumple con toas las expectativas
-					</blockquote>
-					<p>- Eduardo Cervantes</p>
+						</div>
+						
+					</article>
+
+					<article class="entrada-blog">
+						<div class="imagen">
+							<img src="{{asset('dist/img/blog2.jpg')}}" alt="icono seguridad" />
+						</div>
+						<div class="texto-entrada">
+							<a href="#">
+								<h4>Guia para la decoracion de tu hogar</h4>
+							</a>
+							
+							<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
+							<p>
+								Consejos para construir una terraza en el
+								techo de tu casa con los mejores materiaes y ahorro de dinero
+							</p>
+						</div>
+						
+					</article>
 				</div>
-			</section>
+
+				<div class="col-md-4">
+					<h3 class="centrar-texto fw-300">Testimoniales</h3>
+					<br>
+					<div class="testimonial">
+						<blockquote>
+							El personal se comporto de una excelente forma, muy buena atencion
+							y la casa que me ofrecieron cumple con toas las expectativas
+						</blockquote>
+						<p>- Eduardo Cervantes</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
+		
 
 
 
