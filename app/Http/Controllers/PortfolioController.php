@@ -208,27 +208,26 @@ class PortfolioController extends Controller
 
     public function guradarmensages(contacto_validation $request)
     {
+            $data = array('CONTACTO_NOMBRE' => htmlspecialchars($request->nombre),
+                        'CONTACTO_EMAIL' => htmlspecialchars($request->email),
+                    'CONTACTO_TELEFONO'=>htmlspecialchars($request->telefono),
+                'CONTACTO_MENSAJE'=>htmlspecialchars($request->mensaje),
+                'CONTACTO_OPERACION'=>htmlspecialchars($request->opciones),
+                'CONTACTO_CANTIDAD'=>htmlspecialchars($request->cantidad),
+                'CONTACTO_CONTACTAR'=>htmlspecialchars($request->comunicarse),
+                'CONTACTO_FECHA'=>htmlspecialchars($request->fecha),
+                'CONTACTO_HORA'=>htmlspecialchars($request->hora)
+            );
 
-        
-            $contactos  = new cv_contactos;
-            $contactos->CONTACTO_CLAVE_PROPIEDAD = $request->ClavePropiedad;
-            $contactos->CONTACTO_NOMBRE = $request->nombre;
-            $contactos->CONTACTO_EMAIL = $request->email;
-            $contactos->CONTACTO_TELEFONO = $request->telefono;
-            $contactos->CONTACTO_MENSAJE = $request->mensaje;
-            
-            $contactos->CONTACTO_OPERACION = $request->opciones;
-            $contactos->CONTACTO_CANTIDAD = $request->cantidad;
-            $contactos->CONTACTO_CONTACTAR = $request->comunicarse;
-            $contactos->CONTACTO_FECHA = $request->fecha;
-            $contactos->CONTACTO_HORA = $request->hora;
-            $contactos->save();
-    
-            return response()->json([
-                'bandera'=> 1
-            ]);
-            
-        
+       
+
+            $contactos = DB::table('cv_contactos')->insert($data);
+            if($contactos){
+                return response()->json(['bandera'=> 1 ]);
+            }else{
+                return response()->json(['bandera'=> 0 ]);
+            }
+
     }
 
     public function Filtro_busquedad(Request  $request)
@@ -455,12 +454,9 @@ class PortfolioController extends Controller
                         ->select('*')
                         ->where('PROPIEDADES_ID','=',$request->clave)
                         ->get();
-                        
-                        
                         return response()->json([
                             'arreglo'=> $propiedad
                         ]);
-        
     }
 
 
