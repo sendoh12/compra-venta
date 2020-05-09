@@ -356,8 +356,8 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    ->where('PROPIEDADES_PRECIO','>=',0)
-                    ->where('PROPIEDADES_PRECIO','<=',1000)
+                    //->where('PROPIEDADES_PRECIO','<=','0')
+                    ->whereBetween('PROPIEDADES_PRECIO',[0,1000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
 
@@ -381,8 +381,9 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    ->where('PROPIEDADES_PRECIO','>=',1000)
-                    ->where('PROPIEDADES_PRECIO','<=',5000)
+                    //->where('PROPIEDADES_PRECIO','>=','1000')
+                    //->where('PROPIEDADES_PRECIO','<=','5000')
+                    ->whereBetween('PROPIEDADES_PRECIO',[1000,5000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
 
@@ -406,8 +407,9 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    ->where('PROPIEDADES_PRECIO','>=',5000)
-                    ->where('PROPIEDADES_PRECIO','<=',10000)
+                    //->where('PROPIEDADES_PRECIO','>=',5000)
+                    //->where('PROPIEDADES_PRECIO','<=',10000)
+                    ->whereBetween('PROPIEDADES_PRECIO',[5000,10000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
 
@@ -431,7 +433,7 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    ->where('PROPIEDADES_PRECIO','>=',10000)
+                    ->where('PROPIEDADES_PRECIO','>',10000)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
 
