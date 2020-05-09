@@ -248,12 +248,17 @@ class PortfolioController extends Controller
                     ->where('PROPIEDADES_NOMBRE','like',$nombre)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
                     ->get();
-        var_dump($propiedades);
-        die();
+        
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
-
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,
@@ -278,6 +283,13 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,
@@ -346,7 +358,7 @@ class PortfolioController extends Controller
         }
     }
 
-    public function Precios_de_0_a_1000()
+    public function Precios_de_0_a_1000(Request $request)
     {
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
@@ -363,15 +375,23 @@ class PortfolioController extends Controller
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
-
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
+                    
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,
                         'tipos' => $tipos
                     ));
+
     }
 
-    public function precios_1000_a_5000()
+    public function precios_1000_a_5000(Request $request)
     {
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
@@ -390,6 +410,13 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,
@@ -397,7 +424,7 @@ class PortfolioController extends Controller
                     ));
     }
 
-    public function precios_De_5000_a_10000()
+    public function precios_De_5000_a_10000(Request $request)
     {
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
@@ -416,6 +443,13 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,
@@ -423,7 +457,7 @@ class PortfolioController extends Controller
                     ));
     }
 
-    public function precios_mayor_10000()
+    public function precios_mayor_10000(Request $request)
     {
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
@@ -440,6 +474,13 @@ class PortfolioController extends Controller
                     ->select('*')
                     ->get();
 
+                    if($request->ajax()) {
+                        return response()->json(view('lista_propiedades', compact('propiedades'))->render());
+                        return view('lista_propiedades', array(
+                            'imagenes' => $imagenes,
+                            'tipos' => $tipos
+                        ));
+                    }
                     return view('about', array(
                         'imagenes' => $imagenes,
                         'propiedades' => $propiedades,

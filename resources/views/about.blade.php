@@ -166,10 +166,6 @@
                     </div>
                 </div>
             </div>
-                    
-            <div class="paginando">
-                {{$propiedades->links()}}
-            </div>
 
             {{-- SECCION DEL MODAL --}}
             <!-- Modal -->

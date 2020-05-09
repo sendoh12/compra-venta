@@ -94,10 +94,10 @@ Route::post('Filtro_buscar_nombre','PortfolioController@Filtro_buscar_clave');
 Route::post('pdfjava','PortfolioController@generar_pdf');
 // propiedades por id
 Route::get('CasaVenta', ['as'=>'CasaVenta', 'uses'=>'PortfolioController@CasaVenta']);
-Route::get('precios_0_a_1000','PortfolioController@Precios_de_0_a_1000');
-Route::get('precios_1000_a_5000','PortfolioController@precios_1000_a_5000');
-Route::get('Precios_5000_a_10000','PortfolioController@precios_De_5000_a_10000');
-Route::get('precios_mayor_10000','PortfolioController@precios_mayor_10000');
+Route::get('/precios_0_a_1000','PortfolioController@Precios_de_0_a_1000');
+Route::get('/precios_1000_a_5000','PortfolioController@precios_1000_a_5000');
+Route::get('/Precios_5000_a_10000','PortfolioController@precios_De_5000_a_10000');
+Route::get('/precios_mayor_10000','PortfolioController@precios_mayor_10000');
 
 // 
 Route::post('PropiedadClave', 'PortfolioController@PropiedadClave');
