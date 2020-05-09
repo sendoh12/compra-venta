@@ -6,6 +6,8 @@
 <?php $__env->startSection('content'); ?>
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
+<div class="panel panel-default contenedor">
+	<div class="panel-body">
 		<h1 class="fw-300 centrar-texto">Contacto</h1>
 	
 		<main class="contenedor seccion contenido-centrado">
@@ -67,6 +69,8 @@
 			</form>
 
 		</main>
+	</div>
+</div>
 
     
 

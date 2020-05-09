@@ -18,10 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}" />
 @section('content')
 
-<br>
     
 @if (count($propiedades)!=0)
     <div class="container">
+      <div class="panel panel-default contenedor">
+        <div class="panel-body">
 
 
         <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
@@ -145,10 +146,12 @@
             <input type="hidden" id="latitud" value="{{$propiedades[0]->PROPIEDADES_LATITUD}}">
             <input type="hidden" id="longitud" value="{{$propiedades[0]->PROPIEDADES_LONGITUD}}">
         </div>
+      </div>
+    </div>
 
     </div>
 @endif
-<br>
+
 
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">

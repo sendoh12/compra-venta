@@ -18,10 +18,11 @@
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/custom.css')); ?>" />
 <?php $__env->startSection('content'); ?>
 
-<br>
     
 <?php if(count($propiedades)!=0): ?>
     <div class="container">
+      <div class="panel panel-default contenedor">
+        <div class="panel-body">
 
 
         <h1 class="fw-300 centrar-texto">Datos de la propiedad</h1><br>
@@ -146,10 +147,12 @@
             <input type="hidden" id="latitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LATITUD); ?>">
             <input type="hidden" id="longitud" value="<?php echo e($propiedades[0]->PROPIEDADES_LONGITUD); ?>">
         </div>
+      </div>
+    </div>
 
     </div>
 <?php endif; ?>
-<br>
+
 
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">

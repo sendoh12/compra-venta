@@ -62,36 +62,40 @@
 </div>
 
 
-<br>
 
-<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
-			<br>
-	<div class="contenedor quienes-somos">
+<div class="panel panel-default contenedor">
+    <div class="panel-body">
+		<h1 class="fw-300 centrar-texto">¿Quiénes somos?</h1>
+					<br>
+			<div class="contenedor quienes-somos">
+				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="imagen-somos">
+							<img src="<?php echo e(asset('dist/img/nosotros.jpg')); ?>" alt="imagen sobre nosotros">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="texto-nosotros">
+							<blockquote>Experiencia</blockquote>
+							<p>
+								Somos un grupo de profesionistas enfocados en apoyar 
+								en la compra, venta o renta de su bien inmueble, con 
+								el objetivo de satisfacer las necesidades inmobiliarias 
+								de nuestros clientes. <br>
+
+								
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		
-		<div class="row">
-			<div class="col-md-6">
-				<div class="imagen-somos">
-					<img src="<?php echo e(asset('dist/img/nosotros.jpg')); ?>" alt="imagen sobre nosotros">
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="texto-nosotros">
-					<blockquote>Experiencia</blockquote>
-					<p>
-						Somos un grupo de profesionistas enfocados en apoyar 
-						en la compra, venta o renta de su bien inmueble, con 
-						el objetivo de satisfacer las necesidades inmobiliarias 
-						de nuestros clientes. <br>
-
-						
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 <br>
+
+
 		<main class="seccion contenedor">
 			<h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2>
 			<br>
@@ -214,11 +218,15 @@
 
 			<div class="ver-todas">
 				<!-- Accent-colored raised button with ripple -->  
-			<a href="<?php echo e(route('propiedades')); ?>" class="boton boton-verde ">Ver Todas</a>
+			<a href="<?php echo e(route('propiedades')); ?>" class="boton boton-verde contenedor">Ver Todas</a>
 			</div>
 		</main>
+	</div>
+</div>
 
-		<br>
+		
+
+		
 		<section class="imagen-contacto">
 			<div class="contenedor contenido-contacto ">
 				<h2>Encuentra la casa de tus sueños</h2>
@@ -229,58 +237,63 @@
 			</div>
 		</section>
 
-		<br>
-		<div class="contenedor">
-			<div class="row">
-				<div class="col-md-8">
-					<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
-					<br>
-					<article class="entrada-blog">
-						<div class="imagen">
-							<img src="<?php echo e(asset('dist/img/blog1.jpg')); ?>" alt="icono seguridad" />
-						</div>
-						<div class="texto-entrada">
-							<a href="#">
-								<h4>Terraza en el techo de tu casa</h4>
-							</a>
-							
-						<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
-						<p>
-							Consejos para construir una terraza en el
-							techo de tu casa con los mejores materiaes y ahorro de dinero
-						</p>
-						</div>
-						
-					</article>
+		
 
-					<article class="entrada-blog">
-						<div class="imagen">
-							<img src="<?php echo e(asset('dist/img/blog2.jpg')); ?>" alt="icono seguridad" />
-						</div>
-						<div class="texto-entrada">
-							<a href="#">
-								<h4>Guia para la decoracion de tu hogar</h4>
-							</a>
-							
-							<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
-							<p>
-								Consejos para construir una terraza en el
-								techo de tu casa con los mejores materiaes y ahorro de dinero
-							</p>
-						</div>
-						
-					</article>
-				</div>
+		<div class="panel panel-default contenedor">
+			<div class="panel-body">
+				<div class="contenedor">
+					<div class="row">
+						<div class="col-md-8">
+							<h3 class="centrar-texto fw-300" >Nuestros Proyectos</h3>
+							<br>
+							<article class="entrada-blog">
+								<div class="imagen">
+									<img src="<?php echo e(asset('dist/img/blog1.jpg')); ?>" alt="icono seguridad" />
+								</div>
+								<div class="texto-entrada">
+									<a href="#">
+										<h4>Terraza en el techo de tu casa</h4>
+									</a>
+									
+								<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span> </p>
+								<p>
+									Consejos para construir una terraza en el
+									techo de tu casa con los mejores materiaes y ahorro de dinero
+								</p>
+								</div>
+								
+							</article>
 
-				<div class="col-md-4">
-					<h3 class="centrar-texto fw-300">Testimoniales</h3>
-					<br>
-					<div class="testimonial">
-						<blockquote>
-							El personal se comporto de una excelente forma, muy buena atencion
-							y la casa que me ofrecieron cumple con toas las expectativas
-						</blockquote>
-						<p>- Eduardo Cervantes</p>
+							<article class="entrada-blog">
+								<div class="imagen">
+									<img src="<?php echo e(asset('dist/img/blog2.jpg')); ?>" alt="icono seguridad" />
+								</div>
+								<div class="texto-entrada">
+									<a href="#">
+										<h4>Guia para la decoracion de tu hogar</h4>
+									</a>
+									
+									<p>Escrito el: <span>20/10/2019</span> por: <span>Admin</span></p>
+									<p>
+										Consejos para construir una terraza en el
+										techo de tu casa con los mejores materiaes y ahorro de dinero
+									</p>
+								</div>
+								
+							</article>
+						</div>
+
+						<div class="col-md-4">
+							<h3 class="centrar-texto fw-300">Testimoniales</h3>
+							<br>
+							<div class="testimonial">
+								<blockquote>
+									El personal se comporto de una excelente forma, muy buena atencion
+									y la casa que me ofrecieron cumple con toas las expectativas
+								</blockquote>
+								<p>- Eduardo Cervantes</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

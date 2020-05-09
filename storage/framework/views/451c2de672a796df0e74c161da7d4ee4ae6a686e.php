@@ -103,7 +103,7 @@
 			</div>
 			<div class="modal-body">
 				<label for="">Telefono</label>
-				<input type="text" class="form-control" name="telefono" id="telefono" >
+				<input type="text" class="form-control validar" name="telefono" id="telefono" >
 			</div>
 			<div class="modal-body">
 				<label for="">Mensaje</label>

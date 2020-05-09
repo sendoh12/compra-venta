@@ -6,6 +6,8 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+<div class="panel panel-default contenedor">
+	<div class="panel-body">
 		<h1 class="fw-300 centrar-texto">Contacto</h1>
 	{{-- <img src="{{asset('dist/img/anuncio6.jpg')}}" alt=""> --}}
 		<main class="contenedor seccion contenido-centrado">
@@ -67,6 +69,8 @@
 			</form>
 
 		</main>
+	</div>
+</div>
 
     
 

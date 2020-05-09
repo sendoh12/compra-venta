@@ -8,207 +8,211 @@
 <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">
 
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<br><br>
-<div class="busqueda contenedor">
-    <div class="quienesSomos">
-            <fieldset>
-                <legend>Buscar propiedad</legend>
-                <div class="panel panel-default">
-                    <div class="panel-body">
 
-                        <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
-                        <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
-                        <div class="dropdown" style="float:left; margin-Right:5px;">
-                                <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        Por precio
-                                    <span class="caret"></span>
-                                </button> 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li>
-                                            <a href="precios_0_a_1000">De $0 a $ 1,000</a>
-                                        </li>
-                                        <li>
-                                            <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
-                                        </li>
-                                        <li>
-                                            <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
-                                        </li>
-                                        <li>
-                                        <a href="precios_mayor_10000">Mas de $10,000</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                    
-                    <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
-                                @csrf
-                                <br>
-                            <div id="filtro">
-                                <div class="form-group">
-                                    <label>Operacion</label>
-                                    <select name="operacion" id="">
-                                        <option value="Venta" selected="true">Ventas</option>
-                                        <option value="Renta">Renta</option>
-                                    </select>
-                                </div>
+<div class="panel panel-default contenedor">
+    <div class="panel-body">
+        <div class="busqueda">
+            <div class="quienesSomos">
+                    <fieldset>
+                        <h2 class="fw-300 centrar-texto">Buscar propiedad</h2> <br>
+                        
 
-                                <div class="form-group">
-                                    <label >Tipo de inmueble:</label>
-                                    <select name="inmueble" id="">
-                                        <option selected="true">(Todos)</option>
-                                        @foreach ($tipos as $item)
-                                            <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label>Nombre</label>
-                                    <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
-                                </div>
-                                <button type="submit" class="boton boton-azul">Buscar</button>
-                            </div>
-                    </form>
+                                <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
+                                <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
+                                <div class="dropdown" style="float:left; margin-Right:5px;">
+                                        <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Por precio
+                                            <span class="caret"></span>
+                                        </button> 
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li>
+                                                    <a href="precios_0_a_1000">De $0 a $ 1,000</a>
+                                                </li>
+                                                <li>
+                                                    <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
+                                                </li>
+                                                <li>
+                                                    <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
+                                                </li>
+                                                <li>
+                                                <a href="precios_mayor_10000">Mas de $10,000</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                             
+                            <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
+                                        @csrf
+                                        <br>
+                                    <div id="filtro">
+                                        <div class="form-group">
+                                            <label>Operacion</label>
+                                            <select name="operacion" id="">
+                                                <option value="Venta" selected="true">Ventas</option>
+                                                <option value="Renta">Renta</option>
+                                            </select>
+                                        </div>
 
-                    <div id="clave" style="display:none;">
-                        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
-                            @csrf
-                            <label >Buscar por clave</label>
-                            <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
-                            <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </fieldset>
-    </div>
- </div>
- 
- <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
- {{-- seccion de propiedades --}}
- <div class="users">
-    <div class="contenedor">
-        <div class="container">
-            <div class="row">
-                @if(isset($propiedades))
-                @foreach ($propiedades as $propiedad)
-                <div class="col-md-4 propied">
-                    
-                    {{-- <div class="etiqueta">
-                        {{$propiedad->PROPIEDADES_OPERACION}}
-                    </div> --}}
+                                        <div class="form-group">
+                                            <label >Tipo de inmueble:</label>
+                                            <select name="inmueble" id="">
+                                                <option selected="true">(Todos)</option>
+                                                @foreach ($tipos as $item)
+                                                    <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                    <form action="CasaVenta" method="get">
-                            <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
-                        <div class="centrar-imagen">
-                            <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
-                                <img style="width:100% ;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" >
-                            
-                                <div class="texto-encima">
-                                    <p class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</p>
-                                </div>
-                            </button>
-                            </div>
-                    </form>
-
-                    <div class="centrar-propiedad">
-                        <div class="datos-propiedad">
-                            <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
-                            <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
-                            <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
-                            {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
-                            <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
-                            <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
-                            <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
-                            <ul class="iconos-caracteristicas">
-                                <li>
-                                    <img src="{{asset('dist/img/icono_wc.svg')}}" alt="icono wc">
-                                    <p>{{$propiedad->PROPIEDADES_BAÑOS}}</p>
-                                </li>
-                                <li>
-                                    <img src="{{asset('dist/img/icono_estacionamiento.svg')}}" alt="icono wc">
-                                    <p>{{$propiedad->PROPIEDADES_ESTACIONAMIENTO}}</p>
-                                </li>
-                                <li>
-                                    <img src="{{asset('dist/img/icono_dormitorio.svg')}}" alt="icono wc">
-                                    <p>{{$propiedad->PROPIEDADES_HABITACIONES}}</p>
-                                </li>
-                            </ul> 
-                        </div>                        
-                    </div>
-                    <div class="centrar-funciones">
-
-                        <div class="funciones">
-                            {{-- ver propiedad --}}
-                            <form action="CasaVenta" method="get">
-                                <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
-                                <input type="submit" value="Ver propiedad">
-                            </form>   
-
-                            {{-- contacto --}}
-							<input type="button" onclick="PasarClave({{$propiedad->PROPIEDADES_ID}})" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
-
-                            {{-- descargar pdf --}}
-                            <form action="pdfjava" method="post">
-                                @csrf
-                                <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
-                                <input type="submit" value="Descargar">
+                                        <div>
+                                            <label>Nombre</label>
+                                            <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
+                                        </div>
+                                        <button type="submit" class="boton boton-azul">Buscar</button>
+                                    </div>
                             </form>
-                            
-                        </div>
-                    </div>
+                                    
 
+                            <div id="clave" style="display:none;">
+                                <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
+                                    @csrf
+                                    <label >Buscar por clave</label>
+                                    <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
+                                    <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
+                                </form>
+                            </div>
+                        </fieldset>
                 </div>
-                @endforeach
-                @endif    
             </div>
+       
+    
+ 
+ 
+        <h2 class="fw-300 centrar-texto">Casas y Terrenos en Venta</h2> 
+        {{-- seccion de propiedades --}}
+        <div class="users">
+            <div class="contenedor">
+                <div class="container">
+                    <div class="row">
+                        @if(isset($propiedades))
+                        @foreach ($propiedades as $propiedad)
+                        <div class="col-md-4 propied">
+                            
+                            {{-- <div class="etiqueta">
+                                {{$propiedad->PROPIEDADES_OPERACION}}
+                            </div> --}}
+
+                            <form action="CasaVenta" method="get">
+                                    <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                                <div class="centrar-imagen">
+                                    <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                        <img style="width:100% ;height: 250px;" src="{{asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))}}" >
+                                    
+                                        <div class="texto-encima">
+                                            <p class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</p>
+                                        </div>
+                                    </button>
+                                    </div>
+                            </form>
+
+                            <div class="centrar-propiedad">
+                                <div class="datos-propiedad">
+                                    <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
+                                    <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
+                                    <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
+                                    {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}
+                                    <p>{{$propiedad->ESTADOS_NOMBRE.', '.$propiedad->MUNICIPIOS_NOMBRE}}</p>
+                                    <p>{{$propiedad->PROPIEDADES_COLONIA}}</p>
+                                    <p>{{$propiedad->PROPIEDADES_ZONA}}</p> 
+                                    <ul class="iconos-caracteristicas">
+                                        <li>
+                                            <img src="{{asset('dist/img/icono_wc.svg')}}" alt="icono wc">
+                                            <p>{{$propiedad->PROPIEDADES_BAÑOS}}</p>
+                                        </li>
+                                        <li>
+                                            <img src="{{asset('dist/img/icono_estacionamiento.svg')}}" alt="icono wc">
+                                            <p>{{$propiedad->PROPIEDADES_ESTACIONAMIENTO}}</p>
+                                        </li>
+                                        <li>
+                                            <img src="{{asset('dist/img/icono_dormitorio.svg')}}" alt="icono wc">
+                                            <p>{{$propiedad->PROPIEDADES_HABITACIONES}}</p>
+                                        </li>
+                                    </ul> 
+                                </div>                        
+                            </div>
+                            <div class="centrar-funciones">
+
+                                <div class="funciones">
+                                    {{-- ver propiedad --}}
+                                    <form action="CasaVenta" method="get">
+                                        <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
+                                        <input type="submit" value="Ver propiedad">
+                                    </form>   
+
+                                    {{-- contacto --}}
+                                    <input type="button" onclick="PasarClave({{$propiedad->PROPIEDADES_ID}})" data-toggle="modal" data-target="#exampleModalCenter" value="Contacto">
+
+                                    {{-- descargar pdf --}}
+                                    <form action="pdfjava" method="post">
+                                        @csrf
+                                        <input type="hidden" name="ide" value="{{$propiedad->PROPIEDADES_ID}}">
+                                        <input type="submit" value="Descargar">
+                                    </form>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                        @endforeach
+                        @endif    
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="paginando">
+                {{$propiedades->links()}}
+            </div>
+
+            {{-- SECCION DEL MODAL --}}
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="">Propiedad de interes</label>
+                        <input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" disabled>
+                    </div>
+                    <div class="modal-body">
+                        <label for="">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" >
+                    </div>
+                    <div class="modal-body">
+                        <label for="">E-mail</label>
+                        <input type="email" class="form-control" name="email" id="email" >
+                    </div>
+                    <div class="modal-body">
+                        <label for="">Telefono</label>
+                        <input type="tel" class="form-control validar" name="telefono" id="telefono" >
+                    </div>
+                    <div class="modal-body">
+                        <label for="">Mensaje</label>
+                        <textarea name="mensaje" id="mensaje" class="form-control" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" onclick="EnviarContacto()" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {{-- ACA TERMINA LA SECCION DEL MODAL --}}
+
         </div>
     </div>
-               
-    <div class="paginando">
-        {{$propiedades->links()}}
-    </div>
-
-    {{-- SECCION DEL MODAL --}}
-	 <!-- Modal -->
-	 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-				<label for="">Propiedad de interes</label>
-				<input type="text" class="form-control" name="ClavePropiedad" id="ClavePropiedad" disabled>
-			</div>
-			<div class="modal-body">
-				<label for="">Nombre</label>
-				<input type="text" class="form-control" name="nombre" id="nombre" >
-			</div>
-			<div class="modal-body">
-				<label for="">E-mail</label>
-				<input type="email" class="form-control" name="email" id="email" >
-			</div>
-			<div class="modal-body">
-				<label for="">Telefono</label>
-				<input type="tel" class="form-control validar" name="telefono" id="telefono" >
-			</div>
-			<div class="modal-body">
-				<label for="">Mensaje</label>
-				<textarea name="mensaje" id="mensaje" class="form-control" cols="30" rows="10"></textarea>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			  <button type="button" onclick="EnviarContacto()" class="btn btn-primary">Enviar</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	  {{-- ACA TERMINA LA SECCION DEL MODAL --}}
-
 </div>
 
 
