@@ -209,8 +209,9 @@ class PortfolioController extends Controller
     public function guradarmensages(Request $request)
     {
         
-            
+        
             $contactos  = new cv_contactos;
+            $contactos->CONTACTO_CLAVE_PROPIEDAD = $request->ClavePropiedad;
             $contactos->CONTACTO_NOMBRE = $request->nombre;
             $contactos->CONTACTO_EMAIL = $request->email;
             $contactos->CONTACTO_TELEFONO = $request->telefono;
@@ -290,8 +291,9 @@ class PortfolioController extends Controller
         $propiedades = DB::table('cv_propiedades')
                     ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
+                    ->join('cv_imagenes', 'cv_imagenes.IMAGENES_PROPIEDAD', '=','cv_propiedades.PROPIEDADES_ID')
                     ->where('PROPIEDADES_ID',$idPropieada)
-                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
+                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*', 'cv_imagenes.*')
                     ->get();
         $data = [
             'propiedades' => $propiedades
@@ -444,4 +446,21 @@ class PortfolioController extends Controller
                         'tipos' => $tipos
                     ));
     }
+
+
+    // pasar la clave de la propiedad
+    public function PropiedadClave(Request $request ) {
+        $propiedad = DB::table('cv_propiedades')
+                        ->select('*')
+                        ->where('PROPIEDADES_ID','=',$request->clave)
+                        ->get();
+                        
+                        
+                        return response()->json([
+                            'arreglo'=> $propiedad
+                        ]);
+        
+    }
+
+
 }

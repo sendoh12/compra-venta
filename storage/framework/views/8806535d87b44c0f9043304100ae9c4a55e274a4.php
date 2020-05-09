@@ -60,6 +60,7 @@
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
+                                                  <th>Clave</th>
                                                   <th>Nombre</th>
                                                   <th>E-mail</th>
                                                   <th>Telefono</th>
@@ -75,7 +76,7 @@
                                             <tbody id="sortable">
                                               <?php $__currentLoopData = $contactos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                   <tr>
-                                                    
+                                                    <td> <?php echo e($item->CONTACTO_CLAVE_PROPIEDAD); ?> </td>
                                                     <td> <?php echo e($item->CONTACTO_NOMBRE); ?> </td>
                                                     <td> <?php echo e($item->CONTACTO_EMAIL); ?> </td>
                                                     <td> <?php echo e($item->CONTACTO_TELEFONO); ?> </td>
