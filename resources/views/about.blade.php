@@ -9,7 +9,7 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <br><br>
-<div class="busqueda">
+<div class="busqueda contenedor">
     <div class="quienesSomos">
             <fieldset>
                 <legend>Buscar propiedad</legend>
@@ -38,44 +38,48 @@
                                         </li>
                                     </ul>
                                 </div>
+                    
+                    <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
+                                @csrf
+                            <div id="filtro">
+                                <div class="form-group">
+                                    <label>Operacion</label>
+                                    <select name="operacion" id="">
+                                        <option value="Venta" selected="true">Ventas</option>
+                                        <option value="Renta">Renta</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label >Tipo de inmueble:</label>
+                                    <select name="inmueble" id="">
+                                        <option selected="true">(Todos)</option>
+                                        @foreach ($tipos as $item)
+                                            <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label>Nombre</label>
+                                    <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
+                                </div>
+                                <button type="submit" class="boton boton-azul">Buscar</button>
+                            </div>
+                    </form>
+                            
+
+                    <div id="clave" style="display:none;">
+                        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
+                            @csrf
+                            <label >Buscar por clave</label>
+                            <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
+                            <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
+                        </form>
                     </div>
                 </div>
-<form action="Flitar_busquedad" method="post" class="contacto-busqueda">
-            @csrf
-        <div id="filtro">
-            <div class="form-group">
-                <label>Operacion</label>
-                <select name="operacion" id="">
-                    <option value="Venta" selected="true">Ventas</option>
-                    <option value="Renta">Renta</option>
-                </select>
             </div>
-            <div class="form-group">
-                <label >Tipo de inmueble:</label>
-                <select name="inmueble" id="">
-                    <option selected="true">(Todos)</option>
-                    @foreach ($tipos as $item)
-                        <option value="{{$item->TIPOS_ID}}">{{$item->TIPOS_NOMBRE}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div >
-                <label>Nombre</label>
-                <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
-            </div>
-            <button type="submit" class="boton boton-azul">Buscar</button>
-        </form>
-        </div>
-
-        <div id="clave" style="display:none;">
-        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
-            @csrf
-                <label >Buscar por clave</label>
-                <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
-            <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
-        </div>
-        </form>
-    </fieldset>
+            </fieldset>
     </div>
  </div>
  

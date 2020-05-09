@@ -9,7 +9,7 @@
 
 <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 <br><br>
-<div class="busqueda">
+<div class="busqueda contenedor">
     <div class="quienesSomos">
             <fieldset>
                 <legend>Buscar propiedad</legend>
@@ -38,44 +38,48 @@
                                         </li>
                                     </ul>
                                 </div>
+                    
+                    <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
+                                <?php echo csrf_field(); ?>
+                            <div id="filtro">
+                                <div class="form-group">
+                                    <label>Operacion</label>
+                                    <select name="operacion" id="">
+                                        <option value="Venta" selected="true">Ventas</option>
+                                        <option value="Renta">Renta</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label >Tipo de inmueble:</label>
+                                    <select name="inmueble" id="">
+                                        <option selected="true">(Todos)</option>
+                                        <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label>Nombre</label>
+                                    <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
+                                </div>
+                                <button type="submit" class="boton boton-azul">Buscar</button>
+                            </div>
+                    </form>
+                            
+
+                    <div id="clave" style="display:none;">
+                        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
+                            <?php echo csrf_field(); ?>
+                            <label >Buscar por clave</label>
+                            <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
+                            <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
+                        </form>
                     </div>
                 </div>
-<form action="Flitar_busquedad" method="post" class="contacto-busqueda">
-            <?php echo csrf_field(); ?>
-        <div id="filtro">
-            <div class="form-group">
-                <label>Operacion</label>
-                <select name="operacion" id="">
-                    <option value="Venta" selected="true">Ventas</option>
-                    <option value="Renta">Renta</option>
-                </select>
             </div>
-            <div class="form-group">
-                <label >Tipo de inmueble:</label>
-                <select name="inmueble" id="">
-                    <option selected="true">(Todos)</option>
-                    <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </select>
-            </div>
-            <div >
-                <label>Nombre</label>
-                <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
-            </div>
-            <button type="submit" class="boton boton-azul">Buscar</button>
-        </form>
-        </div>
-
-        <div id="clave" style="display:none;">
-        <form action="Filtro_buscar_nombre" method="post" class="contacto-propiedad">
-            <?php echo csrf_field(); ?>
-                <label >Buscar por clave</label>
-                <input class="boton-contacto" type="text" id="" name="clave" placeholder="Clave de la propiedad" required>
-            <button  type="submit" class="boton boton-azul" style="align:right;">Buscar</button>
-        </div>
-        </form>
-    </fieldset>
+            </fieldset>
     </div>
  </div>
  
