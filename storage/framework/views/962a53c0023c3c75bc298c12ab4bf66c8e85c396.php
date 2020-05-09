@@ -119,6 +119,12 @@
                       'No has llenado el campo de Telefono!',
                       'warning'
                    )
+				}else if(telefono.length < 10  || telefono.length > 10) {
+				swal(
+                      'Error',
+                      'El telefono debe ser de 10 digitos!',
+                      'warning'
+                   )
 				}else if(mensaje == null || mensaje == '') {
 				swal(
                       'Campo vacio',
@@ -155,7 +161,15 @@
 							},
 
 							beforeSend:function(){},
-							error:function(objXMLHttpRequest){}
+							error:function(objXMLHttpRequest){
+								console.log(objXMLHttpRequest);
+								swal(
+										'Error',
+										'Por favor ingrese un usuario valido, un correo valido, un numero de 10 digitos, un mensaje minimo de 10 caracteres',
+
+										'warning'
+									)
+							}
 					});
 				}
 				

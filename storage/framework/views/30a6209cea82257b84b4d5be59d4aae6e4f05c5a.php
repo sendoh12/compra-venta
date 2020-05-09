@@ -22,7 +22,7 @@
                                 <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         Por precio
                                     <span class="caret"></span>
-                                </button>
+                                </button> 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li>
                                             <a href="precios_0_a_1000">De $0 a $ 1,000</a>
@@ -41,6 +41,7 @@
                     
                     <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
                                 <?php echo csrf_field(); ?>
+                                <br>
                             <div id="filtro">
                                 <div class="form-group">
                                     <label>Operacion</label>
