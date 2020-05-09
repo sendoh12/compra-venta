@@ -195,11 +195,11 @@
 			</div>
 			<div class="modal-body">
 				<label for="">E-mail</label>
-				<input type="email" class="form-control" name="correo" id="correo" >
+				<input type="email" class="form-control" name="email" id="email" >
 			</div>
 			<div class="modal-body">
 				<label for="">Telefono</label>
-				<input type="text" class="form-control validar" name="telefono" id="telefono" >
+				<input type="tel" class="form-control validar" name="telefono" id="telefono" >
 			</div>
 			<div class="modal-body">
 				<label for="">Mensaje</label>
@@ -319,7 +319,7 @@
 		function EnviarContacto() {
 			var ClavePropiedad = document.getElementById('ClavePropiedad').value;
 			var nombre = document.getElementById('nombre').value;
-			var email = document.getElementById('correo').value;
+			var email = document.getElementById('email').value;
 			var telefono = document.getElementById('telefono').value;
 			var mensaje = document.getElementById('mensaje').value;
 			if(nombre == null || nombre == '') {
@@ -339,6 +339,12 @@
 				swal(
                       'Campo vacio',
                       'No has llenado el campo de Telefono!',
+                      'warning'
+                   )
+				}else if(telefono.length < 10  || telefono.length > 10) {
+				swal(
+                      'Error',
+                      'El telefono debe ser de 10 digitos!',
                       'warning'
                    )
 				}else if(mensaje == null || mensaje == '') {
@@ -374,7 +380,15 @@
 							},
 
 							beforeSend:function(){},
-							error:function(objXMLHttpRequest){}
+							error:function(objXMLHttpRequest){
+								console.log(objXMLHttpRequest);
+								swal(
+										'Error',
+										'Por favor ingrese un usuario valido, un correo valido, un numero de 10 digitos, un mensaje minimo de 10 caracteres',
+
+										'warning'
+									)
+							}
 					});
 				}
 		}
@@ -395,12 +409,12 @@
 			$(document).ready(function () {
 
 				$(".validar").on("keydown", function(evt){
-					console.log(evt);
+					// console.log(evt);
 					let iKeyCode = (evt.which) ? evt.which : evt.keyCode;
-					console.log(iKeyCode);
+					// console.log(iKeyCode);
 					if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57) && (iKeyCode < 96 || iKeyCode > 105))
 					{
-						console.log('no es numero');
+						// console.log('no es numero');
 						return false;
 					}
 					return true;

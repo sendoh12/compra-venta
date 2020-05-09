@@ -24,11 +24,11 @@ class contacto_validation extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'min:2|max:80|required',
-            'email' => 'min:4|max:80|required|email',
-            'tel' => 'min:4|max:10|required',
-            'asunto' => 'min:1|max:120|required',
-            'mesaje' => 'min:1|max:1000|required',
+            'ClavePropiedad' => 'min:2|max:80|required',
+            'nombre' => 'min:4|max:80|required',
+            'email' => 'required|email|max:255|',
+            'telefono' => 'min:10|max:10|required',
+            'mensaje' => 'min:10|max:1000|required',
         ];
     }
 }

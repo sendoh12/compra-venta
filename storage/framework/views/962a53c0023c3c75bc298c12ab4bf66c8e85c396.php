@@ -22,7 +22,7 @@
 					<input class="boton-contacto" type="email" id="email" name="email" placeholder="Correo Electronico">
 
 					<label class="estilos-label" for="telefono">Teléfono</label>
-					<input class="boton-contacto" type="tel" id="telefono" name="tel" placeholder="Telefono">
+					<input class="boton-contacto" type="tel" id="telefono" name="telefono" placeholder="Telefono">
 
 					<label class="estilos-label" for="mensaje">Mensaje</label>
 					<textarea name="mensaje" id="mensaje"></textarea>

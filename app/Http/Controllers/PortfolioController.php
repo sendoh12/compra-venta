@@ -206,9 +206,9 @@ class PortfolioController extends Controller
         }
     }
 
-    public function guradarmensages(Request $request)
+    public function guradarmensages(contacto_validation $request)
     {
-        
+
         
             $contactos  = new cv_contactos;
             $contactos->CONTACTO_CLAVE_PROPIEDAD = $request->ClavePropiedad;
@@ -216,6 +216,7 @@ class PortfolioController extends Controller
             $contactos->CONTACTO_EMAIL = $request->email;
             $contactos->CONTACTO_TELEFONO = $request->telefono;
             $contactos->CONTACTO_MENSAJE = $request->mensaje;
+            
             $contactos->CONTACTO_OPERACION = $request->opciones;
             $contactos->CONTACTO_CANTIDAD = $request->cantidad;
             $contactos->CONTACTO_CONTACTAR = $request->comunicarse;
