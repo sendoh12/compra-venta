@@ -11,6 +11,17 @@
    crossorigin=""></script>
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<style>
+  .centrar-mapid{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+  .mapid{
+    width: 90%;
+    height: 420px;
+}
+</style>
 
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
@@ -148,7 +159,7 @@
                                                 <div class="form-group">
                                                     <label>Código postal*</label>
                                                     <div class="controls">
-                                                      <input type="text" class="form-control validar"  name="CodigoPostal" id="CodigoPostal" placeholder="" value="<?php if (isset($editar)) {
+                                                      <input type="text" class="form-control"  name="CodigoPostal" id="CodigoPostal" placeholder="" value="<?php if (isset($editar)) {
                                                         echo $editar->PROPIEDADES_CP;
                                                       } ?>">                                                    
                                                     </div>
@@ -236,33 +247,19 @@
                                           </div>
                                           
                                           
-                                        <br><br><br>
+                                        
 
-                                          <div class="form-group">
-                                            <div class="col-sm-5">
-                                              <div id="mapid" style="width:970px; height:400px; position:relative; outline:none;" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag form-control" tabindex="0">
-                                                <div class="leaflet-pane leaflet-map-pane form-control" style="transform: translate3d(173px, 104px, 0px);">
-                                                  
-                                                    <div class="leaflet-pane leaflet-tile-pane form-control">
-                                                      <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
-                                                        <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
-                                                          <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, -347px, 0px); opacity: 1;">
-                                                          <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1361?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, -347px, 0px); opacity: 1;">
-                                                          <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2046/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-200px, 165px, 0px); opacity: 1;">
-                                                          <img alt="" role="presentation" src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/12/2047/1362?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(312px, 165px, 0px); opacity: 1;">
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                      <div class="leaflet-pane leaflet-shadow-pane"></div>
-                                                      <div class="leaflet-pane leaflet-overlay-pane"></div>
-                                                      <div class="leaflet-pane leaflet-marker-pane"></div>
-                                                      <div class="leaflet-pane leaflet-tooltip-pane"></div>
-                                                      <div class="leaflet-pane leaflet-popup-pane"></div>
-                                                        <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04788e+06px, 697275px, 0px) scale(4096);"></div>
+                                          
+                                            
+                                              <div class="container">
+                                                <div class="centrar-mapid">
+                                                  <div id="mapid" class="mapid">
+                                                    
+                                                  </div>
                                                 </div>
                                               </div>
-                                            </div>
-                                          </div>
+                                            
+                                          
                               </div>
                           </div>
                       </div>
@@ -316,9 +313,19 @@
                                             <div class="form-group " id="op3">
                                               <label>Precio</label>
                                                 <div class="controls">
-                                                  <input type="text" class="form-control"  name="Precio" id="Precio" placeholder="" value="<?php if (isset($editar)) {
-                                                    echo $editar->PROPIEDADES_PRECIO;
-                                                  } ?>">                                                
+                                                  <div class="row">
+                                                    <div class="col-md-9">
+                                                      <input style="" type="text" class="form-control"  name="Precio" id="Precio" placeholder="" value="<?php if (isset($editar)) {
+                                                        echo $editar->PROPIEDADES_PRECIO;
+                                                      } ?>">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                      <select style="text-align:center;" name="moneda" id="moneda" class="form-control">
+                                                        <option value="MXN$">MXN$</option>
+                                                        <option value="US$">US$</option>
+                                                      </select>                                                
+                                                    </div>
+                                                  </div>
                                                 </div>
                                             </div>
                                             <div class="form-group " id="op4">
@@ -349,17 +356,35 @@
                                           <div class="form-group " id="op6">
                                             <label>Terreno</label>
                                                 <div class="controls">
-                                                  <input type="text" class="form-control" name="Terreno"  id="Terreno" placeholder="" value="<?php if (isset($editar)) {
-                                                    echo $editar->PROPIEDADES_TERRENOS;
-                                                  } ?>">                                                
+                                                  <div class="row">
+                                                    <div class="col-md-9">
+                                                      <input type="text" class="form-control validar" name="Terreno"  id="Terreno" placeholder="" value="<?php if (isset($editar)) {
+                                                        echo $editar->PROPIEDADES_TERRENOS;
+                                                      } ?>">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                      <select style="text-align: center;" class="form-control" name="TerrenoTamaño" id="TerrenoTamaño">
+                                                        <option value="m²">m²</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
                                                 </div>
                                             </div>
                                             <div class="form-group " id="op7">
                                               <label>Construcción</label>
                                                 <div class="controls">
-                                                  <input type="text" class="form-control" name="Construcción"  id="Construcción" placeholder="" value="<?php if (isset($editar)) {
-                                                    echo $editar->PROPIEDADES_CONSTRUCCION;
-                                                  } ?>">                                                
+                                                  <div class="row">
+                                                    <div class="col-md-9">
+                                                      <input type="text" class="form-control validar" name="Construcción"  id="Construcción" placeholder="" value="<?php if (isset($editar)) {
+                                                        echo $editar->PROPIEDADES_CONSTRUCCION;
+                                                      } ?>">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                      <select style="text-align: center;" class="form-control" name="ConstruccionTamaño" id="ConstruccionTamaño">
+                                                          <option value="m²">m²</option>  
+                                                      </select>                                        
+                                                    </div>
+                                                  </div>
                                                 </div>
                                             </div>
                                             <div class="form-group " id="op8">
@@ -373,7 +398,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group" id="op9">
-                                              <label>Año de construcción</label>
+                                              <label>Año de construcción (Ejemplo: 1995)</label>
                                                 <div class="controls">
                                                   <input type="text" class="form-control validar" name="Año"  id="Año" placeholder="" value="<?php if (isset($editar)) {
                                                     echo $editar->PROPIEDADES_AÑO;
@@ -399,9 +424,19 @@
                                             <div class="form-group " id="op12">
                                               <label>Cuota de mantenimiento</label>
                                               <div class="controls">
-                                                <input type="text" class="form-control" name="cuota" id="cuota"  placeholder="" value="<?php if (isset($editar)) {
-                                                  echo $editar->PROPIEDADES_CUOTA;
-                                                } ?>">                                              
+                                                <div class="row">
+                                                  <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="cuota" id="cuota"  placeholder="" value="<?php if (isset($editar)) {
+                                                      echo $editar->PROPIEDADES_CUOTA;
+                                                    } ?>">    
+                                                  </div>
+                                                  <div class="col-md-3">
+                                                    <select style="text-align:center;" name="CuotaMoneda" id="CuotaMoneda" class="form-control">
+                                                      <option value="MXN$">MXN$</option>
+                                                      <option value="US$">US$</option>
+                                                    </select>                                           
+                                                  </div>
+                                                </div>
                                               </div>
                                           </div>
                                         </div>
@@ -508,65 +543,248 @@
     var longitud = document.getElementById('longitud').value;
     var descripcion = document.getElementById('descripcion').value;
     var Clave = document.getElementById('Clave').value;
+    var moneda = document.getElementById('moneda').value;
+    var TerrenoTamaño = document.getElementById('TerrenoTamaño').value;
+    var ConstruccionTamaño = document.getElementById('ConstruccionTamaño').value;
+    var CuotaMoneda = document.getElementById('CuotaMoneda').value;
+    var Precio = document.getElementById('Precio').value;
+    var Habitaciones = document.getElementById('Habitaciones').value;
+    var Baños = document.getElementById('Baños').value;
+    var Terreno = document.getElementById('Terreno').value;
+    var Construcción = document.getElementById('Construcción').value;
+    var cuota = document.getElementById('cuota').value;
+    var Año = document.getElementById('Año').value;
+    var Niveles = document.getElementById('Niveles').value;
+    var Estacionamientos = document.getElementById('Estacionamientos').value;
     
-    if(propiedad == null || propiedad == '') {
+    if(propiedad == '') {
                   swal(
                       'Campo vacio',
                       'No has llenado el campo de propiedad!',
                       'warning'
                    )
 
-    }else if(Colonia == null || Colonia == '') {
+    }else if(Colonia == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Clonia!',
                       'warning'
                    )
-    }else if(Zona == null || Zona == '') {
+    }else if(Zona == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Zona!',
                       'warning'
                    )
-    }else if(CodigoPostal == null || CodigoPostal == '') {
+    }else if(CodigoPostal == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Codigo Postal!',
                       'warning'
                    )
-    }else if(Calle == null || Calle == '') {
+    }else if(CodigoPostal % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El Codigo postal solo puede llevar numeros!',
+                      'warning'
+                   )
+    }else if(Calle == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Calle!',
                       'warning'
                    )
-    }else if(NumeroExterior == null || NumeroExterior == '') {
+    }else if(NumeroExterior == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Numero Exterior!',
                       'warning'
                    )
-    // }else if(NumeroInterior == null || NumeroInterior == '') {
-    //   alertify.success("te hace falta llenar Numero Interior, por favor");
-    // }else if(imagen == null || imagen == '') {
-    //   alertify.success("te hace falta insertar la imagen, por favor");
-    // }else if(Latitud == null || Latitud == '') {
-    //   alertify.success("te hace falta llenar Latitud de la ubicacion, por favor");
-    // }else if(longitud == null || longitud == '') {
-    //   alertify.success("te hace falta llenar Longitud de la ubicacion, por favor");
-    }else if(descripcion == null || descripcion == '') {
+
+    }
+    else if(Precio == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Precio!',
+                      'warning'
+                   )
+
+    }else if(Precio % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo precio solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(moneda == '') {
+      swal(
+                      'Campo vacio',
+                      'La moneda del precio no puede ser vacia!',
+                      'warning'
+                   )
+
+    }else if(Habitaciones == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Habitaciones!',
+                      'warning'
+                   )
+
+    }else if(Habitaciones % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo Habitaciones solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(Baños == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Baños!',
+                      'warning'
+                   )
+
+    }else if(Baños % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo Baños solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(NumeroExterior % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El Numero Exterior solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(Terreno == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Terreno!',
+                      'warning'
+                   )
+
+    }
+    // else if(Terreno % 1 != 0) {
+    //   swal(
+    //                   'Campo invalido',
+    //                   'El campo Terreno solo puede llevar numeros!',
+    //                   'warning'
+    //                )
+
+    // }
+    else if(TerrenoTamaño == '') {
+      swal(
+                      'Campo vacio',
+                      'Los metros del terreno no pueden ser vacios!',
+                      'warning'
+                   )
+
+    }else if(Construcción == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Construcción!',
+                      'warning'
+                   )
+
+    }
+    else if(ConstruccionTamaño == '') {
+      swal(
+                      'Campo invalido',
+                      'Los metros de la construccion no puede ser vacio!',
+                      'warning'
+                   )
+
+    }else if(Año == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Año!',
+                      'warning'
+                   )
+
+    }else if(Año % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo Año solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(Niveles == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Niveles!',
+                      'warning'
+                   )
+
+    }else if(Niveles % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo Niveles solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(Estacionamientos == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Estacionamientos!',
+                      'warning'
+                   )
+
+    }else if(Estacionamientos % 1 != 0) {
+      swal(
+                      'Campo invalido',
+                      'El campo Estacionamientos solo puede llevar numeros!',
+                      'warning'
+                   )
+
+    }else if(ConstruccionTamaño == '') {
+      swal(
+                      'Campo vacio',
+                      'Los metros de la construccion no pueden ser vacios!',
+                      'warning'
+                   )
+
+    }else if(descripcion == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Descripcion!',
                       'warning'
                    )
-    }else if(Clave == null || Clave == '') {
+    }else if(Clave == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Clave!',
                       'warning'
                    )
-    }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && NumeroInterior != null && descripcion != null && Clave != null) {
+    }else if(moneda == '') {
+      swal(
+                      'Campo vacio',
+                      'No has llenado el campo de Moneda!',
+                      'warning'
+                   )
+    }else if(TerrenoTamaño == '') {
+      swal(
+                      'Campo vacio',
+                      'El tamaño del terreno no puede ser vacio!',
+                      'warning'
+                   )
+    }else if(ConstruccionTamaño == '') {
+      swal(
+                      'Campo vacio',
+                      'El tamaño de la construccion no puede ser vacia!',
+                      'warning'
+                   )
+    }else if(CuotaMoneda == '') {
+      swal(
+                      'Campo vacio',
+                      'La moneda de la cuota no puede ser vacia!',
+                      'warning'
+                   )
+    }else if(propiedad != null && Colonia != null && Zona != null && CodigoPostal != null && Calle != null && 
+            NumeroInterior != null && descripcion != null && Clave != null && Clave != null && Clave != null && 
+            Clave != null && Clave != null && Clave != null && Clave != null && Clave != null
+            && Clave != null && Clave != null && Clave != null && Clave != null) {
                     swal(
                         'Correcto',
                         'Guardando Propiedad...!',
@@ -580,10 +798,6 @@
                         'error'
                       )
       }
-    
-    // else {
-    //     document.getElementById('CrearPropiedad').submit();
-    // }
   }
 
   function validarNumeros(evt){
@@ -932,14 +1146,10 @@ function buscar() {
           // Cuota de mantenimiento
           document.getElementById('op12').style.display = 'none';
       break;
-    
       default:
         break;
     }
 
-    
-
-    
 
   }
 </script><?php /**PATH C:\xampp\htdocs\compra-venta\resources\views/administrador/agregar_propiedad.blade.php ENDPATH**/ ?>

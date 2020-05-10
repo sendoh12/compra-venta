@@ -1,6 +1,8 @@
 
 @extends('layout');
 @section('title');
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+    
 <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Starter Page</h1>

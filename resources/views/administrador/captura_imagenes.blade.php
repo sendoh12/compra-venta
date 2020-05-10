@@ -1,5 +1,6 @@
 @include('plantillas.header')
 @include('plantillas.menu')
+<meta Name="csrf-token" content="{{csrf_token()}}">
 
 <!-- BEGIN: Content-->
 <div class="app-content content">

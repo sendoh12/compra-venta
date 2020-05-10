@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
 {{-- <script src="/js/dist/jspdf.min.js"></script> --}}
 @extends('PaginasInicio.inicio')
 

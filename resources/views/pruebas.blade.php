@@ -2,7 +2,8 @@
 
 @section('title', 'Inicio')
 
-
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+    
 <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/estilos.css')}} ">
 <link rel="stylesheet" type="text/css" href=" {{asset('sider/css/font-awesome.css')}} ">
 @section('content')

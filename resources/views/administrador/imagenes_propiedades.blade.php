@@ -1,6 +1,7 @@
 
 @include('plantillas.header')
 @include('plantillas.menu')
+<meta Name="csrf-token" content="{{csrf_token()}}">
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -80,12 +80,11 @@ class PaginaPrincipal extends Controller
         if(session()->has('admin')==false){
             return redirect('login');
         }else{
-            
-            
+            /** editar */
             if ($request->input('Id_prepiedad') != null) {
-    
+                
                 if($request->hasFile('imagen')) {
-    
+
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
                     \Storage::disk('local')->put($name,  \File::get($file));
@@ -169,6 +168,7 @@ class PaginaPrincipal extends Controller
                 }
                 return redirect('VerPropiedades');
             }else{
+                /** insertar */
                 if($request->hasFile('imagen')) {
                     $file = $request->file('imagen');
                     $name = time().$file->getClientOriginalName();
