@@ -18,16 +18,17 @@
 				<fieldset>
 					<legend>Información Personal</legend>
 					<label class="estilos-label" for="nombre">Nombre:</label>
-					<input class="boton-contacto" class="nombre" type="text" id="nombre" name="nombre" placeholder="Nombre">
+					<input class="boton-contacto" class="nombre" type="text" id="nombre" name="nombre" placeholder="Nombre" minlength="2" maxlength="80" required>
 
 					<label class="estilos-label" for="email">E-mail</label>
-					<input class="boton-contacto" type="email" id="email" name="email" placeholder="Correo Electronico">
+					<input class="boton-contacto" type="email" id="email" name="email" placeholder="Correo Electronico" minlength="2" maxlength="120" required>
 
 					<label class="estilos-label" for="telefono">Teléfono</label>
-					<input class="boton-contacto" type="tel" id="telefono" name="telefono" placeholder="Telefono">
+					<input class="boton-contacto" type="tel" id="telefono" name="telefono" placeholder="Telefono"minlength="2" maxlength="10" required>
 
 					<label class="estilos-label" for="mensaje">Mensaje</label>
-					<textarea name="mensaje" id="mensaje"></textarea>
+					<textarea name="mensaje" id="mensaje" minlength="2" maxlength="1000" required>
+					</textarea>
 				</fieldset>
 
 				<fieldset>
@@ -40,7 +41,7 @@
 					</select>
 
 					<label class="estilos-label" for="cantidad"> Cantidad:</label>
-					<input class="boton-contacto" type="text" id="cantidad" placeholder="Cantidad">
+					<input class="boton-contacto" type="number" id="cantidad" name="cantidad" placeholder="Cantidad" max="100000000" min="0" minlength="1" maxlength="10">
 
 				</fieldset>
 
@@ -102,8 +103,6 @@
 					}
 				}
 
-				
-
 				if(nombre == null || nombre == '') {
                   swal(
                       'Campo vacio',
@@ -123,12 +122,6 @@
                       'No has llenado el campo de Telefono!',
                       'warning'
                    )
-				}else if(telefono.length < 10  || telefono.length > 10) {
-				swal(
-                      'Error',
-                      'El telefono debe ser de 10 digitos!',
-                      'warning'
-                   )
 				}else if(mensaje == null || mensaje == '') {
 				swal(
                       'Campo vacio',
@@ -137,7 +130,7 @@
                    )
 				}
 				else{
-					$.ajax({
+						$.ajax({
 						cache:false,
 						dataType:"json",
 						type: 'POST',
@@ -151,8 +144,8 @@
 							cantidad:cantidad,
 							comunicarse:comunicarse,
 							fecha:fecha,
-							hora:hora,
-						},
+							hora:hora
+							},
 							success: function(response){
 								if(response.bandera == 1) {
 									swal(
@@ -176,8 +169,6 @@
 							}
 					});
 				}
-				
-				
 			}
 		</script>
 
