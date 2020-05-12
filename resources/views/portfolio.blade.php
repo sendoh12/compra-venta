@@ -27,8 +27,7 @@
 					<input class="boton-contacto" type="tel" id="telefono" name="telefono" placeholder="Telefono"minlength="2" maxlength="10" required>
 
 					<label class="estilos-label" for="mensaje">Mensaje</label>
-					<textarea name="mensaje" id="mensaje" minlength="2" maxlength="1000" required>
-					</textarea>
+					<textarea name="mensaje" id="mensaje" minlength="2" maxlength="1000" required></textarea>
 				</fieldset>
 
 				<fieldset>
@@ -62,7 +61,7 @@
 					<input class="boton-contacto" type="date" name="fecha" id="fecha">
 
 					<label class="estilos-label" for="hora">Hora</label>
-					<input class="boton-contacto" type="time" name="hora" id="hora" min="9:00" max="18:00">
+				<input class="boton-contacto" type="time" name="hora" id="hora" min="9:00" max="18:00" value="">
 				</fieldset>
 
 				<input type="button" onclick="Contactar()"  class=" boton-enviar boton-azul" value="Enviar">

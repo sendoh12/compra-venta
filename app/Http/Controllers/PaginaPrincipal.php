@@ -228,7 +228,7 @@ class PaginaPrincipal extends Controller
 
             if($request->get('busqueda')){
                 $propiedades = DB::table('cv_propiedades')->where("PROPIEDADES_NOMBRE", "LIKE", "%{$request->get('busqueda')}%")
-                    ->paginate(10);
+                    ->paginate(6);
                 return view('administrador.ver_propiedades', compact('propiedades'));
             }
             return back();

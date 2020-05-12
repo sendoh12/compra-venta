@@ -123,7 +123,7 @@
 
                     <div class="centrar-propiedad">
                         <div class="datos-propiedad">
-                            <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
+							<p><?php echo e($propiedad->PROPIEDADES_MONEDA.' '.number_format($propiedad->PROPIEDADES_PRECIO)); ?></p>
                             <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
                             <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
                             

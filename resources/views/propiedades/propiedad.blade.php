@@ -30,6 +30,7 @@
               <div class="col-md-4">
                 <div class="description">
                   <h1 class="fw-300 centrar-texto">{{'Casa en '.$propiedades[0]->PROPIEDADES_OPERACION}}</h1>
+                  <h3 class="fw-300 centrar-texto">{{$propiedades[0]->PROPIEDADES_MONEDA.' '.number_format($propiedades[0]->PROPIEDADES_PRECIO)}}</h3>
                         <div class="ubicacion">
                           <h3>Ubicacion</h3>
                           <p>{{$propiedades[0]->PROPIEDADES_CLAVE}}</p> 

@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+
 
 
 
@@ -19,25 +21,26 @@
 
                                 <button type="button" class="boton boton-azul" onclick="filtro()"> Filtro</button>
                                 <button type="button" class="boton boton-azul" onclick="clave()"> Clave</button>
-                                <div class="dropdown" style="float:left; margin-Right:5px;">
+                                <div class="dropdown boton-precio" style="float:right; margin-Right:5px;">
                                         <button class="dropdown-toggle boton boton-azul" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                Por precio
+                                                Buscar por precio
                                             <span class="caret"></span>
                                         </button> 
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <ul class="dropdown-menu boton-precio" aria-labelledby="dropdownMenu1">
                                                 <li>
-                                                    <a href="precios_0_a_1000">De $0 a $ 1,000</a>
+                                                    <a  class="boton boton-azul " href="precios_0_a_1000">De $0 a $ 1,000</a>
                                                 </li>
                                                 <li>
-                                                    <a href="precios_1000_a_5000">De $1,000 a $5,000</a>
+                                                    <a  class="boton boton-azul" href="precios_1000_a_5000">De $1,000 a $5,000</a>
                                                 </li>
                                                 <li>
-                                                    <a href="Precios_5000_a_10000">De $5,000 a $10,000</a>
+                                                    <a  class="boton boton-azul" href="Precios_5000_a_10000">De $5,000 a $10,000</a>
                                                 </li>
                                                 <li>
-                                                <a href="precios_mayor_10000">Mas de $10,000</a>
+                                                <a  class="boton boton-azul" href="precios_mayor_10000">Mas de $10,000</a>
                                                 </li>
                                             </ul>
+
                                         </div>
                             
                             <form action="Flitar_busquedad" method="post" class="contacto-busqueda">
@@ -54,17 +57,19 @@
 
                                         <div class="form-group">
                                             <label >Tipo de inmueble:</label>
-                                            <select name="inmueble" id="">
-                                                <option selected="true">(Todos)</option>
+                                            <select name="inmueble" id="inmueble">
+                                                
                                                 <?php $__currentLoopData = $tipos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <option value="<?php echo e($item->TIPOS_ID); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
+                                                    <option value="<?php echo e($item->TIPOS_NOMBRE); ?>"><?php echo e($item->TIPOS_NOMBRE); ?></option>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
                                         </div>
 
                                         <div>
-                                            <label>Nombre</label>
-                                            <input class="boton-contacto" type="text" id="" name="nombre" placeholder="Nombre de la propiedad" required>
+                                            <label>Estado</label>
+                                            <input class="boton-contacto" type="text" id="estado" name="estado" placeholder="Nombre de la propiedad" required>
+                                            <label>Municipio</label>
+                                            <input class="boton-contacto" type="text" id="municipio" name="municipio" placeholder="Nombre de la propiedad" required>
                                         </div>
                                         <button type="submit" class="boton boton-azul">Buscar</button>
                                     </div>
@@ -100,8 +105,8 @@
 
                             <form action="CasaVenta" method="get">
                                     <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
-                                <div class="centrar-imagen">
-                                    <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
+                                <div class="centrar-imagen2">
+                                    <button style="width:94% ;height: 250px;" class="centrar-imagen2" type="submit">
                                         <img style="width:100% ;height: 250px;" src="<?php echo e(asset(Storage::url($propiedad->PROPIEDADES_IMAGEN))); ?>" >
                                     
                                         <div class="texto-encima">
@@ -113,7 +118,7 @@
 
                             <div class="centrar-propiedad">
                                 <div class="datos-propiedad">
-                                    <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
+                                    <p><?php echo e($propiedad->PROPIEDADES_MONEDA.' '.number_format($propiedad->PROPIEDADES_PRECIO)); ?></p>
                                     <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
                                     <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
                                     
@@ -164,11 +169,12 @@
                     </div>
                 </div>
             </div>
-                    
-            <div class="paginando">
-                <?php echo e($propiedades->links()); ?>
+            <?php if(isset($propiedades)): ?>
+                <div class="paginando">
+                    <?php echo e($propiedades->links()); ?>
 
-            </div>
+                </div>
+            <?php endif; ?>
 
             
             <!-- Modal -->

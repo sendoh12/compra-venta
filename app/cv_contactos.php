@@ -8,7 +8,7 @@ class cv_contactos extends Model
 {
     //
     protected $fillable = [
-        'CONTACTO_NOMBRE', 'CONTACTO_EMAIL','CONTACTO_ASUNTO','CONTACTO_TELEFONO',
-        'CONTACTO_MENSAJE',
+        'CONTACTO_NOMBRE', 'CONTACTO_EMAIL','CONTACTO_TELEFONO',
+        'CONTACTO_MENSAJE', 'CONTACTO_HORA'
     ];
 }

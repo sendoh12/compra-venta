@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\Cv_inicio;
 use App\cv_contactos;
+use App\cv_propiedades;
 use App\Http\Requests\contacto_validation;
 use Illuminate\Support\Facades\Crypt;
 use dompdf;
@@ -208,25 +209,50 @@ class PortfolioController extends Controller
 
     public function guradarmensages(contacto_validation $request)
     {
-            $data = array('CONTACTO_NOMBRE' => htmlspecialchars($request->nombre),
-                        'CONTACTO_EMAIL' => htmlspecialchars($request->email),
-                    'CONTACTO_TELEFONO'=>htmlspecialchars($request->telefono),
-                'CONTACTO_MENSAJE'=>htmlspecialchars($request->mensaje),
-                'CONTACTO_OPERACION'=>htmlspecialchars($request->opciones),
-                'CONTACTO_CANTIDAD'=>htmlspecialchars($request->cantidad),
-                'CONTACTO_CONTACTAR'=>htmlspecialchars($request->comunicarse),
-                'CONTACTO_FECHA'=>htmlspecialchars($request->fecha),
-                'CONTACTO_HORA'=>htmlspecialchars($request->hora)
-            );
+
+
+            // $data = array('CONTACTO_NOMBRE' => htmlspecialchars($request->nombre),
+            //             'CONTACTO_EMAIL' => htmlspecialchars($request->email),
+            //         'CONTACTO_TELEFONO'=>htmlspecialchars($request->telefono),
+            //     'CONTACTO_MENSAJE'=>htmlspecialchars($request->mensaje),
+            //     'CONTACTO_OPERACION'=>htmlspecialchars($request->opciones),
+            //     'CONTACTO_CANTIDAD'=>htmlspecialchars($request->cantidad),
+            //     'CONTACTO_CONTACTAR'=>htmlspecialchars($request->comunicarse),
+            //     'CONTACTO_FECHA'=>htmlspecialchars($request->fecha),
+            //     'CONTACTO_HORA'=>$request->hora
+            // );
 
        
 
-            $contactos = DB::table('cv_contactos')->insert($data);
+            // $contactos = DB::table('cv_contactos')->insert($data);
+            // if($contactos){
+            //     return response()->json(['bandera'=> 1 ]);
+            // }else{
+            //     return response()->json(['bandera'=> 0 ]);
+            // }
+            $contactos  = new cv_contactos;
+            $contactos->CONTACTO_CLAVE_PROPIEDAD = htmlspecialchars($request->ClavePropiedad);
+            $contactos->CONTACTO_NOMBRE = htmlspecialchars($request->nombre);
+            $contactos->CONTACTO_EMAIL = htmlspecialchars($request->email);
+            $contactos->CONTACTO_TELEFONO = htmlspecialchars($request->telefono);
+            $contactos->CONTACTO_MENSAJE = htmlspecialchars($request->mensaje);
+            
+            $contactos->CONTACTO_OPERACION = htmlspecialchars($request->opciones);
+            $contactos->CONTACTO_CANTIDAD = htmlspecialchars($request->cantidad);
+            $contactos->CONTACTO_CONTACTAR = htmlspecialchars($request->comunicarse);
+            $contactos->CONTACTO_FECHA = htmlspecialchars($request->fecha);
+            $contactos->CONTACTO_HORA = htmlspecialchars($request->hora);
+            $contactos->save();
+    
+            // return response()->json([
+            //     'bandera'=> 1
+            // ]);
             if($contactos){
                 return response()->json(['bandera'=> 1 ]);
             }else{
                 return response()->json(['bandera'=> 0 ]);
             }
+            
 
     }
 
@@ -234,20 +260,15 @@ class PortfolioController extends Controller
     {
         $operacion  =   $request->operacion;
         $inmueble   =   $request->inmueble;
-        $nombre     =   $request->nombre;
+        $estado = $request->estado;
+        $municipio = $request->municipio;
+
 
         $imagenes = DB::table('cv_inicio')
                     ->select('*')
                     ->get();
 
-        $propiedades = DB::table('cv_propiedades')
-                    ->join('cv_estados', 'cv_propiedades.PROPIEDADES_ESTADO','=','cv_estados.ESTADOS_ID')
-                    ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
-                    ->where('PROPIEDADES_OPERACION',$operacion)
-                    //->where('PROPIEDADES_TIPO',$inmueble)
-                    ->where('PROPIEDADES_NOMBRE','like',$nombre)
-                    ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+        $propiedades = cv_propiedades::Busqueda($operacion, $inmueble, $estado ,$municipio)->paginate(6);
         
         $tipos = DB::table('cv_tipos')
                     ->select('*')
@@ -278,7 +299,7 @@ class PortfolioController extends Controller
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->where('PROPIEDADES_CLAVE','like',$nombre)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(6);
         $tipos = DB::table('cv_tipos')
                     ->select('*')
                     ->get();
@@ -370,7 +391,7 @@ class PortfolioController extends Controller
                     //->where('PROPIEDADES_PRECIO','<=','0')
                     ->whereBetween('PROPIEDADES_PRECIO',[0,1000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(6);
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')
@@ -404,7 +425,7 @@ class PortfolioController extends Controller
                     //->where('PROPIEDADES_PRECIO','<=','5000')
                     ->whereBetween('PROPIEDADES_PRECIO',[1000,5000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(6);
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')
@@ -437,7 +458,7 @@ class PortfolioController extends Controller
                     //->where('PROPIEDADES_PRECIO','<=',10000)
                     ->whereBetween('PROPIEDADES_PRECIO',[5000,10000])
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(6);
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')
@@ -468,7 +489,8 @@ class PortfolioController extends Controller
                     ->join('cv_municipios', 'cv_propiedades.PROPIEDADES_MUNICIPIO','=','cv_municipios.MUNICIPIOS_ID')
                     ->where('PROPIEDADES_PRECIO','>',10000)
                     ->select('cv_propiedades.*', 'cv_estados.*', 'cv_municipios.*')
-                    ->get();
+                    ->paginate(6);
+                    
 
         $tipos = DB::table('cv_tipos')
                     ->select('*')

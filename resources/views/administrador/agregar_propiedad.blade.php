@@ -697,21 +697,23 @@
                       'warning'
                    )
 
-    }else if(Año == '') {
-      swal(
-                      'Campo vacio',
-                      'No has llenado el campo de Año!',
-                      'warning'
-                   )
+    }
+    // else if(Año == '') {
+    //   swal(
+    //                   'Campo vacio',
+    //                   'No has llenado el campo de Año!',
+    //                   'warning'
+    //                )
 
-    }else if(Año % 1 != 0) {
-      swal(
-                      'Campo invalido',
-                      'El campo Año solo puede llevar numeros!',
-                      'warning'
-                   )
+    // }else if(Año % 1 != 0) {
+    //   swal(
+    //                   'Campo invalido',
+    //                   'El campo Año solo puede llevar numeros!',
+    //                   'warning'
+    //                )
 
-    }else if(Niveles == '') {
+    // }
+    else if(Niveles == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Niveles!',

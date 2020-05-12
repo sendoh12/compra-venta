@@ -11,7 +11,7 @@
                     {{$propiedad->PROPIEDADES_OPERACION}}
                 </div> --}}
 
-                <form action="CasaVenta" method="get">
+                <form class="ajustar-form" action="CasaVenta" method="get">
                         <input type="hidden" name="id" value="{{base64_encode($propiedad->PROPIEDADES_ID)}}">
                     <div class="centrar-imagen">
                         <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
@@ -21,12 +21,12 @@
                                 <p class="etiqueta">{{$propiedad->PROPIEDADES_OPERACION}}</p>
                             </div>
                         </button>
-                        </div>
+                    </div>
                 </form>
 
                 <div class="centrar-propiedad">
                     <div class="datos-propiedad">
-                        <p>{{$propiedad->PROPIEDADES_PRECIO}}</p>
+                        <p>{{$propiedad->PROPIEDADES_MONEDA.' '.number_format($propiedad->PROPIEDADES_PRECIO)}}</p>
                         <h4><p>{{$propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION}}</p></h4>
                         <p>{{$propiedad->PROPIEDADES_CLAVE}}</p>
                         {{-- <p>{{$propiedad->PROPIEDADES_PRECIO}}</p> --}}

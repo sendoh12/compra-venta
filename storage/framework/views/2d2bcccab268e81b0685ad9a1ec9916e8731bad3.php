@@ -1,6 +1,7 @@
 
 <?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<meta Name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
@@ -557,26 +558,26 @@
     var Niveles = document.getElementById('Niveles').value;
     var Estacionamientos = document.getElementById('Estacionamientos').value;
     
-    if(propiedad == null || propiedad == '') {
+    if(propiedad == '') {
                   swal(
                       'Campo vacio',
                       'No has llenado el campo de propiedad!',
                       'warning'
                    )
 
-    }else if(Colonia == null || Colonia == '') {
+    }else if(Colonia == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Clonia!',
                       'warning'
                    )
-    }else if(Zona == null || Zona == '') {
+    }else if(Zona == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Zona!',
                       'warning'
                    )
-    }else if(CodigoPostal == null || CodigoPostal == '') {
+    }else if(CodigoPostal == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Codigo Postal!',
@@ -588,13 +589,13 @@
                       'El Codigo postal solo puede llevar numeros!',
                       'warning'
                    )
-    }else if(Calle == null || Calle == '') {
+    }else if(Calle == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Calle!',
                       'warning'
                    )
-    }else if(NumeroExterior == null || NumeroExterior == '') {
+    }else if(NumeroExterior == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Numero Exterior!',
@@ -602,7 +603,7 @@
                    )
 
     }
-    else if(Precio == null || Precio == '') {
+    else if(Precio == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Precio!',
@@ -616,14 +617,14 @@
                       'warning'
                    )
 
-    }else if(moneda == null || moneda == '') {
+    }else if(moneda == '') {
       swal(
                       'Campo vacio',
                       'La moneda del precio no puede ser vacia!',
                       'warning'
                    )
 
-    }else if(Habitaciones == null || Habitaciones == '') {
+    }else if(Habitaciones == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Habitaciones!',
@@ -637,7 +638,7 @@
                       'warning'
                    )
 
-    }else if(Baños == null || Baños == '') {
+    }else if(Baños == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Baños!',
@@ -658,63 +659,61 @@
                       'warning'
                    )
 
-    }else if(Terreno == null || Terreno == '') {
+    }else if(Terreno == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Terreno!',
                       'warning'
                    )
 
-    }else if(Terreno % 1 != 0) {
-      swal(
-                      'Campo invalido',
-                      'El campo Terreno solo puede llevar numeros!',
-                      'warning'
-                   )
+    }
+    // else if(Terreno % 1 != 0) {
+    //   swal(
+    //                   'Campo invalido',
+    //                   'El campo Terreno solo puede llevar numeros!',
+    //                   'warning'
+    //                )
 
-    }else if(TerrenoTamaño == null || TerrenoTamaño == '') {
+    // }
+    else if(TerrenoTamaño == '') {
       swal(
                       'Campo vacio',
                       'Los metros del terreno no pueden ser vacios!',
                       'warning'
                    )
 
-    }else if(Construcción == null || Construcción == '') {
+    }else if(Construcción == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Construcción!',
                       'warning'
                    )
 
-    }else if(Construcción % 1 != 0) {
-      swal(
-                      'Campo invalido',
-                      'El campo Construcción solo puede llevar numeros!',
-                      'warning'
-                   )
-
-    }else if(ConstruccionTamaño == null || ConstruccionTamaño == '') {
+    }
+    else if(ConstruccionTamaño == '') {
       swal(
                       'Campo invalido',
                       'Los metros de la construccion no puede ser vacio!',
                       'warning'
                    )
 
-    }else if(Año == null || Año == '') {
-      swal(
-                      'Campo vacio',
-                      'No has llenado el campo de Año!',
-                      'warning'
-                   )
+    }
+    // else if(Año == '') {
+    //   swal(
+    //                   'Campo vacio',
+    //                   'No has llenado el campo de Año!',
+    //                   'warning'
+    //                )
 
-    }else if(Año % 1 != 0) {
-      swal(
-                      'Campo invalido',
-                      'El campo Año solo puede llevar numeros!',
-                      'warning'
-                   )
+    // }else if(Año % 1 != 0) {
+    //   swal(
+    //                   'Campo invalido',
+    //                   'El campo Año solo puede llevar numeros!',
+    //                   'warning'
+    //                )
 
-    }else if(Niveles == null || Niveles == '') {
+    // }
+    else if(Niveles == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Niveles!',
@@ -728,7 +727,7 @@
                       'warning'
                    )
 
-    }else if(Estacionamientos == null || Estacionamientos == '') {
+    }else if(Estacionamientos == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Estacionamientos!',
@@ -742,44 +741,44 @@
                       'warning'
                    )
 
-    }else if(ConstruccionTamaño == null || ConstruccionTamaño == '') {
+    }else if(ConstruccionTamaño == '') {
       swal(
                       'Campo vacio',
                       'Los metros de la construccion no pueden ser vacios!',
                       'warning'
                    )
 
-    }else if(descripcion == null || descripcion == '') {
+    }else if(descripcion == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Descripcion!',
                       'warning'
                    )
-    }else if(Clave == null || Clave == '') {
+    }else if(Clave == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Clave!',
                       'warning'
                    )
-    }else if(moneda == null || moneda == '') {
+    }else if(moneda == '') {
       swal(
                       'Campo vacio',
                       'No has llenado el campo de Moneda!',
                       'warning'
                    )
-    }else if(TerrenoTamaño == null || TerrenoTamaño == '') {
+    }else if(TerrenoTamaño == '') {
       swal(
                       'Campo vacio',
                       'El tamaño del terreno no puede ser vacio!',
                       'warning'
                    )
-    }else if(ConstruccionTamaño == null || ConstruccionTamaño == '') {
+    }else if(ConstruccionTamaño == '') {
       swal(
                       'Campo vacio',
                       'El tamaño de la construccion no puede ser vacia!',
                       'warning'
                    )
-    }else if(CuotaMoneda == null || CuotaMoneda == '') {
+    }else if(CuotaMoneda == '') {
       swal(
                       'Campo vacio',
                       'La moneda de la cuota no puede ser vacia!',
@@ -802,10 +801,6 @@
                         'error'
                       )
       }
-    
-    // else {
-    //     document.getElementById('CrearPropiedad').submit();
-    // }
   }
 
   function validarNumeros(evt){
@@ -1154,14 +1149,10 @@ function buscar() {
           // Cuota de mantenimiento
           document.getElementById('op12').style.display = 'none';
       break;
-    
       default:
         break;
     }
 
-    
-
-    
 
   }
 </script><?php /**PATH C:\xampp\htdocs\Compra-venta\resources\views/administrador/agregar_propiedad.blade.php ENDPATH**/ ?>

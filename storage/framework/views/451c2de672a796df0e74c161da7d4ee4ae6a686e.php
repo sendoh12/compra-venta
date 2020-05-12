@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+    
 <div class="contenedor">
     <div class="container">
         <div class="row">
@@ -7,7 +9,7 @@
                 
                 
 
-                <form action="CasaVenta" method="get">
+                <form class="ajustar-form" action="CasaVenta" method="get">
                         <input type="hidden" name="id" value="<?php echo e(base64_encode($propiedad->PROPIEDADES_ID)); ?>">
                     <div class="centrar-imagen">
                         <button style="width:94% ;height: 250px;" class="centrar-imagen" type="submit">
@@ -17,12 +19,12 @@
                                 <p class="etiqueta"><?php echo e($propiedad->PROPIEDADES_OPERACION); ?></p>
                             </div>
                         </button>
-                        </div>
+                    </div>
                 </form>
 
                 <div class="centrar-propiedad">
                     <div class="datos-propiedad">
-                        <p><?php echo e($propiedad->PROPIEDADES_PRECIO); ?></p>
+                        <p><?php echo e($propiedad->PROPIEDADES_MONEDA.' '.number_format($propiedad->PROPIEDADES_PRECIO)); ?></p>
                         <h4><p><?php echo e($propiedad->PROPIEDADES_TIPO.' en '.$propiedad->PROPIEDADES_OPERACION); ?></p></h4>
                         <p><?php echo e($propiedad->PROPIEDADES_CLAVE); ?></p>
                         
@@ -84,7 +86,7 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		  <div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+			  <h5 class="modal-title" id="exampleModalLongTitle">Contactar a la empresa</h5>
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>

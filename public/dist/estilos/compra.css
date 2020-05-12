@@ -152,9 +152,19 @@ button {
 }
 .boton:hover,
 .boton-enviar:hover,
-.boton-propiedad:hover{
+.boton-propiedad:hover,
+.boton-precio ul li a:hover{
     background-color: #f9b522;
     text-decoration: none;
+}
+.boton-precio ul li a:hover{
+    background-color: #f9b522;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.boton-precio ul li a {
+    color: #ffffff;
 }
 
 .boton-azul {
@@ -553,6 +563,7 @@ ul li:last-child {
     /* background-color: #4285F4; */
     display: flex;
     justify-content: center;
+    top: 2rem;
 }
 .datos-propiedad{
     background-color: #ffffff;
@@ -567,9 +578,21 @@ ul li:last-child {
 
 
 .centrar-imagen{
+    background-color: #ffffff;
     position: relative;
     display: flex;
     justify-content: center;
+    /* padding-top: 1.2rem; */
+    /* background-color: #1f81f1; */
+}
+
+.centrar-imagen2{
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    /* background-color: #1f81f1; */
 }
 
 .texto-encima{
@@ -976,7 +999,7 @@ div.invitado:hover p {
 .funciones{
     width: 90%;
     height: 3.5rem;
-    background-color: #0e3b70;
+    background-color: #627488;
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
@@ -984,13 +1007,28 @@ div.invitado:hover p {
     display: flex;
     justify-content: space-around;
 
+
 }
+
+/* button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 2.15;
+    margin: 0;
+} */
 
 .funciones input {
     color: #ffffff;
     text-decoration: none;
     background: transparent !important;
     border: 0;
+    line-height: 2.15;
+}
+
+.ajustar-form{
+    width: 100%;
+    /* background-color: #105bac; */
+    /* padding: 0 0 0 2rem; */
 }
 
 .centrar-imagen button{
@@ -999,6 +1037,11 @@ div.invitado:hover p {
     border: 0;
 }
 
+.centrar-imagen2 button{
+    text-decoration: none;
+    /* background: transparent !important; */
+    border: 0;
+}
 /* ajustes del footer */
 .ajustar-footer{
     width: 100%;

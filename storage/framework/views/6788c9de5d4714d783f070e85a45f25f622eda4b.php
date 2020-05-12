@@ -1,8 +1,8 @@
 
 <?php echo $__env->make('plantillas.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('plantillas.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
- 
+<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+    
     <!-- BEGIN: Content-->
     <div class="app-content content">
       <div class="content-overlay"></div>
